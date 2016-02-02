@@ -1,0 +1,29 @@
+<?php
+/*****************************************************************
+*        DO NOT REMOVE                                           *
+*        =============                                           *
+*PetClinic Management Software                                   *
+*Copyrighted 2015-2016 by Michael Avila                          *
+*Distributed under the terms of the GNU General Public License   *
+*This program is distributed in the hope that it will be useful, *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+*****************************************************************/
+session_start();
+$logFileName = "user";
+$headerTitle="USER LOG";
+require_once "includes/common.inc";
+setcookie('test', 1, time()+60);
+if(isset($_GET['cookies'])){
+    header('Location:/petclinic/index.php?cookies=true');
+}
+$emplnumber = "";
+$errormsg = "";
+require_once "includes/os.inc";
+$user_os = getOS();
+require_once "includes/expire.inc";
+setcookie("employeenumber", " ", $expire10hr);
+setcookie("errormessage", " ", $expire10hr);
+setcookie("OS", $user_os, $expire10hr);
+redirect("index1.php");
+?>

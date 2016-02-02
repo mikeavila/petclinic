@@ -1,0 +1,240 @@
+/*****************************************************************
+*        DO NOT REMOVE                                           *
+*        =============                                           *
+*PetClinic Management Software                                   *
+*Copyrighted 2015-2016 by Michael Avila                          *
+*Distributed under the terms of the GNU General Public License   *
+*This program is distributed in the hope that it will be useful, *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+*****************************************************************/
+*{margin:0;padding:0;}
+
+table{border-spacing:0px;border-collapse:collapse;empty-cells:show;}
+.label{padding-top:2px;padding-right:8px;vertical-align:top;text-align:right;width:125px;white-space:nowrap;}
+.field{padding-bottom:10px;white-space:nowrap;}
+.status{padding-top:2px;padding-left:8px;vertical-align:top;width:246px;white-space:nowrap;}
+.textfield{width:150px;}
+label.error{background:url("../pictures/unchecked.gif") no-repeat 0px 0px;padding-left:16px;padding-bottom:2px;font-weight:bold;color:#EA5200;}
+label.checked{background:url("../pictures/checked.gif") no-repeat 0px 0px;}
+.success_msg{font-weight:bold;color:#0060BF;margin-left:19px;}
+#fname, #lname, #address, #address2{margin-left:6px;}
+
+.bold {
+	font-weight: bold;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.errormsg
+{
+    color:red;
+    margin: 5px;
+    width: 100%;
+    font-size: 150%;
+    text-align: center;
+}
+
+#loginPage {
+	height:460px;
+	margin-top:24px;
+	width:100%;
+}
+
+#loginLeft {
+	height:inherit;
+	padding:2px;
+	width:auto;
+}
+
+#loginMiddle {
+    display:inline-block;
+    height:inherit;
+    width:auto;
+}
+
+#loginRight {
+	display:inline-block;
+	height:inherit;
+	padding:2px;
+	width:auto;
+}
+
+.fieldSet {
+	border:0px solid red;
+	height:25%;
+	margin-top:40px;
+}
+
+.fieldLabel {
+	display:inline-block;
+	font-weight:bold;
+	margin-right:10px;
+	text-align:right;
+	width:150px;
+}
+
+.searchLabel {
+	width:200px;
+}
+
+.searchField {
+	display:inline-block;
+	text-align:left;
+	width:200px;
+}
+
+img.loginImg {
+	margin-bottom:5px;
+}
+
+#footer, #loginTipText {
+	margin:5px;
+	width:100%;
+}
+
+#petclinicVersion {
+	width:30%;
+}
+
+#copyright, #clinicName {
+	display:inline-block;
+	width:40%;
+}
+
+#displayInfo, #logoImg {
+	display:inline-block;
+	width:29%;
+}
+
+.center {
+	text-align:center;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+#helpLink {
+	text-align:right;
+	width:95%;
+}
+
+#appHeader {
+	height:100px;
+	margin:5px;
+	width:100%;
+}
+
+#formContainer {
+	border:0px solid red;
+	height:300px;
+	width:98%
+}
+
+#formLeftSide {
+	border:0px solid green;
+	float:left;
+	height:inherit;
+	width:300px;
+}
+
+#formRightSide {
+	border:0px solid blue;
+	display:inline-block;
+	height:inherit;
+	margin-left:-124px;
+	text-align:left;
+	width:600px;
+}
+
+.mainItem {
+	display:inline-block;
+	margin-bottom:25px;
+}
+
+.mainImg {
+	height:190px;
+	width:300px;
+}
+
+#appointmentImg {
+	background:url('../pictures/appointment.png') no-repeat center bottom;
+}
+ 
+#searchImg {
+	background:url('../pictures/search.png') no-repeat center bottom;
+}
+
+#clientsImg {
+	background:url('../pictures/clients.png') no-repeat center bottom;
+}
+
+#listingsImg {
+	background:url('../pictures/listings.png') no-repeat center bottom;
+}
+
+#maintImg {
+	background:url('../pictures/maint.png') no-repeat center bottom;
+}
+
+#groomingImg {
+	background:url('../pictures/grooming.png') no-repeat center bottom;
+}
+
+#boardingImg {
+	background:url('../pictures/boarding.png') no-repeat center bottom;
+}
+
+#companyImg {
+	background:url('../pictures/company.png') no-repeat center bottom;
+}
+
+#systemadminImg {
+	background:url('../pictures/systemadmin.png') no-repeat center bottom;
+}
+
+#menuImg {
+	background:url('../pictures/menu.png') no-repeat center bottom;
+}
+
+#logoffImg {
+	background:url('../pictures/logoff.png') no-repeat center bottom;
+}
+
+#phonemsgImg {
+	background:url('../pictures/phonemsg.png') no-repeat center bottom;
+}
+
+#loginsY {
+	background-color:yellow;
+	color:green;
+	font-weight:bold;
+}
+
+#loginsN {
+	background-color:yellow;
+	color:red;
+	font-weight:bold;
+}
+
+h2.royalBlue {
+	color:royalBlue;
+}
+
+fieldset {
+	margin-left: auto;
+    margin-right: auto;
+    padding:5px;
+    width: 60%;
+}
+
+legend {
+	margin-left:20px;
+}

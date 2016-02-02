@@ -1,0 +1,130 @@
+/*****************************************************************
+*        DO NOT REMOVE                                           *
+*        =============                                           *
+*PetClinic Management Software                                   *
+*Copyrighted 2015-2016 by Michael Avila                          *
+*Distributed under the terms of the GNU General Public License   *
+*This program is distributed in the hope that it will be useful, *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+*****************************************************************/
+.submit, .submitNo {
+  background: #78866B;
+  border: none;
+  border-radius: 2px;
+  color: #F0F8FF;
+  cursor: pointer;
+  font-weight:bold;
+  padding: 5px 10px;
+}
+
+table, th, td {
+   border: 0px;
+   border-spacing: 5px;
+   border-style: hidden;
+}
+ 
+td {
+    padding: 0px;
+}
+
+form{text-align:center;}
+
+/* label { */
+/*     float:left; */
+/*     font-family:Arial, Helvetica, sans-serif; */
+/*     font-size:small; */
+/* } */
+
+br {
+    clear:both;
+}
+input {
+    border:1px solid black;
+    margin-bottom:.5em;
+}
+input.error {
+    outline:1px solid red;
+}
+label.error {
+    background:url('../pictures/unchecked.gif') no-repeat;
+    padding-left:16px;
+    margin-left:.3em;
+}
+label.valid {
+    background:url('../pictures/checked.gif') no-repeat;
+    display:block;
+    width:16px;
+    height:16px;
+}
+td.label{ width:33%;}
+td.field{ width:33%;}
+td.status{ width:33%;}
+
+*{margin:0;padding:0;}
+
+#companyform table{border-spacing:0px;border-collapse:collapse;empty-cells:show;}
+#companyform .label{padding-top:2px;padding-right:8px;vertical-align:top;text-align:right;width:125px;white-space:nowrap;}
+#companyform .field{padding-bottom:10px;white-space:nowrap;}
+#companyform .status{padding-top:2px;padding-left:8px;vertical-align:top;width:246px;white-space:nowrap;}
+#companyform .textfield{width:150px;}
+#companyform label.error{background:url("../pictures/unchecked.gif") no-repeat 0px 0px;padding-left:16px;padding-bottom:2px;font-weight:bold;color:#EA5200;}
+#companyform label.checked{background:url("../pictures/checked.gif") no-repeat 0px 0px;}
+#companyform .success_msg{font-weight:bold;color:#0060BF;margin-left:19px;}
+#companyform #dateformatStatus,#companyform #termsStatus{margin-left:6px;}
+#companyform #dateformat_eu{vertical-align:middle;}
+#companyform #ldateformat_eu{font-weight:normal;vertical-align:middle;}
+#companyform #dateformat_am{vertical-align:middle;}
+#companyform #ldateformat_am{font-weight:normal;vertical-align:middle;}
+#companyform #termswrap{float:left;}
+#companyform #terms{vertical-align:middle;float:left;display:block;margin-right:5px;}
+#companyform #lterms{font-weight:normal;vertical-align:middle;float:left;display:block;width:350px;white-space:normal;}
+#companyform #lsignupsubmit{visibility:hidden;}
+
+#employeeform table{border-spacing:0px;border-collapse:collapse;empty-cells:show;}
+#employeeform .label{padding-top:2px;padding-right:8px;vertical-align:top;text-align:right;width:125px;white-space:nowrap;}
+#employeeform .field{padding-bottom:10px;white-space:nowrap;}
+#employeeform .status{padding-top:2px;padding-left:8px;vertical-align:top;width:246px;white-space:nowrap;}
+#employeeform .textfield{width:150px;}
+#employeeform label.error{background:url("../pictures/unchecked.gif") no-repeat 0px 0px;padding-left:16px;padding-bottom:2px;font-weight:bold;color:#EA5200;}
+#employeeform label.checked{background:url("../pictures/checked.gif") no-repeat 0px 0px;}
+#employeeform .success_msg{font-weight:bold;color:#0060BF;margin-left:19px;}
+#employeeform #dateformatStatus,#employeeform #termsStatus{margin-left:6px;}
+#employeeform #dateformat_eu{vertical-align:middle;}
+#employeeform #ldateformat_eu{font-weight:normal;vertical-align:middle;}
+#employeeform #dateformat_am{vertical-align:middle;}
+#employeeform #ldateformat_am{font-weight:normal;vertical-align:middle;}
+#employeeform #termswrap{float:left;}
+#employeeform #terms{vertical-align:middle;float:left;display:block;margin-right:5px;}
+#employeeform #lterms{font-weight:normal;vertical-align:middle;float:left;display:block;width:350px;white-space:normal;}
+#employeeform #lsignupsubmit{visibility:hidden;}
+
+#softwareList {
+    text-align:center;
+}
+
+div#softwareList > ul, ol {
+	display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.submit:hover {
+	background-color: green;
+}
+
+.submitNo:hover {
+	background-color: red;
+}
+
+ol.dbPermissions {
+	list-style-type: circle;
+}

@@ -1,0 +1,284 @@
+Active Both,,,,Reason for visit,7336,Admit for surgery,Reason for visit
+Active Both,,,,Reason for visit,18772,Aggressive,Reason for visit
+Active Both,,,,Reason for visit,18773,Agitated,Reason for visit
+Active Both,,,,Reason for visit,18774,Anxious,Reason for visit
+Active Both,,,,Reason for visit,18775,Attacked by other animal,Reason for visit
+Active Both,,,,Reason for visit,18776,Bald,Reason for visit
+Active Both,,,,Reason for visit,19026,Bandage problem,Reason for visit
+Active Both,,,,Reason for visit,18777,Barking,Reason for visit
+Active Both,,,,Reason for visit,18778,Been kicked,Reason for visit
+Active Both,,,,Reason for visit,18779,Been run over/hit by car,Reason for visit
+Active Both,,,,Reason for visit,18780,Been stung,Reason for visit
+Active Both,,,,Reason for visit,18781,Begging/crying for food,Reason for visit
+Active Both,,,,Reason for visit,7337,Behaviour advice,Reason for visit
+Active Both,,,,Reason for visit,18782,Behaviour problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18783,Being sick,Reason for visit
+Active Both,,,,Reason for visit,18784,Being sick with blood,Reason for visit
+Active Both,,,,Reason for visit,18785,Bitten,Reason for visit
+Active Both,,,,Reason for visit,18786,Black or tarry motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18787,Bleeding (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18788,Bleeding from mouth,Reason for visit
+Active Both,,,,Reason for visit,18789,Bleeding from nose,Reason for visit
+Active Both,,,,Reason for visit,18790,Bleeding from penis,Reason for visit
+Active Both,,,,Reason for visit,18791,Bleeding from wound,Reason for visit
+Active Both,,,,Reason for visit,18792,Blind,Reason for visit
+Active Both,,,,Reason for visit,18793,Bloated,Reason for visit
+Active Both,,,,Reason for visit,19029,Blood test,Reason for visit
+Active Both,,,,Reason for visit,18794,Bloody eye,Reason for visit
+Active Both,,,,Reason for visit,18795,"Bluish or purplish skin, gums etc. (cyanotic)",Reason for visit
+Active Both,,,,Reason for visit,7334,Boarding,Reason for visit
+Active Both,,,,Reason for visit,18796,Breathing difficulty,Reason for visit
+Active Both,,,,Reason for visit,18797,Breathing quickly,Reason for visit
+Active Both,,,,Reason for visit,18798,Breathless,Reason for visit
+Active Both,,,,Reason for visit,18799,Bringing up food/liquid,Reason for visit
+Active Both,,,,Reason for visit,18800,Bruising,Reason for visit
+Active Both,,,,Reason for visit,18801,Bumping into things,Reason for visit
+Active Both,,,,Reason for visit,18802,Can't get up,Reason for visit
+Active Both,,,,Reason for visit,18803,Can't keep food down,Reason for visit
+Active Both,,,,Reason for visit,18804,Can't keep water down,Reason for visit
+Active Both,,,,Reason for visit,18805,Can't move,Reason for visit
+Active Both,,,,Reason for visit,18806,"Change in bark, call or meow",Reason for visit
+Active Both,,,,Reason for visit,19035,Chemotherapy,Reason for visit
+Active Both,,,,Reason for visit,18807,Chewing feet,Reason for visit
+Active Both,,,,Reason for visit,18808,Choking,Reason for visit
+Active Both,,,,Reason for visit,18809,Cloudy eyes,Reason for visit
+Active Both,,,,Reason for visit,18810,Collapsed,Reason for visit
+Active Both,,,,Reason for visit,18811,Collapsing episodes,Reason for visit
+Active Both,,,,Reason for visit,18812,Confused,Reason for visit
+Active Both,,,,Reason for visit,18813,Constipated,Reason for visit
+Active Both,,,,Reason for visit,18814,Coughing,Reason for visit
+Active Both,,,,Reason for visit,18815,Coughing up blood,Reason for visit
+Active Both,,,,Reason for visit,18816,Crying,Reason for visit
+Active Both,,,,Reason for visit,18817,Cut,Reason for visit
+Active Both,,,,Reason for visit,18818,Dead/passed away,Reason for visit
+Active Both,,,,Reason for visit,18819,Deaf,Reason for visit
+Active Both,,,,Reason for visit,18820,Depressed,Reason for visit
+Active Both,,,,Reason for visit,18821,Diarrhoea,Reason for visit
+Active Both,,,,Reason for visit,18822,Diarrhoea with blood,Reason for visit
+Active Both,,,,Reason for visit,7338,Dietary advice,Reason for visit
+Active Both,,,,Reason for visit,7335,Discharge,Reason for visit
+Active Both,,,,Reason for visit,18823,Disorientated,Reason for visit
+Active Both,,,,Reason for visit,18824,Distressed,Reason for visit
+Active Both,,,,Reason for visit,18825,Dragging leg(s),Reason for visit
+Active Both,,,,Reason for visit,18826,Dribbling,Reason for visit
+Active Both,,,,Reason for visit,18829,Drinking and urinating more,Reason for visit
+Active Both,,,,Reason for visit,18827,Drinking less,Reason for visit
+Active Both,,,,Reason for visit,18828,Drinking more,Reason for visit
+Active Both,,,,Reason for visit,18830,Drooling,Reason for visit
+Active Both,,,,Reason for visit,18831,Dropping food,Reason for visit
+Active Both,,,,Reason for visit,18832,Dull,Reason for visit
+Active Both,,,,Reason for visit,18833,Ear discharge,Reason for visit
+Active Both,,,,Reason for visit,18834,Ear problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18835,Eaten something shouldn't have,Reason for visit
+Active Both,,,,Reason for visit,18836,Eating less than normal,Reason for visit
+Active Both,,,,Reason for visit,18837,Eating more than normal,Reason for visit
+Active Both,,,,Reason for visit,18838,Emaciated,Reason for visit
+Active Both,,,,Reason for visit,19031,Euthanasia/Put to sleep,Reason for visit
+Active Both,,,,Reason for visit,18839,Eye problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18840,Eyes flicking/twitching,Reason for visit
+Active Both,,,,Reason for visit,18841,Fainting episodes,Reason for visit
+Active Both,,,,Reason for visit,18842,Feels cold,Reason for visit
+Active Both,,,,Reason for visit,18843,Feels hot,Reason for visit
+Active Both,,,,Reason for visit,18844,Fits/seizures/convulsions,Reason for visit
+Active Both,,,,Reason for visit,18845,Fleas,Reason for visit
+Active Both,,,,Reason for visit,7333,Free dental check,Reason for visit
+Active Both,,,,Reason for visit,7332,Free flea check,Reason for visit
+Active Both,,,,Reason for visit,19032,Further investigations,Reason for visit
+Active Both,,,,Reason for visit,18846,Gagging,Reason for visit
+Active Both,,,,Reason for visit,18847,Genital problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18848,Groaning,Reason for visit
+Active Both,,,,Reason for visit,18849,Gums blue/purple,Reason for visit
+Active Both,,,,Reason for visit,18850,Gums pale/white,Reason for visit
+Active Both,,,,Reason for visit,18851,Gums red,Reason for visit
+Active Both,,,,Reason for visit,18852,Gums yellow,Reason for visit
+Active Both,,,,Reason for visit,18855,Had a stroke,Reason for visit
+Active Both,,,,Reason for visit,18853,Had an accident,Reason for visit
+Active Both,,,,Reason for visit,18854,Hair loss,Reason for visit
+Active Both,,,,Reason for visit,18856,Has a temperature,Reason for visit
+Active Both,,,,Reason for visit,18857,Head tilt/to one side,Reason for visit
+Active Both,,,,Reason for visit,3730,Health check - pre-travel,Reason for visit
+Active Both,,,,Reason for visit,18858,Hives,Reason for visit
+Active Both,,,,Reason for visit,18859,Hunched up,Reason for visit
+Active Both,,,,Reason for visit,18860,In pain/discomfort,Reason for visit
+Active Both,,,,Reason for visit,18861,Incontinent - motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18862,Incontinent - urine,Reason for visit
+Active Both,,,,Reason for visit,18863,Itchy (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18864,Itchy ear,Reason for visit
+Active Both,,,,Reason for visit,18865,Itchy skin,Reason for visit
+Active Both,,,,Reason for visit,15562,Kitten check - nurse,Reason for visit
+Active Both,,,,Reason for visit,15564,Kitten check - vet,Reason for visit
+Active Both,,,,Reason for visit,18866,Lame,Reason for visit
+Active Both,,,,Reason for visit,18872,Lethargic/tired,Reason for visit
+Active Both,,,,Reason for visit,18867,Licking (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18868,Licking bum/back end,Reason for visit
+Active Both,,,,Reason for visit,18869,Licking feet,Reason for visit
+Active Both,,,,Reason for visit,18870,Licking penis,Reason for visit
+Active Both,,,,Reason for visit,18871,Limping,Reason for visit
+Active Both,,,,Reason for visit,18873,Loose motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18874,Losing balance,Reason for visit
+Active Both,,,,Reason for visit,18875,Losing hair,Reason for visit
+Active Both,,,,Reason for visit,18876,Losing weight,Reason for visit
+Active Both,,,,Reason for visit,18877,Lump/swelling (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18879,Lump/swelling in mouth,Reason for visit
+Active Both,,,,Reason for visit,18878,Lump/swelling in/on ear,Reason for visit
+Active Both,,,,Reason for visit,18880,Lump/swelling on skin,Reason for visit
+Active Both,,,,Reason for visit,18881,Meowing,Reason for visit
+Active Both,,,,Reason for visit,18882,Mouth problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18883,Near death/possibly dying,Reason for visit
+Active Both,,,,Reason for visit,18884,Noisy/loud breathing,Reason for visit
+Active Both,,,,Reason for visit,18885,Nose bleed,Reason for visit
+Active Both,,,,Reason for visit,18886,Nose discharge,Reason for visit
+Active Both,,,,Reason for visit,18887,Nose problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18888,Not breathing,Reason for visit
+Active Both,,,,Reason for visit,18889,Not eating anything,Reason for visit
+Active Both,,,,Reason for visit,18890,Not himself/herself,Reason for visit
+Active Both,,,,Reason for visit,18891,NOT LISTED,Reason for visit
+Active Both,,,,Reason for visit,18892,Not moving,Reason for visit
+Active Both,,,,Reason for visit,18893,Not passing motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18894,Not responding,Reason for visit
+Active Both,,,,Reason for visit,18895,Not right,Reason for visit
+Active Both,,,,Reason for visit,18896,Not urinating,Reason for visit
+Active Both,,,,Reason for visit,7339,Nurse appointment,Reason for visit
+Active Both,,,,Reason for visit,18897,Obesity,Reason for visit
+Active Both,,,,Reason for visit,18898,Off colour,Reason for visit
+Active Both,,,,Reason for visit,18899,Off legs,Reason for visit
+Active Both,,,,Reason for visit,19036,Other specific treatment,Reason for visit
+Active Both,,,,Reason for visit,19030,Other test,Reason for visit
+Active Both,,,,Reason for visit,18900,Pacing,Reason for visit
+Active Both,,,,Reason for visit,18901,Paddling,Reason for visit
+Active Both,,,,Reason for visit,18902,Pain on eating/chewing,Reason for visit
+Active Both,,,,Reason for visit,18903,Pain when picked up/handled,Reason for visit
+Active Both,,,,Reason for visit,18904,Painful (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18905,Painful ear,Reason for visit
+Active Both,,,,Reason for visit,18906,Painful eye,Reason for visit
+Active Both,,,,Reason for visit,18907,Painful mouth,Reason for visit
+Active Both,,,,Reason for visit,18908,Painful tummy,Reason for visit
+Active Both,,,,Reason for visit,18909,Pale,Reason for visit
+Active Both,,,,Reason for visit,18910,Panting,Reason for visit
+Active Both,,,,Reason for visit,18911,Pawing at mouth,Reason for visit
+Active Both,,,,Reason for visit,18912,Penis stuck out,Reason for visit
+Active Both,,,,Reason for visit,18913,Poisoned,Reason for visit
+Active Both,,,,Reason for visit,18914,Poor growth,Reason for visit
+Active Both,,,,Reason for visit,18915,Poor hearing,Reason for visit
+Active Both,,,,Reason for visit,18916,Poor quality of life,Reason for visit
+Active Both,,,,Reason for visit,18917,Poor sight,Reason for visit
+Active Both,,,,Reason for visit,18918,Poor weight gain,Reason for visit
+Active Both,,,,Reason for visit,19027,Post-operative problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,19028,Post-operative problem: wound-related,Reason for visit
+Active Both,,,,Reason for visit,3732,Postpartum examination,Reason for visit
+Active Both,,,,Reason for visit,18919,Puffy ear,Reason for visit
+Active Both,,,,Reason for visit,18920,Puffy eye,Reason for visit
+Active Both,,,,Reason for visit,15566,Puppy check - nurse,Reason for visit
+Active Both,,,,Reason for visit,15568,Puppy check - vet,Reason for visit
+Active Both,,,,Reason for visit,7331,Puppy party,Reason for visit
+Active Both,,,,Reason for visit,18921,Putting on weight,Reason for visit
+Active Both,,,,Reason for visit,18922,Quiet,Reason for visit
+Active Both,,,,Reason for visit,19033,Radioactive iodine treatment,Reason for visit
+Active Both,,,,Reason for visit,18923,Rash,Reason for visit
+Active Both,,,,Reason for visit,18924,Ravenous,Reason for visit
+Active Both,,,,Reason for visit,18925,Red ear,Reason for visit
+Active Both,,,,Reason for visit,18926,Red eye,Reason for visit
+Active Both,,,,Reason for visit,19037,Re-examination/Follow-up,Reason for visit
+Active Both,,,,Reason for visit,18927,Reluctant to exercise,Reason for visit
+Active Both,,,,Reason for visit,18928,Reluctant to get up,Reason for visit
+Active Both,,,,Reason for visit,18929,Reluctant to walk,Reason for visit
+Active Both,,,,Reason for visit,18930,Restless,Reason for visit
+Active Both,,,,Reason for visit,18931,Retching,Reason for visit
+Active Both,,,,Reason for visit,18932,Rubbing bottom/tail/back end,Reason for visit
+Active Both,,,,Reason for visit,18933,Rubbing ear,Reason for visit
+Active Both,,,,Reason for visit,18934,Rubbing eye,Reason for visit
+Active Both,,,,Reason for visit,18935,Rubbing mouth,Reason for visit
+Active Both,,,,Reason for visit,18936,Runny eye,Reason for visit
+Active Both,,,,Reason for visit,18937,Runny nose,Reason for visit
+Active Both,,,,Reason for visit,18938,Scavenged ,Reason for visit
+Active Both,,,,Reason for visit,18939,Scooting,Reason for visit
+Active Both,,,,Reason for visit,18940,Scratching bottom/tail,Reason for visit
+Active Both,,,,Reason for visit,18941,Scratching ear,Reason for visit
+Active Both,,,,Reason for visit,18942,Scratching head,Reason for visit
+Active Both,,,,Reason for visit,18943,Scratching skin,Reason for visit
+Active Both,,,,Reason for visit,7328,Senior clinic,Reason for visit
+Active Both,,,,Reason for visit,18944,Shaking body,Reason for visit
+Active Both,,,,Reason for visit,18945,Shaking head,Reason for visit
+Active Both,,,,Reason for visit,18946,Shivering,Reason for visit
+Active Both,,,,Reason for visit,18947,Short of breath,Reason for visit
+Active Both,,,,Reason for visit,18948,Skin problem (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18949,Slow,Reason for visit
+Active Both,,,,Reason for visit,18950,Smelly (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18952,Smelly ear,Reason for visit
+Active Both,,,,Reason for visit,18953,Smelly skin,Reason for visit
+Active Both,,,,Reason for visit,18951,Smelly/bad breath,Reason for visit
+Active Both,,,,Reason for visit,18954,Sneezing,Reason for visit
+Active Both,,,,Reason for visit,18955,Something stuck in throat,Reason for visit
+Active Both,,,,Reason for visit,18956,Sore bum,Reason for visit
+Active Both,,,,Reason for visit,18957,Sore ear,Reason for visit
+Active Both,,,,Reason for visit,18958,Sore eye(s),Reason for visit
+Active Both,,,,Reason for visit,18959,Sore mouth,Reason for visit
+Active Both,,,,Reason for visit,18960,Sore tummy,Reason for visit
+Active Both,,,,Reason for visit,18961,Spotting urine,Reason for visit
+Active Both,,,,Reason for visit,18962,Squinting,Reason for visit
+Active Both,,,,Reason for visit,18963,Stiff,Reason for visit
+Active Both,,,,Reason for visit,18964,Stiff after exercise,Reason for visit
+Active Both,,,,Reason for visit,18965,Stools/motions/faeces abnormal,Reason for visit
+Active Both,,,,Reason for visit,18966,Straining (unspecified),Reason for visit
+Active Both,,,,Reason for visit,18967,Straining to pass motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18968,Straining to urinate,Reason for visit
+Active Both,,,,Reason for visit,18969,Struggling to breathe,Reason for visit
+Active Both,,,,Reason for visit,18970,Struggling to eat,Reason for visit
+Active Both,,,,Reason for visit,18971,Struggling to exercise,Reason for visit
+Active Both,,,,Reason for visit,18972,Struggling to stand,Reason for visit
+Active Both,,,,Reason for visit,18973,Suffering,Reason for visit
+Active Both,,,,Reason for visit,7340,Suture removal - routine,Reason for visit
+Active Both,,,,Reason for visit,18974,Swallowed something shouldn't have,Reason for visit
+Active Both,,,,Reason for visit,18975,Swollen eye,Reason for visit
+Active Both,,,,Reason for visit,18976,Swollen tummy/abdomen,Reason for visit
+Active Both,,,,Reason for visit,18977,Thin,Reason for visit
+Active Both,,,,Reason for visit,18978,Thirsty,Reason for visit
+Active Both,,,,Reason for visit,18979,Throwing up,Reason for visit
+Active Both,,,,Reason for visit,18980,Tires during exercise,Reason for visit
+Active Both,,,,Reason for visit,18981,Tooth problem,Reason for visit
+Active Both,,,,Reason for visit,18982,Traumatic injury,Reason for visit
+Active Both,,,,Reason for visit,18983,Tremors,Reason for visit
+Active Both,,,,Reason for visit,18984,Trouble breathing,Reason for visit
+Active Both,,,,Reason for visit,18985,Trouble eating,Reason for visit
+Active Both,,,,Reason for visit,18986,Trouble giving birth,Reason for visit
+Active Both,,,,Reason for visit,18987,Trouble passing motions/stools,Reason for visit
+Active Both,,,,Reason for visit,18988,Trouble passing urine,Reason for visit
+Active Both,,,,Reason for visit,18989,Trying to be sick,Reason for visit
+Active Both,,,,Reason for visit,18990,Trying to bring something up,Reason for visit
+Active Both,,,,Reason for visit,18991,Twitching,Reason for visit
+Active Both,,,,Reason for visit,18992,Unable to settle,Reason for visit
+Active Both,,,,Reason for visit,18993,Unconscious,Reason for visit
+Active Both,,,,Reason for visit,18994,Uncoordinated,Reason for visit
+Active Both,,,,Reason for visit,18995,Unresponsive,Reason for visit
+Active Both,,,,Reason for visit,18996,Unsteady,Reason for visit
+Active Both,,,,Reason for visit,18997,Urinating abnormally,Reason for visit
+Active Both,,,,Reason for visit,18998,Urinating more,Reason for visit
+Active Both,,,,Reason for visit,18999,Urine looks abnormal,Reason for visit
+Active Both,,,,Reason for visit,19034,Vaccination,Reason for visit
+Active Both,,,,Reason for visit,19000,Vaginal discharge,Reason for visit
+Active Both,,,,Reason for visit,19001,Very hungry,Reason for visit
+Active Both,,,,Reason for visit,19002,Very sick,Reason for visit
+Active Both,,,,Reason for visit,19003,Vomiting,Reason for visit
+Active Both,,,,Reason for visit,19004,Vomiting with blood,Reason for visit
+Active Both,,,,Reason for visit,19005,Walking funny,Reason for visit
+Active Both,,,,Reason for visit,19006,Wasting away,Reason for visit
+Active Both,,,,Reason for visit,19007,Weak,Reason for visit
+Active Both,,,,Reason for visit,19008,Weak legs,Reason for visit
+Active Both,,,,Reason for visit,7329,Weight clinic,Reason for visit
+Active Both,,,,Reason for visit,19009,Weight gain,Reason for visit
+Active Both,,,,Reason for visit,19010,Weight loss,Reason for visit
+Active Both,,,,Reason for visit,19011,Wetting,Reason for visit
+Active Both,,,,Reason for visit,19012,Whimpering,Reason for visit
+Active Both,,,,Reason for visit,19013,Whining,Reason for visit
+Active Both,,,,Reason for visit,19014,Wobbly,Reason for visit
+Active Both,,,,Reason for visit,19015,Won't settle,Reason for visit
+Active Both,,,,Reason for visit,19016,Worms,Reason for visit
+Active Both,,,,Reason for visit,19017,Wound,Reason for visit
+Active Both,,,,Reason for visit,19018,Wound broken down,Reason for visit
+Active Both,,,,Reason for visit,19019,Wound infected,Reason for visit
+Active Both,,,,Reason for visit,19020,Wound opened up,Reason for visit
+Active Both,,,,Reason for visit,19021,Wound red,Reason for visit
+Active Both,,,,Reason for visit,19022,Wound seeping,Reason for visit
+Active Both,,,,Reason for visit,19023,Wound swollen,Reason for visit
+Active Both,,,,Reason for visit,19024,"Yellow skin, gums, eyes etc. (jaundice)",Reason for visit
+Active Both,,,,Reason for visit,19025,Yelping,Reason for visit

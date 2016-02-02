@@ -1,0 +1,406 @@
+Active Referral,,,,Presenting complaint,249,Abdominal distension,Abdominal finding
+Active Referral,,,,Presenting complaint,7538,Abdominal injury,"Abdominal finding, Traumatic episode finding"
+Active Referral,,,,Presenting complaint,13,Alopecia,Haircoat/skin (+ appendages) finding
+Active Referral,,,,Presenting complaint,11101,Anal irritation,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,312,Anorexia,Nervous system finding
+Active Referral,,,,Presenting complaint,178,Appetite decreased,Nervous system finding
+Active Referral,,,,Presenting complaint,179,Appetite increased,Nervous system finding
+Active Referral,,,,Presenting complaint,16,Behavioural abnormality,"Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18,Bleeding - bruising,"Cardiovascular system finding, Wound finding"
+Active Referral,,,,Presenting complaint,2102,Bleeding - epistaxis,"Respiratory system finding, Cardiovascular system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2104,Bleeding - other orifice,Cardiovascular system finding
+Active Referral,,,,Presenting complaint,2106,Bleeding - petechiation/ecchymoses,Cardiovascular system finding
+Active Referral,,,,Presenting complaint,20,Blindness,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7711,BLOOD/OTHER TEST APPOINTMENT,Clinical finding
+Active Referral,,,,Presenting complaint,2108,Cachexia,"Weight/Body condition finding, Nutritional finding"
+Active Referral,,,,Presenting complaint,2117,Cardiac (heart) abnormality - heart murmur,"Cardiovascular system finding, Thoracic finding"
+Active Referral,,,,Presenting complaint,22,Cardiac (heart) abnormality - other,"Cardiovascular system finding, Thoracic finding"
+Active Referral,,,,Presenting complaint,38,Cataract,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,4672,CHEMOTHERAPY appointment,Clinical finding
+Active Referral,,,,Presenting complaint,2132,Collapse/syncopal episodes,Clinical finding
+Active Referral,,,,Presenting complaint,7580,Corneal abnormality,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2134,Corneal opacity or blue eye,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,29,Coughing,Respiratory system finding
+Active Referral,,,,Presenting complaint,7634,Cyanosis,"Soft tissue finding, Haircoat/skin (+ appendages) finding"
+Active Referral,,,,Presenting complaint,7630,Dead (Deceased) on presentation,Administrative statuses finding
+Active Referral,,,,Presenting complaint,183,Defaecation abnormal - decreased frequency,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,185,Defaecation abnormal - defaecatory tenesmus,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,184,Defaecation abnormal - increased frequency,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,186,Defaecation abnormal - other,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,2137,Dental (tooth) abnormality,"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2141,Dietary indiscretion - foreign body ingestion,"Alimentary tract/Digestive system finding, Foreign body finding"
+Active Referral,,,,Presenting complaint,2144,Dietary indiscretion - other,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,7516,Discharge - aural (ear),"Auditory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,36,Discharge - nasal (nose),"Respiratory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,43,Discharge - ocular (eye),"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7615,Discharge - penile,"Urogenital system finding, Reproductive system finding"
+Active Referral,,,,Presenting complaint,2145,Discharge - sinus tract,Soft tissue finding
+Active Referral,,,,Presenting complaint,46,Discharge - vaginal,"Urogenital system finding, Reproductive system finding, Pelvic structure finding"
+Active Referral,,,,Presenting complaint,11723,Dressing-related complication,Episode of care finding
+Active Referral,,,,Presenting complaint,2149,Dry eye,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2151,Dysphagia,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,49,Dysphonia,Respiratory system finding
+Active Referral,,,,Presenting complaint,55,Dyspnoea - with coughing,Respiratory system finding
+Active Referral,,,,Presenting complaint,51,Dyspnoea - without coughing,Respiratory system finding
+Active Referral,,,,Presenting complaint,57,Dystocia,Reproductive system finding
+Active Referral,,,,Presenting complaint,2153,Ear (aural) abnormality,"Auditory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7520,Ear (aural) injury,"Auditory system finding, Traumatic episode finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7528,Ear (aural) smell,"Auditory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18317,Epiphora/tear staining,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18320,Excess tear production,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,59,Exercise intolerance - episodic,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,2158,Exercise intolerance - persistent,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,2160,Eyelid abnormality,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,32,Faecal appearance abnormal - diarrhoea,"Alimentary tract/Digestive system finding, Abdominal finding"
+Active Referral,,,,Presenting complaint,2162,Faecal appearance abnormal - haematochezia,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,2164,Faecal appearance abnormal - melaena,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,187,Faecal appearance abnormal - other,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,188,Failure to gain weight,Weight/Body condition finding
+Active Referral,,,,Presenting complaint,2166,Failure to grow,Height/growth finding
+Active Referral,,,,Presenting complaint,7612,Female reproductive abnormality,Reproductive system finding
+Active Referral,,,,Presenting complaint,2169,Gagging/retching,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,62,Gait abnormality - ataxia,"Musculoskeletal system finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,65,Gait abnormality - lameness,"Musculoskeletal system finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,67,Gait abnormality - other,"Musculoskeletal system finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,7619,Haemoptysis,Respiratory system finding
+Active Referral,,,,Presenting complaint,7604,Halitosis,"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2176,Head tilt,"Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2172,Hearing impaired/deafness,"Auditory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18031,Hyphaema,"Ophthalmology/vision finding, Cardiovascular system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2297,Hypothermia,Body temperature finding
+Active Referral,,,,Presenting complaint,7637,Icterus (jaundice),Endocrine/Metabolic finding
+Active Referral,,,,Presenting complaint,2180,Incontinence - faecal,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,2182,Incontinence - urinary,Urogenital system finding
+Active Referral,,,,Presenting complaint,71,Intoxication (poisoning)/toxin exposure,Clinical finding
+Active Referral,,,,Presenting complaint,18323,Iris abnormality - mass,"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18328,Iris abnormality - other,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18334,Lens abnormality - other,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,18332,Lens opacity,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2187,Lethargy,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,2178,Loss of balance,Nervous system finding
+Active Referral,,,,Presenting complaint,2189,Lymphadenomegaly,"Lymphatic system finding, Immune system finding, Haematopoietic system finding"
+Active Referral,,,,Presenting complaint,7639,Male reproductive abnormality,Reproductive system finding
+Active Referral,,,,Presenting complaint,2193,Mass/swelling - abdominal,"Mass lesion/swelling finding, Abdominal finding"
+Active Referral,,,,Presenting complaint,17363,Mass/swelling - axilla,"Mass lesion/swelling finding, Thoracic finding"
+Active Referral,,,,Presenting complaint,7532,Mass/swelling - ear (aural),"Auditory system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7594,Mass/swelling - eye (ophthalmic),"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17366,Mass/swelling - eyelid,"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17368,Mass/swelling - facial (site unspecified),"Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17370,"Mass/swelling - facial, lip","Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17372,Mass/swelling - gingival (gum),"Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17373,Mass/swelling - jaw (site unspecified),"Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17375,"Mass/swelling - jaw, mandible","Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17376,"Mass/swelling - jaw, maxilla","Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17377,Mass/swelling - joint,"Musculoskeletal system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17378,"Mass/swelling - limb, lower","Limb finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17380,"Mass/swelling - limb, upper","Limb finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17382,Mass/swelling - lymph node,"Lymphatic system finding, Immune system finding, Haematopoietic system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17384,Mass/swelling - mammary,"Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,7562,Mass/swelling - musculoskeletal,"Musculoskeletal system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17385,Mass/swelling - neck (cervical),"Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17390,"Mass/swelling - nose (nasal), nasal planum","Respiratory system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2198,Mass/swelling - oral (mouth),"Alimentary tract/Digestive system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2202,Mass/swelling - other,Mass lesion/swelling finding
+Active Referral,,,,Presenting complaint,17391,Mass/swelling - penile,"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,7535,Mass/swelling - perianal,"Mass lesion/swelling finding, Perianal finding"
+Active Referral,,,,Presenting complaint,17392,Mass/swelling - prepuce,"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17393,Mass/swelling - scrotal,"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17394,Mass/swelling - skin (cutaneous)/subcutaneous (site unspecified),"Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17397,"Mass/swelling - skin (cutaneous)/subcutaneous, digit","Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding, Limb finding"
+Active Referral,,,,Presenting complaint,17399,"Mass/swelling - skin (cutaneous)/subcutaneous, perianal","Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding, Perineal finding"
+Active Referral,,,,Presenting complaint,17401,Mass/swelling - testicular,"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,17402,Mass/swelling - tongue (lingual),"Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,17403,Mass/swelling - vulval,"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Referral,,,,Presenting complaint,72,Mentation altered - anxious/distressed,Nervous system finding
+Active Referral,,,,Presenting complaint,2204,Mentation altered - comatose,Nervous system finding
+Active Referral,,,,Presenting complaint,2206,Mentation altered - depressed,Nervous system finding
+Active Referral,,,,Presenting complaint,7577,Mentation altered - stuporous,Nervous system finding
+Active Referral,,,,Presenting complaint,7542,Moribund,Clinical finding
+Active Referral,,,,Presenting complaint,2212,Mucous membranes abnormal - cyanosed,"Soft tissue finding, Haircoat/skin (+ appendages) finding"
+Active Referral,,,,Presenting complaint,2217,Mucous membranes abnormal - hyperaemic,"Soft tissue finding, Cardiovascular system finding"
+Active Referral,,,,Presenting complaint,75,Mucous membranes abnormal - other,Soft tissue finding
+Active Referral,,,,Presenting complaint,74,Mucous membranes abnormal - pale,Soft tissue finding
+Active Referral,,,,Presenting complaint,2221,Muscular atrophy - head,"Musculoskeletal system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2224,Muscular atrophy - limb,"Musculoskeletal system finding, Limb finding"
+Active Referral,,,,Presenting complaint,2227,Muscular atrophy - other,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,7565,Musculoskeletal injury,"Musculoskeletal system finding, Traumatic episode finding"
+Active Referral,,,,Presenting complaint,4719,NOT PRESENTED FOR A COMPLAINT,Clinical finding
+Active Referral,,,,Presenting complaint,2228,Nystagmus,"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2230,Obesity,Weight/Body condition finding
+Active Referral,,,,Presenting complaint,76,Ophthalmic (eye) abnormality,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7583,Ophthalmic (eye) injury,"Ophthalmology/vision finding, Traumatic episode finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2236,Oral (mouth) abnormality - other,"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2233,Oral (mouth) abnormality - ulceration,"Alimentary tract/Digestive system finding, Inflammatory disorder finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7608,Oral (mouth) injury,"Alimentary tract/Digestive system finding, Traumatic episode finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2898,Pain - abdominal,"Nervous system finding, Abdominal finding"
+Active Referral,,,,Presenting complaint,7524,Pain - aural (ear),"Nervous system finding, Auditory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7569,Pain - musculoskeletal,"Nervous system finding, Musculoskeletal system finding"
+Active Referral,,,,Presenting complaint,2899,Pain - neck (cervical),"Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2238,Pain - on being handled,Nervous system finding
+Active Referral,,,,Presenting complaint,2240,Pain - on eating/chewing,Nervous system finding
+Active Referral,,,,Presenting complaint,7587,Pain - ophthalmic (eye),"Nervous system finding, Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7642,Pain - oral (mouth),"Nervous system finding, Alimentary tract/Digestive system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,77,Pain - other,Nervous system finding
+Active Referral,,,,Presenting complaint,2900,Pain - spinal,"Nervous system finding, Musculoskeletal system finding, Spine (vertebral column) finding"
+Active Referral,,,,Presenting complaint,79,Panting,Respiratory system finding
+Active Referral,,,,Presenting complaint,2242,Paresis/paralysis,"Nervous system finding, Musculoskeletal system finding, Limb finding"
+Active Referral,,,,Presenting complaint,2245,Paronychia,"Haircoat/skin (+ appendages) finding, Inflammatory disorder finding, Limb finding"
+Active Referral,,,,Presenting complaint,2252,Penile/preputial abnormality – other,"Urogenital system finding, Reproductive system finding"
+Active Referral,,,,Presenting complaint,2248,Penile/preputial abnormality – paraphimosis,"Urogenital system finding, Reproductive system finding"
+Active Referral,,,,Presenting complaint,2253,Polydipsia,Nervous system finding
+Active Referral,,,,Presenting complaint,2255,Polyphagia/ravenous appetite,Nervous system finding
+Active Referral,,,,Presenting complaint,194,Polyuria,Urogenital system finding
+Active Referral,,,,Presenting complaint,81,Polyuria/polydipsia,"Urogenital system finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,7505,Poor quality of life,Clinical finding
+Active Referral,,,,Presenting complaint,2262,Post-operative complication - other,Complication of medical care finding
+Active Referral,,,,Presenting complaint,2259,Post-operative complication - wound related,"Complication of medical care finding, Wound finding"
+Active Referral,,,,Presenting complaint,7558,Posture abnormal - low head carriage,"Musculoskeletal system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7554,Posture abnormal - other,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,15541,Presented for investigation of abnormal test result,Clinical finding
+Active Referral,,,,Presenting complaint,15537,Presented for radioactive treatment,Clinical finding
+Active Referral,,,,Presenting complaint,15540,Presented for specific therapeutic intervention,Clinical finding
+Active Referral,,,,Presenting complaint,4670,Presenting complaint not listed,Clinical finding
+Active Referral,,,,Presenting complaint,84,Pruritus,"Haircoat/skin (+ appendages) finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,2263,Pupillary abnormality - anisocoria,"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2267,Pupillary abnormality - other,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2294,Pyrexia/hyperthermia,Body temperature finding
+Active Referral,,,,Presenting complaint,2268,Recumbency/reluctance to move,"Musculoskeletal system finding, Nervous system finding"
+Active Referral,,,,Presenting complaint,2270,Red eye,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,4671,RE-EXAMINATION appointment,Clinical finding
+Active Referral,,,,Presenting complaint,86,Regurgitation,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,88,Respiratory noise increased,Respiratory system finding
+Active Referral,,,,Presenting complaint,90,Salivation - increased/drooling,"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,93,Seizure(s),"Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2275,Skeletal abnormality - acquired,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,2279,Skeletal abnormality - congenital,"Musculoskeletal system finding, Congenital finding"
+Active Referral,,,,Presenting complaint,2281,Skin (cutaneous) abnormality – eruptions/hives/rash,Haircoat/skin (+ appendages) finding
+Active Referral,,,,Presenting complaint,2283,Skin (cutaneous) abnormality – other,Haircoat/skin (+ appendages) finding
+Active Referral,,,,Presenting complaint,96,Sneezing,"Respiratory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7624,Stertor (snoring),"Respiratory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7573,Stiffness,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,7597,Strabismus,"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,7627,Stridor,"Respiratory system finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2284,Tachypnoea,Respiratory system finding
+Active Referral,,,,Presenting complaint,2286,Testicular/scrotal abnormality,"Urogenital system finding, Reproductive system finding"
+Active Referral,,,,Presenting complaint,7550,Thin,Weight/Body condition finding
+Active Referral,,,,Presenting complaint,7546,Thirst decreased,Nervous system finding
+Active Referral,,,,Presenting complaint,98,Traumatic episode,Clinical finding
+Active Referral,,,,Presenting complaint,2288,Tremors/shaking/trembling,Nervous system finding
+Active Referral,,,,Presenting complaint,189,Urination abnormal - dysuria,Urogenital system finding
+Active Referral,,,,Presenting complaint,2290,Urination abnormal - inappropriate urination,Urogenital system finding
+Active Referral,,,,Presenting complaint,191,Urination abnormal - oliguria,Urogenital system finding
+Active Referral,,,,Presenting complaint,192,Urination abnormal - other,Urogenital system finding
+Active Referral,,,,Presenting complaint,193,Urination abnormal - pollakiuria,Urogenital system finding
+Active Referral,,,,Presenting complaint,195,Urine colour abnormal,Urogenital system finding
+Active Referral,,,,Presenting complaint,7601,Uveal abnormality,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,100,Vision impaired,"Ophthalmology/vision finding, Head and neck finding"
+Active Referral,,,,Presenting complaint,2292,Vocalisation,Nervous system finding
+Active Referral,,,,Presenting complaint,5764,Vomiting - haematemesis,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,5766,Vomiting - other,Alimentary tract/Digestive system finding
+Active Referral,,,,Presenting complaint,103,Weakness,Musculoskeletal system finding
+Active Referral,,,,Presenting complaint,196,Weight gain,Weight/Body condition finding
+Active Referral,,,,Presenting complaint,197,Weight loss,Weight/Body condition finding
+Active Referral,,,,Presenting complaint,105,Wound,Clinical finding
+Active Non-referral,,,,Presenting complaint,17749,Abdominal distension (Presenting complaint),Abdominal finding
+Active Non-referral,,,,Presenting complaint,17750,Abdominal injury (Presenting complaint),"Abdominal finding, Traumatic episode finding"
+Active Non-referral,,,,Presenting complaint,17751,Alopecia (Presenting complaint),Haircoat/skin (+ appendages) finding
+Active Non-referral,,,,Presenting complaint,17752,Anal irritation (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17753,Anorexia (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17754,Appetite decreased (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17755,Appetite increased (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17756,Behavioural abnormality (Presenting complaint),"Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17757,Bleeding - Bruising (Presenting complaint),"Cardiovascular system finding, Wound finding"
+Active Non-referral,,,,Presenting complaint,17758,Bleeding - Epistaxis (Presenting complaint),"Respiratory system finding, Cardiovascular system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17759,Bleeding - Other orifice (Presenting complaint),Cardiovascular system finding
+Active Non-referral,,,,Presenting complaint,17760,Bleeding - Petechiation/ecchymoses (Presenting complaint),Cardiovascular system finding
+Active Non-referral,,,,Presenting complaint,17761,Blindness (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,7711,BLOOD/OTHER TEST APPOINTMENT,Clinical finding
+Active Non-referral,,,,Presenting complaint,17762,Cachexia (Presenting complaint),"Weight/Body condition finding, Nutritional finding"
+Active Non-referral,,,,Presenting complaint,17763,Cardiac (heart) abnormality - heart murmur (Presenting complaint),"Cardiovascular system finding, Thoracic finding"
+Active Non-referral,,,,Presenting complaint,17764,Cardiac (heart) abnormality - other (Presenting complaint),"Cardiovascular system finding, Thoracic finding"
+Active Non-referral,,,,Presenting complaint,17765,Cataract (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17766,CHEMOTHERAPY appointment (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17768,Collapse/syncopal episodes (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17769,Corneal abnormality (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17770,Corneal opacity or blue eye (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17771,Coughing (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17772,Cyanosis (Presenting complaint),"Soft tissue finding, Haircoat/skin (+ appendages) finding"
+Active Non-referral,,,,Presenting complaint,17773,Dead (Deceased) on presentation (Presenting complaint),Administrative statuses finding
+Active Non-referral,,,,Presenting complaint,17774,Defaecation abnormal - decreased frequency (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17775,Defaecation abnormal - defaecatory tenesmus (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17776,Defaecation abnormal - increased frequency (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17777,Defaecation abnormal - other (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17778,Dental (tooth) abnormality (Presenting complaint),"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17779,Dietary indiscretion - foreign body ingestion (Presenting complaint),"Alimentary tract/Digestive system finding, Foreign body finding"
+Active Non-referral,,,,Presenting complaint,17780,Dietary indiscretion - other (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17781,Discharge - aural (ear) (Presenting complaint),"Auditory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17782,Discharge - nasal (nose) (Presenting complaint),"Respiratory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17783,Discharge - ocular (eye) (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17784,Discharge - penile (Presenting complaint),"Urogenital system finding, Reproductive system finding"
+Active Non-referral,,,,Presenting complaint,17785,Discharge - sinus tract (Presenting complaint),Soft tissue finding
+Active Non-referral,,,,Presenting complaint,17786,Discharge - vaginal (Presenting complaint),"Urogenital system finding, Reproductive system finding, Pelvic structure finding"
+Active Non-referral,,,,Presenting complaint,11723,Dressing-related complication,Episode of care finding
+Active Non-referral,,,,Presenting complaint,17787,Dry eye (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17788,Dysphagia (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17789,Dysphonia (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17790,Dyspnoea - with coughing (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17791,Dyspnoea - without coughing (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17792,Dystocia (Presenting complaint),Reproductive system finding
+Active Non-referral,,,,Presenting complaint,17793,Ear (aural) abnormality (Presenting complaint),"Auditory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17794,Ear (aural) injury (Presenting complaint),"Auditory system finding, Traumatic episode finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17795,Ear (aural) smell (Presenting complaint),"Auditory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18319,Epiphora/tear staining (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18321,Excess tear production (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17796,Exercise intolerance - episodic (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17797,Exercise intolerance - persistent (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17798,Eyelid abnormality (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17799,Faecal appearance abnormal - diarrhoea (Presenting complaint),"Alimentary tract/Digestive system finding, Abdominal finding"
+Active Non-referral,,,,Presenting complaint,17800,Faecal appearance abnormal - haematochezia (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17801,Faecal appearance abnormal - melaena (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17802,Faecal appearance abnormal - other (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17803,Failure to gain weight (Presenting complaint),Weight/Body condition finding
+Active Non-referral,,,,Presenting complaint,17804,Failure to grow (Presenting complaint),Height/growth finding
+Active Non-referral,,,,Presenting complaint,17805,Female reproductive abnormality (Presenting complaint),Reproductive system finding
+Active Non-referral,,,,Presenting complaint,17806,Gagging/retching (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17807,Gait abnormality - ataxia (Presenting complaint),"Musculoskeletal system finding, Nervous system finding"
+Active Non-referral,,,,Presenting complaint,17808,Gait abnormality - lameness (Presenting complaint),"Musculoskeletal system finding, Nervous system finding"
+Active Non-referral,,,,Presenting complaint,17809,Gait abnormality - other (Presenting complaint),"Musculoskeletal system finding, Nervous system finding"
+Active Non-referral,,,,Presenting complaint,17811,Haemoptysis (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17812,Halitosis (Presenting complaint),"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17813,Head tilt (Presenting complaint),"Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17814,Hearing impaired/deafness (Presenting complaint),"Auditory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18032,Hyphaema (Presenting complaint),"Ophthalmology/vision finding, Cardiovascular system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17816,Hypothermia (Presenting complaint),Body temperature finding
+Active Non-referral,,,,Presenting complaint,17817,Icterus (jaundice)(Presenting complaint),Endocrine/Metabolic finding
+Active Non-referral,,,,Presenting complaint,17818,Incontinence - faecal (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17819,Incontinence - urinary (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17820,Intoxication (poisoning)/toxin exposure (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,18324,Iris abnormality - mass (Presenting complaint),"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18329,Iris abnormality - other (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18335,Lens abnormality - other (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,18333,Lens opacity (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17823,Lethargy (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17824,Loss of balance (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17825,Lymphadenomegaly (Presenting complaint),"Lymphatic system finding, Immune system finding, Haematopoietic system finding"
+Active Non-referral,,,,Presenting complaint,17826,Male reproductive abnormality (Presenting complaint),Reproductive system finding
+Active Non-referral,,,,Presenting complaint,17827,Mass/swelling - abdominal (Presenting complaint),"Mass lesion/swelling finding, Abdominal finding"
+Active Non-referral,,,,Presenting complaint,17828,Mass/swelling - axilla (Presenting complaint),"Mass lesion/swelling finding, Thoracic finding"
+Active Non-referral,,,,Presenting complaint,17829,Mass/swelling - ear (aural)(Presenting complaint),"Auditory system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17830,Mass/swelling - eye (ophthalmic)(Presenting complaint),"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17831,Mass/swelling - eyelid (Presenting complaint),"Ophthalmology/vision finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17832,Mass/swelling - facial (site unspecified)(Presenting complaint),"Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17833,"Mass/swelling - facial, lip (Presenting complaint)","Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17834,Mass/swelling - gingival (gum)(Presenting complaint),"Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17835,Mass/swelling - jaw (site unspecified)(Presenting complaint),"Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17836,"Mass/swelling - jaw, mandible (Presenting complaint)","Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17837,"Mass/swelling - jaw, maxilla (Presenting complaint)","Musculoskeletal system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17838,Mass/swelling - joint (Presenting complaint),"Musculoskeletal system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17839,"Mass/swelling - limb, lower (Presenting complaint)","Limb finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17840,"Mass/swelling - limb, upper (Presenting complaint)","Limb finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17841,Mass/swelling - lymph node (Presenting complaint),"Lymphatic system finding, Immune system finding, Haematopoietic system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17842,Mass/swelling - mammary (Presenting complaint),"Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17843,Mass/swelling - musculoskeletal (Presenting complaint),"Musculoskeletal system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17844,Mass/swelling - neck (cervical) (Presenting complaint),"Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17845,"Mass/swelling - nose (nasal), nasal planum (Presenting complaint)","Respiratory system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17846,Mass/swelling - oral (mouth) (Presenting complaint),"Alimentary tract/Digestive system finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17847,Mass/swelling - other (Presenting complaint),Mass lesion/swelling finding
+Active Non-referral,,,,Presenting complaint,17849,Mass/swelling - penile (Presenting complaint),"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17850,Mass/swelling - perianal (Presenting complaint),"Mass lesion/swelling finding, Perianal finding"
+Active Non-referral,,,,Presenting complaint,17851,Mass/swelling - prepuce (Presenting complaint),"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17852,Mass/swelling - scrotal (Presenting complaint),"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17853,Mass/swelling - skin (cutaneous)/subcutaneous (site unspecified)(Presenting complaint),"Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17854,"Mass/swelling - skin (cutaneous)/subcutaneous, digit (Presenting complaint)","Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding, Limb finding"
+Active Non-referral,,,,Presenting complaint,17855,"Mass/swelling - skin (cutaneous)/subcutaneous, perianal (Presenting complaint)","Haircoat/skin (+ appendages) finding, Soft tissue finding, Mass lesion/swelling finding, Perineal finding"
+Active Non-referral,,,,Presenting complaint,17856,Mass/swelling - testicular (Presenting complaint),"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17857,Mass/swelling - tongue (lingual) (Presenting complaint),"Alimentary tract/Digestive system finding, Soft tissue finding, Mass lesion/swelling finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17858,Mass/swelling - vulval (Presenting complaint),"Urogenital system finding, Reproductive system finding, Mass lesion/swelling finding"
+Active Non-referral,,,,Presenting complaint,17859,Mentation altered - anxious/distressed (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17860,Mentation altered - comatose (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17861,Mentation altered - depressed (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17862,Mentation altered - stuporous (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17863,Moribund (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17864,Mucous membranes abnormal - cyanosed (Presenting complaint),"Soft tissue finding, Haircoat/skin (+ appendages) finding"
+Active Non-referral,,,,Presenting complaint,17865,Mucous membranes abnormal - hyperaemic (Presenting complaint),"Soft tissue finding, Cardiovascular system finding"
+Active Non-referral,,,,Presenting complaint,17866,Mucous membranes abnormal - other (Presenting complaint),Soft tissue finding
+Active Non-referral,,,,Presenting complaint,17868,Mucous membranes abnormal - pale (Presenting complaint),Soft tissue finding
+Active Non-referral,,,,Presenting complaint,17869,Muscular atrophy - head (Presenting complaint),"Musculoskeletal system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17870,Muscular atrophy - limb (Presenting complaint),"Musculoskeletal system finding, Limb finding"
+Active Non-referral,,,,Presenting complaint,17871,Muscular atrophy - other (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17873,Musculoskeletal injury (Presenting complaint),"Musculoskeletal system finding, Traumatic episode finding"
+Active Non-referral,,,,Presenting complaint,17874,NOT PRESENTED FOR A COMPLAINT (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17875,Nystagmus (Presenting complaint),"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17876,Obesity (Presenting complaint),Weight/Body condition finding
+Active Non-referral,,,,Presenting complaint,17877,Ophthalmic (eye) abnormality (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17879,Ophthalmic (eye) injury (Presenting complaint),"Ophthalmology/vision finding, Traumatic episode finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17881,Oral (mouth) abnormality - other (Presenting complaint),"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17882,Oral (mouth) abnormality - ulceration (Presenting complaint),"Alimentary tract/Digestive system finding, Inflammatory disorder finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17883,Oral (mouth) injury (Presenting complaint),"Alimentary tract/Digestive system finding, Traumatic episode finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17884,Pain - abdominal (Presenting complaint),"Nervous system finding, Abdominal finding"
+Active Non-referral,,,,Presenting complaint,17885,Pain - aural (ear) (Presenting complaint),"Nervous system finding, Auditory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17886,Pain - musculoskeletal (Presenting complaint),"Nervous system finding, Musculoskeletal system finding"
+Active Non-referral,,,,Presenting complaint,17887,Pain - neck (cervical) (Presenting complaint),"Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17888,Pain - on being handled (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17889,Pain - on eating/chewing (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17890,Pain - ophthalmic (eye) (Presenting complaint),"Nervous system finding, Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17891,Pain - oral (mouth) (Presenting complaint),"Nervous system finding, Alimentary tract/Digestive system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17892,Pain - other (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17894,Pain - spinal (Presenting complaint),"Nervous system finding, Musculoskeletal system finding, Spine (vertebral column) finding"
+Active Non-referral,,,,Presenting complaint,17895,Panting (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17896,Paresis/paralysis (Presenting complaint),"Nervous system finding, Musculoskeletal system finding, Limb finding"
+Active Non-referral,,,,Presenting complaint,17897,Paronychia (Presenting complaint),"Haircoat/skin (+ appendages) finding, Inflammatory disorder finding, Limb finding"
+Active Non-referral,,,,Presenting complaint,17899,Penile/preputial abnormality – other (Presenting complaint),"Urogenital system finding, Reproductive system finding"
+Active Non-referral,,,,Presenting complaint,17900,Penile/preputial abnormality – paraphimosis (Presenting complaint),"Urogenital system finding, Reproductive system finding"
+Active Non-referral,,,,Presenting complaint,17901,Polydipsia (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17902,Polyphagia/ravenous appetite (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17903,Polyuria (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17904,Polyuria/polydipsia (Presenting complaint),"Urogenital system finding, Nervous system finding"
+Active Non-referral,,,,Presenting complaint,17906,Poor quality of life (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17907,Post-operative complication - other (Presenting complaint),Complication of medical care finding
+Active Non-referral,,,,Presenting complaint,17908,Post-operative complication - wound related (Presenting complaint),"Complication of medical care finding, Wound finding"
+Active Non-referral,,,,Presenting complaint,17909,Posture abnormal - low head carriage (Presenting complaint),"Musculoskeletal system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17910,Posture abnormal - other (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17911,Presented for investigation of abnormal test result (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17912,Presented for radioactive iodine treatment (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17913,Presented for specific therapeutic intervention (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17914,Presenting complaint not listed (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17915,Pruritus (Presenting complaint),"Haircoat/skin (+ appendages) finding, Nervous system finding"
+Active Non-referral,,,,Presenting complaint,17916,Pupillary abnormality - anisocoria (Presenting complaint),"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17919,Pupillary abnormality - other (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17920,Pyrexia/hyperthermia (Presenting complaint),Body temperature finding
+Active Non-referral,,,,Presenting complaint,17921,Recumbency/reluctance to move (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17922,Red eye (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17923,RE-EXAMINATION appointment (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17924,Regurgitation (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17925,Respiratory noise increased (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17926,Salivation - increased/drooling (Presenting complaint),"Alimentary tract/Digestive system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17927,Seizure(s) (Presenting complaint),"Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17928,Skeletal abnormality - acquired (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17929,Skeletal abnormality - congenital (Presenting complaint),"Musculoskeletal system finding, Congenital finding"
+Active Non-referral,,,,Presenting complaint,17930,Skin (cutaneous) abnormality – eruptions/hives/rash (Presenting complaint),Haircoat/skin (+ appendages) finding
+Active Non-referral,,,,Presenting complaint,17931,Skin (cutaneous) abnormality – other (Presenting complaint),Haircoat/skin (+ appendages) finding
+Active Non-referral,,,,Presenting complaint,17933,Sneezing (Presenting complaint),"Respiratory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17934,Stertor (snoring) (Presenting complaint),"Respiratory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17935,Stiffness (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17936,Strabismus (Presenting complaint),"Ophthalmology/vision finding, Nervous system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17937,Stridor (Presenting complaint),"Respiratory system finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17938,Tachypnoea (Presenting complaint),Respiratory system finding
+Active Non-referral,,,,Presenting complaint,17939,Testicular/scrotal abnormality (Presenting complaint),"Urogenital system finding, Reproductive system finding"
+Active Non-referral,,,,Presenting complaint,17940,Thin (Presenting complaint),Weight/Body condition finding
+Active Non-referral,,,,Presenting complaint,17941,Thirst decreased (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17942,Traumatic episode (Presenting complaint),Clinical finding
+Active Non-referral,,,,Presenting complaint,17943,Tremors/shaking/trembling (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17945,Urination abnormal - dysuria (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17946,Urination abnormal - inappropriate urination (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17947,Urination abnormal - oliguria (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17948,Urination abnormal - other (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17949,Urination abnormal - pollakiuria (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17950,Urine colour abnormal (Presenting complaint),Urogenital system finding
+Active Non-referral,,,,Presenting complaint,17951,Uveal abnormality (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17952,Vision impaired (Presenting complaint),"Ophthalmology/vision finding, Head and neck finding"
+Active Non-referral,,,,Presenting complaint,17953,Vocalisation (Presenting complaint),Nervous system finding
+Active Non-referral,,,,Presenting complaint,17955,Vomiting - haematemesis (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17956,Vomiting - other (Presenting complaint),Alimentary tract/Digestive system finding
+Active Non-referral,,,,Presenting complaint,17957,Weakness (Presenting complaint),Musculoskeletal system finding
+Active Non-referral,,,,Presenting complaint,17958,Weight gain (Presenting complaint),Weight/Body condition finding
+Active Non-referral,,,,Presenting complaint,17959,Weight loss (Presenting complaint),Weight/Body condition finding
+Active Non-referral,,,,Presenting complaint,17960,Wound (Presenting complaint),Clinical finding

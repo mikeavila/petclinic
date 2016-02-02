@@ -1,0 +1,168 @@
+/*****************************************************************
+*        DO NOT REMOVE                                           *
+*        =============                                           *
+*VetClinic Management Software                                   *
+*Copyrighted 2015-2016 by Michael Avila                          *
+*Distributed under the terms of the GNU General Public License   *
+*This program is distributed in the hope that it will be useful; *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+*****************************************************************/
+
+use bar code scanners; print bar codes; SMS notifications; which patients are checked in and which room
+ 
+ 
+00.02.00 Alpha2
+
+
+
+00.01.36 compressed and put on Google Drive for Paul, uploaded to GitHub
+00.01.35 finished doctors1.php update; changed all headers to redirect
+00.01.34 retested all features
+00.01.33 retested install; fixed procedures installed bug
+00.01.32 updated jquery from 2.1.4 to 2.2.0
+00.01.31 created a common.inc file to hold all of the .inc files in one place so easier to add new files;
+         added files to it; in each PHP file removed the files that are in common.inc and replaced them with common.inc
+00.01.30 added phone message option to menus and goes to not avail
+00.01.29 add errormsg_functions to all non-installation PHP files
+00.01.28 add session start to all non-installation PHP files
+00.01.27 added session start to index.php, index1.php, and login.php as a test
+00.01.26 added petclinicmsgs database and errormsgs and phonemsgs tables
+00.01.25 added the code to initialize the user log in every PHP script
+00.01.24 finished corp pref by completing the update; update FPDF with new release
+00.01.23 remove all db USE statements and make db statements db.table (suggested by Paul)
+00.01.22 added Paul's name to footer; worked on corp pref default procedures, not yet finished; fixed a few problems
+00.01.21 broke header.inc into header1.inc and header2.inc; modified all files to reflect this change
+00.01.20 merged Paul's changes into my copy after making necessary changes
+00.01.19 change includes to require_once; break apart log file initialization to put in includes and an include file;
+         changed version.php to version.inc and put in includes folder
+00.01.18 add 2016 to all copyright statements; change changelog to use semicolon instead of comma to separate actions
+00.01.17 found critical flaw in my logic to keep track of which proc dbs were installed so used a tmp file to contain data
+00.01.16 compressed and uploaded to SF
+00.01.15 tested all scripts
+00.01.14 Paul corrected HTML according to HTML5 standards; corrected validation issues; tested scripts
+00.01.13 created vendor scripts
+00.01.12 compressed; sent to Paul via Google Drive
+00.01.11 converted employee maint to JQuery and tested
+00.01.10 compressed; sent to Paul via Google Drive
+00.01.09 tested new work
+00.01.08 tested client maint; converted pet maint to JQuery; partial conversion to JQuery and tested pet maint; 
+         created main menu options and tested; created doctor maint; fixed sysadmin to use petclinic
+00.01.07 complete installation test no other errors found
+00.01.06 converted clientmaint to JQuery; found major error as venom is not tab separated but comma separated;
+         venom diagnosis loading into complaint fixed; fixed log error in petclinic-odm.php
+00.01.05 made the select and icon menus work and the ability to go back and forth temp
+00.01.04 compressed; put online as Alpha1a and sent to Paul via Google Drive
+00.01.03 complete test after problems loading venom my error
+00.01.02 added css and js directories and changed install files to use them; broke apart version.php into
+         version.php with only the version in it and changelog.txt with changes in it.
+00.01.01 added VeNom procedures to installation
+00.01.00 Alpha1
+00.00.92 completed testing of installtion
+00.00.91 added SNOMED-VTS procedures
+00.00.90 redid the install process to use tabs; removed financials
+00.00.89 created a GitHub and SF account and started changed to petclinic
+00.00.88 changed everything from vetclinic to petclinic
+00.00.87 working on listings; procedure maint
+00.00.86 added invoices as a subsystem and added vetclinicinvoices db to install.php; added to installtion process;
+         this invoice program did not successfully create an invoice pdf file; deleted all of it and tried another
+         program which did work; added it to the install process
+00.00.85 inventory medicine base record process completed; had to change medicine table to include vendorid
+00.00.84 compress everything in a file and FTP
+00.00.83 complete tested
+00.00.82 added tabs to visit display; tried to create a drag and drop for procedures but not working;
+         tried moving from one listbox to another but not working; got it working! (Finally!!)
+00.00.80 adding log file to the install
+00.00.79 added document management system to vetclinic
+00.00.78 created (background color) visual guides to required and optional input using a css file
+00.00.77 removed optional modules and made everything permanent
+00.00.76 created modules installation menu; completed install of accounting; created modarray in pref4 sequence 1
+		 to hold list of installed modules
+00.00.75 clean up code in all php files; made pictures work no matter where code is located; added code to insert userid in
+		 usersol and to remove when logging off
+00.00.74 create medicine inventory menu and medicine create base record data entry and insert
+00.00.73 completed previous visit listing; made userid case insensitive; added timezone to preferences
+00.00.72 worked on online users display
+00.00.71 completed visit insert
+00.00.70 created display and code to control logins; created OS determination code and cookie
+00.00.69 made changes to screening display as requested by Andrew
+00.00.68 designed the application to be multi company; added mc feature to install.php
+00.00.67 figure out update distribution process; added softwre updates to main menu;
+	     changed software updates to sys admin; created sysadmin web page; added clinicsys db to install
+00.00.66 completed visit creation web page but not the actual creation; made changes as Andrew wanted to initally hide
+         the textareas then show when abnormal clicked on
+00.00.65 completed petclient table for pet ownership
+00.00.64 completed client list for pet ownership
+00.00.63 resolved bug reports 004; 005; 007; and 008.
+00.00.62 compress everything in a file and FTP
+00.00.61 complete tested
+00.00.60 started visit pages
+00.00.59 implemented preload defaults array creation and some web page useage; 
+		 make sure all web pages have background settings correctly
+00.00.58 complete default settings web page
+00.00.57 separated preferences into background and settings
+00.00.56 completed script to upload pet picture
+00.00.55 created additional help files
+00.00.54 created script to create/update pet; keep changing course because of difficulties of the many
+         relationships and variables; finally broke down everything into separate script files
+00.00.53 changed the way help files work by making them a separate window and close window from it
+00.00.52 create display to create and modify pet records; forgot client-pet relationship table so added it to install
+00.00.51 corp preferences display and update
+00.00.50 update security keys completed
+00.00.49 compress everything in a file and send to Andrew
+00.00.48 complete testing
+00.00.47 create a couple of help files
+00.00.46 create a search submenu and add search to security keys
+00.00.45 work with calendars to see what can be done
+00.00.44 complete client listing and data entry
+00.00.43 complete security keys display but not update
+00.00.42 changed inventory tables so table entry is for base record and all changes are done 
+		 through inventory transactions which update the base record
+00.00.41 completed going to employee maint from employee listing for authorized people
+00.00.40 complete password recovery script
+00.00.39 completed employee data entry new and existing
+00.00.38 complete employee data listing and started entry display
+00.00.37 created corp menu and modify corp info
+00.00.36 created the new password entry and script when changepwd = Y
+00.00.35 decided the main menu is too cluttered and confusing; reorganizing and redesigning the main menu;
+	     creating function specific sub menus
+00.00.34 started the creation of the employee listing
+00.00.33 created and completed inventory and procedures tables
+00.00.32 started the creation of the client listing
+00.00.31 create script to direct radiobox selection to proper page
+00.00.30 split employee name into lname and fname and changed display
+00.00.29 added value attribute to radioboxes
+00.00.28 completed the main menu display
+00.00.27 having trouble getting vars/values to carry over from script to script so trying cookies
+00.00.26 compress everything in a file and send to Andrew
+00.00.25 complete testing
+00.00.24 create main menu display depending upon security keys
+00.00.23 shifted getting security keys from login.php to mainmenu.php
+00.00.22 bring User Manual up to date
+00.00.21 okay thinking about security again and using a table named seckeys to hold security info;
+		 not as efficient for disk space but easier processing and coding
+00.00.20 after thinking about the security levels and rethinking it and rethinking it deleted the seclevel table
+         and made the security level a 3 digit integer
+00.00.19 completed login display and code to check login info
+00.00.18 completed install3.php and tested
+00.00.17 removed subdirectory creation from the script to the compressed file because of pictures needed
+00.00.16 suggestions from Andrew: create password.txt from display entries; telephone number entered
+	     in three boxes; encrypt addresses and city
+00.00.15 go over every table and see what columns need to be changed to accommodate security
+00.00.14 enforce password requirements; encrypted password in table
+00.00.13 compress everything in a file and send to Andrew
+00.00.12 make the userid changeable for those that do not have root access
+00.00.11 compress everything in a file and send to Andrew
+00.00.10 tested everything again
+00.00.09 created header and footer code for displays
+00.00.08 tweaked company display and sql code; trouble with inserting and foreign keys so removed all foreign keys;
+		 increased address and city fields and tables; tweaked other things to make work better;
+		 created dog and cat breed text files and changed code to read it in and put in table
+00.00.07 testing completed
+00.00.06 changed zipcode from 5 to 7 varchar to facilitate Canada; added vetcliniclang database creation
+00.00.05 added copyright and GNU license to all files and added lang option to first display
+00.00.04 started off with the idea of making a separate script for each table so they could be reused but changed my mind;
+         now all in one script as it is a new install
+00.00.03 create install.php and version.php
+00.00.02 create SQL scripts for creating the database and tables
+00.00.01 create database and tables

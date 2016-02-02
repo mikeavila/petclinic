@@ -1,0 +1,171 @@
+<?php
+/*****************************************************************
+*        DO NOT REMOVE                                           *
+*        =============                                           *
+*PetClinic Management Software                                   *
+*Copyrighted 2015-2016 by Michael Avila                          *
+*Distributed under the terms of the GNU General Public License   *
+*This program is distributed in the hope that it will be useful, *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+*****************************************************************/
+session_start();
+$logFileName = "user";
+$headerTitle="USER LOG";
+require_once "includes/common.inc";
+require_once "includes/expire.inc";
+require_once "petarraykeys.php";
+$petarray = array_fill(0, 25, "");
+$petarray = unserialize($_COOKIE["petarray"]);
+$petname = $petarray[$pak_petname];
+$dobm = $petarray[$pak_dobm];
+$dobd = $petarray[$pak_dobd];
+$doby = $petarray[$pak_doby];
+$petspecies = $petarray[$pak_petspecies];
+$petbreed = $petarray[$pak_petbreed];
+$petgender = $petarray[$pak_petgender];
+$petfixed = $petarray[$pak_petfixed];
+$petcolor = $petarray[$pak_petcolor];
+$petdesc = $petarray[$pak_petdesc];
+$picture = $petarray[$pak_picture];
+$status = $petarray[$pak_status];
+$license = $petarray[$pak_license];
+$microchip = $petarray[$pak_microchip];
+$rabiestag = $petarray[$pak_rabiestag];
+$tattoonumber = $petarray[$pak_tattoonumber];
+$client1 = $petarray[$pak_client1];
+$client2 = $petarray[$pak_client2];
+$dob = $doby.$dobm.$dobd;
+
+if ($petname == "") {
+	setcookie("errormessage", "Pet Name cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($dobm == "") {
+	setcookie("errormessage", "Pet Date of Birg Month cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($dobd == "") {
+	setcookie("errormessage", "Pet Date of Birth Date cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($doby == "") {
+	setcookie("errormessage", "Pet Date of Birth Year cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petspecies == "") {
+	setcookie("errormessage", "Pet Species cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petbreed == "") {
+	setcookie("errormessage", "Pet Breed must be selected", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petgender == "") {
+	setcookie("errormessage", "Pet Gender must be selected", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petfixed == "") {
+	setcookie("errormessage", "Pet Fixed must be selected", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petcolor == "") {
+	setcookie("errormessage", "Pet Color cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($petdesc == "") {
+	setcookie("errormessage", "Pet Description cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($picture == "") {
+	setcookie("errormessage", "Pet Picture cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+if ($status == "") {
+	setcookie("errormessage", "Pet Status cannot be blank", $expire1hr);
+     redirect("petmaint1new1.php");
+	exit();
+}
+
+require_once "password.php";
+$mysqli = new mysqli('localhost', $user, $password, '');
+$emplnumber = $_COOKIE['employeenumber'];
+$sql = "INSERT INTO `petclinic`.`pet` (`petname`, `petdob`, `petspecies`, `petbreed`, `petgender`, `petfixed`, `petcolor`, `petdesc`, `license`,";
+$sql = $sql." `microchip`, `rabiestag`, `tattoonumber`, `picture`, `status`, `changeid`) ";
+$sql = $sql." VALUES (\"$petname\", \"$dob\", \"$petspecies\", \"$petbreed\", \"$petgender\", \"$petfixed\", \"$petcolor\", \"$petdesc\",";
+$sql = $sql." \"$license\", \"$microchip\", \"$rabiestag\",  \"$tattoonumber\", \"$picture\", \"$status\", $emplnumber);";
+$result = $mysqli->query($sql);
+if ($result == FALSE)
+{
+	setcookie("errormessage", "Pet Insert failed; ".$mysqli->error, $expire1hr);
+     redirect("mainmenu.php");     
+	exit();
+}
+$petid = $mysqli->insert_id;
+if ($client1 <> "") {
+	$sql = "SELECT * FROM `petclinic`.`clientpet` WHERE `clientnumber` = ".$client1." AND `petnumber` = ".$petid.";";
+	$result = $mysqli->query($sql);
+	if ($result == FALSE)
+	{
+		$sql = "INSERT INTO `petclinic`.`clientpet` (`clientnumber`, `petnumber`) VALUES (".$client1.", ".$petid.");";
+		$result = $mysqli->query($sql);
+		if ($result == FALSE)
+		{
+		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr); 
+          redirect("mainmenu.php");
+		exit();
+		}
+	}
+	$row_cnt = $result->num_rows;
+	if ($row_cnt == 0) {
+		$sql = "INSERT INTO `petclinic`.`clientpet` (`clientnumber`, `petnumber`) VALUES (".$client1.", ".$petid.");";
+		$result = $mysqli->query($sql);
+		if ($result == FALSE)
+		{
+		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+          redirect("mainmenu.php");          
+		exit();
+		}
+	}
+}
+if ($client2 <> "") {
+	$sql = "SELECT * FROM `petclinic`.`clientpet` WHERE `clientnumber` = ".$client2." AND `petnumber` = ".$petid.";";
+	$result = $mysqli->query($sql);
+	if ($result == FALSE)
+	{
+		$sql = "INSERT INTO `petclinic`.`clientpet` (`clientnumber`, `petnumber`) VALUES (".$client2.", ".$petid.");";
+		$result = $mysqli->query($sql);
+		if ($result == FALSE)
+		{
+		setcookie("errormessage", "ClientPat Insert client2 failed; ".$mysqli->error, $expire1hr);
+          redirect("mainmenu.php");          
+		exit();
+		}
+	}	
+	$row_cnt = $result->num_rows;
+	if ($row_cnt == 0) {
+		$sql = "INSERT INTO `petclinic`.`clientpet` (`clientnumber`, `petnumber`) VALUES (".$client1.", ".$petid.");";
+		$result = $mysqli->query($sql);
+		if ($result == FALSE)
+		{
+		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+          redirect("mainmenu.php");          
+		exit();
+		}
+	}
+}
+$mysqli->close();
+setcookie("errormessage", " ", $expire1hr);
+redirect("maintmenu.php"); 
+?>
