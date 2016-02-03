@@ -72,11 +72,12 @@ if ($result == FALSE)
      if ($row_cnt == 0) {
           $errormsg = "Internal Error";
      } else {
-        $row = $result->fetch_row();
-        $pref1 = $row[0];
-        $pref1 = substr($pref1, 0, 3).$value.$value;
-        $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\" WHERE `sequence` = 4";
-        $result = $mysqli->query($sql);
+               $row = $result->fetch_row();
+               $pref1 = $row[0];
+               $pref1 = substr($pref1, 0, 3).$value.$value;
+               $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\" WHERE `sequence` = 4";
+               $result = $mysqli->query($sql);
+          }
      }
 }
 $mysqli->close();
