@@ -10,6 +10,9 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+redirect("notavail.php")
+exit(0);
+
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";

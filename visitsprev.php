@@ -21,13 +21,15 @@ $sql = "SELECT * FROM `petclinic`.`visit` ORDER BY `visitdate` DESC";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	setcookie("errormessage", "There are no Previous Visits", $expire10hr);
+     put_errormsg("There are no Previous Visits");
+	//setcookie("errormessage", "There are no Previous Visits", $expire10hr);
      redirect("visits.php");      
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	setcookie("errormessage", "There are no Previous Visits", $expire10hr); 
+     put_errormsg("There are no Previous Visits");
+	//setcookie("errormessage", "There are no Previous Visits", $expire10hr); 
      redirect("visits.php"); 
 	exit();
 }
@@ -38,13 +40,15 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$resultcp = $mysqli->query($sqlcp);
 	if ($resultcp == FALSE)
 	{
-		setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
+          put_errormsg("Internal Error (clientpet)");
+		//setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
           redirect("visits.php"); 
 		exit();
 	}
 	$rowcp_cnt = $resultcp->num_rows;
 	if ($rowcp_cnt == 0) {
-		setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
+          put_errormsg("Internal Error (clientpet)";
+		//setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
           redirect("visits.php");           
 		exit();
 	}
@@ -53,7 +57,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$resultc = $mysqli->query($sqlc);
 	if ($resultc == FALSE)
 	{
-		setcookie("errormessage", "Internal Error (client)", $expire10hr); 
+          put_errormsg("Internal Error (clientpet)";
+		//setcookie("errormessage", "Internal Error (client)", $expire10hr); 
           redirect("visits.php"); 
 		exit();
 	}
@@ -76,7 +81,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$resultp = $mysqli->query($sqlp);
 	if ($resultp == FALSE)
 	{
-		setcookie("errormessage", "Internal Error (pet)", $expire10hr);
+          put_errormsg("Internal Error (pet)";
+		//setcookie("errormessage", "Internal Error (pet)", $expire10hr);
 		exit();
 	}
 	$rowp_cnt = $resultp->num_rows;
@@ -87,7 +93,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
 		$resultv = $mysqli->query($sqlv);
 		if ($resultv == FALSE)
 		{
-			setcookie("errormessage", "Internal Error (visit)", $expire10hr);
+               put_errormsg("Internal Error (visit)";
+			//setcookie("errormessage", "Internal Error (visit)", $expire10hr);
                redirect("visits.php");                
 			exit();
 		}

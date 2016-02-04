@@ -25,22 +25,26 @@ echo $value;
 switch ($value)
 {
 	case "1":
-		setcookie("errormessage", " ", $expire10hr);
+		//setcookie("errormessage", " ", $expire10hr);
+          delete_errormsg();
           redirect("notavail.php");
 		exit();
 		break;
 	case "2":
-		setcookie("errormessage", " ", $expire10hr);
+		//setcookie("errormessage", " ", $expire10hr);
+          delete_errormsg();
           redirect("notavail.php");
 		exit();
 		break;
 	case "3":
-		setcookie("errormessage", " ", $expire10hr); 
+		//setcookie("errormessage", " ", $expire10hr); 
+          delete_errormsg();
           redirect("invmedbase.php");
 		exit();
 		break;
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr);
+		//setcookie("errormessage", "You must make a selection", $expire10hr);
+          put_errormsg("You must make a selection");
           redirect("invmedmenu.php");          
 		exit();
 		break;

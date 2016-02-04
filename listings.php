@@ -17,12 +17,14 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-if (!empty($_POST["errormessage"]))
-{
-	$errormsg = "";
-} else {
-	$errormsg = $_COOKIE['errormessage'];
-}
+$errormsg = get_errormsg();
+delete_errormsg();
+// if (!empty($_POST["errormessage"]))
+// {
+	// $errormsg = "";
+// } else {
+	// $errormsg = $_COOKIE['errormessage'];
+// }
 $display ="Listings:".$emplnumber;
 
 require_once "password.php";

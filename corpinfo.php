@@ -130,7 +130,6 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-$errormsg = $_COOKIE['errormessage'];
 $display = "Corpinfo:".$emplnumber;
 require_once "password.php";
 $mysqlic = new mysqli('localhost', $user, $password, '');
@@ -288,7 +287,9 @@ $lang=$row[13];
 <tr><td colspan="6"><input name="pass" type="hidden" value="2"></td></tr>
 <?php
 echo '<tr><td id="errormsg" name="errormsg" colspan="6">';
+$errormsg = get_errormsg();
 echo $errormsg;
+delete_errormsg();
 echo '</td></tr></table></form>';
 echo '<form action="mainmenu.php" method="post">';
 echo '<table border="0" width="95%"><tr><td align="center"><input type="submit" value="Return to Main Menu"></td></tr></table></form>';

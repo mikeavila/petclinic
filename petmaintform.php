@@ -14,6 +14,7 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $mysqli = new mysqli('localhost', $user, $password, '');
+?>
 <form id="petform" name="petform">
 <table cellpadding="5" cellspacing="5" width="90%">
 <tr><td align="right">Pet Number</td><td><input type="text" name="editpetnum" size="4" maxlength="4" READONLY value="<?php echo $editpetnum; ?>"></td>
@@ -69,12 +70,14 @@ if (!is_numeric($editpetnum)) {
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Internal error for code_species", $expire1hr);
+		//setcookie("errormessage", "Internal error for code_species", $expire1hr);
+          put_errormsg("Internal error for code_species");
           redirect("mainmenu.php");           
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Internal error for code_species", $expire1hr);
+		//setcookie("errormessage", "Internal error for code_species", $expire1hr);
+          put_errormsg("Internal error for code_species");
           redirect("mainmenu.php");           
 		exit();
 	}
@@ -97,13 +100,15 @@ $sql = "SELECT * FROM `petclinic`.`code_breed` WHERE `breedcode` LIKE \"".$speci
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Internal error for code_breed", $expire1hr);
+		//setcookie("errormessage", "Internal error for code_breed", $expire1hr);
+          put_errormsg("Internal error for code_breed");
           redirect("mainmenu.php");           
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Internal error for code_breed", $expire1hr);
-          redirect("vmainmenu.php");           
+		//setcookie("errormessage", "Internal error for code_breed", $expire1hr);
+          put_errormsg("Internal error for code_breed");
+          redirect("mainmenu.php");           
 		exit();
 	}
 	$petbreed1 = $petbreed;
@@ -123,10 +128,10 @@ $sql = "SELECT * FROM `petclinic`.`code_breed` WHERE `breedcode` LIKE \"".$speci
 <?php
 	echo '<option value="M"' . ($petgender == "M" ? ' selected' : '') . '>Male</option>';
 	echo '<option value="F"' . ($petgender == "F" ? ' selected' : '') . '>Female</option>';
-    echo '</select></td>';
-    echo '<td align="right"> Fixed <select name="petfixed" size="2">';
-    echo '<option value="Y"' . ($petfixed == "Y" ? ' selected' : '') . '>Yes</option>';
-    echo '<option value="N"' . ($petfixed == "N" ? ' selected' : '') . '>No</option>';
+     echo '</select></td>';
+     echo '<td align="right"> Fixed <select name="petfixed" size="2">';
+     echo '<option value="Y"' . ($petfixed == "Y" ? ' selected' : '') . '>Yes</option>';
+     echo '<option value="N"' . ($petfixed == "N" ? ' selected' : '') . '>No</option>';
 ?>
 </select></td></tr>
 <tr><td align="right"> Description <input name="petdesc" type="text" size="50" maxlength="50" value= "<?php echo $petdesc; ?>">
@@ -162,18 +167,19 @@ if ($resultpc <> FALSE)
 <?php
 if (is_numeric($editpetnum)) {
 	echo "<tr><td>Do you want to upload a picture of the pet? <SELECT name=\"petpic\" size=\"2\">";
-echo "<option value=\"N\" SELECTED>No</option><option value=\"Y\">Yes</option></select></td></tr>";
-echo "<input type=\"hidden\" name=\"petid\" value=\"".$editpetnum."\">";
+     echo "<option value=\"N\" SELECTED>No</option><option value=\"Y\">Yes</option></select></td></tr>";
+     echo "<input type=\"hidden\" name=\"petid\" value=\"".$editpetnum."\">";
 }
 echo "</table>";
 echo "<center><input type=\"submit\" value=\"Create/Update Pet\"></form>";
 echo "<center><form action=\"maintmenu.php\"><input type=\"submit\" value=\"Return to Maint Menu\"></form><center>";
-
+$errormsg = get_errormsg();
 if ($errormsg <> " ")
 {
 	echo "<center><font size=\"+2\" color=\"red\">";
 	echo $errormsg;
 	echo "</font></center>";
 }
+delete_errormsg();
 $mysqli->close();
 ?>

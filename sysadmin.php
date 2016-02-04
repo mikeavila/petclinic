@@ -23,10 +23,8 @@ if ( !empty($_COOKIE['employeenumber']) ) {
 }
 include 'password.php';
 $mysqli = new mysqli('localhost', $user, $password, '');
-
 $sql = "SELECT `status` FROM `petclinicsys`.`logonallowed`";
 $status = 'unknown: failed to retrieve data.';
-
 if ( $result = $mysqli->query($sql) ) {
 	if ( 1 == $result->num_rows ) {
 		$row = $result->fetch_row();
@@ -60,6 +58,7 @@ echo '<br><br><input type="submit" value="Return to the Main Menu">';
 echo '</form>';
 echo '</div><br>';
 $errormsg = '';
+$errormsg = get_errormsg();
 if ( !empty($_COOKIE['errormessage']) ) {
 	$errormsg = $_COOKIE['errormessage'];
 }

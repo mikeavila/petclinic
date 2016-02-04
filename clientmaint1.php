@@ -116,6 +116,7 @@ if (strlen($ctelephone) == 12) {
 }
 
 $mysqli->close();
-setcookie("errormessage", "Client Added", $expire10hr); 
+//setcookie("errormessage", "Client Added", $expire10hr); 
+put_errormsg("Client Added");
 redirect("clientmaint.php");
 ?>

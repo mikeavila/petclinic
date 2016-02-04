@@ -171,7 +171,9 @@ $emplnumber = $_COOKIE['employeenumber'];
 $display = "Emplmaint:".$emplnumber;
 require_once "includes/expire.inc";
 $editempnum = $_COOKIE["editempnum"];
-$errormsg=$_COOKIE["errormessage"];
+//$errormsg=$_COOKIE["errormessage"];
+$errormsg = get_errormsg();
+delete_errormsg();
 if ($editempnum == " ")
 {
 	echo "<center><form action=\"setupemaint.php\" method=\"get\">";
@@ -197,17 +199,20 @@ if ($editempnum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Invalid Employee number", $expire1hr);
+		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
+          put_errormsg("Invalid Employee number");
           redirect("emplmaint.php");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Invalid Employee number", $expire1hr); 
+		//setcookie("errormessage", "Invalid Employee number", $expire1hr); 
+          put_errormsg("Invalid Employee number");
           redirect("emplmaint.php");
 		exit();
 	}
-	setcookie("errormessage", " ", $expire10hr);
+	//setcookie("errormessage", " ", $expire10hr);
+     delete_errormsg();
 	for ($i = 0; $i < $row_cnt; $i++) {
 		$row = $result->fetch_row();
 		$editempnum=$row[0];
@@ -462,7 +467,9 @@ if ($editempnum == "new")
 <tr><td colspan="6" align="center"><input type="submit" value="Create/Update Employee"></td></tr></table></center></form>
 <form action="maintmenu.php" method="post"><center><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form>
 <?php
-$errormsg = $_COOKIE['errormessage'];
+//$errormsg = $_COOKIE['errormessage'];
+$errormsg = get_errormsg();
+delete_errormsg();
 if ($errormsg <> " ")
 {
 	echo "<div id='errormsg'> $errormsg </div>";

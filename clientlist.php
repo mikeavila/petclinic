@@ -74,19 +74,21 @@ require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
-	setcookie("errormessage", "There are no Clients (false)", $expire10hr); 
+	//setcookie("errormessage", "There are no Clients (false)", $expire10hr); 
+     put_errormsg("There are no Clients (false)");
 	header ("Location:listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	setcookie("errormessage", "There are no Clients (count)", $expire10hr); 
+	//setcookie("errormessage", "There are no Clients (count)", $expire10hr);
+     put_errormsg("There are no Clients (count)");
      redirect("listings.php");
 	exit();
 }
 if ($sk21 == "Y") {
 	echo "Clicking on the Client Number will take you to a display to edit that Client.<hr>"; }
-setcookie("errormessage", " ", $expire10hr); 
+delete_errormsg();
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();
 	$address = mc_decrypt($row[3], ENCRYPTION_KEY);

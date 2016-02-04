@@ -28,55 +28,46 @@ if($value == "00") {
 $errormsg="";
 $emplnumber = $_COOKIE['employeenumber'];
 $ecc = $_COOKIE["ecc"];
+delete_errormsg();
 switch ($value)
 {
 	case "01":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("appt.php");
 		exit();
 		break;
 	case "02":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("visits.php");          
 		exit();
 		break;
 	case "03":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "04":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("listings.php");
 		exit();
 		break;
 	case "05":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("maintmenu.php");
 		exit();
 		break;
 	case "06":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "07":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "08":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "09":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "10":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("corpmenu.php");
 		exit();
 		break;
@@ -93,7 +84,8 @@ switch ($value)
           redirect("mainoptions.php");
 		exit();
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr);
+		//setcookie("errormessage", "You must make a selection", $expire10hr);
+          put_errormsg("You must make a selection");
           redirect("mainmenu.php");          
 		exit();
 		break;

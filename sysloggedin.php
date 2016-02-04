@@ -17,7 +17,8 @@ require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$errormsg = $_COOKIE['errormessage'];
+//$errormsg = $_COOKIE['errormessage'];
+$errormsg = get_errormsg();
 echo "<br><br><center>This page will automatically refresh every 30 seconds</center>";
 require_once "password.php";
 $mysqli = new mysqli('localhost', $user, $password, '');
@@ -25,7 +26,8 @@ $sql = "SELECT * FROM `petclinicsys`.`usersol`;";
 $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	setcookie("errormessage", "There are no Users Logged In", $expire10hr);
+	//setcookie("errormessage", "There are no Users Logged In", $expire10hr);
+     put_errormsg("There are no Users Logged In");
      redirect("sysadmin.php");     
 	exit();
 }

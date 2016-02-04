@@ -43,6 +43,7 @@ if ($mysqli->query($sql) === TRUE) {
 	exit(1);
 }
 $mysqli->close();
-setcookie("errormessage", " ", $expire10hr);
+delete_errormsg();
+//setcookie("errormessage", " ", $expire10hr);
 redirect("seckeys.php"); 
 ?>

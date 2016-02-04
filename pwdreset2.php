@@ -20,7 +20,7 @@ $pass=$_COOKIE["P"];
 if (isset($_GET["pass"]))
 	$pass = $_GET["pass"];
 require_once "includes/expire.inc";
-inclurequire_oncede "key.php";
+require_once "key.php";
 require_once "includes/de.inc";
 if($pass == 2)
 {
@@ -44,11 +44,13 @@ if ($pass == 3)
 	$answer = $_POST["answer"];
 	if ($answer <> $hashanswer)
 	{
-		setcookie("errormessage", "Your answer is not correct", $expire1hr);
+		//setcookie("errormessage", "Your answer is not correct", $expire1hr);
+          put_errormsg("Your answer is not correct");
           redirect("pwdreset.php");
 		exit();
 	}
 }
-setcookie("errormessage", " ", $expire10hr);
+//setcookie("errormessage", " ", $expire10hr);
+delete_errormsg();
 redirect("newpassword.php");
 ?>?

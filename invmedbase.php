@@ -117,7 +117,9 @@ you must enter ALL of the information.</center>
 
 </table><br><br><br><br><font size="+2" color="red">
 <?php
-$errormsg = $_COOKIE["errormessage"];
+$errormsg = get_errormsg();
+delete_errormsg();
+//$errormsg = $_COOKIE["errormessage"];
 echo $errormsg;
 ?>
 </font><br><br>
