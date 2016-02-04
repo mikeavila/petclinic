@@ -14,6 +14,5 @@ if (isset($_COOKIE["ecc"])) {
 } else {
      $tempecc = date('zHis');
      $ecc = $tempecc; 
-     $_COOKIE["ecc"] = $ecc;
-     header(); }
+     $_COOKIE["ecc"] = $ecc; }
 ?>

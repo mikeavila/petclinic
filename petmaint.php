@@ -18,8 +18,12 @@ $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
-$editpetnum = $_COOKIE["editpetnum"];
-if ($editpetnum == " ")
+if(isset($_COOKIE["editpetnum"])) {
+     $editpetnum = $_COOKIE["editpetnum"];
+} else {
+     $editpetnum = "";
+}
+if ($editpetnum == "")
 {
 	echo "<center><form action=\"setuppmaint.php\" method=\"get\">";
 	echo "<table width = \"25%\" border = \"0\">";

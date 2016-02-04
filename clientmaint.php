@@ -137,8 +137,9 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = '';
-$editclientnum = '';
-$errormsg = '';
+$editclientnum = 'new';
+$errormsg = get_errormsg();
+delete_errormsg();
 if ( array_key_exists('employeenumber', $_COOKIE)) {
     $emplnumber = $_COOKIE['employeenumber'];
 }
@@ -147,7 +148,12 @@ if ( array_key_exists('editclientnum', $_COOKIE)) {
 }
 $display = "Clientmaint:".$emplnumber;
 require_once "includes/expire.inc";
-if ( empty($editclientnum) )
+if(isset($_GET["e"])) {
+     $errorcode = $_GET["e"];
+} else {
+     $errorcode = "n";
+}
+if (($editclientnum == 'new') OR $errorcode == "y")
 {
 	echo '<form action="setupcmaint.php" method="get">' .
 	     '<table width="25%">' .
@@ -157,7 +163,9 @@ if ( empty($editclientnum) )
 	     '</form><form action="setupcmaint.php" method="get">' .
 	     '<input type="hidden" name="editclientnum" value="new">' .
 	     '<table width="25%"><tr><td><input type="submit" value="Create New Client"></td></tr>' .
-	     '</table></form>';
+	     '</table></form>'.
+          '<div id="errormsg">' . $errormsg . '</div>';
+     delete_errormsg();
 	require_once 'includes/footer.inc';
 	exit();
 }
@@ -174,16 +182,17 @@ if ($editclientnum <> "new")
 	{
 		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
           put_errormsg("Invalid Client Number");
-          redirect("clientmaint.php");
+          redirect("clientmaint.php?e=y");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
 		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
           put_errormsg("Invalid Client Number");
+          redirect("clientmaint.php?e=y");
 		exit();
 	}
-	setcookie("errormessage", " ", $expire10hr); 
+	delete_errormsg(); 
 	for ($i = 0; $i < $row_cnt; $i++) {
 		$row = $result->fetch_row();
 		$editclientnum=$row[0];

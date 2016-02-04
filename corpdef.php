@@ -18,6 +18,7 @@ $headerTitle="USER LOG";
 require_once "includes/common.inc";
 require_once "includes/expire.inc";
 require_once "password.php";
+$mysqli = new mysqli('localhost', $user, $password, '');
 $sql="SELECT * FROM `petcliniccorp`.`preferences` WHERE `sequence` = 3";
 $result = $mysqli->query($sql);
 if ($result == FALSE)

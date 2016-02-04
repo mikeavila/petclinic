@@ -45,7 +45,7 @@ if (!empty($_POST["password"]))
      redirect("index1.php");     
 	exit();
 }
-require_once "password.php";
+include "password.php";
 $mysqli = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petclinicsys`.`logonallowed`;";
 if ($mysqli->query($sql) == TRUE) {
@@ -132,6 +132,7 @@ $os = $_COOKIE["OS"];
 $log->logThis($logdatetimeecc."    empnum: ".$emplnumber."; user: ".$uuserid."; @ ".$datetime."; OS: ".$os);
 date_default_timezone_set('America/Detroit');
 $datetime = date('Ymd H:i:s');
+delete_errormsg();
 $sql = "INSERT INTO `petclinicsys`.`usersol` (`user`, `datetime`, `os`) VALUES ('$uuserid', '$datetime', '$os');";
 if ($mysqli->query($sql) == TRUE) {
 

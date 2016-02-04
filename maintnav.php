@@ -26,12 +26,10 @@ delete_errormsg();
 switch ($value)
 {
 	case "11":
-		setcookie("editclientnum", " ", $expire2hr);
           redirect("clientmaint.php");
 		exit();
 		break;
 	case "12":
-		setcookie("editpetnum", " ", $expire2hr);
           redirect("petmaint.php");
 		exit();
 		break;

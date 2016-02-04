@@ -11,6 +11,9 @@
 *****************************************************************/
 session_start();
 $background = "3";
+if ( !empty($_COOKIE['employeenumber']) ) {
+	$emplnumber = $_COOKIE['employeenumber'];
+}
 $display ="sysadmin: " . $emplnumber;
 include 'includes/header1.inc';
 include 'includes/header2.inc';
@@ -66,5 +69,5 @@ if ( !empty($_COOKIE['errormessage']) ) {
 if ( !empty($errormsg) ) {
 	echo '<div id="errormsg">' . $errormsg . '</div>';
 }
-include 'footer.php';
+include 'includes/footer.inc';
 ?>

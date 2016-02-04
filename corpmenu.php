@@ -10,6 +10,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+$emplnumber = $_COOKIE['employeenumber'];
 $display ="CorpInfo:".$emplnumber;
 $background = "1";
 require_once "includes/header1.inc";
@@ -51,7 +52,7 @@ echo "\">";
 echo "</form><form action=\"mainmenu.php\" method=\"post\">";
 echo "<center><input type=\"submit\" value=\"Return to Main Menu\"></center></form>";
 echo "</table><center><font size=\"+2\" color=\"red\">";
-$errormsg = get_errormsg():
+$errormsg = get_errormsg();
 delete_errormsg();
 echo $errormsg;
 echo "</font></center>";
