@@ -18,11 +18,11 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 
-if (empty($_COOKIE['errormessaqe'])) {
-    $errormsg = $_COOKIE['errormessage'];
-} else {
-	$errormsg = "";
-}
+// if (empty($_COOKIE['errormessaqe'])) {
+    // $errormsg = $_COOKIE['errormessage'];
+// } else {
+	// $errormsg = "";
+// }
 ?>
 <form action="newpassword1.php" method="post"><center><table border="0" width="33%"><tr><td>This display is being shown to you because:</td></tr>
 <tr><td>Someone else created your password.</td></tr>
@@ -33,6 +33,7 @@ if (empty($_COOKIE['errormessaqe'])) {
 <tr><td><input type="submit" value="Submit Change"></td></tr>
 <tr><td><font size="+2" color="red">
 <?php
+$errormsg = get_errormsg();
 echo $errormsg;
 ?>
 </font></td></tr></table></center></form>

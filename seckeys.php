@@ -67,7 +67,8 @@ if (!empty($_POST["errormessage"]))
 {
 	$errormsg = "";
 } else {
-	$errormsg = $_COOKIE['errormessage'];
+     $errormsg = get_errormsg();
+	//$errormsg = $_COOKIE['errormessage'];
 }
 
 $mysqli = new mysqli('localhost', $user, $password, '');

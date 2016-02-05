@@ -86,12 +86,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["myFile"])) {
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Pet Picture Update failed; ".$mysqli->error, $expire1hr); 
-		header ("Location:mainmenu.php");
+		//setcookie("errormessage", "Pet Picture Update failed; ".$mysqli->error, $expire1hr);
+          put_errormsg("Pet Picture Upload Failed");          
+		//header ("Location:mainmenu.php");
+          redirect("mainmenu.php");
 		exit();
 	}
 	$mysqli->close();
-	setcookie("errormessage", "Uploaded file saved as ".$petid, $expire1hr);
+     put_errormsg("Uploaded file saved as ".$petid);
+	//setcookie("errormessage", "Uploaded file saved as ".$petid, $expire1hr);
      redirect("maintmenu.php");
 }
 ?>

@@ -17,11 +17,11 @@ require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-if (empty($_COOKIE['errormessaqe'])) {
+/* if (empty($_COOKIE['errormessaqe'])) {
     $errormsg = $_COOKIE['errormessage'];
 } else {
 	$errormsg = "";
-}
+} */
 if (isset($_POST["pass"]))
 {
 	$pass = $_POST["pass"];
@@ -39,6 +39,7 @@ if ($pass == "")
 	echo "<tr><td colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"Continue\"></td></tr>";
 	echo "</table></form>";
 	echo "<center><font size=\"+2\" color=\"red\">";
+     $errormsg = get_errormsg();
 	echo $errormsg;
 	echo "</center>";
 }

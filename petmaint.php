@@ -18,9 +18,12 @@ $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
-$editpetnum = $_COOKIE["editpetnum"];
-$errormsg=$_COOKIE["errormessage"];
-if ($editpetnum == " ")
+if(isset($_COOKIE["editpetnum"])) {
+     $editpetnum = $_COOKIE["editpetnum"];
+} else {
+     $editpetnum = "";
+}
+if ($editpetnum == "")
 {
 	echo "<center><form action=\"setuppmaint.php\" method=\"get\">";
 	echo "<table width = \"25%\" border = \"0\">";
@@ -46,7 +49,6 @@ if ($editpetnum == "new1") {
 }
 if ($editpetnum == "new2") {
      redirect("petmaint1new1.php");
-	header("location:petmaint1new1.php");
 	exit();
 }
 if (empty($_POST["errormessage"])) {
@@ -54,21 +56,25 @@ if (empty($_POST["errormessage"])) {
 	$mysqli = new mysqli('localhost', $user, $password, '');
 	$sql = "SELECT * FROM `petclinic`.`pet` WHERE `petnumber` = ".$editpetnum.";";
 	if ($mysqli->query($sql) === FALSE) {
-		echo "Error selecting Pet Information" . $mysqli->error;
+		//echo "Error selecting Pet Information" . $mysqli->error;
+          put_errormsg("Error selecting Pet Information" . $mysqli->error);
 		exit(1);
 	}
 	if ($mysqli->query($sql) === FALSE) {
-		echo "Invalid Pet Number" . $mysqli->error;
+		//echo "Invalid Pet Number" . $mysqli->error;
+          put_errormsg("Invalid Pet Number" . $mysqli->error);
 		exit(1);
 	}
 	$result = $mysqli->query($sql);
 	if ($mysqli->query($sql) === FALSE) {
-		echo "Error selecting Pet Information".$mysqli->error;
+		//echo "Error selecting Pet Information".$mysqli->error;
+          put_errormsg("Error selecting Pet Information".$mysqli->error);
 		exit(1);
 	}
 	$row = $result->fetch_row();
 	if ($row == 0) {
-		echo "Error selecting Pet Information".$mysqli->error;
+		//echo "Error selecting Pet Information".$mysqli->error;
+          put_errormsg("Error selecting Pet Information".$mysqli->error);
 		exit(1);
 	}
 	$petnumber = $row[0];

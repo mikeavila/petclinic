@@ -63,6 +63,7 @@ if ($editvendornum <> "new")
 	}
 }
 $mysqli->close();
-setcookie("errormessage", "Vendor Added", $expire10hr); 
+put_errormsg("Vendor Added");
+//setcookie("errormessage", "Vendor Added", $expire10hr); 
 redirect("vendors.php"); 
 ?>

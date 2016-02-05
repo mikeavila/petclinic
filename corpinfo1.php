@@ -58,10 +58,11 @@ $sql = $sql."changeid=$emplnumber;";
 if ($mysqlic->query($sql) === TRUE) {
 
 } else {
-    echo "Company update failed" . $mysqlic->error;
+     //echo "Company update failed" . $mysqlic->error;
+     put_errormsg("Company update failed" . $mysqlic->error);
 	exit(1);
 }
 $mysqlic->close();
-setcookie("errormessage", " ", $expire10hr);
+delete_errormsg();
 redirect("corpinfo.php");
 ?>

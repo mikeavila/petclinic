@@ -38,6 +38,7 @@ fwrite($fh, "m ".$mucous."\n");
 fwrite($fh, "h ".$hydration."\n");
 fwrite($fh, "s ".$subjective);
 fclose($fh);
-setcookie("errormessage", "The Screening file has been created (".$filename.")", $expire1hr);
+put_errormsg("The Screening file has been created (".$filename.")";
+//setcookie("errormessage", "The Screening file has been created (".$filename.")", $expire1hr);
 redirect("visits.php"); 
 ?>

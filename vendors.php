@@ -156,13 +156,15 @@ if ($editvendornum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
+		//setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
+          put_errormsg("Invalid Vendor Number");
           redirect("vendors.php");          
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
+		//setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
+          put_errormsg("Invalid Vendor Number");
           redirect("vendors.php");           
 		exit();
 	}
@@ -293,13 +295,15 @@ $sqlstate = "SELECT * FROM `petclinic`.`code_state`";
 $resultstate = $mysqli->query($sqlstate);
 if ($resultstate == FALSE)
 {
-	setcookie("errormessage", "Acquiring States Error", $expire1hr);
+	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
+     put_errormsg("Acquiring States Error");
      redirect("vendors.php");      
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
-	setcookie("errormessage", "Acquiring States Error", $expire1hr); 
+	//setcookie("errormessage", "Acquiring States Error", $expire1hr); 
+     put_errormsg("Acquiring States Error");
      redirect("vendors.php"); 
 	exit();
 }
@@ -364,7 +368,8 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
 <tr><td colspan="6" align="center"><input type="submit" value="Create/Update Vendor"></td></tr></table></form>
 <form action="maintmenu.php" method="post"><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></form>
 <?php
-$errormsg = $_COOKIE['errormessage'];
+//$errormsg = $_COOKIE['errormessage'];
+$errormsg = get_errormsg();
 if ($errormsg <> " ")
 {
 	echo "<div id='errormsg'> $errormsg </div>";

@@ -137,20 +137,23 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = '';
-$editclientnum = '';
-$errormsg = '';
+$editclientnum = 'new';
+$errormsg = get_errormsg();
+delete_errormsg();
 if ( array_key_exists('employeenumber', $_COOKIE)) {
     $emplnumber = $_COOKIE['employeenumber'];
 }
 if ( array_key_exists('editclientnum', $_COOKIE)) {
     $editclientnum = $_COOKIE['editclientnum'];
 }
-if ( array_key_exists('errormessage', $_COOKIE)) {
-    $errormsg = $_COOKIE['errormessage'];
-}
 $display = "Clientmaint:".$emplnumber;
 require_once "includes/expire.inc";
-if ( empty($editclientnum) )
+if(isset($_GET["e"])) {
+     $errorcode = $_GET["e"];
+} else {
+     $errorcode = "n";
+}
+if (($editclientnum == 'new') OR $errorcode == "y")
 {
 	echo '<form action="setupcmaint.php" method="get">' .
 	     '<table width="25%">' .
@@ -160,7 +163,9 @@ if ( empty($editclientnum) )
 	     '</form><form action="setupcmaint.php" method="get">' .
 	     '<input type="hidden" name="editclientnum" value="new">' .
 	     '<table width="25%"><tr><td><input type="submit" value="Create New Client"></td></tr>' .
-	     '</table></form>';
+	     '</table></form>'.
+          '<div id="errormsg">' . $errormsg . '</div>';
+     delete_errormsg();
 	require_once 'includes/footer.inc';
 	exit();
 }
@@ -175,16 +180,19 @@ if ($editclientnum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Invalid Client Number", $expire1hr); 
-          redirect("clientmaint.php");
+		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
+          put_errormsg("Invalid Client Number");
+          redirect("clientmaint.php?e=y");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Invalid Client Number", $expire1hr); 
+		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
+          put_errormsg("Invalid Client Number");
+          redirect("clientmaint.php?e=y");
 		exit();
 	}
-	setcookie("errormessage", " ", $expire10hr); 
+	delete_errormsg(); 
 	for ($i = 0; $i < $row_cnt; $i++) {
 		$row = $result->fetch_row();
 		$editclientnum=$row[0];
@@ -337,13 +345,15 @@ $sqlstate = "SELECT * FROM `petclinic`.`code_state`";
 $resultstate = $mysqli->query($sqlstate);
 if ($resultstate == FALSE)
 {
-	setcookie("errormessage", "Acquiring States Error", $expire1hr); 
+	//setcookie("errormessage", "Acquiring States Error", $expire1hr); 
+     put_errormsg("Acquiring States Error");
      redirect("clientmaint.php");
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
-	setcookie("errormessage", "Acquiring States Error", $expire1hr); 
+	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
+     put_errormsg("Acquiring States Error");     
      redirect("clientmaint.php");
 	exit();
 }
@@ -431,14 +441,12 @@ while ( $rowstate = $resultstate->fetch_row() ) {
    </div>
 </form>
 <?php
-$errormsg = '';
-if ( array_key_exists('errormessage', $_COOKIE) ) {
-	$errormsg = $_COOKIE['errormessage'];
-}
+$errormsg = get_errormsg();
 if ( !empty($errormsg) )
 {
 	echo '<div id="errormsg">' . $errormsg . '</div>';
 }
+delete_errormsg();
 $mysqli->close();
 require_once 'includes/helpline.inc';
 help('clientmaint.php');

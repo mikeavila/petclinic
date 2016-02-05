@@ -12,7 +12,7 @@
 session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
-requitre_once "includes/common.inc";
+require_once "includes/common.inc";
 require_once "includes/expire.inc";
 $value = "00";
 if(!empty($_POST['menu']))
@@ -20,7 +20,8 @@ if(!empty($_POST['menu']))
 	foreach($_POST['menu'] as $sKey => $sValue);
 	$value = $sValue;
 }
-setcookie("errormessage", " ", $expire10hr); 
+delete_errormsg();
+//setcookie("errormessage", " ", $expire10hr); 
 $emplnumber = $_COOKIE['employeenumber'];
 switch ($value)
 {
@@ -61,7 +62,8 @@ switch ($value)
 		exit();
 		break;
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr);
+		//setcookie("errormessage", "You must make a selection", $expire10hr);
+          put_errormsg("You must make a selection");
           redirect("listings.php");
 		exit();
 		break;

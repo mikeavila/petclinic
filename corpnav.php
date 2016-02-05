@@ -20,7 +20,8 @@ if(!empty($_POST['menu']))
 	foreach($_POST['menu'] as $sKey => $sValue);
 	$value = $sValue;
 }
-setcookie("errormessage", " ", $expire10hr); 
+//setcookie("errormessage", " ", $expire10hr); 
+delete_errormsg();
 $emplnumber = $_COOKIE['employeenumber'];
 switch ($value)
 {
@@ -37,7 +38,8 @@ switch ($value)
 		exit();
 		break;
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr); 
+		//setcookie("errormessage", "You must make a selection", $expire10hr); 
+          put_errrormsg("You must make a selection");
           redirect("corpmenu.php");
 		exit();
 		break;

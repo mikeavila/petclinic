@@ -10,6 +10,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+$emplnumber = $_COOKIE['employeenumber'];
 $display ="CorpInfo:".$emplnumber;
 $background = "1";
 require_once "includes/header1.inc";
@@ -18,12 +19,12 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-if (!empty($_POST["errormessage"]))
-{
-	$errormsg = "";
-} else {
-	$errormsg = $_COOKIE['errormessage'];
-}
+// if (!empty($_POST["errormessage"]))
+// {
+	// $errormsg = "";
+// } else {
+	// $errormsg = $_COOKIE['errormessage'];
+// }
 
 $mysqlic = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
@@ -51,6 +52,8 @@ echo "\">";
 echo "</form><form action=\"mainmenu.php\" method=\"post\">";
 echo "<center><input type=\"submit\" value=\"Return to Main Menu\"></center></form>";
 echo "</table><center><font size=\"+2\" color=\"red\">";
+$errormsg = get_errormsg();
+delete_errormsg();
 echo $errormsg;
 echo "</font></center>";
 require_once "includes/footer.inc";

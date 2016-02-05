@@ -10,7 +10,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
-require_once "includes/common.inc");
+require_once ("includes/common.inc");
 $editpetnum = $_GET["editpetnum"];
 require_once "includes/expire.inc";
 setcookie("editpetnum", $editpetnum, $expire1hr);

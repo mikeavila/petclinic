@@ -51,13 +51,15 @@ if ($proccode <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		setcookie("errormessage", "Invalid Procedure Code", $expire1hr);
+		//setcookie("errormessage", "Invalid Procedure Code", $expire1hr);
+          put_errormsg("Invalid Procedure Code");
           redirect("procmaint.php");          
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		setcookie("errormessage", "Invalid Procedure Code", $expire1hr);
+		//setcookie("errormessage", "Invalid Procedure Code", $expire1hr);
+          put_errormsg("Invalid Procedure Code");
           redirect("procmaint.php");          
 		exit();
 	}
@@ -98,13 +100,15 @@ if ($proccode == "new")
 
 <form action="maintmenu.php" method="post"><center><input type="submit" value="Return to Maintenance Menu"></center></form>";
 <?php
-$errormsg = $_COOKIE['errormessage'];
+//$errormsg = $_COOKIE['errormessage'];
+$errormsg = get_errormsg();
 if ($errormsg <> " ")
 {
 	echo "<center><font size=\"+2\" color=\"red\">";
 	echo $errormsg;
 	echo "</font></center>";
 }
+delete_erormsg();
 $mysqli->close();
 require_once "includes/helpline.inc";
 help("procmaint.php");

@@ -23,6 +23,7 @@ if (isset($_COOKIE['employeenumber'])) {
     $emplnumber = $_COOKIE['employeenumber'];
 }
 $errormessage = get_errormsg();
+delete_errormsg();
 ?>
 <form action="login.php" method="post">
 	<div id="loginPage" class="center">
@@ -49,7 +50,7 @@ $errormessage = get_errormsg();
     <div class="center"><input type="submit" value="Login"></div>
 </form>
 <?php
-require_once "includes/display_errormsg_c.inc";
+require_once "includes/display_errormsg.inc";
 ?>
 <div class="center">
    If you do not know your password but you know your Employee Number, your User ID, and have a Password reset question, <a href="pwdreset.php">click here</a>.

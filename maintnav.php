@@ -22,70 +22,59 @@ if(!empty($_POST['menu']))
 }
 $errormsg='';
 $emplnumber = $_COOKIE['employeenumber'];
+delete_errormsg();
 switch ($value)
 {
 	case "11":
-		setcookie("errormessage", " ", $expire10hr);
-		setcookie("editclientnum", " ", $expire2hr);
           redirect("clientmaint.php");
 		exit();
 		break;
 	case "12":
-		setcookie("errormessage", " ", $expire10hr);
-		setcookie("editpetnum", " ", $expire2hr);
           redirect("petmaint.php");
 		exit();
 		break;
 	case "13":
-		setcookie("errormessage", " ", $expire10hr); 
           redirect("procmaint.php");
 		exit();
 		break;
 	case "14":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "15":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("invmedmenu.php");
 		exit();
 		break;
 	case "16":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "17":
-		setcookie("errormessage", " ", $expire10hr);
 		setcookie("editempnum", " ", $expire2hr);
           redirect("emplmaint.php");
 		exit();
 		break;
 	case "18":
-		setcookie("errormessage", " ", $expire10hr);
           redirect("notavail.php");
 		exit();
 		break;
 	case "19":
-		setcookie("errormessage", " ", $expire10hr);
 		$editempnum = $_COOKIE['employeenumber'];
 		setcookie("editempnum", $editempnum, $expire1hr);
           redirect("emplmaint.php");
 		exit();
 		break;
      case "3":
-          setcookie("errormessage", " ", $expire10hr);
           redirect("doctors.php");
 		exit();
           break;
      case "20":
-          setcookie("errormessage", " ", $expire10hr);
           redirect("vendors.php");
 		exit();
           break; 
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr);
+		//setcookie("errormessage", "You must make a selection", $expire10hr);
+          put_errormsg("You must make a selection");
           redirect("maintmenu.php");
 		exit();
 		break;

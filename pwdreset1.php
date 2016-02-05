@@ -29,26 +29,30 @@ $sql = "SELECT uuserid, pwdhint, hintans FROM employee WHERE `petcliniccorp`.`em
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	setcookie("errormessage", "Invalid Employee number", $expire1hr);
+	//setcookie("errormessage", "Invalid Employee number", $expire1hr);
+     put_errormsg("Invalid Employee number");
      redirect("pwdreset.php");     
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	setcookie("errormessage", "Invalid Employee number", $expire1hr);
+	//setcookie("errormessage", "Invalid Employee number", $expire1hr);
+     put_errormsg("Invalid Employee number");
      redirect("pwdreset.php");
 	exit();
 }
 $row = $result->fetch_row();
 if ($row[0] <> $userid)
 {
-	setcookie("errormessage", "Invalid information", $expire1hr); 
+     put_errormsg("Invalid information");
+	//setcookie("errormessage", "Invalid information", $expire1hr); 
      redirect("pwdreset.php");
 	exit();
 }
 if (strlen($row[1]) == 0)
 {
-	setcookie("errormessage", "You do not have a Password Reset Question", $expire1hr);
+	//setcookie("errormessage", "You do not have a Password Reset Question", $expire1hr);
+     put_errormsg("You do not have a Password Reset Question");
      redirect("pwdreset.php");
 	exit();
 }
@@ -56,7 +60,8 @@ if (strlen($row[1]) == 0)
 setcookie("Q", $row[1], $expire1hr);
 setcookie("A", $row[2], $expire1hr);
 setcookie("P", "2", $expire1hr);
-setcookie("errormessage", " ", $expire10hr);
+//setcookie("errormessage", " ", $expire10hr);
+delete_errormsg();
 $mysqli->close();
 redirect("pwdreset2.php");
 ?>

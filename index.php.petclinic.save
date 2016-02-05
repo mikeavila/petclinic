@@ -23,7 +23,7 @@ require_once "includes/os.inc";
 $user_os = getOS();
 require_once "includes/expire.inc";
 setcookie("employeenumber", " ", $expire10hr);
-setcookie("errormessage", " ", $expire10hr);
+delete_errormsg();
 setcookie("OS", $user_os, $expire10hr);
 redirect("index1.php");
 ?>

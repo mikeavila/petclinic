@@ -10,24 +10,29 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
-$background = "1";
+$display = "CriticalError:";
+$background = "0";
 require_once "includes/header1.inc";
 require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-//$errormsg = $_COOKIE['errormessage'];
+$errorcode = "0";
+$module = "";
+$errormsg = "";
+$errorcode = $_GET["ec"];
+$module = $_GET["m"];
 $errormsg = get_errormsg();
-echo "<form method=\"post\" action=\"visitsnav.php\">";
-echo "<center>";
-echo "<table border=\"0\" width=\"25%\">";
-echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"01\">Create New Visit</td></tr>";
-echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"02\">View Previous Visits</td></tr>";
-echo "<tr><td><input type=\"submit\" value=\"Submit Request\"></td></tr></table></form>";
-echo "<br><br><center><form method=\"post\" action=\"mainmenu.php\"><input type=\"submit\" value=\"Return to Main Menu\"></form></center>";
-echo "<br><br><center><font size=\"+2\" color=\"red\">";
-echo $errormsg;
-echo "</font></center>";
-$display = "visits";
-require_once "includes/footer.inc";
+delete_errormsg();
 ?>
+<h2>Critical Error</h2>
+<br><br>
+Please make note or print out this error and report it so it can be fixed. For how to report problems <a href="support.php">click here</a>.
+<br><br><center>
+A citical error occured. The information is as follows:
+<p>Module: <?php echo $module ?>
+<p>Error Code: <?php echo $errorcode ?>
+<br><br>
+<?php echo $errormsg ?>
+<br><br>
+<form medthod="post" action="mainmenu.php"><input type="submit" value="Return to the Main menu"></form></center></body></html>

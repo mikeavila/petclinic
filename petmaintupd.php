@@ -128,61 +128,74 @@ if (!empty($_POST["client2"]))
 	$client2 = "";
 }
 if ($petname == "") {
-	setcookie("errormessage", "Pet Name cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Name cannot be blank", $expire1hr);
+     put_errormsg("Pet Name cannot be blank");
      redirect("petmaint.php"); 
 	exit();
 }
 if ($dobm == "") {
-	setcookie("errormessage", "Pet Date of Birg Month cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Date of Birg Month cannot be blank", $expire1hr);
+     put_errormsg("Pet Date of Birg Month cannot be blank");
+     redirect("petmaint.php");
 	exit();
 }
 if ($dobd == "") {
-	setcookie("errormessage", "Pet Date of Birth Date cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Date of Birth Date cannot be blank", $expire1hr);
+     put_errormsg("Pet Date of Birth Date cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($doby == "") {
-	setcookie("errormessage", "Pet Date of Birth Year cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Date of Birth Year cannot be blank", $expire1hr);
+     put_errormsg("Pet Date of Birth Year cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($petspecies == "") {
-	setcookie("errormessage", "Pet Species cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Species cannot be blank", $expire1hr);
+     put_errormsg("Pet Species cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($petbreed == "") {
-	setcookie("errormessage", "Pet Breed must be selected", $expire1hr);
+	//setcookie("errormessage", "Pet Breed must be selected", $expire1hr);
+     put_errormsg("Pet Breed must be selected");
      redirect("petmaint.php");
 	exit();
 }
 if ($petgender == "") {
-	setcookie("errormessage", "Pet Gender must be selected", $expire1hr);
+	//setcookie("errormessage", "Pet Gender must be selected", $expire1hr);
+     put_errormsg("Pet Gender must be selected");
      redirect("petmaint.php");
 	exit();
 }
 if ($petfixed == "") {
-	setcookie("errormessage", "Pet Fixed must be selected", $expire1hr);
+	//setcookie("errormessage", "Pet Fixed must be selected", $expire1hr);
+     put_errormsg("Pet Fixed must be selected");
      redirect("petmaint.php");
 	exit();
 }
 if ($petcolor == "") {
-	setcookie("errormessage", "Pet Color cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Color cannot be blank", $expire1hr);
+     put_errormsg("Pet Color cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($petdesc == "") {
-	setcookie("errormessage", "Pet Description cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Description cannot be blank", $expire1hr);
+     put_errormsg("Pet Description cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($picture == "") {
-	setcookie("errormessage", "Pet Picture cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Picture cannot be blank", $expire1hr);
+     put_errormsg("Pet Picture cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
 if ($status == "") {
-	setcookie("errormessage", "Pet Status cannot be blank", $expire1hr);
+	//setcookie("errormessage", "Pet Status cannot be blank", $expire1hr);
+     put_errormsg("Pet Status cannot be blank");
      redirect("petmaint.php");
 	exit();
 }
@@ -199,7 +212,8 @@ $sql = $sql." WHERE `petnumber` = \"".$editpetnum."\";";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	setcookie("errormessage", "Pet Update failed; ".$mysqli->error, $expire1hr);
+	//setcookie("errormessage", "Pet Update failed; ".$mysqli->error, $expire1hr);
+     put_errormsg("Pet Update failed; ".$mysqli->error);
      redirect("mainmenu.php");     
 	exit();
 }
@@ -213,7 +227,8 @@ if ($client1 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+		//setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+          put_errormsg("ClientPat Insert client1 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
 		}
@@ -224,7 +239,8 @@ if ($client1 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+		//setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+          put_errormsg("ClientPat Insert client1 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
 		}
@@ -239,7 +255,8 @@ if ($client2 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		setcookie("errormessage", "ClientPat Insert client2 failed; ".$mysqli->error, $expire1hr);
+		//setcookie("errormessage", "ClientPat Insert client2 failed; ".$mysqli->error, $expire1hr);
+          put_errormsg("ClientPat Insert client2 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
 		}
@@ -250,7 +267,8 @@ if ($client2 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+		//setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
+          put_errormsg("ClientPat Insert client1 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
 		}
@@ -259,11 +277,13 @@ if ($client2 <> "") {
 $mysqli->close();
 $petpic = $_POST["petpic"];
 If ($petpic == "Y") {
-	setcookie("errormessage", " ", $expire1hr);
+	//setcookie("errormessage", " ", $expire1hr);
+     delete_errormsg();
 	setcookie("petid", $petid, $expire1hr);
      redirect("petpicture.php");
 	exit();
 }	
-setcookie("errormessage", " ", $expire1hr);
+//setcookie("errormessage", " ", $expire1hr);
+delete_errormsg();
 redirect("maintmenu.php"); 
 ?>

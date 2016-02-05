@@ -25,17 +25,20 @@ $emplnumber = $_COOKIE['employeenumber'];
 switch ($value)
 {
 	case "01":
-		setcookie("errormessage", " ", $expire10hr);
+		//setcookie("errormessage", " ", $expire10hr);
+          delete_errormsg();
           redirect("visitsnew.php"); 
 		exit();
 		break;
 	case "02":
-		setcookie("errormessage", " ", $expire10hr);
+		//setcookie("errormessage", " ", $expire10hr);
+          delete_errormsg();
           redirect("visitsprev.php");           
 		exit();
 		break;
 	default:
-		setcookie("errormessage", "You must make a selection", $expire10hr);
+		//setcookie("errormessage", "You must make a selection", $expire10hr);
+          put_errormsg("You must make a selection");
           redirect("visits.php");           
 		exit();
 		break;

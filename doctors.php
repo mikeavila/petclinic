@@ -153,6 +153,7 @@ if ($step <> 2)
 	echo "<input type=\"hidden\" name=\"editdocnum\" value=\"new\">";
 	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Doctor\"></td></tr>";
 	echo "</table></form></center>";
+     echo '<form action="maintmenu.php" method="post"><center><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form>';
      $display = "doctor:";
 	require_once "includes/footer.inc";
 	exit();

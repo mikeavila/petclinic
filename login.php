@@ -16,12 +16,14 @@ require_once "includes/common.inc";
 $log->logThis($logdatetimeecc."user logging in");
 include "includes/expire.inc";
 $errormsg = '';
-setcookie( "errormessage", " ", $expire10hr );
+//setcookie( "errormessage", " ", $expire10hr );
+delete_errormsg();
 if (!empty($_POST["emplnumber"]))
 {
 	$emplnumber = $_POST["emplnumber"];
 } else {
-	setcookie( "errormessage", "You must enter your Employee Number", $expire10hr);
+	//setcookie( "errormessage", "You must enter your Employee Number", $expire10hr);
+     put_errormsg("You must enter your Employee Number");
      redirect("index1.php");
 	exit();
 }
@@ -29,7 +31,8 @@ if (!empty($_POST["userid"]))
 {
 	$uuserid = $_POST["userid"];
 } else {
-	setcookie( "errormessage", "You must enter your User ID", $expire10hr );
+	//setcookie( "errormessage", "You must enter your User ID", $expire10hr );
+     put_errormsg("You must enter your User ID");
      redirect("index1.php");     
 	exit();
 }
@@ -37,11 +40,12 @@ if (!empty($_POST["password"]))
 {
 	$userpassword = $_POST["password"];
 } else {
-	setcookie( "errormessage", "You must enter your Password", $expire10hr);
+	//setcookie( "errormessage", "You must enter your Password", $expire10hr);
+     put_errormsg("You must enter your Password");
      redirect("index1.php");     
 	exit();
 }
-require_once "password.php";
+include "password.php";
 $mysqli = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petclinicsys`.`logonallowed`;";
 if ($mysqli->query($sql) == TRUE) {
@@ -54,23 +58,27 @@ $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 $row = $result->fetch_row();
 if ($row[0] == "N") {
-	setcookie( "errormessage", "Logons have been disabled", $expire10hr );
+	//setcookie( "errormessage", "Logons have been disabled", $expire10hr );
+     put_errormsg("Logons have been disabled");
      redirect("index1.php");
 }
 $sql = "SELECT uuserid, upassword, status, changepwd FROM petcliniccorp.employee WHERE emplnumber = ".$emplnumber;
 $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	setcookie( "errormessage", "You have entered an incorrect Employee Number", $expire10hr ); 
+	//setcookie( "errormessage", "You have entered an incorrect Employee Number", $expire10hr );
+     put_errormsg("You have entered an incorrect Employee Number");
      redirect("index1.php");	
 }
 $row = $result->fetch_row();
 if ($row[2] == "I" or $row[2] == "D") {
-	setcookie( "errormessage", "Your Userid is Inactive or Deleted", $expire10hr); 
+	//setcookie( "errormessage", "Your Userid is Inactive or Deleted", $expire10hr);
+     put_errormsg("Your Userid is Inactive or Deleted");
      redirect("index1.php");
 }
 if (strcasecmp($uuserid, $row[0]) <> 0) {
-	$errormsg = "Incorrect information entered";
+	//$errormsg = "Incorrect information entered";
+     put_errormsg("Incorrect information entered");
 	require_once "index1.php";
 	exit();
 }
@@ -78,7 +86,8 @@ require_once "includes/key.inc";
 require_once "includes/de.inc";
 $userpwd = mc_decrypt($row[1], ENCRYPTION_KEY);
 if ($userpwd <> $userpassword) {
-	$errormsg = "Incorrect information entered";
+	//$errormsg = "Incorrect information entered";
+     put_errormsg("Incorrect information entered");
 	require_once "index1.php";
 	exit();
 }
@@ -86,7 +95,8 @@ $ecc = $uuserid.$emplnumber;
 $newpassword=$row[3];
 if ($newpassword == "Y") 
 {
-	setcookie("errormessage", " ", $expire10hr);
+	//setcookie("errormessage", " ", $expire10hr);
+     delete_errormsg();
 	setcookie( "employeenumber", $emplnumber, $expire10hr );
      redirect("newpassword.php");
 	exit();
@@ -122,16 +132,18 @@ $os = $_COOKIE["OS"];
 $log->logThis($logdatetimeecc."    empnum: ".$emplnumber."; user: ".$uuserid."; @ ".$datetime."; OS: ".$os);
 date_default_timezone_set('America/Detroit');
 $datetime = date('Ymd H:i:s');
+delete_errormsg();
 $sql = "INSERT INTO `petclinicsys`.`usersol` (`user`, `datetime`, `os`) VALUES ('$uuserid', '$datetime', '$os');";
 if ($mysqli->query($sql) == TRUE) {
 
 } else {
-    echo "Error inserting into petclinicsys" . $mysqli->error;
+     echo "Error inserting into petclinicsys" . $mysqli->error;
 	exit(1);
 }
 $mysqli->close();
 setcookie( "employeenumber", $emplnumber, $expire10hr);
 setcookie("ecc", $ecc, $expire10hr);
-setcookie( "errormessage", " ", $expire10hr );
+delete_errormsg();
+//setcookie( "errormessage", " ", $expire10hr );
 redirect("mainmenu.php");
 ?>
