@@ -80,7 +80,6 @@ if ($result == FALSE)
                $pref1 = substr($pref1, 0, 3).$value.$value;
                $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\" WHERE `sequence` = 4";
                $result = $mysqli->query($sql);
-          }
      }
 }
 $mysqli->close();

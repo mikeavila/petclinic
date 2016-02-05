@@ -73,7 +73,6 @@ if ($proccode <> "new")
 	$newproccode = $mysqli->insert_id;
      if(isset($_POST["billable"])) {
           $billable = $_POST["billable"];   
-          }
      }
 }
 $mysqli->close();
