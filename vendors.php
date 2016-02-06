@@ -42,6 +42,10 @@ require_once "includes/header1.inc";
                     vendortele: {
                          required: true,
                          phoneUS: true
+                    },
+                    vendorstatus: {
+                         required: true,
+                         pattern: /^(A|I|D)$/
                     }
                },
 			messages: {
@@ -62,6 +66,9 @@ require_once "includes/header1.inc";
                     },
                     vendortele: {
                          required: "Enter the Vendor Telephone Number"
+                    },
+                    vendorstatus: {
+                         required: "Enter theStatus ofthe Vendor"
                     }
 			},
 			// the errorPlacement has to take the table layout into account
@@ -102,11 +109,12 @@ function continueon() {
      var vendortele = $("input#vendortele").val();
      var vendorfax = $("input#vendorfax").val();
      var vendoremail = $("input#vendoremail").val();
+     var vendorstatus=$("input#vendorstatus").val();
      var emplnumber = $("input#emplnumber").val();
      var dataString = '&editvendornum=' + editvendornum + '&vendorname=' + vendorname + '&vendorshortname=' + vendorshortname + '&vendorcontact=' + vendorcontact +
           '&vendoraddress1=' + vendoraddress1 + '&vendoraddress2=' + vendoraddress2 + '&vendorcity=' + vendorcity + '&vendorstate=' + vendorstate +
           '&zipcode=' + zipcode + '&htele=' + htele + '&ftele=' + ftele + '&ctele=' + ctele +
-          '&vendoremail=' + vendoremail + '&vendorfax=' + vendorfax + '&emplnumber=' + emplnumber;
+          '&vendoremail=' + vendoremail + '&vendorfax=' + vendorfax + 'vendorstatus=' + vendorstatus + '&emplnumber=' + emplnumber;
   $.ajax({
       type: "POST",
       url: "vendors1.php",
@@ -128,9 +136,17 @@ require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 $display = "Vendors:".$emplnumber;
 require_once "includes/expire.inc";
-$editvendornum = $_COOKIE["editvendornum"];
-$errormsg=$_COOKIE["errormessage"];
-if ($editvendornum == " ")
+if(isset($_COOKIE["editvendornum"])) {
+     $editvendornum = $_COOKIE["editvendornum"];
+} else {
+     $editvendornum = "";
+}
+if(isset($_GET["e"])) {
+     $errorcode = $_GET["e"];
+} else {
+     $errorcode = "n";
+}
+if (($editvendornum == "") OR ($errorcode == "y"))
 {
 	echo "<center><form action=\"setupvmaint.php\" method=\"get\">";
 	echo "<table width = \"25%\" border = \"0\">";
@@ -141,6 +157,7 @@ if ($editvendornum == " ")
 	echo "<input type=\"hidden\" name=\"editvendornum\" value=\"new\">";
 	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Client\"></td></tr>";
 	echo "</table></form></center>";
+     include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
 	exit();
 }
@@ -150,20 +167,17 @@ if ($editvendornum <> "new")
 {
 	require_once "includes/key.inc";
 	require_once "includes/de.inc";
-     /****************  incorrect table and columns ***************/
-	$sql = "SELECT vendorid, vendorname, vendorshortname, vendorcontact, vendoraddress1, vendoraddress2, vendorcity, vendorstate, vendorzipcode, vendortele, vendorfax, vendoremail";
-	$sql = $sql." FROM `petclinicinv`.`vendor` WHERE vendorid = ".$editvendornum;
+	$sql = "SELECT vendorid, vendorname, vendorshortname, vendorcontact, vendoraddress1, vendoraddress2, vendorcity, vendorstate, vendorzipcode, vendortele, vendorfax, vendoremail, status";
+	$sql = $sql." FROM `petclinicinv`.`vendor` WHERE `vendorid` = ".$editvendornum;
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
           put_errormsg("Invalid Vendor Number");
-          redirect("vendors.php");          
+          redirect("vendors.php?e=y");          
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Invalid Vendor Number", $expire1hr);
           put_errormsg("Invalid Vendor Number");
           redirect("vendors.php");           
 		exit();
@@ -183,6 +197,7 @@ if ($editvendornum <> "new")
           $vendortele=$row[9];
           $vendorfax=$row[10];
 		$vendoremail=$row[11];
+          $vendorstatus=$row[12];
 		$address1 = mc_decrypt($address1, ENCRYPTION_KEY);
 		if ($address2 <> "")
 			$address2 = mc_decrypt($address2, ENCRYPTION_KEY);
@@ -205,6 +220,7 @@ if ($editvendornum == "new")
           $vendortele="";
           $vendorfax="";
 		$vendoremail="";
+          $vendorstatus="A";
 	}
 }
 ?>
@@ -295,14 +311,12 @@ $sqlstate = "SELECT * FROM `petclinic`.`code_state`";
 $resultstate = $mysqli->query($sqlstate);
 if ($resultstate == FALSE)
 {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
      put_errormsg("Acquiring States Error");
      redirect("vendors.php");      
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr); 
      put_errormsg("Acquiring States Error");
      redirect("vendors.php"); 
 	exit();
@@ -363,18 +377,28 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
      </td>
      <td class="status">
      </td>
+     <td class="label">
+         <label for="vendorstatus">
+             Vendor Status (A, I, D)
+         </label>
+     </td>
+     <td class="field">
+         <input id="vendorstatus" name="vendorstatus" type="text" size="1" maxlength="1" value="<?php echo $vendorstatus;?>"> 
+     </td>
+     <td class="status">
+     </td>
 </tr>     
 <tr><td><input type="hidden" name="emplnumber" value="<?php echo $emplnumber; ?>"></td></tr>
 <tr><td colspan="6" align="center"><input type="submit" value="Create/Update Vendor"></td></tr></table></form>
 <form action="maintmenu.php" method="post"><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></form>
 <?php
-//$errormsg = $_COOKIE['errormessage'];
 $errormsg = get_errormsg();
 if ($errormsg <> " ")
 {
 	echo "<div id='errormsg'> $errormsg </div>";
 }
 $mysqli->close();
+delete_errormsg();
 //include "helpline.php";
 //help("clientmaint.php");
 require_once "includes/footer.inc";

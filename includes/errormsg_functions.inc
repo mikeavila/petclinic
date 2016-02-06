@@ -44,7 +44,7 @@ function delete_errormsg() {
      include "password.php";
      include "get_ecc.inc";
      $mysqliem = new mysqli('localhost', $user, $password, '');
-     $sql = "DELETE FROM `petclinicmsgs`.`errormsgs` WHERE `ecc` = `$ecc`;";
+     $sql = "DELETE FROM `petclinicmsgs`.`errormsgs` WHERE `ecc` = '$ecc';";
      $result = $mysqliem->query($sql);
      $mysqliem->close();
 }

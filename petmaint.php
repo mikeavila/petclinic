@@ -51,20 +51,12 @@ if ($editpetnum == "new2") {
      redirect("petmaint1new1.php");
 	exit();
 }
-if (empty($_POST["errormessage"])) {
+$errormessage = get_errormsg();
+delete_errormsg();
+if (empty($errormessage)) {
 	include "password.php";
 	$mysqli = new mysqli('localhost', $user, $password, '');
-	$sql = "SELECT * FROM `petclinic`.`pet` WHERE `petnumber` = ".$editpetnum.";";
-	if ($mysqli->query($sql) === FALSE) {
-		//echo "Error selecting Pet Information" . $mysqli->error;
-          put_errormsg("Error selecting Pet Information" . $mysqli->error);
-		exit(1);
-	}
-	if ($mysqli->query($sql) === FALSE) {
-		//echo "Invalid Pet Number" . $mysqli->error;
-          put_errormsg("Invalid Pet Number" . $mysqli->error);
-		exit(1);
-	}
+	$sql = "SELECT * FROM `petclinic`.`pet` WHERE `petnumber` = $editpetnum;";
 	$result = $mysqli->query($sql);
 	if ($mysqli->query($sql) === FALSE) {
 		//echo "Error selecting Pet Information".$mysqli->error;
@@ -74,7 +66,7 @@ if (empty($_POST["errormessage"])) {
 	$row = $result->fetch_row();
 	if ($row == 0) {
 		//echo "Error selecting Pet Information".$mysqli->error;
-          put_errormsg("Error selecting Pet Information".$mysqli->error);
+          put_errormsg("Invalid Pet Number".$mysqli->error);
 		exit(1);
 	}
 	$petnumber = $row[0];

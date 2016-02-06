@@ -27,6 +27,7 @@ $vendorzipcode=$_POST["vendorzipcode"];
 $vendortele=$_POST["vendortele"];
 $vendorfax=$_POST["vendorfax"];
 $vendoremail=$_POST["vendoremail"];
+$vendorstatus=$_POST["vendorstatus"];
 require_once "includes/expire.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "password.php";
@@ -45,25 +46,26 @@ if ($editvendornum <> "new")
 {
 	$sql = "UPDATE `petclinicinc`.`vendor SET `vendorname` = \"".$vendorname."\", `vendorshortname` = \"".$vendorshortnamename."\", `vendorcontact` = \"".$vendorcontact."\", ";
 	$sql = $sql."`vendoraddress1` = \"".$address1."\", `vendoraddress2` = \"".$address2."\", `vendorcity` = \"".$city."\", `vendorstate` = \"".$vendorstate."\", `vendorzipcode` = \"".$vendorzipcode."\", ";
-     $sql = $sql."`vendortele` = \"".$vendortele."\", `vendorfax` = \"".$vendorfax."\", `vendoremail` = \"".$vendoremail."\" WHERE vendorid = \"".$editvendornum."\";";
+     $sql = $sql."`vendortele` = \"".$vendortele."\", `vendorfax` = \"".$vendorfax."\", `vendoremail` = \"".$vendoremail."\", `vendorstatus` = \"".$vendorstatus."\" WHERE vendorid = \"".$editvendornum."\";";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
-		echo "Table vendor data update failed" . $mysqli->error;
+		put_errormsg("Table vendor data update failed" . $mysqli->error);
+          redirect("vendors.php"); 
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petclinicinc`.`vendor` (`vendorid`, `vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress``, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`)
-	   VALUES (\"$vendorid\", \"$vendorname\", \"$vendorshortname\", \"$vendorcontact\", \"$address1\", \"$address2\", \"$city\", \"$vendorstate\", \"$vendorzipcode\", \"vendor$email\");";
+	$sql = "INSERT INTO `petclinicinc`.`vendor` (`vendorid`, `vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress``, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`, `vendorstatus`)
+	   VALUES (\"$vendorid\", \"$vendorname\", \"$vendorshortname\", \"$vendorcontact\", \"$address1\", \"$address2\", \"$city\", \"$vendorstate\", \"$vendorzipcode\", \"$vendoremail\", \"$vendorstatus\");";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
-		echo "Table vendor data insertion failed" . $mysqli->error;
+          put_errormsg("Table vendor data insertion failed" . $mysqli->error);
+          redirect("vendors.php"); 
 		exit(1);
 	}
 }
 $mysqli->close();
-put_errormsg("Vendor Added");
-//setcookie("errormessage", "Vendor Added", $expire10hr); 
+put_errormsg("Vendor Added"); 
 redirect("vendors.php"); 
 ?>

@@ -75,11 +75,11 @@ require_once "includes/header1.inc";
           return false;
 	});
 function continueon() {
-     var docnumber = $("input#prefix").val();
-     var doctorinfo = $("input#fname").val();
-     var docstatelic = $("input#lname").val();
-     var docdea = $("input#suffix").val();
-     var doctorstatus = $("input#address1").val();
+     var docnumber = $("input#docnumber").val();
+     var doctorinfo = $("input#doctorinfo").val();
+     var docstatelic = $("input#docstatelic").val();
+     var docdea = $("input#docdea").val();
+     var doctorstatus = $("input#doctorstatus").val();
      var emplnumber = $("input#emplnumber").val();
      var step = $("input#step").val();
      var dataString = "&docnumber=" + docnumber + "&doctorinfo=" + doctorinfo + "&docstatelic=" + docstatelic + "&docdea=" + docdea +
@@ -175,9 +175,9 @@ Enter a Doctor's Name as you want it to appear in an Invoice
 <br>
 <div class="center"><font size="+2" color="red">
 <?php
-if (!empty($errormsg)) {
-     echo $errormsg;
-}
+$errormsg = get_errormsg();
+echo $errormsg;
+delete_errormsg();
 ?>
 </font>
 </div>

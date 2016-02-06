@@ -10,32 +10,20 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
-redirect("notavail.php")
-exit(0);
-
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber=$_POST["emplnumber"];
-$uuserid=$_POST["uuserid"];
-$epassword=$_POST["epassword"];
-$changepwd=$_POST["changepwd"];
-$passwordhint=$_POST["passwordhint"];
-$hintanswer=$_POST["hintanswer"];
-$lname=$_POST["lname"];
-$fname=$_POST["fname"];
-$prefix=$_POST["prefix"];
-$suffix=$_POST["suffix"];
-$address1=$_POST["address1"];
-$address2=$_POST["address2"];
-$city=$_POST["city"];
-$state=$_POST["state"];
-$zipcode=$_POST["zipcode"];
-$email=$_POST["email"];
-$status=$_POST["status"];
-$changeid=$_POST["changeid"];
-$telephone = $_POST["telephone"];
+$docnumber=$_POST["docnumber"];
+$doctorinfo=$_POST["doctorinfo"];
+$docstatelic=$_POST["docstatelic"];
+$doctordea=$_POST["doctordea"];
+$doctorstatus=$_POST["doctorstatus"];
+$step=$_POST["step"];
 require_once "includes/expire.inc";
+
+redirect("notavail.php");
+exit(0);
 
 if (empty($_POST["uuserid"]))
 {

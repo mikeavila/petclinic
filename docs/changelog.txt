@@ -14,6 +14,7 @@ use bar code scanners; print bar codes; SMS notifications; which patients are ch
  
 00.02.00 Alpha2
 
+
 00.01.38 finished doctors1.php update; finish vendor feature
 00.01.37 change error msgs to use error message functions
 00.01.36 compressed and put on Google Drive for Paul, uploaded to GitHub
