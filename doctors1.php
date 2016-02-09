@@ -10,204 +10,207 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+$background = "3";
+require_once "includes/header1.inc";
+?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// validate signup form on keyup and submit
+		var validator = $("#docform").validate({
+			rules: {
+				doctorinfo: {
+					required: true,
+					minlength: 10
+				},
+                    docstatelic: {
+                         required: true,
+                         minlength: 5
+                    },
+                    doctorstatus: {
+                         required: true,
+                         pattern: /^(A|I|D)$/
+                    }
+               },
+			messages: {
+                    doctorinfo: {
+                         required: "Enter the Doctor&#39;s Information"
+                    },
+                    docstatelic: {
+                         required: "Enter the Doctor&#39;s State License"
+                    },
+                    status: {
+                         required: "Enter the Doctor&#39;s Status (A or I or D)"
+                    }
+			},
+			// the errorPlacement has to take the table layout into account
+			errorPlacement: function(error, element) {
+				if (element.is(":radio"))
+					error.appendTo(element.parent().next().next());
+				else if (element.is(":checkbox"))
+					error.appendTo(element.next());
+				else
+					error.appendTo(element.parent().next());
+			},
+			// specifying a submitHandler prevents the default submit, good for the demo
+			submitHandler: function() {
+				//alert("submitted!");
+                    continueon();
+			},
+			// set this class to error-labels to indicate valid fields
+			success: function(label) {
+				// set &nbsp; as text for IE
+				label.html("&nbsp;").addClass("checked");
+			},
+			highlight: function(element, errorClass) {
+				$(element).parent().next().find("." + errorClass).removeClass("checked");
+			}
+		});
+          return false;
+	});
+function continueon() {
+     var docnumber = $("input#docnumber").val();
+     var doctorinfo = $("input#doctorinfo").val();
+     var docstatelic = $("input#docstatelic").val();
+     var docdea = $("input#docdea").val();
+     var doctorstatus = $("input#doctorstatus").val();
+     var emplnumber = $("input#emplnumber").val();
+     var dataString = "&docnumber=" + docnumber + "&doctorinfo=" + doctorinfo + "&docstatelic=" + docstatelic + "&docdea=" + docdea +
+          "&doctorstatus=" + doctorstatus + "&emplnumber=" + emplnumber;
+  $.ajax({
+      type: "POST",
+      url: "doctors2.php",
+      data: dataString,
+      cache: false,
+      done: fakeit
+  });
+
+  return false;
+}
+function fakeit() {
+     return;
+}
+</script>
+<?php
+require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$emplnumber=$_POST["emplnumber"];
-$docnumber=$_POST["docnumber"];
-$doctorinfo=$_POST["doctorinfo"];
-$docstatelic=$_POST["docstatelic"];
-$doctordea=$_POST["doctordea"];
-$doctorstatus=$_POST["doctorstatus"];
-$step=$_POST["step"];
-require_once "includes/expire.inc";
-
-redirect("notavail.php");
-exit(0);
-
-if (empty($_POST["uuserid"]))
-{
-	//setcookie("errormessage", "User ID cannot be blank", $expire1hr);
-     put_errormsg("User ID cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["epassword"]))
-{
-	//setcookie("errormessage", "The Password cannot be blank", $expire1hr); 
-     put_errormsg( "The Password cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["changepwd"]))
-{
-	//setcookie("errormessage", "Change Password cannot be blank", $expire1hr);
-     put_errormsg("Change Password cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if ($changepwd <> "Y" AND $changepwd <> "N")
-{
-	//setcookie("errormessage", "Change Password must be Y or N", $expire1hr);
-     put_errormsg("Change Password must be Y or N");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["fname"]))
-{
-	//setcookie("errormessage", "First Name cannot be blank", $expire1hr);
-     put_errormsg("First Name cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["lname"]))
-{
-	//setcookie("errormessage", "Last name cannot be blank", $expire1hr);
-     put_errormsg("Last name cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["address1"]))
-{
-	//setcookie("errormessage", "Address 1 cannot be blank", $expire1hr);
-     put_errormsg("Address 1 cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["city"]))
-{
-	//setcookie("errormessage", "City cannot be blank", $expire1hr);
-     put_errormsg("City cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["state"]))
-{
-	//setcookie("errormessage", "State cannot be blank", $expire1hr);
-     put_errormsg("State cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["zipcode"]))
-{
-	//setcookie("errormessage", "Zip Code cannot be blank", $expire1hr);
-     put_errormsg("Zip Code cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-if (empty($_POST["telephone"]))
-{
-	//setcookie("errormessage", "Telephone cannot be blank", $expire1hr);
-     put_errormsg("Telephone cannot be blank");
-     redirect("emplmaint.php");
-	exit();
-}
-require_once "pwdreq.php";
-$errormsg = pwdreq($epassword, $errormsg);
-if (strlen($errormsg) > 0) {
-	//setcookie("errormessage", $errormsg, $expire1hr);
-     put_errormsg($errormsg);
-     redirect("emplmaint.php");     
-	exit();
-}
 $emplnumber = $_COOKIE['employeenumber'];
-$editempnum = $_COOKIE["editempnum"];
-require_once "password.php";
-require_once "includes/key.inc";
-$mysqli = new mysqli('localhost', $user, $password, '');
-if ($editempnum <> "new")
-{
-	$sql="SELECT upassword FROM petcliniccorp.employee WHERE emplnumber = ".$editempnum;
-	$result = $mysqli->query($sql);
-	if ($result == FALSE)
-	{
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
-          put_errormsg("Invalid Employee number");
-          redirect("emplmaint.php");
-		exit();
-	}
-	$row_cnt = $result->num_rows;
-	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
-          put_errormsg("Invalid Employee number");
-          redirect("emplmaint.php");          
-		exit();
-	}
-	$row = $result->fetch_row();
-	$oldpassword = $row[0];
-	require_once "includes/de.inc";
-	$oldpassword = mc_decrypt($oldpassword, ENCRYPTION_KEY);
-	if ($oldpassword <> $epassword)
-	{
-		$changepwd = "Y";
-	} else {
-		$changepwd = "N";
-	}
-}
-require_once "includes/en.inc";
-$epassword = mc_encrypt($epassword, ENCRYPTION_KEY);
-$address1 = mc_encrypt($address1, ENCRYPTION_KEY);
-if (strlen($address2) > 0)
-{
-	$address2 = mc_encrypt($address2, ENCRYPTION_KEY);
+require_once "includes/expire.inc";
+if(isset($_POST["docnumber"])) {
+     $docnumber=$_POST["docnumber"];
 } else {
-	$address2 = "";
+     $docnumber = "new";
 }
-$city = mc_encrypt($city, ENCRYPTION_KEY);
-$passwordhint = mc_encrypt($passwordhint, ENCRYPTION_KEY);
-$hintanswer = mc_encrypt($hintanswer, ENCRYPTION_KEY);
-if ($editempnum <> "new")
-{
-	$sql = "UPDATE petcliniccorp.employee SET `uuserid` = \"".$uuserid."\", `upassword` = \"".$epassword."\", `changepwd` = \"".$changepwd."\", `pwdhint` = \"".$passwordhint."\", ";
-	$sql = $sql."`hintans` = \"".$hintanswer."\", `lname` = \"".$lname."\", `fname` = \"".$fname."\", `prefix` = \"".$prefix."\", `suffix` = \"".$suffix."\", ";
-	$sql = $sql."`address` = \"".$address1."\", `address2` = \"".$address2."\", `city` = \"".$city."\", `state` = \"".$state."\", `zipcode` = \"".$zipcode."\", ";
-	$sql = $sql."`email` = \"".$email."\", `status` = \"".$status."\", `telephone` = \"".$telephone."\", `changeid` = \"".$emplnumber."\" WHERE emplnumber = \"".$editempnum."\";";
-	if ($mysqli->query($sql) === TRUE) {
-
-	} else {
-		echo "Table employee data update failed" . $mysqli->error;
-		exit(1);
-	}
-} else{
-	$sql = "INSERT INTO `petcliniccorp.employee` (`uuserid`, `upassword`, `lname`, `fname`, `address`, `address2`, `city`, `state`, `zipcode`, 
-       `telephone`, `status`, `changeid`, `changepwd`, `email`, `pwdhint`, `hintans`, `prefix`, `suffix`)
-	   VALUES (\"$uuserid\", \"$epassword\", \"$lname\", \"$fname\", \"$address1\", \"$address2\", \"$city\",
-	   \"$state\", \"$zipcode\", \"$telephone\", 'A', \"$emplnumber\", 'Y', \"$email\", \"$passwordhint\", \"$hintanswer\", \"$prefix\", \"$suffix\");";
-	if ($mysqli->query($sql) === TRUE) {
-
-	} else {
-		echo "Table employee data insertion failed" . $mysqli->error;
-		exit(1);
-	}
-	$result = $mysqli->insert_id;
-	$sql = "INSERT INTO `petcliniccorp.seckeys` (`emplnumber`, `sequence`, `sk01`, `sk02`, `sk03`, `sk04`, `sk05`, `sk06`, `sk07`,
-	                `sk08`,	`sk09`,	`sk10`,	`sk11`,	`sk12`,	`sk13`,	`sk14`,	`sk15`,	`sk16`,	`sk17`,
-					`sk18`,	`sk19`,	`sk20`,	`sk21`,	`sk22`,	`sk23`,	`sk24`,	`sk25`, `sk26`, `sk27`, `sk28`, `sk29`, 
-					`sk30`, `sk31`, `sk32`, `sk33`, `sk34`, `sk35`, `changeid`)
-		VALUES($result, 1, \"N\", \"N\",	\"N\",	\"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\",	
-			\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",
-			\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"".$emplnumber."\");";
-	if ($mysqli->query($sql) === TRUE) {
-
-	} else {
-		echo "Table employee security data1 insertion failed" . $mysqli->error;
-		exit(1);
-	}
-	$sql = "INSERT INTO `petcliniccorp.seckeys` (`emplnumber`, `sequence`, `sk01`, `sk02`,	`sk03`,	`sk04`,	`sk05`,	`sk06`,	`sk07`,
-	                `sk08`,	`sk09`,	`sk10`,	`sk11`,	`sk12`,	`sk13`,	`sk14`,	`sk15`,	`sk16`,	`sk17`,
-					`sk18`,	`sk19`,	`sk20`,	`sk21`,	`sk22`,	`sk23`,	`sk24`,	`sk25`, `sk26`, `sk27`, `sk28`, `sk29`, 
-					`sk30`, `sk31`, `sk32`, `sk33`, `sk34`, `sk35`, `changeid`)
-		VALUES($result, 2, \"N\", \"N\",	\"N\",	\"N\",	\"N\",	\"N\",	\"N\", \"N\", \"N\", \"N\",	
-			\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",
-			\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"".$emplnumber."\");";
-	if ($mysqli->query($sql) === TRUE) {
-
-	} else {
-		echo "Table employee security data2 insertion failed" . $mysqli->error;
-		exit(1);
-	}
+if(isset($_POST["doctorinfo"])) {
+     $doctorinfo=$_POST["doctorinfo"];
+} else {
+     $doctorinfo = "";
+}
+if(isset($_POST["docstatelic"])) {
+     $docstatelic=$_POST["docstatelic"];
+} else {
+     $docstatelic = "";
+}
+if(isset($_POST["docdea"])) {
+     $docdea=$_POST["docdea"];
+} else {
+     $docdea="";
+}
+if(isset($_POST["doctorstatus"])) {
+     $doctorstatus=$_POST["doctorstatus"];
+} else {
+     $doctorstatus = "A";
+}
+if ($docnumber <> "new") {
+     require_once "password.php";
+     $mysqli = new mysqli('localhost', $user, $password, '');
+     $sql = "SELECT * FROM `petcliniccorp`.`doctors` WHERE `docid` = $docnumber;";
+     $result = $mysqli->query($sql);
+     if ($result == FALSE)
+     {
+          put_errormsg("Cannot access doctors table");
+     } else {
+          $row_cnt = $result->num_rows;
+          if ($row_cnt == 0) {
+               put_errormsg("There are no Doctors in the database");
+          } else {
+               for ($i = 0; $i < $row_cnt; $i++) {
+                    $row = $result->fetch_row();
+                    echo '<option value="'.$row[0].'">'.sprintf("%3s",$row[0])." ".$row[1].'</option>';
+               } 
+          }
 }
 $mysqli->close();
-delete_errormsg();
-redirect("emplmaint.php"); 
+}
 ?>
+<form class="center" id="docform" name="docform" method="post" >
+<div id="formContainer">
+<div><h2>Doctor Entry</h2></div>
+Enter a Doctor's Name as you want it to appear in an Invoice
+<br>Example: Dr John Doe DVM
+<br><div class="fieldLabel">Doctor ID:</div><input id="docnumber" name="docnumber" type="text" size="3" maxlength="3" value="<?php echo $docnumber; ?>" READONLY>
+<table width="90%">
+<tr>
+     <td class="label">
+         <label for="doctorinfo">
+             Name
+         </label>
+     </td>
+     <td class="field">
+         <input id="doctorinfo" name="doctorinfo" type="text" size="50" maxlength="50" value="<?php echo $doctorinfo;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="docstatelic">
+             State License 
+         </label>
+     </td>
+     <td class="field">
+         <input id="docstatelic" name="docstatelic" type="text" size="50" maxlength="25" value="<?php echo $docstatelic;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="docdea">
+             DEA License 
+         </label>
+     </td>
+     <td class="field">
+         <input id="docdea" name="docdea" type="text" size="50" maxlength="25" value="<?php echo $docdea;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="doctorstatus">
+             Status (A, I, or D) 
+         </label>
+     </td>
+     <td class="field">
+         <input id="doctorstatus" name="doctorstatus" type="text" size="50" maxlength="1" value="<?php echo $doctorstatus;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+</table>
+<br><br>
+<div class="fieldLabel">&nbsp;</div><input id="docsubmit" name="docsubmit" type="submit" value="Add/Modify Doctor">
+<br><input id="emplnumber" name="emplnumber" type="hidden" value="<?php echo $emplnumber; ?>">
+</div>
+</div>
+</form>
+<br>
+<div class="center"><font size="+2" color="red">
+<?php include "includes/display_errormsg.inc"; ?>
+</font>
+</div>
+<br>
+<form class="center" action="maintmenu.php"><input type="submit" value="Return to Maint Menu"></form>
+</body></html>
