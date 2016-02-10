@@ -180,14 +180,12 @@ if ($editclientnum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
           put_errormsg("Invalid Client Number");
           redirect("clientmaint.php?e=y");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Invalid Client Number", $expire1hr); 
           put_errormsg("Invalid Client Number");
           redirect("clientmaint.php?e=y");
 		exit();
@@ -345,14 +343,12 @@ $sqlstate = "SELECT * FROM `petclinic`.`code_state`";
 $resultstate = $mysqli->query($sqlstate);
 if ($resultstate == FALSE)
 {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr); 
      put_errormsg("Acquiring States Error");
      redirect("clientmaint.php");
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
      put_errormsg("Acquiring States Error");     
      redirect("clientmaint.php");
 	exit();
@@ -441,12 +437,7 @@ while ( $rowstate = $resultstate->fetch_row() ) {
    </div>
 </form>
 <?php
-$errormsg = get_errormsg();
-if ( !empty($errormsg) )
-{
-	echo '<div id="errormsg">' . $errormsg . '</div>';
-}
-delete_errormsg();
+include "includes/display_errormsg.inc";
 $mysqli->close();
 require_once 'includes/helpline.inc';
 help('clientmaint.php');

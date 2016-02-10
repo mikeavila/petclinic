@@ -59,14 +59,14 @@ if (empty($errormessage)) {
 	$sql = "SELECT * FROM `petclinic`.`pet` WHERE `petnumber` = $editpetnum;";
 	$result = $mysqli->query($sql);
 	if ($mysqli->query($sql) === FALSE) {
-		//echo "Error selecting Pet Information".$mysqli->error;
           put_errormsg("Error selecting Pet Information".$mysqli->error);
+          redirect("criticalerror.php?m=petmaint.php&ec=0");
 		exit(1);
 	}
 	$row = $result->fetch_row();
 	if ($row == 0) {
-		//echo "Error selecting Pet Information".$mysqli->error;
           put_errormsg("Invalid Pet Number".$mysqli->error);
+          redirect("criticalerror.php?m=petmaint.php&ec=0");
 		exit(1);
 	}
 	$petnumber = $row[0];

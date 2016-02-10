@@ -19,18 +19,13 @@ require_once "includes/common.inc";
 $step= "0";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
-if(isset($_POST["step"])) {
-     $step = $_POST["step"];
-} else {
-     $step = 0;
-}
 $docnumber = "new";
 $doctordesc = "";
 $docstatelic = "";
 $doctordea = "";
 $doctorstatus = "A";
 ?>
-<form class="center" id="docformpre" name="docformx" method="post" action="doctors.php">
+<!-- <form class="center" id="docformpre" name="docformx" method="post" action="doctors.php"> -->
 <div id="formContainer">
 <div><h2>Doctor Entry</h2></div>
 <div id="formLeftSide">
@@ -60,19 +55,18 @@ if ($result == FALSE)
 $mysqli->close();
 echo "</select></div>";
 echo '<div id="formRightSide"><br>';
-echo "<center><form id='docform0` name='docform0' action=\"doctors1.php\" method=\"post\">";
+echo '<center><form id="docform0" name="docform0" action="doctors1.php" method="post">';
 echo "<table width = \"50%\" border = \"0\">";
 echo "<tr><td>Enter the Doctor Number to be edited.</td></tr>";
-echo "<tr><td><input type=\"text\" name=\"editdocnum\" size=\"5\" maxlength=\"5\"></td></tr>";
-echo "<tr><td><input type=\"submit\" value=\"Edit Requested Doctor\"></td></tr></table></form>";
+echo '<tr><td><input type="text" name="editdocnum" size="5" maxlength="5"></td></tr>';
+echo '<tr><td><input type="submit" value="Edit Requested Doctor"></td></tr></table></form>';
 
 echo "<form id='docform1' name='docform1' action=\"doctors1.php\" method=\"post\">";
 echo "<input type=\"hidden\" name=\"editdocnum\" value=\"new\">";
 echo "<table width=\"50%\"><tr><td><input type=\"submit\" value=\"Create New Doctor\"></td></tr>";
 echo "</table></form></center>";
 
-echo '<form id="docformreturn" name="docformreturn" action="maintmenu.php" method="post"><center><table width="100%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form>';
+echo '<form id="docformreturn" name="docformreturn" action="maintmenu.php" method="post"><center><table width="100%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form></div>';
 include "includes/display_errormsg.inc";
 $display = "doctor:";
 require_once "includes/footer.inc";
-echo '<form class="center" action="maintmenu.php"><input type="submit" value="Return to Maint Menu"></form></body></html>';

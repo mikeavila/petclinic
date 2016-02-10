@@ -47,10 +47,6 @@ if(isset($_POST["doctorstatus"])) {
 require_once "includes/expire.inc";
 require_once "password.php";
 $mysqli = new mysqli('localhost', $user, $password, '');
-
-redirect("notavail.php");
-exit(0);
-
 if ($docnumber <> "new")
 {
 	$sql = "UPDATE `petcliniccorp`.`doctors` SET `doctordesc` = '$doctorinfo', `doctorstatelic` = '$docstatelic', `doctordealic` = '$docdea', `doctorstatus` = '$doctorstatus' WHERE `doctorid` = '$docnumber';";
@@ -62,7 +58,7 @@ if ($docnumber <> "new")
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petcliniccorp`.`doctor` (`doctordesc`, `doctorstatelic`, `doctordealic`, `doctorstatus`) VALUES ('$doctorinfo', '$doctorstatelic', '$doctordealic', '$doctorstatus');";
+	$sql = "INSERT INTO `petcliniccorp`.`doctors` (`doctordesc`, `doctorstatelic`, `doctordealic`, `doctorstatus`) VALUES ('$doctorinfo', '$docstatelic', '$docdea', '$doctorstatus');";    
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {

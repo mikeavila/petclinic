@@ -58,9 +58,8 @@ $sql = $sql."changeid=$emplnumber;";
 if ($mysqlic->query($sql) === TRUE) {
 
 } else {
-     //echo "Company update failed" . $mysqlic->error;
      put_errormsg("Company update failed" . $mysqlic->error);
-	exit(1);
+	redirect("criticalerror.php?m=corpinfo1.php&ec=0");
 }
 $mysqlic->close();
 delete_errormsg();

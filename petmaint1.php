@@ -18,49 +18,42 @@ $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
 if ($petname == "")
 {
-	//setcookie("errormessage", "Pet Name cannot be blank", $expire1hr);
      put_errormsg("Pet Name cannot be blank");
      redirect("petmaint.php");     
 	exit();
 }
 if ($dobm == "")
 {
-	//setcookie("errormessage", "Date of Birth Month cannot be blank", $expire1hr);
      put_errormsg("Date of Birth Month cannot be blank");
      redirect("petmaint.php");      
 	exit();
 }
 if ($dobd == "")
 {
-	//setcookie("errormessage", "Date of Birth Date cannot be blank", $expire1hr);
      put_errormsg("Date of Birth Date cannot be blank");
      redirect("petmaint.php");      
 	exit();
 }
 if ($doby == "")
 {
-	//setcookie("errormessage", "Date of Birth Year cannot be blank", $expire1hr);
      put_errormsg("Date of Birth Year cannot be blank");
      redirect("petmaint.php"); 
 	exit();
 }
 if ($petspecies == "")
 {
-	//setcookie("errormessage", "Pet Species cannot be blank", $expire1hr);
      put_errormsg("Pet Species cannot be blank");
      redirect("petmaint.php");      
 	exit();
 }
 if ($petbreed == "")
 {
-	//setcookie("errormessage", "Pet Breed must be selected", $expire1hr);
      put_errormsg("Pet Breed must be selected");
      redirect("petmaint.php");      
 	exit();
 }
 if ($petgender == "")
 {
-	//setcookie("errormessage", "Pet gender must be selected", $expire1hr);
      put_errormsg("Pet gender must be selected");
      redirect("petmaint.php");      
 	exit();

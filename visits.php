@@ -16,8 +16,6 @@ require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-//$errormsg = $_COOKIE['errormessage'];
-$errormsg = get_errormsg();
 echo "<form method=\"post\" action=\"visitsnav.php\">";
 echo "<center>";
 echo "<table border=\"0\" width=\"25%\">";
@@ -26,7 +24,7 @@ echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"02\">View Previous V
 echo "<tr><td><input type=\"submit\" value=\"Submit Request\"></td></tr></table></form>";
 echo "<br><br><center><form method=\"post\" action=\"mainmenu.php\"><input type=\"submit\" value=\"Return to Main Menu\"></form></center>";
 echo "<br><br><center><font size=\"+2\" color=\"red\">";
-echo $errormsg;
+include "includes/display_errormsg.inc";
 echo "</font></center>";
 $display = "visits";
 require_once "includes/footer.inc";

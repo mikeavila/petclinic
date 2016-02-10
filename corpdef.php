@@ -23,14 +23,12 @@ $sql="SELECT * FROM `petcliniccorp`.`preferences` WHERE `sequence` = 3";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Internal Error", $expire1hr);
      put_errormsg("Internal Error");
      redirect("corpmenu.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "Internal Error", $expire1hr);
      put_errormsg("Internal Error");
      redirect("corpmenu.php");     
 	exit();
@@ -51,9 +49,8 @@ if ($result == FALSE)
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "Internal Error", $expire1hr); 
      put_errormsg("Internal Error");
-     redirect("corpmenu.php");
+     redirect("criticalerror.php?m=corpdef.php&ec=0");
 	exit();
 }
 $row = $result->fetch_row();
@@ -69,14 +66,12 @@ $sqlstate = "SELECT * FROM `petclinic`.`code_state` ORDER BY `statedesc`";
 $resultstate = $mysqlis->query($sqlstate);
 if ($resultstate == FALSE)
 {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
      put_errormsg("Acquiring States Error");
      redirect("corpmenu.php");     
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
-	//setcookie("errormessage", "Acquiring States Error", $expire1hr);
      put_errormsg("Acquiring States Error");
      redirect("corpmenu.php");     
 	exit();

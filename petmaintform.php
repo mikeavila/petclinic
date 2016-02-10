@@ -70,13 +70,11 @@ if (!is_numeric($editpetnum)) {
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Internal error for code_species", $expire1hr);
           put_errormsg("Internal error for code_species");
           redirect("mainmenu.php");           
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Internal error for code_species", $expire1hr);
           put_errormsg("Internal error for code_species");
           redirect("mainmenu.php");           
 		exit();
@@ -100,13 +98,11 @@ $sql = "SELECT * FROM `petclinic`.`code_breed` WHERE `breedcode` LIKE \"".$speci
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Internal error for code_breed", $expire1hr);
           put_errormsg("Internal error for code_breed");
           redirect("mainmenu.php");           
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Internal error for code_breed", $expire1hr);
           put_errormsg("Internal error for code_breed");
           redirect("mainmenu.php");           
 		exit();
@@ -173,13 +169,6 @@ if (is_numeric($editpetnum)) {
 echo "</table>";
 echo "<center><input type=\"submit\" value=\"Create/Update Pet\"></form>";
 echo "<center><form action=\"maintmenu.php\"><input type=\"submit\" value=\"Return to Maint Menu\"></form><center>";
-$errormsg = get_errormsg();
-if ($errormsg <> " ")
-{
-	echo "<center><font size=\"+2\" color=\"red\">";
-	echo $errormsg;
-	echo "</font></center>";
-}
-delete_errormsg();
+include "includes/display_errormsg.inc";
 $mysqli->close();
 ?>

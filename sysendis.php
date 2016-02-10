@@ -29,23 +29,19 @@ if ( $result = $mysqli->query($sql) ) {
 		if ( !$mysqli->query($sql) === TRUE ) {
 			$errmsg = 'Failed to update logon status information: ' . $mysqli->error;
                put_errormsg($errmsg);
-               //setcookie('errormessage', $errmsg, $expire10hr);
 		}
 		else {
-			//setcookie('errormessage', $errmsg, $expire10hr);
                put_errormsg($errmsg);
 		}
 	}
 	else {
 		$errmsg = 'Query success, but no rows found?';
           put_errormsg($errmsg);
-		//setcookie('errormessage', $errmsg, $expire10hr);
 	}
 }
 else {
 	$errmsg = 'Could not query logon status information: ' . $mysqli->error;
      put_errormsg($errmsg);
-     //setcookie('errormessage', $errmsg, $expire10hr);
 }
 $mysqli->close();
 redirect("sysadmin.php");

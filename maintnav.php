@@ -73,7 +73,6 @@ switch ($value)
 		exit();
           break; 
 	default:
-		//setcookie("errormessage", "You must make a selection", $expire10hr);
           put_errormsg("You must make a selection");
           redirect("maintmenu.php");
 		exit();

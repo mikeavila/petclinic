@@ -19,20 +19,16 @@ require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
 $editpetnum = $_COOKIE["editpetnum"];
-setcookie("errormessage", " ", $expire1hr); 
-$errormsg=$_COOKIE["errormessage"];
 $mysqli = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petlinic`.`code_species`";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Internal error for code_species", $expire1hr);
      put_errormsg("Internal error for code_species");
      redirect("mainmenu.php");      
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "Internal error for code_species", $expire1hr);
      put_errormsg("Internal error for code_species");
      redirect("mainmenu.php");      
 	exit();

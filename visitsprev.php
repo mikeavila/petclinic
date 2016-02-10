@@ -22,14 +22,12 @@ $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
      put_errormsg("There are no Previous Visits");
-	//setcookie("errormessage", "There are no Previous Visits", $expire10hr);
      redirect("visits.php");      
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("There are no Previous Visits");
-	//setcookie("errormessage", "There are no Previous Visits", $expire10hr); 
      redirect("visits.php"); 
 	exit();
 }
@@ -41,14 +39,12 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	if ($resultcp == FALSE)
 	{
           put_errormsg("Internal Error (clientpet)");
-		//setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
           redirect("visits.php"); 
 		exit();
 	}
 	$rowcp_cnt = $resultcp->num_rows;
 	if ($rowcp_cnt == 0) {
           put_errormsg("Internal Error (clientpet)";
-		//setcookie("errormessage", "Internal Error (clientpet)", $expire10hr);
           redirect("visits.php");           
 		exit();
 	}
@@ -58,7 +54,6 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	if ($resultc == FALSE)
 	{
           put_errormsg("Internal Error (clientpet)";
-		//setcookie("errormessage", "Internal Error (client)", $expire10hr); 
           redirect("visits.php"); 
 		exit();
 	}
@@ -82,7 +77,7 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	if ($resultp == FALSE)
 	{
           put_errormsg("Internal Error (pet)";
-		//setcookie("errormessage", "Internal Error (pet)", $expire10hr);
+          redirect("criticalerror.php?m=visitprev.php&ec=0");
 		exit();
 	}
 	$rowp_cnt = $resultp->num_rows;
@@ -94,7 +89,6 @@ for ($i = 0; $i < $row_cnt; $i++) {
 		if ($resultv == FALSE)
 		{
                put_errormsg("Internal Error (visit)";
-			//setcookie("errormessage", "Internal Error (visit)", $expire10hr);
                redirect("visits.php");                
 			exit();
 		}

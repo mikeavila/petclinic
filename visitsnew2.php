@@ -274,7 +274,6 @@ $visitserialarray = serialize($visitarray);
 setcookie("visitarray", $visitserialarray, $expire1hr);
 if (strlen($date) <> 8) {
      put_errormsg("The Date must be entered";
-	//setcookie("errormessage", "The Date must be entered", $expire1hr);
      redirect("visitsnew1.php"); 
 	exit();
 }
@@ -287,7 +286,6 @@ if ($save == "draft") {
 		unlink("./notes/".$prefilename);
 	}
      put_errormsg("The Draft file has been created (".$filename.")");
-	//setcookie("errormessage", "The Draft file has been created (".$filename.")", $expire1hr);
      redirect("visits.php"); 
 	exit();
 }
@@ -442,6 +440,5 @@ $pdf->Cell(0,5, $plan,0,1,"L");
 $pdf->Ln(5);
 $pdf->Output($filename, "F");
 delete_errormsg();
-//setcookie("errormessage", " ", $expire1hr);
 redirect("visits.php"); 
 ?>

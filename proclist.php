@@ -68,20 +68,17 @@ require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "There are no Pets (false)", $expire10hr); 
      put_erormsg("There are no Pets (false)");
      redirect("listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "There are no Pets (count)", $expire10hr);
      put_errormsg("There are no Pets (count)");
 	exit();
 }
 if ($sk22 == "Y") {
 	echo "Clicking on the Pet Number will take you to a display to edit that Pet.<hr>"; }
-//setcookie("errormessage", " ", $expire10hr);
 delete_errormsg(); 
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();

@@ -63,14 +63,8 @@ $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 $editempnum = $_COOKIE["editempnum"];
-if (!empty($_POST["errormessage"]))
-{
-	$errormsg = "";
-} else {
-     $errormsg = get_errormsg();
-	//$errormsg = $_COOKIE['errormessage'];
-}
-
+$errormsg = "";
+$errormsg = get_errormsg();
 $mysqli = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $editempnum and `sequence` = 1;";
 $result = $mysqli->query($sql);

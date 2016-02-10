@@ -81,12 +81,13 @@ function continueon() {
       url: "doctors2.php",
       data: dataString,
       cache: false,
-      done: fakeit
+      done: fakeit()
   });
 
   return false;
 }
 function fakeit() {
+     window.location.href="doctors2.php";
      return;
 }
 </script>
@@ -95,10 +96,11 @@ require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
+include "includes/debugAJAX.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
-if(isset($_POST["docnumber"])) {
-     $docnumber=$_POST["docnumber"];
+if(isset($_POST["editdocnum"])) {
+     $docnumber=$_POST["editdocnum"];
 } else {
      $docnumber = "new";
 }
@@ -125,7 +127,7 @@ if(isset($_POST["doctorstatus"])) {
 if ($docnumber <> "new") {
      require_once "password.php";
      $mysqli = new mysqli('localhost', $user, $password, '');
-     $sql = "SELECT * FROM `petcliniccorp`.`doctors` WHERE `docid` = $docnumber;";
+     $sql = "SELECT * FROM `petcliniccorp`.`doctors` WHERE `doctorid` = $docnumber;";
      $result = $mysqli->query($sql);
      if ($result == FALSE)
      {
@@ -137,7 +139,11 @@ if ($docnumber <> "new") {
           } else {
                for ($i = 0; $i < $row_cnt; $i++) {
                     $row = $result->fetch_row();
-                    echo '<option value="'.$row[0].'">'.sprintf("%3s",$row[0])." ".$row[1].'</option>';
+                    $docnumber = $row[0];
+                    $doctorinfo = $row[1];
+                    $docstatelic = $row[2];
+                    $docdea = $row[3];
+                    $doctorstatus = $row[4];
                } 
           }
 }

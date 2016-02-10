@@ -36,77 +36,66 @@ require_once "includes/expire.inc";
 
 if (empty($_POST["uuserid"]))
 {
-	//setcookie("errormessage", "User ID cannot be blank", $expire1hr);
      put_errormsg("User ID cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["epassword"]))
 {
-	//setcookie("errormessage", "The Password cannot be blank", $expire1hr); 
      put_errormsg( "The Password cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["changepwd"]))
 {
-	//setcookie("errormessage", "Change Password cannot be blank", $expire1hr);
      put_errormsg("Change Password cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if ($changepwd <> "Y" AND $changepwd <> "N")
 {
-	//setcookie("errormessage", "Change Password must be Y or N", $expire1hr);
      put_errormsg("Change Password must be Y or N");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["fname"]))
 {
-	//setcookie("errormessage", "First Name cannot be blank", $expire1hr);
      put_errormsg("First Name cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["lname"]))
 {
-	//setcookie("errormessage", "Last name cannot be blank", $expire1hr);
      put_errormsg("Last name cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["address1"]))
 {
-	//setcookie("errormessage", "Address 1 cannot be blank", $expire1hr);
      put_errormsg("Address 1 cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["city"]))
 {
-	//setcookie("errormessage", "City cannot be blank", $expire1hr);
      put_errormsg("City cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["state"]))
 {
-	//setcookie("errormessage", "State cannot be blank", $expire1hr);
      put_errormsg("State cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["zipcode"]))
 {
-	//setcookie("errormessage", "Zip Code cannot be blank", $expire1hr);
      put_errormsg("Zip Code cannot be blank");
      redirect("emplmaint.php");
 	exit();
 }
 if (empty($_POST["telephone"]))
 {
-	//setcookie("errormessage", "Telephone cannot be blank", $expire1hr);
      put_errormsg("Telephone cannot be blank");
      redirect("emplmaint.php");
 	exit();
@@ -114,7 +103,6 @@ if (empty($_POST["telephone"]))
 require_once "pwdreq.php";
 $errormsg = pwdreq($epassword, $errormsg);
 if (strlen($errormsg) > 0) {
-	//setcookie("errormessage", $errormsg, $expire1hr);
      put_errormsg($errormsg);
      redirect("emplmaint.php");     
 	exit();
@@ -130,14 +118,12 @@ if ($editempnum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
           put_errormsg("Invalid Employee number");
           redirect("emplmaint.php");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
           put_errormsg("Invalid Employee number");
           redirect("emplmaint.php");          
 		exit();

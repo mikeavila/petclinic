@@ -116,12 +116,7 @@ you must enter ALL of the information.</center>
 <SELECT name="acctg"><option value="Y" SELECTED>Yes</option><option value="N" >No</option></select></td></tr>
 
 </table><br><br><br><br><font size="+2" color="red">
-<?php
-$errormsg = get_errormsg();
-delete_errormsg();
-//$errormsg = $_COOKIE["errormessage"];
-echo $errormsg;
-?>
+<?php include "includes/display_errormsg.inc"; ?>
 </font><br><br>
 <input type="submit" value="Create Medicine Base Record"></form>
 

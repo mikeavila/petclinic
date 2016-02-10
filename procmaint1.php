@@ -18,28 +18,24 @@ $status=$_POST["status"];
 require_once "includes/expire.inc";
 if (empty($_POST["proccode"]))
 {
-	//setcookie("errormessage", "Procedure Code cannot be blank", $expire1hr);
      put_errormsg("Procedure Code cannot be blank");
      redirect("procmaint.php");     
 	exit();
 }
 if (empty($_POST["procdesc"]))
 {
-	//setcookie("errormessage", "Procedure Description cannot be blank", $expire1hr);
      put_errormsg("Procedure Description cannot be blank");
      redirect("procmaint.php");     
 	exit();
 }
 if (empty($_POST["procbillcharge"]))
 {
-	//setcookie("errormessage", "Procedure Billing Charge cannot be blank (it can be zero)", $expire1hr);
      put_errormsg("Procedure Billing Charge cannot be blank (it can be zero)");
      redirect("procmaint.php");     
 	exit();
 }
 if (empty($_POST["procstatus"]))
 {
-	//setcookie("errormessage", "Status cannot be blank", $expire1hr);
      put_errormsg("Status cannot be blank");
      redirect("procmaint.php");     
 	exit();
@@ -77,7 +73,6 @@ if ($proccode <> "new")
      }
 }
 $mysqli->close();
-//setcookie("errormessage", " ", $expire10hr);
 delete_errormsg();
 redirect("procmaint.php"); 
 

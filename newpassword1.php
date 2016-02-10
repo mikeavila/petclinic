@@ -21,14 +21,12 @@ $password1 = $_POST["newpwd1"];
 $password2 = $_POST["newpwd2"];
 if ($password1 <> $password2) {
      put_errormsg("The Passwords do not match");
-	//setcookie("errormessage", "The Passwords do not match", $expire10hr);
      redirect("newpassword.php");
 }
 require_once "pwdreq.php";
 $errormsg = pwdreq($password1);
 if (strlen($errormsg) > 0) {
      put_errormsg($errormsg);
-	//setcookie("errormessage", $errormsg, $expire1hr); 
      redirect("newpassword.php");
 	exit();
 }
@@ -49,6 +47,5 @@ if ($mysqlic->query($sql) === TRUE) {
 $mysqlic->close();
 $log->logThis("new password saved");
 delete_errormsg();
-//setcookie("errormessage", " ", $expire10hr);
 redirect("mainmenu.php");
 ?>

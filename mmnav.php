@@ -25,7 +25,6 @@ if($value == "00") {
           $value = $sValue;
      }
 }
-$errormsg="";
 $emplnumber = $_COOKIE['employeenumber'];
 $ecc = $_COOKIE["ecc"];
 delete_errormsg();
@@ -84,7 +83,6 @@ switch ($value)
           redirect("mainoptions.php");
 		exit();
 	default:
-		//setcookie("errormessage", "You must make a selection", $expire10hr);
           put_errormsg("You must make a selection");
           redirect("mainmenu.php");          
 		exit();

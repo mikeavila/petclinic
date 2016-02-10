@@ -45,13 +45,11 @@ $sql="UPDATE 'petcliniccorp`.`preferences' SET `pref1` = \"".$pref1."\", `pref2`
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Pref Seq 2 Update failed", $expire1hr); 
      put_errormsg("Pref Seq 2 Update failed");
      redirect("corpmenu.php");
 	exit();
 }
 $mysqli->close();
-//setcookie("errormessage", " ", $expire10hr);
 delete_errormsg();
 redirect("corppref.php"); 
 ?>

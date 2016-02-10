@@ -12,11 +12,12 @@
 session_start();
 $background = "3";
 require_once "includes/header1.inc";
+//include "includes/debugAJAX.inc";
 ?>
 <script>
 	$(document).ready(function() {
 		// validate signup form on keyup and submit
-		var validator = $("#clientform").validate({
+		var validator = $("#vendorform").validate({
 			rules: {
 				vendorname: {
 					required: true,
@@ -68,7 +69,7 @@ require_once "includes/header1.inc";
                          required: "Enter the Vendor Telephone Number"
                     },
                     vendorstatus: {
-                         required: "Enter theStatus ofthe Vendor"
+                         required: "Enter theStatus of the Vendor"
                     }
 			},
 			// the errorPlacement has to take the table layout into account
@@ -104,7 +105,7 @@ function continueon() {
      var vendoraddress1 = $("input#vendoraddress1").val();
      var vendoraddress2 = $("input#vendoraddress2").val();
      var vendorcity = $("input#vendorcity").val();
-     var vendorstate = $("input#vendorstate").val();
+     var vendorstate = $("select#vendorstate").val();
      var vendorzipcode = $("input#vendorzipcode").val();
      var vendortele = $("input#vendortele").val();
      var vendorfax = $("input#vendorfax").val();
@@ -120,11 +121,12 @@ function continueon() {
       url: "vendors1.php",
       data: dataString,
       cache: false,
-      done: fakeit(){}
+      done: fakeit()
   });
   return false;
 }
 function fakeit() {
+      window.location.href="vendors.php";
      return;
 }
 </script>
@@ -155,7 +157,7 @@ if (($editvendornum == "") OR ($errorcode == "y"))
 	echo "<tr><td><input type=\"submit\" value=\"Edit Requested Vendor\"></td></tr></table>";
 	echo "</form><form action=\"setupvmaint.php\" method=\"get\">";
 	echo "<input type=\"hidden\" name=\"editvendornum\" value=\"new\">";
-	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Client\"></td></tr>";
+	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Vendor\"></td></tr>";
 	echo "</table></form></center>";
      include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
@@ -182,7 +184,7 @@ if ($editvendornum <> "new")
           redirect("vendors.php");           
 		exit();
 	}
-	setcookie("errormessage", " ", $expire10hr); 
+	delete_errormsg();
 	for ($i = 0; $i < $row_cnt; $i++) {
 		$row = $result->fetch_row();
 		$editvendornum=$row[0];
@@ -206,9 +208,10 @@ if ($editvendornum <> "new")
 }
 if ($editvendornum == "new")
 {
+     $errormsg = get_errormsg();
 	if (strlen($errormsg) < 2)
 	{
-		$editvendornum="";
+		$editvendornum="new";
 		$vendorname="";
 		$vendorshortname="";
 		$vendorcontact="";
@@ -224,7 +227,7 @@ if ($editvendornum == "new")
 	}
 }
 ?>
-<form id="clientform" name="clientform">
+<form id="vendorform" name="vendorform" method="post">
 <table cellpadding="5" cellspacing="5" width="95%">
 <tr><td align="right">Vendor Number</td><td><input type="text" name="editvendornum" size="4" maxlength="4" READONLY value="<?php echo $editvendornum;?>"></td></tr>
 <tr>
@@ -324,8 +327,8 @@ if ($row_cnt_state == 0) {
 for ($i = 0; $i < $row_cnt_state; $i++) {
 	$rowstate = $resultstate->fetch_row();
 	echo "<option value=\"$rowstate[0]\"";
-	if (strlen($state) > 0) {
-		if ($rowstate[0] == $state)
+	if (strlen($vendorstate) > 0) {
+		if ($rowstate[0] == $vendorstate)
 			echo " SELECTED ";
 	}
 	echo " >".$rowstate[1]."</option>";
@@ -392,11 +395,7 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
 <tr><td colspan="6" align="center"><input type="submit" value="Create/Update Vendor"></td></tr></table></form>
 <form action="maintmenu.php" method="post"><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></form>
 <?php
-$errormsg = get_errormsg();
-if ($errormsg <> " ")
-{
-	echo "<div id='errormsg'> $errormsg </div>";
-}
+include "includes/display_errormsg.inc";
 $mysqli->close();
 delete_errormsg();
 //include "helpline.php";

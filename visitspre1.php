@@ -39,6 +39,5 @@ fwrite($fh, "h ".$hydration."\n");
 fwrite($fh, "s ".$subjective);
 fclose($fh);
 put_errormsg("The Screening file has been created (".$filename.")";
-//setcookie("errormessage", "The Screening file has been created (".$filename.")", $expire1hr);
 redirect("visits.php"); 
 ?>

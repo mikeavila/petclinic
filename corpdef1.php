@@ -58,7 +58,6 @@ $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\", `pref2`
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Pref Seq 3 Update failed", $expire1hr); 
      put_errormsg("Pref Seq 3 Update failed");
      redirect("corpmenu.php");
 	exit();
@@ -67,13 +66,13 @@ $sql="SELECT `pref1` FROM `petcliniccorp`.`preferences` WHERE `sequence` = 4";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//$errormsg = "Cannot access preferences table";
      put_errormsg("Cannot access preferences table");
 } else {
      $row_cnt = $result->num_rows;
      if ($row_cnt == 0) {
-          //$errormsg = "Internal Error";
           put_errormsg("Internal Error");
+          redirect("criticalerror.php?m=corpdef1.php&ec=0");
+          exit(0);
      } else {
                $row = $result->fetch_row();
                $pref1 = $row[0];

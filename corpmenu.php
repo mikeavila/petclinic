@@ -19,13 +19,6 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-// if (!empty($_POST["errormessage"]))
-// {
-	// $errormsg = "";
-// } else {
-	// $errormsg = $_COOKIE['errormessage'];
-// }
-
 $mysqlic = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $result = $mysqlic->query($sql);
@@ -52,9 +45,7 @@ echo "\">";
 echo "</form><form action=\"mainmenu.php\" method=\"post\">";
 echo "<center><input type=\"submit\" value=\"Return to Main Menu\"></center></form>";
 echo "</table><center><font size=\"+2\" color=\"red\">";
-$errormsg = get_errormsg();
-delete_errormsg();
-echo $errormsg;
+include "includes/display_errormsg.inc";
 echo "</font></center>";
 require_once "includes/footer.inc";
 $mysqlic->close();

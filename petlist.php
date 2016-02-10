@@ -69,14 +69,12 @@ require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "There are no Pets (false)", $expire10hr);
      put_errormsg("There are no Pets (false)");
      redirect("listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "There are no Pets (count)", $expire10hr); 
      put_errormsg("There are no Pets (count)");
      redirect("listings.php");
 	exit();
@@ -84,7 +82,6 @@ if ($row_cnt == 0) {
 if ($sk22 == "Y") {
 	echo "Clicking on the Pet Number will take you to a display to edit that Pet.<hr>"; }
 delete_errormsg();
-//setcookie("errormessage", " ", $expire10hr); 
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();
 	$row1 = "Pet # ";
@@ -98,8 +95,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
      $result = $mysqli->query($sql2);
      if ($result == TRUE) {
      } else {
-          //echo "Error getting species from code_species" . $mysqli->error;
           put_errormsg("Error getting species from code_species" . $mysqli->error);
+          redirect("criticalerror.php?m=petlist.php&ec=0");
           exit(1);
      }
      $rows = $result->fetch_row();
@@ -108,8 +105,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
      $result = $mysqli->query($sql2);
      if ($result == TRUE) {
      } else {
-          //echo "Error getting species from code_species" . $mysqli->error;
           put_errormsg("Error getting species from code_species" . $mysqli->error);
+          redirect("criticalerror.php?m=petlist.php&ec=0");
           exit(1);
      }
      $rows = $result->fetch_row();

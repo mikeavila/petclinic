@@ -287,9 +287,7 @@ $lang=$row[13];
 <tr><td colspan="6"><input name="pass" type="hidden" value="2"></td></tr>
 <?php
 echo '<tr><td id="errormsg" name="errormsg" colspan="6">';
-$errormsg = get_errormsg();
-echo $errormsg;
-delete_errormsg();
+include "includes/display_errormsg.inc";
 echo '</td></tr></table></form>';
 echo '<form action="mainmenu.php" method="post">';
 echo '<table border="0" width="95%"><tr><td align="center"><input type="submit" value="Return to Main Menu"></td></tr></table></form>';

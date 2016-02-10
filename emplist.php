@@ -81,8 +81,7 @@ if ($row_cnt == 0) {
 if ($sk27 == "Y") {
 	echo "Clicking on the Employee Number will take you to a display to edit that Employee.<hr>"; }
 if ($sk32 == "Y") {
-	echo "Clicking on the letters SK after the Employee Information will take you to a display to edit that Employee Security Keys.<hr>"; }
-//setcookie("errormessage", " ", $expire10hr); 
+	echo "Clicking on the letters SK after the Employee Information will take you to a display to edit that Employee Security Keys.<hr>"; } 
 delete_errormsg();
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();

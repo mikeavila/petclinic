@@ -60,14 +60,6 @@ echo '<form method="post" action="mainmenu.php">';
 echo '<br><br><input type="submit" value="Return to the Main Menu">';
 echo '</form>';
 echo '</div><br>';
-$errormsg = '';
-$errormsg = get_errormsg();
-if ( !empty($_COOKIE['errormessage']) ) {
-	$errormsg = $_COOKIE['errormessage'];
-}
-
-if ( !empty($errormsg) ) {
-	echo '<div id="errormsg">' . $errormsg . '</div>';
-}
+include "includes/display_errormsg.inc";
 include 'includes/footer.inc';
 ?>

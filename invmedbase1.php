@@ -17,7 +17,6 @@ require_once "includes/expire.inc";
 if (!empty($_POST["desc"])) {
 	$desc = $_POST["desc"];
 } else {
-	//setcookie("errormessage", "The Description cannot be blank", $expire1hr);
      put_errormsg("The Description cannot be blank");
 	header("Location:invmedbase.php");
 	exit();
@@ -65,7 +64,6 @@ if (!empty($_POST["cartonspurch"])) {
 if (!empty($_POST["contcarton"])) {
 	$contcarton = $_POST["contcarton"];
 } else {
-	//setcookie("errormessage", "The Containers Per Carton cannot be blank", $expire1hr);
      put_errormsg("The Containers Per Carton cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -73,7 +71,6 @@ if (!empty($_POST["contcarton"])) {
 if (!empty($_POST["itemcont"])) {
 	$itemcont= $_POST["itemcont"];
 } else {
-	//setcookie("errormessage", "The Items Per Container cannot be blank", $expire1hr);
      put_errormsg("The Items Per Container cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -91,7 +88,6 @@ if (!empty($_POST["itemcost2"])) {
 if (!empty($_POST["itemreorder"])) {
 	$itemreorder = $_POST["itemreorder"];
 } else {
-	//setcookie("errormessage", "The Item Reorder Level cannot be blank", $expire1hr);
      put_errormsg("The Item Reorder Level cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -99,7 +95,6 @@ if (!empty($_POST["itemreorder"])) {
 if (!empty($_POST["itemmarkup1"])) {
 	$itemmarkup1 = $_POST["itemmarkup1"];
 } else {
-	//setcookie("errormessage", "The Item Markup cannot be blank", $expire1hr);
      put_errormsg("The Item Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -107,7 +102,6 @@ if (!empty($_POST["itemmarkup1"])) {
 if (!empty($_POST["itemmarkup2"])) {
 	$itemmarkup2 = $_POST["itemmarkup2"];
 } else {
-	//setcookie("errormessage", "The Item Markup cannot be blank", $expire1hr);
      put_errormsg( "The Item Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -115,7 +109,6 @@ if (!empty($_POST["itemmarkup2"])) {
 if (!empty($_POST["contmarkup1"])) {
 	$contmarkup1 = $_POST["contmarkup1"];
 } else {
-	//setcookie("errormessage", "The Container Markup cannot be blank", $expire1hr);
      put_errormsg("The Container Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -123,7 +116,6 @@ if (!empty($_POST["contmarkup1"])) {
 if (!empty($_POST["contmarkup2"])) {
 	$contmarkup2 = $_POST["contmarkup2"];
 } else {
-	//setcookie("errormessage", "The Container Markup cannot be blank", $expire1hr);
      put_errormsg("The Container Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -151,7 +143,6 @@ if (!empty($_POST["contsales2"])) {
 if (!empty($_POST["taxable"])) {
 	$taxable = $_POST["taxable"];
 } else {
-	//setcookie("errormessage", "If the Item is Taxable cannot be blank", $expire1hr);
      put_errormsg("If the Item is Taxable cannot be blank");
      redirect("invmedbase.php");
 	exit();
@@ -160,7 +151,6 @@ if(isset($_POST['wherebought']))
 {
      $listbox = $_POST['wherebought'];
 } else {
-     //setcookie("errormessage", "A Vendor must be selected for where bought", $expire1hr);
      put_errormsg("A Vendor must be selected for where bought");
      redirect("invmedbase.php");
 	exit();
@@ -171,8 +161,8 @@ $sql = "USE vetclinicinv;";
 if ($mysqli->query($sql) == TRUE) {
 
 } else {
-     //echo "Error selecting to use vetclinicinv" . $mysqli->error;
      put_errormsg("Error selecting to use vetclinicinv" . $mysqli->error);
+     redirect("criticalerror.php?m=invmedbase1.php&ec=0");
 	exit(1);
 }
 $cartoncost = $cartoncost1.".".$cartoncost2;
@@ -196,8 +186,8 @@ $sql = $sql."'$contsales', '$taxable', 'A', $emplnumber;";
 if ($mysqli->query($sql) === TRUE) {
 
 } else {
-     //echo "Table invmedicine data insertion failed" . $mysqli->error;
      put_error("Table invmedicine data insertion failed" . $mysqli->error);
+     redirect("invmedbase.php");
 	exit(1);
 }
 $mysqli->close();

@@ -14,12 +14,6 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-// if (!empty($_POST["errormessage"]))
-// {
-	// $errormsg = "";
-// } else {
-	// $errormsg = $_COOKIE['errormessage'];
-// }
 $display ="MMenu:".$emplnumber;
 $background = "1";
 require_once "includes/header1.inc";
@@ -81,9 +75,7 @@ echo "<tr><td><input type=\"hidden\" name=\"emplnumber\" value=\"";
 echo $emplnumber;
 echo "\">";
 echo "</td></tr></table></form><font size=\"+2\" color=\"red\">";
-$errormsg = get_errormsg();
-delete_errormsg();
-echo $errormsg;
+include "includes/display_errormsg.inc";
 echo "</font></center>";
 $mysqlic->close();
 require_once "includes/helpline.inc";

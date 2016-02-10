@@ -38,73 +38,61 @@ $client2 = $petarray[$pak_client2];
 $dob = $doby.$dobm.$dobd;
 
 if ($petname == "") {
-	//setcookie("errormessage", "Pet Name cannot be blank", $expire1hr);
      put_erormsg("Pet Name cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($dobm == "") {
-	//setcookie("errormessage", "Pet Date of Birg Month cannot be blank", $expire1hr);
      put_errormsg("Pet Date of Birth Month cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($dobd == "") {
-	//setcookie("errormessage", "Pet Date of Birth Date cannot be blank", $expire1hr);
      put_errormsg("Pet Date of Birth Date cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($doby == "") {
-	//setcookie("errormessage", "Pet Date of Birth Year cannot be blank", $expire1hr);
      put_errormsg("Pet Date of Birth Year cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petspecies == "") {
-	//setcookie("errormessage", "Pet Species cannot be blank", $expire1hr);
      put_errormsg("Pet Species cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petbreed == "") {
-	//setcookie("errormessage", "Pet Breed must be selected", $expire1hr);
      put_errormsg("Pet Breed must be selected");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petgender == "") {
-	//setcookie("errormessage", "Pet Gender must be selected", $expire1hr);
      put_errormsg("Pet Gender must be selected");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petfixed == "") {
-	//setcookie("errormessage", "Pet Fixed must be selected", $expire1hr);
      put_errormsg("Pet Fixed must be selected");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petcolor == "") {
-	//setcookie("errormessage", "Pet Color cannot be blank", $expire1hr);
      put_errormsg("Pet Color cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($petdesc == "") {
-	//setcookie("errormessage", "Pet Description cannot be blank", $expire1hr);
      put_errormsg("Pet Description cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($picture == "") {
-	//setcookie("errormessage", "Pet Picture cannot be blank", $expire1hr);
      put_errormsg("Pet Picture cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
 }
 if ($status == "") {
-	//setcookie("errormessage", "Pet Status cannot be blank", $expire1hr);
      put_errormsg("Pet Status cannot be blank");
      redirect("petmaint1new1.php");
 	exit();
@@ -120,7 +108,6 @@ $sql = $sql." \"$license\", \"$microchip\", \"$rabiestag\",  \"$tattoonumber\", 
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Pet Insert failed; ".$mysqli->error, $expire1hr);
      put_errormsg("Pet Insert failed; ".$mysqli->error);
      redirect("mainmenu.php");     
 	exit();
@@ -135,7 +122,6 @@ if ($client1 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		//setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr); 
           put_errormsg("ClientPat Insert client1 failed; ".$mysqli->error);
           redirect("mainmenu.php");
 		exit();
@@ -147,7 +133,6 @@ if ($client1 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		//setcookie("errormessage", "ClientPat Insert client1 failed; ".$mysqli->error, $expire1hr);
           put_errormsg("ClientPat Insert client1 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
@@ -163,7 +148,6 @@ if ($client2 <> "") {
 		$result = $mysqli->query($sql);
 		if ($result == FALSE)
 		{
-		//setcookie("errormessage", "ClientPat Insert client2 failed; ".$mysqli->error, $expire1hr);
           put_errormsg("ClientPat Insert client2 failed; ".$mysqli->error);
           redirect("mainmenu.php");          
 		exit();
@@ -183,7 +167,6 @@ if ($client2 <> "") {
 	}
 }
 $mysqli->close();
-//setcookie("errormessage", " ", $expire1hr);
 delete_errormsg();
 redirect("maintmenu.php"); 
 ?>

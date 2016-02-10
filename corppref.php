@@ -24,14 +24,12 @@ $sql="SELECT * FROM `petcliniccorp`.`preferences` WHERE `sequence` = 2";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Internal Error", $expire1hr); 
      put_errormsg("Internal Error");
      redirect("corpmenu.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "Internal Error", $expire1hr); 
      put_errormsg("Internal Error");
      redirect("corpmenu.php");
 	exit();

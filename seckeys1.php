@@ -39,11 +39,11 @@ $sql = "UPDATE `petcliniccorp`.`seckeys` SET `sk01` = \"$sk_yn[1]\", `sk02` = \"
 if ($mysqli->query($sql) === TRUE) {
 
 } else {
-	echo "Employee security data1 Update failed" . $mysqli->error;
+	put_errormsg ("Employee security data1 Update failed" . $mysqli->error);
+     redirect ("criticalerror.php?m=seckeys1.php&ec=0");
 	exit(1);
 }
 $mysqli->close();
 delete_errormsg();
-//setcookie("errormessage", " ", $expire10hr);
 redirect("seckeys.php"); 
 ?>

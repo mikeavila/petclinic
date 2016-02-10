@@ -55,8 +55,10 @@ if ($editvendornum <> "new")
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petclinicinc`.`vendor` (`vendorid`, `vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress``, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`, `vendorstatus`)
-	   VALUES (\"$vendorid\", \"$vendorname\", \"$vendorshortname\", \"$vendorcontact\", \"$address1\", \"$address2\", \"$city\", \"$vendorstate\", \"$vendorzipcode\", \"$vendoremail\", \"$vendorstatus\");";
+	$sql = "INSERT INTO `petclinicinc`.`vendor` (`vendorid`, `vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress`, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`, `vendorstatus`)
+	   VALUES ('$vendorid', '$vendorname', '$vendorshortname', '$vendorcontact', '$address1', '$address2', '$city', '$vendorstate', '$vendorzipcode', '$vendoremail', '$vendorstatus');";
+echo $sql;
+exit();
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {

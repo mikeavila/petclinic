@@ -23,13 +23,11 @@ $sql = $sql."WHERE `status` = \"A\" ORDER BY `lname`, `fname`";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "There are no Clients", $expire10hr);
      put_errormsg("There are no Clients");
      redirect("listings.php");      
 	exit();
 }
 $row_cnt = $result->num_rows;
-//setcookie("errormessage", " ", $expire10hr); 
 delete_errormsg();
 echo "<center><b><u><font size=\"+2\">Client List to Select Pet Owners</font></u></b></center><br><br>";
 for ($i = 0; $i < $row_cnt; $i++) {

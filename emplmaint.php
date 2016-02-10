@@ -171,10 +171,12 @@ $emplnumber = $_COOKIE['employeenumber'];
 $display = "Emplmaint:".$emplnumber;
 require_once "includes/expire.inc";
 $editempnum = $_COOKIE["editempnum"];
-//$errormsg=$_COOKIE["errormessage"];
-$errormsg = get_errormsg();
-delete_errormsg();
-if ($editempnum == " ")
+if(isset($_GET["e"])) {
+     $errorcode = $_GET["e"];
+} else {
+     $errorcode = "n";
+}
+if (($editempnum == " ") OR ($errorcode == "y"))
 {
 	echo "<center><form action=\"setupemaint.php\" method=\"get\">";
 	echo "<table width = \"25%\" border = \"0\">";
@@ -185,6 +187,7 @@ if ($editempnum == " ")
 	echo "<input type=\"hidden\" name=\"editempnum\" value=\"new\">";
 	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Employee\"></td></tr>";
 	echo "</table></form></center>";
+     include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
 	exit();
 }
@@ -199,19 +202,16 @@ if ($editempnum <> "new")
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr);
           put_errormsg("Invalid Employee number");
-          redirect("emplmaint.php");
+          redirect("emplmaint.php?e=y");
 		exit();
 	}
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
-		//setcookie("errormessage", "Invalid Employee number", $expire1hr); 
           put_errormsg("Invalid Employee number");
-          redirect("emplmaint.php");
+          redirect("emplmaint.php?e=y");
 		exit();
 	}
-	//setcookie("errormessage", " ", $expire10hr);
      delete_errormsg();
 	for ($i = 0; $i < $row_cnt; $i++) {
 		$row = $result->fetch_row();
@@ -467,11 +467,5 @@ if ($editempnum == "new")
 <tr><td colspan="6" align="center"><input type="submit" value="Create/Update Employee"></td></tr></table></center></form>
 <form action="maintmenu.php" method="post"><center><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form>
 <?php
-//$errormsg = $_COOKIE['errormessage'];
-$errormsg = get_errormsg();
-delete_errormsg();
-if ($errormsg <> " ")
-{
-	echo "<div id='errormsg'> $errormsg </div>";
-}
+include "includes/display_errormsg.inc";
 ?>

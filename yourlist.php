@@ -27,21 +27,18 @@ $result = $mysqlic->query($sql);
 require_once "includes/expire.inc";
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "You are not listed. Internal error.", $expire1hr);
      put_errormsg("You are not listed. Internal error.");
      redirect("listings.php");      
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "You are not listed. Internal error.", $expire1hr);
-     put_errormsg(""You are not listed. Internal error.");
+     put_errormsg("You are not listed. Internal error.");
      redirect("listings.php");      
 	exit();
 }
 echo "Clicking on your Employee Number will take you to a display to edit yoour information.<hr>";
 delete_errormsg();
-//setcookie("errormessage", " ", $expire10hr); 
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();
 	$address = mc_decrypt($row[3], ENCRYPTION_KEY);

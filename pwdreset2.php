@@ -44,13 +44,11 @@ if ($pass == 3)
 	$answer = $_POST["answer"];
 	if ($answer <> $hashanswer)
 	{
-		//setcookie("errormessage", "Your answer is not correct", $expire1hr);
           put_errormsg("Your answer is not correct");
           redirect("pwdreset.php");
 		exit();
 	}
 }
-//setcookie("errormessage", " ", $expire10hr);
 delete_errormsg();
 redirect("newpassword.php");
 ?>?

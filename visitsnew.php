@@ -26,14 +26,12 @@ if (!isset($_POST["client"])) {
 	echo "<br><br><input type=\"submit\" value=\"Continue\"></form>";
 	echo "<br><br><center>";
      $errormsg = get_errormsg();
-	//$errormsg = $_COOKIE["errormessage"];
 	echo $errormsg;
 	echo "</center>";
 	exit();
 }
 if (!isset($_POST["client"])) {
           put_errormsg("You must enter a Client Number");
-		//setcookie("errormessage", "You must enter a Client Number", $expire1hr);
           redirect("visitsnew.php"); 
 		exit();
 } else {
@@ -46,7 +44,6 @@ $sql = "SELECT * FROM `petclinic`.`clientpet` WHERE `clientnumber` = ".$client."
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "That Clients has no Pets", $expire10hr);
      put_errormsg("That Clients has no Pets");
      redirect("visitsnew.php");      
 	exit();

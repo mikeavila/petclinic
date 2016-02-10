@@ -17,7 +17,6 @@ $emplnumber = $_COOKIE['employeenumber'];
 require_once "includes/expire.inc";
 require_once "petarraykeys.php";
 $editpetnum = $_COOKIE["editpetnum"];
-//setcookie("errormessage", "", $expire1hr); 
 delete_errormsg();
 if (!empty($_POST["petname"]))
 {

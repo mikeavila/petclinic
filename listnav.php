@@ -21,7 +21,6 @@ if(!empty($_POST['menu']))
 	$value = $sValue;
 }
 delete_errormsg();
-//setcookie("errormessage", " ", $expire10hr); 
 $emplnumber = $_COOKIE['employeenumber'];
 switch ($value)
 {
@@ -62,7 +61,6 @@ switch ($value)
 		exit();
 		break;
 	default:
-		//setcookie("errormessage", "You must make a selection", $expire10hr);
           put_errormsg("You must make a selection");
           redirect("listings.php");
 		exit();

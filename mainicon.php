@@ -17,12 +17,6 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
-// if (!empty($_POST["errormessage"]))
-// {
-	// $errormsg = "";
-// } else {
-	// $errormsg = $_COOKIE['errormessage'];
-// }
 $display = 'MMenu: ' . $emplnumber;
 $mysqlic = new mysqli('localhost', $user, $password, '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
@@ -69,9 +63,7 @@ echo '<div class="mainItem"><div title="Main Menu" id="menuImg" class="mainImg" 
 echo '<div class="mainItem"><div title="Logoff" id="logoffImg" class="mainImg" data-menu="' . $logoffOpt . '" onclick="sendmmnav(this);"></div><div>Logoff</div></div>';
 echo '</div></form>';
 echo '<div><font size="+2" color="red">';
-$errormsg = get_errormsg();
-delete_errrormsg();
-echo $errormsg;
+include "includes/display_errormsg.inc";
 echo '</font></div>';
 require_once "includes/helpline.inc";
 help("mainicon.php");

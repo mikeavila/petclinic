@@ -9,7 +9,9 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-if ($logFileName == NULL) $logFileName = "user";
+if(!isset($logFileName)) {
+     $logFileName = "user";
+}
 if ($logFileName == "user") {
      $logDir="/logfiles";
 } else {

@@ -74,14 +74,12 @@ require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "There are no Clients (false)", $expire10hr); 
      put_errormsg("There are no Clients (false)");
 	header ("Location:listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
-	//setcookie("errormessage", "There are no Clients (count)", $expire10hr);
      put_errormsg("There are no Clients (count)");
      redirect("listings.php");
 	exit();

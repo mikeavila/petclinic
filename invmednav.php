@@ -20,30 +20,22 @@ if(!empty($_POST['menu']))
 	foreach($_POST['menu'] as $sKey => $sValue);
 	$value = $sValue;
 }
-$errormsg='';
-echo $value;
+delete_errormsg();
 switch ($value)
 {
 	case "1":
-		//setcookie("errormessage", " ", $expire10hr);
-          delete_errormsg();
           redirect("notavail.php");
 		exit();
 		break;
 	case "2":
-		//setcookie("errormessage", " ", $expire10hr);
-          delete_errormsg();
           redirect("notavail.php");
 		exit();
 		break;
 	case "3":
-		//setcookie("errormessage", " ", $expire10hr); 
-          delete_errormsg();
           redirect("invmedbase.php");
 		exit();
 		break;
 	default:
-		//setcookie("errormessage", "You must make a selection", $expire10hr);
           put_errormsg("You must make a selection");
           redirect("invmedmenu.php");          
 		exit();
