@@ -12,7 +12,7 @@
 session_start();
 $background = "3";
 require_once "includes/header1.inc";
-//include "includes/debugAJAX.inc";
+include "includes/debugAJAX.inc";
 ?>
 <script>
 	$(document).ready(function() {
@@ -69,7 +69,7 @@ require_once "includes/header1.inc";
                          required: "Enter the Vendor Telephone Number"
                     },
                     vendorstatus: {
-                         required: "Enter theStatus of the Vendor"
+                         required: "Enter the Status of the Vendor"
                     }
 			},
 			// the errorPlacement has to take the table layout into account
@@ -114,7 +114,7 @@ function continueon() {
      var emplnumber = $("input#emplnumber").val();
      var dataString = '&editvendornum=' + editvendornum + '&vendorname=' + vendorname + '&vendorshortname=' + vendorshortname + '&vendorcontact=' + vendorcontact +
           '&vendoraddress1=' + vendoraddress1 + '&vendoraddress2=' + vendoraddress2 + '&vendorcity=' + vendorcity + '&vendorstate=' + vendorstate +
-          '&zipcode=' + zipcode + '&htele=' + htele + '&ftele=' + ftele + '&ctele=' + ctele +
+          '&vendorzipcode=' + vendorzipcode + '&vendortele=' + vendortele + 
           '&vendoremail=' + vendoremail + '&vendorfax=' + vendorfax + 'vendorstatus=' + vendorstatus + '&emplnumber=' + emplnumber;
   $.ajax({
       type: "POST",
@@ -337,6 +337,8 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
      </select>
      <td class="status">
      </td>
+</tr>
+<tr>
      <td class="label">
          <label for="vendorzipcode">
              Zip Code (5 chars US; 7 chars Canada) 
@@ -358,6 +360,8 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
      </td>
      <td class="status">
      </td>
+</tr>
+<tr>
      <td class="label">
          <label for="vendorfax">
              FAX Telephone
@@ -380,6 +384,7 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
      </td>
      <td class="status">
      </td>
+</tr><tr>
      <td class="label">
          <label for="vendorstatus">
              Vendor Status (A, I, D)

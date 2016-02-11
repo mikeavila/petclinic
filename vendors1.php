@@ -31,20 +31,10 @@ $vendorstatus=$_POST["vendorstatus"];
 require_once "includes/expire.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 require_once "password.php";
-require_once "includes/key.inc";
 $mysqli = new mysqli('localhost', $user, $password, '');
-require_once "includes/en.inc";
-$address1 = mc_encrypt($vendoraddress1, ENCRYPTION_KEY);
-if (strlen($vendoraddress2) > 0)
-{
-	$address2 = mc_encrypt($vendoraddress2, ENCRYPTION_KEY);
-} else {
-	$address2 = "";
-}
-$city = mc_encrypt($vendorcity, ENCRYPTION_KEY);
 if ($editvendornum <> "new")
 {
-	$sql = "UPDATE `petclinicinc`.`vendor SET `vendorname` = \"".$vendorname."\", `vendorshortname` = \"".$vendorshortnamename."\", `vendorcontact` = \"".$vendorcontact."\", ";
+	$sql = "UPDATE `petclinicinv`.`vendor SET `vendorname` = \"".$vendorname."\", `vendorshortname` = \"".$vendorshortnamename."\", `vendorcontact` = \"".$vendorcontact."\", ";
 	$sql = $sql."`vendoraddress1` = \"".$address1."\", `vendoraddress2` = \"".$address2."\", `vendorcity` = \"".$city."\", `vendorstate` = \"".$vendorstate."\", `vendorzipcode` = \"".$vendorzipcode."\", ";
      $sql = $sql."`vendortele` = \"".$vendortele."\", `vendorfax` = \"".$vendorfax."\", `vendoremail` = \"".$vendoremail."\", `vendorstatus` = \"".$vendorstatus."\" WHERE vendorid = \"".$editvendornum."\";";
 	if ($mysqli->query($sql) === TRUE) {
@@ -55,10 +45,8 @@ if ($editvendornum <> "new")
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petclinicinc`.`vendor` (`vendorid`, `vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress`, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`, `vendorstatus`)
-	   VALUES ('$vendorid', '$vendorname', '$vendorshortname', '$vendorcontact', '$address1', '$address2', '$city', '$vendorstate', '$vendorzipcode', '$vendoremail', '$vendorstatus');";
-echo $sql;
-exit();
+	$sql = "INSERT INTO `petclinicinv`.`vendor` (`vendorname`, `vendorshortname`, `vendorcontact`, `vendoraddress1`, `vendoraddress2`, `vendorcity`, `vendorstate`, `vendorzipcode`, `vendortele`, `vendorfax`, `vendoremail`, `vendorstatus`)
+	   VALUES ('$vendorname', '$vendorshortname', '$vendorcontact', '$vendoraddress1', '$vendoraddress2', '$vendorcity', '$vendorstate', '$vendorzipcode', '$vendoremail', '$vendorstatus');";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
