@@ -12,7 +12,6 @@
 session_start();
 $background = "3";
 require_once "includes/header1.inc";
-include "includes/debugAJAX.inc";
 ?>
 <script>
 	$(document).ready(function() {
@@ -29,7 +28,7 @@ include "includes/debugAJAX.inc";
                     },
                     vendoraddress1: {
                          required: true,
-                         minlenghth: 4
+                         minlength: 4
                     },
                     vendorcity: {
                          required: true,
@@ -115,7 +114,7 @@ function continueon() {
      var dataString = '&editvendornum=' + editvendornum + '&vendorname=' + vendorname + '&vendorshortname=' + vendorshortname + '&vendorcontact=' + vendorcontact +
           '&vendoraddress1=' + vendoraddress1 + '&vendoraddress2=' + vendoraddress2 + '&vendorcity=' + vendorcity + '&vendorstate=' + vendorstate +
           '&vendorzipcode=' + vendorzipcode + '&vendortele=' + vendortele + 
-          '&vendoremail=' + vendoremail + '&vendorfax=' + vendorfax + 'vendorstatus=' + vendorstatus + '&emplnumber=' + emplnumber;
+          '&vendoremail=' + vendoremail + '&vendorfax=' + vendorfax + '&vendorstatus=' + vendorstatus + '&emplnumber=' + emplnumber;
   $.ajax({
       type: "POST",
       url: "vendors1.php",
@@ -159,6 +158,8 @@ if (($editvendornum == "") OR ($errorcode == "y"))
 	echo "<input type=\"hidden\" name=\"editvendornum\" value=\"new\">";
 	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Vendor\"></td></tr>";
 	echo "</table></form></center>";
+     echo "<form action=\"mainmenu.php\" method=\"post\">";
+     echo "<center><input type=\"submit\" value=\"Return to Main Menu\"></center></form>";
      include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
 	exit();
@@ -169,7 +170,7 @@ if ($editvendornum <> "new")
 {
 	require_once "includes/key.inc";
 	require_once "includes/de.inc";
-	$sql = "SELECT vendorid, vendorname, vendorshortname, vendorcontact, vendoraddress1, vendoraddress2, vendorcity, vendorstate, vendorzipcode, vendortele, vendorfax, vendoremail, status";
+	$sql = "SELECT vendorid, vendorname, vendorshortname, vendorcontact, vendoraddress1, vendoraddress2, vendorcity, vendorstate, vendorzipcode, vendortele, vendorfax, vendoremail, vendorstatus";
 	$sql = $sql." FROM `petclinicinv`.`vendor` WHERE `vendorid` = ".$editvendornum;
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
@@ -185,8 +186,7 @@ if ($editvendornum <> "new")
 		exit();
 	}
 	delete_errormsg();
-	for ($i = 0; $i < $row_cnt; $i++) {
-		$row = $result->fetch_row();
+	while ($row = $result->fetch_row()) {
 		$editvendornum=$row[0];
 		$vendorname=$row[1];
 		$vendorshortname=$row[2];
@@ -200,16 +200,17 @@ if ($editvendornum <> "new")
           $vendorfax=$row[10];
 		$vendoremail=$row[11];
           $vendorstatus=$row[12];
-		$address1 = mc_decrypt($address1, ENCRYPTION_KEY);
-		if ($address2 <> "")
-			$address2 = mc_decrypt($address2, ENCRYPTION_KEY);
-		$city = mc_decrypt($city, ENCRYPTION_KEY);
+ 		$vendoraddress1 = mc_decrypt($vendoraddress1, ENCRYPTION_KEY);
+ 		if ($vendoraddress2 <> "")
+ 			$vendoraddress2 = mc_decrypt($vendoraddress2, ENCRYPTION_KEY);
+ 		$vendorcity = mc_decrypt($vendorcity, ENCRYPTION_KEY);
+          $vendoremail = mc_decrypt($vendoremail, ENCRYPTION_KEY);
 	}
 }
 if ($editvendornum == "new")
 {
      $errormsg = get_errormsg();
-	if (strlen($errormsg) < 2)
+     if($errormsg == "Vendor Added")
 	{
 		$editvendornum="new";
 		$vendorname="";
@@ -227,9 +228,9 @@ if ($editvendornum == "new")
 	}
 }
 ?>
-<form id="vendorform" name="vendorform" method="post">
+<form id="vendorform" name="vendorform">
 <table cellpadding="5" cellspacing="5" width="95%">
-<tr><td align="right">Vendor Number</td><td><input type="text" name="editvendornum" size="4" maxlength="4" READONLY value="<?php echo $editvendornum;?>"></td></tr>
+<tr><td align="right">Vendor Number</td><td><input type="text" id="editvendornum" name="editvendornum" size="4" maxlength="4" READONLY value="<?php echo $editvendornum;?>"></td></tr>
 <tr>
      <td class="label">
          <label for="vendorname">
@@ -308,7 +309,7 @@ if ($editvendornum == "new")
              State 
          </label>
      </td>
-     <td class="field"><SELECT name="vendorstate">
+     <td class="field"><SELECT id="vendorstate" name="vendorstate">
 <?php
 $sqlstate = "SELECT * FROM `petclinic`.`code_state`";
 $resultstate = $mysqli->query($sqlstate);
@@ -402,7 +403,6 @@ for ($i = 0; $i < $row_cnt_state; $i++) {
 <?php
 include "includes/display_errormsg.inc";
 $mysqli->close();
-delete_errormsg();
 //include "helpline.php";
 //help("clientmaint.php");
 require_once "includes/footer.inc";

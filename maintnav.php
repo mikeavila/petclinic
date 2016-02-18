@@ -60,8 +60,7 @@ switch ($value)
 		break;
 	case "19":
 		$editempnum = $_COOKIE['employeenumber'];
-		setcookie("editempnum", $editempnum, $expire1hr);
-          redirect("emplmaint.php");
+          redirect("emplmaint.php?editempnum=".$editempnum);
 		exit();
 		break;
      case "3":

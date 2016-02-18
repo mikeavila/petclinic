@@ -31,35 +31,16 @@ $mysqli = new mysqli('localhost', $user, $password, '');
 </tr>
 <tr>
      <td class="label">
-         <label for="dobm">
-             Date of Birth Month
+         <label for="dob">
+             Date of Birth (as YYYY/MM/DD) 
          </label>
      </td>
      <td class="field">
-         <input id="dobm" name="dobm" type="text" size="2" maxlength="2" value="<?php echo $dobm;?>"> 
+         <input id="dob" name="dob" type="text" size="10" maxlength="10" value="<?php echo $dob;?>"> 
      </td>
      <td class="status">
      </td>
-     <td class="label">
-         <label for="dobd">
-             Date of Birth Day
-         </label>
-     </td>
-     <td class="field">
-         <input id="dobd" name="dobd" type="text" size="2" maxlength="2" value="<?php echo $dobd;?>"> 
-     </td>
-     <td class="status">
-     </td>
-     <td class="label">
-         <label for="dobm">
-             Date of Birth Year
-         </label>
-     </td>
-     <td class="field">
-         <input id="doby" name="doby" type="text" size="2" maxlength="2" value="<?php echo $doby;?>"> 
-     </td>
-     <td class="status">
-     </td>
+</tr>
 <?php
 if (!is_numeric($editpetnum)) {
 	$speciescd = $_COOKIE["speciescd"];
@@ -120,18 +101,63 @@ $sql = "SELECT * FROM `petclinic`.`code_breed` WHERE `breedcode` LIKE \"".$speci
 		echo ">".$row[1]."</option>";
 	}
 ?>
-</select></td><td> Gender <select name="petgender" size="2">
-<?php
-	echo '<option value="M"' . ($petgender == "M" ? ' selected' : '') . '>Male</option>';
-	echo '<option value="F"' . ($petgender == "F" ? ' selected' : '') . '>Female</option>';
-     echo '</select></td>';
-     echo '<td align="right"> Fixed <select name="petfixed" size="2">';
-     echo '<option value="Y"' . ($petfixed == "Y" ? ' selected' : '') . '>Yes</option>';
-     echo '<option value="N"' . ($petfixed == "N" ? ' selected' : '') . '>No</option>';
-?>
-</select></td></tr>
-<tr><td align="right"> Description <input name="petdesc" type="text" size="50" maxlength="50" value= "<?php echo $petdesc; ?>">
-</td><td align="right"> Color </td><td><input name="petcolor" type="text" size="20" maxlength="20" value= "<?php echo $petcolor;?>"></td></tr>
+</select></td>
+<tr>
+     <td class="label">
+         <label for="petgender">
+             Gender
+         </label>
+     </td>
+     <td class="field">
+          <select name="petgender" size="2">
+          <option value="M"' . ($petgender == "M" ? ' selected' : '') . '>Male</option>'
+          <option value="F"' . ($petgender == "F" ? ' selected' : '') . '>Female</option>'
+          </select>
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="petfixed">
+             Fixed
+         </label>
+     </td>
+     <td class="field">
+          <select name="petfixed" size="2">
+          <option value="Y"' . ($petfixed == "Y" ? ' selected' : '') . '>Yes</option>';
+          <option value="N"' . ($petfixed == "N" ? ' selected' : '') . '>No</option>';
+          </select>
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="petdesc">
+             Description 
+         </label>
+     </td>
+     <td class="field">
+         <input id="petdesc" name="petdesc" type="text" size="50" maxlength="50" value="<?php echo $petdesc;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="petcolor">
+              Color 
+         </label>
+     </td>
+     <td class="field">
+         <input id="petcolor" name="petcolor" type="text" size="50" maxlength="20" value="<?php echo $petcolor;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+
+
 <tr><td align="right">License <input name="license" type="text" size="15" maxlength="15" value= "<?php echo $license; ?>">
 <td align="right"> Microchip <input name="microchip" type="text" size="18" maxlength="18" value= "<?php echo $microchip; ?>">
 </td><td> RabiesTag <input name="rabiestag" type="text" size="10" maxlength="10" value= "<?php echo $rabiestag; ?>">
