@@ -396,25 +396,11 @@ if ($mysqli->query($sql) == TRUE) {
      echo "Error creating client table: " . $mysqli->error;
 	exit(1);
 }
-$sql = "CREATE TABLE `petclinic`.`phone` (
-  `clientnumber` integer(4) NOT NULL,
-  `phonecode` char(1) NOT NULL,
-  `phonenumber` numeric(13) NOT NULL,
-  PRIMARY KEY (`clientnumber`, `phonecode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-if ($mysqli->query($sql) == TRUE) {
-     $log->logThis("   Table phone created");
-} else {
-     $log->logThis("Error creating phone table: ".$mysqli->error);
-     $log->logThis("     SQL: ".$sql);
-     echo "Error creating phone table: " . $mysqli->error;
-	exit(1);
-}
 $sql = "CREATE TABLE `petclinic`.`clientphone` (
-  `clientnumber` INTEGER(4) NOT NULL,
-  `phonecode` char(1) NOT NULL,
-  `phonenumber` char(13),
-  PRIMARY KEY (`clientnumber`)
+     `clientnumber` int(4) NOT NULL,
+     `phonecode` char(1) NOT NULL,
+     `phonenumber` char(13) DEFAULT NULL,
+     UNIQUE KEY `clientnumber` (`clientnumber`,`phonecode`,`phonenumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table clientphone created");
@@ -599,6 +585,8 @@ $sql = "CREATE TABLE `petclinicinv`.`invtrans` (
 	`amount` decimal(6,2) NOT NULL DEFAULT 0.00,
 	`transdate` integer(8) NOT NULL,
 	`transtime` integer(4) NOT NULL,
+     `purchaseorder` varchar(20),
+     `invoicenumber` varchar(20),
 	`changeid` integer(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {

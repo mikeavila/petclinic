@@ -26,20 +26,23 @@ $state=$_POST["state"];
 $zipcode=$_POST["zipcode"];
 $email=$_POST["email"];
 $status=$_POST["status"];
+$htele = "";
+$ftele = "";
+$ctele = "";
+if (!empty($_POST["htele"]))
+{
+	$htele = $_POST["htele"];
+}
+
 if (!empty($_POST["ftele"]))
 {
 	$ftele = $_POST["ftele"];
-} else {
-	$ftele = "";
 }
+
 if (!empty($_POST["ctele"]))
 {
 	$ctele = $_POST["ctele"];
-} else {
-	$ctele = "";
 }
-require_once "includes/expire.inc";
-$emplnumber = $_COOKIE['employeenumber'];$editclientnum = $_COOKIE["editclientnum"];
 require_once "password.php";
 require_once "includes/key.inc";
 $mysqli = new mysqli('localhost', $user, $password, '');
@@ -80,15 +83,9 @@ if ($editclientnum <> "new")
           $billable = $_POST["billable"];
      }
 }
-$sql = "DELETE FROM `petclinic`.`phone` WHERE `clientnumber` = \"".$editclientnum."\";";
-if ($mysqli->query($sql) === TRUE) {
 
-} else {
-	echo "Telephone data deletion failed" . $mysqli->error;
-}
-
-if (strlen($htelephone) == 12) {
-	$sql = "INSERT INTO `petclinic`.`phone` (`clientnumber`, `phonecode`, `phonenumber`) VALUES (\"$editclientnum\", \"H\", \"$htelephone\");";
+if (strlen($htele) != 0) {
+	$sql = "REPLACE INTO `petclinic`.`clientphone` VALUES (\"$editclientnum\", \"H\", \"$htele\");";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
@@ -96,8 +93,8 @@ if (strlen($htelephone) == 12) {
 		exit(1);
 	}
 }
-if (strlen($ftelephone) == 12) {
-	$sql = "INSERT INTO `petclinic`.`phone` (`clientnumber`, `phonecode`, `phonenumber`) VALUES (\"$editclientnum\", \"F\", \"$ftelephone\");";
+if (strlen($ftele) != 0) {
+	$sql = "REPLACE INTO `petclinic`.`clientphone` VALUES (\"$editclientnum\", \"F\", \"$ftele\");";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
@@ -105,8 +102,8 @@ if (strlen($ftelephone) == 12) {
 		exit(1);
 	}
 }
-if (strlen($ctelephone) == 12) {
-	$sql = "INSERT INTO `petclinic`.`phone` (`clientnumber`, `phonecode`, `phonenumber`) VALUES (\"$editclientnum\", \"C\", \"$ctelephone\");";
+if (strlen($ctele) != 0) {
+	$sql = "REPLACE INTO `petclinic`.`clientphone` VALUES (\"$editclientnum\", \"C\", \"$ctele\");";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
@@ -114,8 +111,8 @@ if (strlen($ctelephone) == 12) {
 		exit(1);
 	}
 }
-
-$mysqli->close(); 
-put_errormsg("Client Added");
-redirect("clientmaint.php");
+$mysqli->close();
+delete_errormsg();
+$_SESSION['client_data']=array('client' => $lname . ', ' . $fname, 'cid' => $editclientnum);
+echo "'clientmaint.php?e=y'";
 ?>

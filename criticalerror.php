@@ -24,12 +24,17 @@ $errorcode = $_GET["ec"];
 $module = $_GET["m"];
 $errormsg = get_errormsg();
 delete_errormsg();
+$datenow = date('D y/m/d')
+$timenow = date('H:i:s');
 ?>
 <h2>Critical Error</h2>
 <br><br>
 Please make note or print out this error and report it so it can be fixed. For how to report problems <a href="support.php">click here</a>.
 <br><br><center>
 A citical error occured. The information is as follows:
+<p>Date: <?php echo $datenow; ?>
+<p>Time: <?php echo $timenow; ?>
+<p>User id:
 <p>Module: <?php echo $module ?>
 <p>Error Code: <?php echo $errorcode ?>
 <br><br>

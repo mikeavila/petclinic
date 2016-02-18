@@ -134,7 +134,7 @@ img.loginImg {
 
 #formContainer {
 	border:0px solid red;
-	height:300px;
+	height:250px;
 	width:98%
 }
 
@@ -142,6 +142,7 @@ img.loginImg {
 	border:0px solid green;
 	float:left;
 	height:inherit;
+	text-align:center;
 	width:300px;
 }
 
@@ -149,9 +150,8 @@ img.loginImg {
 	border:0px solid blue;
 	display:inline-block;
 	height:inherit;
-	margin-left:-124px;
 	text-align:left;
-	width:600px;
+	width:660px;
 }
 
 .mainItem {
@@ -237,4 +237,14 @@ fieldset {
 
 legend {
 	margin-left:20px;
+}
+
+.success {
+    color:green;
+    font-weight:bold;
+}
+
+.failure {
+    color:red;
+    font-weight:bold;
 }

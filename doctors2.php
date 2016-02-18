@@ -10,9 +10,15 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+require_once "includes/common.inc";
+
+if ( array_key_exists('done', $_GET) ) {
+	unset($_GET['done']);
+	redirect("doctors.php");
+}
+
 $logFileName = "user";
 $headerTitle="USER LOG";
-require_once "includes/common.inc";
 $emplnumber = 0;
 if(isset($_POST["emplnumber"])) {
      $emplnumber=$_POST["emplnumber"];
@@ -69,5 +75,4 @@ if ($docnumber <> "new")
 }
 $mysqli->close();
 delete_errormsg();
-redirect("doctors.php"); 
 ?>

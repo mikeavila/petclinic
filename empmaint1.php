@@ -13,6 +13,7 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
+$editempnum = $_POST['editempnum'];
 $emplnumber=$_POST["emplnumber"];
 $uuserid=$_POST["uuserid"];
 $epassword=$_POST["epassword"];
@@ -101,14 +102,13 @@ if (empty($_POST["telephone"]))
 	exit();
 }
 require_once "pwdreq.php";
-$errormsg = pwdreq($epassword, $errormsg);
+$errormsg = pwdreq($epassword);
 if (strlen($errormsg) > 0) {
      put_errormsg($errormsg);
-     redirect("emplmaint.php");     
+     redirect("emplmaint.php");
 	exit();
 }
-$emplnumber = $_COOKIE['employeenumber'];
-$editempnum = $_COOKIE["editempnum"];
+
 require_once "password.php";
 require_once "includes/key.inc";
 $mysqli = new mysqli('localhost', $user, $password, '');
@@ -125,7 +125,7 @@ if ($editempnum <> "new")
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
           put_errormsg("Invalid Employee number");
-          redirect("emplmaint.php");          
+          redirect("emplmaint.php");
 		exit();
 	}
 	$row = $result->fetch_row();
@@ -153,7 +153,7 @@ $passwordhint = mc_encrypt($passwordhint, ENCRYPTION_KEY);
 $hintanswer = mc_encrypt($hintanswer, ENCRYPTION_KEY);
 if ($editempnum <> "new")
 {
-	$sql = "UPDATE petcliniccorp.employee SET `uuserid` = \"".$uuserid."\", `upassword` = \"".$epassword."\", `changepwd` = \"".$changepwd."\", `pwdhint` = \"".$passwordhint."\", ";
+	$sql = "UPDATE `petcliniccorp`.`employee` SET `uuserid` = \"".$uuserid."\", `upassword` = \"".$epassword."\", `changepwd` = \"".$changepwd."\", `pwdhint` = \"".$passwordhint."\", ";
 	$sql = $sql."`hintans` = \"".$hintanswer."\", `lname` = \"".$lname."\", `fname` = \"".$fname."\", `prefix` = \"".$prefix."\", `suffix` = \"".$suffix."\", ";
 	$sql = $sql."`address` = \"".$address1."\", `address2` = \"".$address2."\", `city` = \"".$city."\", `state` = \"".$state."\", `zipcode` = \"".$zipcode."\", ";
 	$sql = $sql."`email` = \"".$email."\", `status` = \"".$status."\", `telephone` = \"".$telephone."\", `changeid` = \"".$emplnumber."\" WHERE emplnumber = \"".$editempnum."\";";
@@ -164,7 +164,7 @@ if ($editempnum <> "new")
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petcliniccorp.employee` (`uuserid`, `upassword`, `lname`, `fname`, `address`, `address2`, `city`, `state`, `zipcode`, 
+	$sql = "INSERT INTO `petcliniccorp`.`employee` (`uuserid`, `upassword`, `lname`, `fname`, `address`, `address2`, `city`, `state`, `zipcode`,
        `telephone`, `status`, `changeid`, `changepwd`, `email`, `pwdhint`, `hintans`, `prefix`, `suffix`)
 	   VALUES (\"$uuserid\", \"$epassword\", \"$lname\", \"$fname\", \"$address1\", \"$address2\", \"$city\",
 	   \"$state\", \"$zipcode\", \"$telephone\", 'A', \"$emplnumber\", 'Y', \"$email\", \"$passwordhint\", \"$hintanswer\", \"$prefix\", \"$suffix\");";
@@ -175,26 +175,15 @@ if ($editempnum <> "new")
 		exit(1);
 	}
 	$result = $mysqli->insert_id;
-	$sql = "INSERT INTO `petcliniccorp.seckeys` (`emplnumber`, `sequence`, `sk01`, `sk02`, `sk03`, `sk04`, `sk05`, `sk06`, `sk07`,
-	                `sk08`,	`sk09`,	`sk10`,	`sk11`,	`sk12`,	`sk13`,	`sk14`,	`sk15`,	`sk16`,	`sk17`,
-					`sk18`,	`sk19`,	`sk20`,	`sk21`,	`sk22`,	`sk23`,	`sk24`,	`sk25`, `sk26`, `sk27`, `sk28`, `sk29`, 
-					`sk30`, `sk31`, `sk32`, `sk33`, `sk34`, `sk35`, `changeid`)
-		VALUES($result, 1, \"N\", \"N\",	\"N\",	\"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\",	
-			\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",
-			\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"".$emplnumber."\");";
+	$editempnum  = $result;
+	$sql = "INSERT INTO `petcliniccorp`.`seckeys` (`emplnumber`, `sequence`, `changeid`) VALUES ($result, 1, $emplnumber);";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
 		echo "Table employee security data1 insertion failed" . $mysqli->error;
 		exit(1);
 	}
-	$sql = "INSERT INTO `petcliniccorp.seckeys` (`emplnumber`, `sequence`, `sk01`, `sk02`,	`sk03`,	`sk04`,	`sk05`,	`sk06`,	`sk07`,
-	                `sk08`,	`sk09`,	`sk10`,	`sk11`,	`sk12`,	`sk13`,	`sk14`,	`sk15`,	`sk16`,	`sk17`,
-					`sk18`,	`sk19`,	`sk20`,	`sk21`,	`sk22`,	`sk23`,	`sk24`,	`sk25`, `sk26`, `sk27`, `sk28`, `sk29`, 
-					`sk30`, `sk31`, `sk32`, `sk33`, `sk34`, `sk35`, `changeid`)
-		VALUES($result, 2, \"N\", \"N\",	\"N\",	\"N\",	\"N\",	\"N\",	\"N\", \"N\", \"N\", \"N\",	
-			\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\",	\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"N\",
-			\"N\", \"N\", \"N\", \"N\", \"N\", \"N\", \"".$emplnumber."\");";
+	$sql = "INSERT INTO `petcliniccorp`.`seckeys` (`emplnumber`, `sequence`, `changeid`) VALUES ($result, 2, $emplnumber);";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
@@ -204,5 +193,6 @@ if ($editempnum <> "new")
 }
 $mysqli->close();
 delete_errormsg();
-redirect("emplmaint.php"); 
+$_SESSION['employee_data']=array('uid' => $editempnum, 'user' => $uuserid);
+echo "emplmaint.php"; //?editempnum=" . $editempnum;  // return string to the ajax via success.
 ?>

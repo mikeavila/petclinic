@@ -24,7 +24,7 @@ $(document).ready(function() {
                },
                password: {
                     required: true,
-                    minlength: 40
+                    minlength: 8
                },
                changepwd: {
                     required: true,
@@ -126,8 +126,8 @@ $(document).ready(function() {
 });
 function continueon() {
      var editempnum = $('input#editempnum').val();
-     var prefix = $('input#uuserid').val();
-     var epassword = $('input#epassword').val();
+     var uuserid = $('input#uuserid').val();
+     var epassword = $('input#password').val();
      var changepwd = $('input#changepwd').val();
      var passwordhint = $('input#passwordhint').val();
      var hintanswer = $('input#hintanswer').val();
@@ -144,22 +144,21 @@ function continueon() {
      var email = $('input#email').val();
      var status = $('input#status').val();
      var emplnumber = $('input#emplnumber').val();
-     var dataString = '&editempnum=' + editempnum + '&uuserid=' + uuserid + '&changepwd=' + changepwd + '&passwordhint=' + passwordhint + '&hintanswer=' + hintanswer + 
+     var changeid = $('input#changeid').val();
+     var dataString = '&editempnum=' + editempnum + '&uuserid=' + uuserid + '&changepwd=' + changepwd + '&passwordhint=' + passwordhint + '&hintanswer=' + hintanswer +
           '&prefix='+ prefix + '&fname=' + fname + '&lname=' + lname + '&suffix=' + suffix + '&address1=' + address1 + '&address2=' + address2 +
-          '&city=' + city + '&state=' + state + '&zipcode=' + zipcode + '&telephone=' + telephone + '&email=' + email + '&status=' + status + '&emplnumber=' + emplnumber;
+          '&city=' + city + '&state=' + state + '&zipcode=' + zipcode + '&telephone=' + telephone + '&email=' + email + '&status=' + status + '&emplnumber=' + emplnumber +
+          '&changeid=' + changeid + '&epassword=' + epassword;
   $.ajax({
       type: 'POST',
-      url: 'emplmaint1.php',
+      url: 'empmaint1.php',
       data: dataString,
       cache: false,
-      success: function() {
-          fakeit();
+      success: function(msg) {
+          window.location.href=msg;
       }
     });
      return false;
-}
-function fakeit() {
-     return;
 }
 </script>
 <?php
@@ -170,30 +169,39 @@ require_once "includes/common.inc";
 $emplnumber = $_COOKIE['employeenumber'];
 $display = "Emplmaint:".$emplnumber;
 require_once "includes/expire.inc";
-$editempnum = $_COOKIE["editempnum"];
 if(isset($_GET["e"])) {
      $errorcode = $_GET["e"];
 } else {
      $errorcode = "n";
 }
+$editempnum = ' ';
+if ( !empty($_GET['editempnum']) ) {
+	$editempnum = $_GET['editempnum'];
+	unset($_GET['editempnum']);
+}
+if ( !empty($_SESSION['employee_data']) ) {
+	echo '<div class="success">Successfully added/updated user: ' . $_SESSION['employee_data']['user'] . ', employee#(' . $_SESSION['employee_data']['uid'] . ')</div>';
+	unset ($_SESSION['employee_data']); // don't retain this data.
+}
 if (($editempnum == " ") OR ($errorcode == "y"))
 {
-	echo "<center><form action=\"setupemaint.php\" method=\"get\">";
-	echo "<table width = \"25%\" border = \"0\">";
-	echo "<tr><td>Enter the Employee Number to be edited.</td></tr>";
-	echo "<tr><td><input type=\"text\" name=\"editempnum\" size=\"5\" maxlength=\"5\"></td></tr>";
-	echo "<tr><td><input type=\"submit\" value=\"Edit Requested Employee\"></td></tr></table>";
-	echo "</form><form action=\"setupemaint.php\" method=\"get\">";
-	echo "<input type=\"hidden\" name=\"editempnum\" value=\"new\">";
-	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Employee\"></td></tr>";
-	echo "</table></form></center>";
+	echo '<center><form action="emplmaint.php" method="get">';
+	echo '<table width="25%">';
+	echo '<tr><td>Enter the Employee Number to be edited.</td></tr>';
+	echo '<tr><td><input type="text" name="editempnum" size="5" maxlength="5"></td></tr>';
+	echo '<tr><td><input type="submit" value="Edit Requested Employee"></td></tr></table>';
+	echo '</form><form action="emplmaint.php" method="get">';
+	echo '<input type="hidden" name="editempnum" value="new">';
+	echo '<table width="25%"><tr><td><input type="submit" value="Create New Employee"></td></tr>';
+	echo '</table></form></center>';
+     echo '<div class="center">';
+	echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
      include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
 	exit();
 }
-if ($editempnum <> "new")
+else if ($editempnum <> "new")
 {
-	require_once "password.php";
 	$mysqli = new mysqli('localhost', $user, $password, '');
 	require_once "includes/key.inc";
 	require_once "includes/de.inc";
@@ -213,8 +221,7 @@ if ($editempnum <> "new")
 		exit();
 	}
      delete_errormsg();
-	for ($i = 0; $i < $row_cnt; $i++) {
-		$row = $result->fetch_row();
+	while ( $row = $result->fetch_row() ) {
 		$editempnum=$row[0];
 		$uuserid=$row[1];
 		$epassword=$row[2];
@@ -233,7 +240,6 @@ if ($editempnum <> "new")
 		$telephone=$row[15];
 		$email=$row[16];
 		$status=$row[17];
-		$changeid=$row[18];
 		$epassword = mc_decrypt($epassword, ENCRYPTION_KEY);
 		$passwordhint = mc_decrypt($passwordhint, ENCRYPTION_KEY);
 		$hintanswer= mc_decrypt($hintanswer, ENCRYPTION_KEY);
@@ -244,10 +250,8 @@ if ($editempnum <> "new")
 	}
 	$mysqli->close();
 }
-
-if ($editempnum == "new")
+else if ($editempnum == "new")
 {
-     $emplnumber=" ";
      $uuserid="";
      $epassword="";
      $changepwd="Y";
@@ -265,96 +269,88 @@ if ($editempnum == "new")
      $telephone="";
      $email="";
      $status="";
-     $changeid="";
 }
 ?>
-<form id="empform" name="empform" action="empmaint1.php" method="post"><center><table cellpadding="5" cellspacing="5" width="75%">
-<tr><td align="right">Employee Number</td><td><input type="text" name="editempnum" size="4" maxlength="4" READONLY value="<?php echo $editempnum; ?>">
+<form id="empform" name="empform">
+<table cellpadding="5" cellspacing="5" width="75%">
+<tr><td>Employee Number</td><td><input type="text" id="editempnum" name="editempnum" size="4" maxlength="4" READONLY value="<?php echo $editempnum; ?>">
 <tr>
      <td class="label">
          <label for="uuserid">
-             UserID 
+             UserID
          </label>
      </td>
      <td class="field">
-         <input id="uuserid" name="uuserid" type="text" size="40" maxlength="10" value="<?php echo $uuserid;?>"> 
+         <input id="uuserid" name="uuserid" type="text" size="40" maxlength="10" value="<?php echo $uuserid;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="password">
-             Password 
+             Password
          </label>
      </td>
      <td class="field">
-         <input id="password" name="password" type="text" size="40" maxlength="10" value="<?php echo $epassword;?>"> 
+         <input id="password" name="password" type="text" size="40" maxlength="10" value="<?php echo $epassword;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
          <label for="changepwd">
-             Change Password 
+             Change Password
          </label>
      </td>
      <td class="field">
-         <input id="changepwd" name="changepwd" type="text" size="1" maxlength="1" value="<?php echo $changepwd;?>"> 
+         <input id="changepwd" name="changepwd" type="text" size="1" maxlength="1" value="<?php echo $changepwd;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="passwordhint">
-             Password Hint 
+             Password Hint
          </label>
      </td>
      <td class="field">
-         <input id="passwordhint" name="passwordhint" type="password" size="20" maxlength="20" value="<?php echo $passwordhint;?>"> 
+         <input id="passwordhint" name="passwordhint" type="password" size="20" maxlength="20" value="<?php echo $passwordhint;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="hintanswer">
              Hint Answer
          </label>
      </td>
      <td class="field">
-         <input id="hintanswer" name="hintanswer" type="password" size="15" maxlength="15" value="<?php echo $hintanswer;?>"> 
+         <input id="hintanswer" name="hintanswer" type="password" size="15" maxlength="15" value="<?php echo $hintanswer;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
          <label for="prefix">
-             Prefix (such as Dr) 
+             Prefix (such as Dr)
          </label>
      </td>
      <td class="field">
-         <input id="prefix" name="prefix" type="text" size="5" maxlength="25" value="<?php echo $prefix;?>"> 
+         <input id="prefix" name="prefix" type="text" size="5" maxlength="25" value="<?php echo $prefix;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="fname">
-             First Name 
+             First Name
          </label>
      </td>
      <td class="field">
-         <input id="fname" name="fname" type="text" size="40" maxlength="25" value="<?php echo $fname;?>"> 
+         <input id="fname" name="fname" type="text" size="40" maxlength="25" value="<?php echo $fname;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="lname">
-             Last Name 
+             Last Name
          </label>
      </td>
      <td class="field">
-         <input id="lname" name="lname" type="text" size="40" maxlength="40" value="<?php echo $lname;?>"> 
+         <input id="lname" name="lname" type="text" size="40" maxlength="40" value="<?php echo $lname;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
@@ -363,30 +359,27 @@ if ($editempnum == "new")
          </label>
      </td>
      <td class="field">
-         <input id="suffix" name="suffix" type="text" size="5" maxlength="5" value="<?php echo $suffix;?>"> 
+         <input id="suffix" name="suffix" type="text" size="5" maxlength="5" value="<?php echo $suffix;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="address1">
-             Address 
+             Address
          </label>
      </td>
      <td class="field">
-         <input id="address1" name="address1" type="text" size="30" maxlength="30" value="<?php echo $address1;?>"> 
+         <input id="address1" name="address1" type="text" size="30" maxlength="30" value="<?php echo $address1;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="address2">
-             Address 2 (Optional) 
+             Address 2 (Optional)
          </label>
      </td>
      <td class="field">
-         <input id="address2" name="address2" type="text" size="40" maxlength="40" value="<?php echo $address2;?>"> 
+         <input id="address2" name="address2" type="text" size="40" maxlength="40" value="<?php echo $address2;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
@@ -395,77 +388,75 @@ if ($editempnum == "new")
          </label>
      </td>
      <td class="field">
-         <input id="city" name="city" type="text" size="25" maxlength="25" value="<?php echo $city;?>"> 
+         <input id="city" name="city" type="text" size="25" maxlength="25" value="<?php echo $city;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="state">
-             State 
+             State
          </label>
      </td>
      <td class="field">
-         <input id="state" name="state" type="text" size="40" maxlength="20" value="<?php echo $state;?>"> 
+         <input id="state" name="state" type="text" size="40" maxlength="20" value="<?php echo $state;?>">
      </td>
-     <td class="status">
-     </td>
-     <td class="label">
+     <td class="status"></td>
+     <td class="label" rowspan="2">
          <label for="zipcode">
-             Zip Code (5 chars for US; 7 chars for Canada)
+             Zip Code
          </label>
      </td>
      <td class="field">
-         <input id="zipcode" name="zipcode" type="text" size="40" maxlength="7" value="<?php echo $zipcode;?>"> 
+         <input id="zipcode" name="zipcode" type="text" size="40" maxlength="7" value="<?php echo $zipcode;?>" placeholder="5 chars for US; 7 chars for Canada">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
          <label for="telephone">
-             Telephone 
+             Telephone
          </label>
      </td>
      <td class="field">
-         <input id="telephone" name="telephone" type="text" size="12" maxlength="12" value="<?php echo $telephone;?>"> 
+         <input id="telephone" name="telephone" type="text" size="12" maxlength="12" value="<?php echo $telephone;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="email">
-             Email 
+             Email
          </label>
      </td>
      <td class="field">
-         <input id="email" name="email" type="text" size="25" maxlength="25" value="<?php echo $email;?>"> 
+         <input id="email" name="email" type="text" size="25" maxlength="25" value="<?php echo $email;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
 </tr>
 <tr>
      <td class="label">
          <label for="status">
-             Status 
+             Status
          </label>
      </td>
      <td class="field">
-         <input id="status" name="status" type="text" size="1" maxlength="1" value="<?php echo $status;?>"> 
+         <input id="status" name="status" type="text" size="1" maxlength="1" value="<?php echo $status;?>">
      </td>
-     <td class="status">
-     </td>
+     <td class="status"></td>
      <td class="label">
          <label for="changeid">
              Change ID
          </label>
      </td>
      <td class="field">
-         <input id="changeid" name="changeid" type="text" size="4" maxlength="4" value="<?php echo $changeid;?>"  READONLY> 
+         <input id="changeid" name="changeid" type="text" size="4" maxlength="4" value="<?php echo $emplnumber;?>"  READONLY>
      </td>
-     <td class="status">
-     </td>
-<td><input type="hidden" name="emplnumber" value="<?php echo $emplnumber; ?>"></td></tr>
-<tr><td colspan="6" align="center"><input type="submit" value="Create/Update Employee"></td></tr></table></center></form>
-<form action="maintmenu.php" method="post"><center><table width="75%"><tr><td align="center"><input type="submit" value="Return to Maintenance Menu"></td></tr></table></center></form>
+     <td class="status"></td>
+</tr>
+</table>
+<input type="hidden" id="emplnumber" name="emplnumber" value="<?php echo $emplnumber; ?>">
+<div class="center"><input type="submit" value="Create/Update Employee"></div></form>
+<div class="center">
+	<form action="maintmenu.php" method="post"><input type="submit" value="Return to Maintenance Menu"></form>
+</div>
 <?php
-include "includes/display_errormsg.inc";
+require_once 'includes/display_errormsg.inc';
+require_once 'includes/footer.inc';
 ?>

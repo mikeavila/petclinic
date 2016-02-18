@@ -12,6 +12,85 @@
 session_start();
 $background = "3";
 require_once "includes/header1.inc";
+?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// validate signup form on keyup and submit
+		var validator = $("#docform").validate({
+			rules: {
+				doctorinfo: {
+					required: true,
+					minlength: 10
+				},
+                docstatelic: {
+                    required: true,
+                    minlength: 5
+                },
+                doctorstatus: {
+                    required: true,
+                    pattern: /^(A|I|D)$/
+                }
+            },
+			messages: {
+                doctorinfo: {
+                    required: "Enter the Doctor&#39;s Information"
+                },
+                docstatelic: {
+                    required: "Enter the Doctor&#39;s State License"
+                },
+                status: {
+                    required: "Enter the Doctor&#39;s Status (A or I or D)"
+                }
+			},
+			// the errorPlacement has to take the table layout into account
+			errorPlacement: function(error, element) {
+				if (element.is(":radio"))
+					error.appendTo(element.parent().next().next());
+				else if (element.is(":checkbox"))
+					error.appendTo(element.next());
+				else
+					error.appendTo(element.parent().next());
+			},
+			// specifying a submitHandler prevents the default submit, good for the demo
+			submitHandler: function() {
+				//alert("submitted!");
+                    continueon();
+			},
+			// set this class to error-labels to indicate valid fields
+			success: function(label) {
+				// set &nbsp; as text for IE
+				label.html("&nbsp;").addClass("checked");
+			},
+			highlight: function(element, errorClass) {
+				$(element).parent().next().find("." + errorClass).removeClass("checked");
+			}
+		});
+          return false;
+	});
+function continueon() {
+     var docnumber = $("input#docnumber").val();
+     var doctorinfo = $("input#doctorinfo").val();
+     var docstatelic = $("input#docstatelic").val();
+     var docdea = $("input#docdea").val();
+     var doctorstatus = $("input#doctorstatus").val();
+     var emplnumber = $("input#emplnumber").val();
+     var dataString = "&docnumber=" + docnumber + "&doctorinfo=" + doctorinfo + "&docstatelic=" + docstatelic + "&docdea=" + docdea +
+          "&doctorstatus=" + doctorstatus + "&emplnumber=" + emplnumber;
+  $.ajax({
+      type: "POST",
+      url: "doctors2.php",
+      data: dataString,
+      cache: false,
+      done: fakeit()
+  });
+
+  return false;
+}
+function fakeit() {
+     window.location.href="doctors2.php?done=1";
+     return;
+}
+</script><?php
 require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
@@ -22,12 +101,12 @@ require_once "includes/common.inc";
 The Base Record will have all Medicine Inventory transactions update its values. You can create the base record with Medicine 
 Inventory already in stock or use a Medicine Inventory transaction to update the base record.
 <br><br>
-<form method="post" action="invmedbase1.php"><table width=80%>
+<form method="post""><table width=80%>
 <tr><td>Enter the Description <input type="text" name="desc" size="40" maxlength="40"></td>
 <td>Enter where the Medicine is usually purchased <SELECT name="wherebought" size="3">
 <?php
 $mysqli = new mysqli('localhost', $user, $password, '');
-$sql = "SELECT `vendorid`,`short_name` FROM `petclinicinv.contacts` WHERE `vendorstatus` = 'A';";
+$sql = "SELECT `vendorid`,`vendorshortname` FROM `petclinicinv`.`vendor` WHERE `vendorstatus` = 'A';";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
@@ -44,6 +123,18 @@ echo '<option value="0">Unknown</option>';
      }
 }
 $mysqli->close();
+$purchdate = "";
+$cartoncost = "0.00";
+$contcost = "0.00";
+$cartonspurch = "0";
+$contcarton = "0";
+$itemcont = "0";
+$itemcost = "0.00";
+$itemreorder = "0";
+$itemmarkup = "0.00";
+$contmarkup = "0.00";
+$itemsales = "0.00";
+$contsales = "0.00";
 ?>
 </select></td>
 <tr>
@@ -65,59 +156,153 @@ They control inventory reordering and sales price. However, if you want an Inven
 you must enter ALL of the information.</center>
 <br><br>
 <table width=70%>
-<!---------------------------------------
-
 <tr>
      <td class="label">
-         <label for="prefix">
-             Prefix (such as Dr) 
+         <label for="cartoncost">
+             Carton Cost (2 decimal)
          </label>
      </td>
      <td class="field">
-         <input id="prefix" name="prefix" type="text" size="4" maxlength="4" value="<?php echo $prefix;?>"> 
+         <input id="cartoncost" name="cartoncost" type="text" size="6" maxlength="6" value="<?php echo $cartoncost;?>"> 
      </td>
      <td class="status">
      </td>
 </tr>
-
---------------------------------------------->
-<tr><td>Carton Cost <input type="text" name="cartoncost1" size="3" maxlength="3">.
-<input type="text" name="cartoncost2" size="2" maxlength="2"></td>
-
-<td>Container Cost <input type="text" name="contcost1" size="4" maxlength="4">.
-<input type="text" name="contcost2" size="2" maxlength="2"></td></tr>
-
-<tr><td>Cartons Purchased <input type="text" name="cartonspurch" size="3" maxlength="3"></td>
-
-<td>How many containers are in a carton <input type="text" name="contcarton" size="3" maxlength="3"></td></tr>
-
-<tr><td>How many items are in a container <input type="text" name="itemcont" size="4" maxlength="4"></td>
-
-<td>What is the cost per item <input type="text" name="itemcost1" size="3" maxlength="3">.
-<input type="text" name="itemcost2" size="2" maxlength="2"></td></tr>
-
-<tr><td>What is the Item Reorder Level <input type="text" name="itemreorder" size="3" maxlength="3"></td>
-
-<td>What is the Item Markup from cost as a percent <input type="text" name="itemmarkup1" size="1" maxlength="1">
-.<input type="text" name="itemmarkup2" size="2" maxlength="2"></td></tr>
-
-<tr><td>What is the Container Markup from cost as a percent <input type="text" name="contmarkup1" size="1" maxlength="1">
-.<input type="text" name="contmarkup2" size="2" maxlength="2"></td></tr>
-
-<tr><td>What is the Item Sales Price <input type="text" name="itemsales1" size="4" maxlength="4">.
-<input type="text" name="itemsales2" size="2" maxlength="2"></td>
-
-<td>What is the Container Sales Price <input type="text" name="contsales1" size="4" maxlength="4">.
-<input type="text" name="contsales2" size="2" maxlength="2"></td></tr>
-
+<tr>
+     <td class="label">
+         <label for="contcost">
+             Container Cost (2 decimal) 
+         </label>
+     </td>
+     <td class="field">
+         <input id="contcost" name="contcost" type="text" size="6" maxlength="6" value="<?php echo $contcost;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="cartonspurch">
+             Cartons Purchased  
+         </label>
+     </td>
+     <td class="field">
+         <input id="cartonspurch" name="cartonspurch" type="text" size="3" maxlength="3" value="<?php echo $cartonspurch;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="contcarton">
+             How many containers are in a carton 
+         </label>
+     </td>
+     <td class="field">
+         <input id="contcarton" name="contcarton" type="text" size="3" maxlength="3" value="<?php echo $contcarton;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemcont">
+             How many items are in a container
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemcont" name="itemcont" type="text" size="4" maxlength="4" value="<?php echo $itemcont;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemcost">
+             What is the cost per item (2 decimal)
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemcost" name="itemcost" type="text" size="6" maxlength="6" value="<?php echo $itemcost;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemreorder">
+             What is the Item Reorder Level
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemreorder" name="itemreorder" type="text" size="3" maxlength="3" value="<?php echo $itemreorder;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemmarkup">
+             What is the Item Markup from cost as a percent
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemmarkup" name="itemmarkup" type="text" size="4" maxlength="4" value="<?php echo $itemmarkup;?>">%
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemmarkup">
+             What is the Item Markup from cost as a percent
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemmarkup" name="itemmarkup" type="text" size="4" maxlength="4" value="<?php echo $itemmarkup;?>">%
+     </td>
+     <td class="status">
+     </td>
+</tr><tr>
+     <td class="label">
+         <label for="contmarkup">
+            What is the Container Markup from cost as a percent 
+         </label>
+     </td>
+     <td class="field">
+         <input id="contmarkup" name="contmarkup" type="text" size="4" maxlength="4" value="<?php echo $contmarkup;?>">%
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="itemsales">
+             What is the Item Sales Price (2 decimal)
+         </label>
+     </td>
+     <td class="field">
+         <input id="itemsales" name="itemsales" type="text" size="6" maxlength="6" value="<?php echo $itemsales;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
+<tr>
+     <td class="label">
+         <label for="contsales">
+             What is the Container Sales Price (2 decimal)
+         </label>
+     </td>
+     <td class="field">
+         <input id="contsales" name="contsales" type="text" size="6" maxlength="6" value="<?php echo $contsales;?>"> 
+     </td>
+     <td class="status">
+     </td>
+</tr>
 <tr><td>Is the Item Taxable <SELECT name="taxable" size="2"><option value="Y">Yes</option><option value="N">No</option></select></td></tr>
-
-<tr><td>Do you want an Inventory Record created for the Accounting Module 
-<SELECT name="acctg"><option value="Y" SELECTED>Yes</option><option value="N" >No</option></select></td></tr>
-
-</table><br><br><br><br><font size="+2" color="red">
+<br><br>
 <?php include "includes/display_errormsg.inc"; ?>
-</font><br><br>
+<br><br>
 <input type="submit" value="Create Medicine Base Record"></form>
 
 <form method="post" action="mainmenu.php"><input type="submit" value="Return to the Main Menu"></form>
