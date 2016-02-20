@@ -112,17 +112,17 @@ function continueon() {
      var status = $('input#status').val();
      var billable = $('select#billable').val();
      var emplnumber = $('input#emplnumber').val();
-     var clientnum  = $('input#editclientnum').val();
+     var editclientnum  = $('input#editclientnum').val();
      var dataString = '&prefix=' + prefix + '&fname=' + fname + '&lname=' + lname + '&suffix=' + suffix +
           '&address1=' + address1 + '&address2=' + address2 + '&city=' + city + '&state=' + state +
           '&zipcode=' + zipcode + '&htele=' + htele + '&ftele=' + ftele + '&ctele=' + ctele +
           '&email=' + email + '&status=' + status + '&billable=' + billable + '&emplnumber=' + emplnumber +
           '&editclientnum=' + editclientnum;
+
      $.ajax({
         type: 'POST',
         url: 'clientmaint1.php',
         data: dataString,
-        cache: false,
         success: function(msg) {
             window.location.href=msg;
         }
@@ -132,6 +132,7 @@ function continueon() {
 }
 </script>
 <?php
+$mysqli = new mysqli('localhost', $user, $password, '');
 require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
@@ -150,17 +151,13 @@ if ( array_key_exists('employeenumber', $_COOKIE)) {
     $emplnumber = $_COOKIE['employeenumber'];
 }
 $display = "Clientmaint: " . $emplnumber;
-require_once "includes/expire.inc";
-if(isset($_GET["e"])) {
-     $errorcode = $_GET["e"];
-} else {
-     $errorcode = "n";
-}
+
 if ( !empty($_SESSION['client_data']) ) {
     echo '<div class="success">Successfully added/updated client: ' . $_SESSION['client_data']['client'] . ', client#(' . $_SESSION['client_data']['cid'] . ')</div>';
     unset ($_SESSION['client_data']); // don't retain this data.
 }
-if (($editclientnum == ' ') OR $errorcode == "y")
+
+if ($editclientnum == ' ')
 {
      echo '<center><form action="clientmaint.php" method="post">' .
          '<table width="25%">' .
@@ -171,14 +168,11 @@ if (($editclientnum == ' ') OR $errorcode == "y")
          '<input type="hidden" name="editclientnum" value="new">' .
          '<table width="25%"><tr><td><input type="submit" value="Create New Client"></td></tr>' .
          '</table></form></center>';
-         //'<div id="errormsg">' . $errormsg . '</div>';
          include "includes/display_errormsg.inc";
      require_once 'includes/footer.inc';
      exit();
 }
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-if ($editclientnum <> "new")
+else if ($editclientnum <> "new")
 {
     require_once "includes/key.inc";
     require_once "includes/de.inc";
@@ -188,13 +182,13 @@ if ($editclientnum <> "new")
     if ($result == FALSE)
     {
           put_errormsg("Invalid Client Number");
-          redirect("clientmaint.php?e=y");
+          redirect("clientmaint.php");
         exit();
     }
     $row_cnt = $result->num_rows;
     if ($row_cnt == 0) {
           put_errormsg("Invalid Client Number");
-          redirect("clientmaint.php?e=y");
+          redirect("clientmaint.php");
         exit();
     }
     delete_errormsg();
@@ -227,7 +221,6 @@ if ($editclientnum <> "new")
             $htele = "";
             $ftele = "";
             $ctele = "";
-            $row_cnt = $result->num_rows;
             while ($row = $result2->fetch_row()) {
                 $phonecode = $row[1];
                 $telephone = $row[2];
@@ -248,28 +241,23 @@ if ($editclientnum <> "new")
         }
     }
 }
-
-if ($editclientnum == "new")
+else if ($editclientnum == "new")
 {
-    if (strlen($errormsg) < 2)
-    {
-        $clientnumber=" ";
-        $lname="";
-        $fname="";
-        $prefix="";
-        $suffix="";
-        $address1="";
-        $address2="";
-        $city="";
-        $state="";
-        $zipcode="";
-        $telephone="";
-        $email="";
-        $status="";
-        $htele = "";
-        $ftele = "";
-        $ctele = "";
-    }
+    $prefix="";
+    $lname="";
+    $fname="";
+    $suffix="";
+    $address1="";
+    $address2="";
+    $city="";
+    $state="";
+    $zipcode="";
+    $telephone="";
+    $email="";
+    $status="";
+    $htele = "";
+    $ftele = "";
+    $ctele = "";
 }
 ?>
 <form id="clientform" name="clientform">

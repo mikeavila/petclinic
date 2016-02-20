@@ -24,7 +24,7 @@ $errorcode = $_GET["ec"];
 $module = $_GET["m"];
 $errormsg = get_errormsg();
 delete_errormsg();
-$datenow = date('D y/m/d')
+$datenow = date('D y/m/d');
 $timenow = date('H:i:s');
 ?>
 <h2>Critical Error</h2>
@@ -40,4 +40,4 @@ A citical error occured. The information is as follows:
 <br><br>
 <?php echo $errormsg ?>
 <br><br>
-<form medthod="post" action="mainmenu.php"><input type="submit" value="Return to the Main menu"></form></center></body></html>
+<form method="post" action="mainmenu.php"><input type="submit" value="Return to the Main menu"></form></center></body></html>
