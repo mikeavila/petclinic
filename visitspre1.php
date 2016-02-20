@@ -38,6 +38,6 @@ fwrite($fh, "m ".$mucous."\n");
 fwrite($fh, "h ".$hydration."\n");
 fwrite($fh, "s ".$subjective);
 fclose($fh);
-put_errormsg("The Screening file has been created (".$filename.")";
-redirect("visits.php"); 
+put_errormsg("The Screening file has been created (".$filename.")");
+redirect("visits.php");
 ?>

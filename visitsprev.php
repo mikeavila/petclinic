@@ -22,13 +22,13 @@ $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
      put_errormsg("There are no Previous Visits");
-     redirect("visits.php");      
+     redirect("visits.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("There are no Previous Visits");
-     redirect("visits.php"); 
+     redirect("visits.php");
 	exit();
 }
 echo "<table border=\"0\" width=\"90%\">";
@@ -39,13 +39,13 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	if ($resultcp == FALSE)
 	{
           put_errormsg("Internal Error (clientpet)");
-          redirect("visits.php"); 
+          redirect("visits.php");
 		exit();
 	}
 	$rowcp_cnt = $resultcp->num_rows;
 	if ($rowcp_cnt == 0) {
-          put_errormsg("Internal Error (clientpet)";
-          redirect("visits.php");           
+          put_errormsg("Internal Error (clientpet)");
+          redirect("visits.php");
 		exit();
 	}
 	$rowcp = $resultcp->fetch_row();
@@ -53,8 +53,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$resultc = $mysqli->query($sqlc);
 	if ($resultc == FALSE)
 	{
-          put_errormsg("Internal Error (clientpet)";
-          redirect("visits.php"); 
+          put_errormsg("Internal Error (clientpet)");
+          redirect("visits.php");
 		exit();
 	}
 	$rowc = $resultc->fetch_row();
@@ -76,7 +76,7 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$resultp = $mysqli->query($sqlp);
 	if ($resultp == FALSE)
 	{
-          put_errormsg("Internal Error (pet)";
+          put_errormsg("Internal Error (pet)");
           redirect("criticalerror.php?m=visitprev.php&ec=0");
 		exit();
 	}
@@ -88,8 +88,8 @@ for ($i = 0; $i < $row_cnt; $i++) {
 		$resultv = $mysqli->query($sqlv);
 		if ($resultv == FALSE)
 		{
-               put_errormsg("Internal Error (visit)";
-               redirect("visits.php");                
+               put_errormsg("Internal Error (visit)");
+               redirect("visits.php");
 			exit();
 		}
 		$rowv_cnt = $resultv->num_rows;

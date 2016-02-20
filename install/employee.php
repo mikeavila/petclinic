@@ -58,7 +58,7 @@
                          required: "Please enter the a Userid for this Employee"
                     },
 				epassword: {
-                         required: "Please enter a Password for this Employee" 
+                         required: "Please enter a Password for this Employee"
                     },
                     fname: {
                          required: "Please enter the Employee's First Name"
@@ -121,7 +121,7 @@ function continueon() {
      var tele = $("input#tele").val();
      var dataString = '&euserid='+ euserid + '&epassword=' + epassword + '&prefix=' + prefix +
           '&fname=' + fname + '&lname=' + lname + '&suffix=' + suffix + '&address=' + address +
-          '&address2=' + address2 + '&city=' + city + '&state=' + state + 
+          '&address2=' + address2 + '&city=' + city + '&state=' + state +
           '&zipcode=' + zipcode + '&tele=' + tele;
      $.ajax({
       type: "POST",
@@ -143,11 +143,11 @@ function continueon() {
      return false;
 }
 function fakeit() {
-     return; 
+     return;
 }
 </script>
-<div>The following information is needed in order to create the initial employee record in the database. 
-This initial record is the owner of the Pet Clinic and will have authority to access all records in all databases 
+<div>The following information is needed in order to create the initial employee record in the database.
+This initial record is the owner of the Pet Clinic and will have authority to access all records in all databases
 and all systems.</div>
 <form id="employeeform"  name="employeeform">
 
@@ -201,7 +201,6 @@ and all systems.</div>
 <td id="field"><input id="tele" name="tele" type="text" size="40" maxlength="13" value = ""></td>
 <td class="status"></td></tr>
 
-<tr><td align="center" colspan="2"><input class="submit" type="submit" value="Create Employee Record"></td></tr></table>
+<tr><td align="center" colspan="2"><input class="submit" type="submit" value="Create Employee Record"></td></tr>
 </table></form>
 <br><br>This will be Employee # 1.
-<script type="text/javascript">JQUERY4U.UTIL.setupEmployeeValidation();</script>

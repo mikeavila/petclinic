@@ -19,29 +19,29 @@ require_once "includes/expire.inc";
 if (empty($_POST["proccode"]))
 {
      put_errormsg("Procedure Code cannot be blank");
-     redirect("procmaint.php");     
+     redirect("procmaint.php");
 	exit();
 }
 if (empty($_POST["procdesc"]))
 {
      put_errormsg("Procedure Description cannot be blank");
-     redirect("procmaint.php");     
+     redirect("procmaint.php");
 	exit();
 }
 if (empty($_POST["procbillcharge"]))
 {
      put_errormsg("Procedure Billing Charge cannot be blank (it can be zero)");
-     redirect("procmaint.php");     
+     redirect("procmaint.php");
 	exit();
 }
 if (empty($_POST["procstatus"]))
 {
      put_errormsg("Status cannot be blank");
-     redirect("procmaint.php");     
+     redirect("procmaint.php");
 	exit();
 }
 if ($status <> "A") {
-	
+
 }
 $emplnumber = $_COOKIE['employeenumber'];
 $proccode = $_COOKIE["proccode"];
@@ -68,12 +68,11 @@ if ($proccode <> "new")
 	}
 	$newproccode = $mysqli->insert_id;
      if(isset($_POST["billable"])) {
-          $billable = $_POST["billable"];   
-          }
+          $billable = $_POST["billable"];
      }
 }
 $mysqli->close();
 delete_errormsg();
-redirect("procmaint.php"); 
+redirect("procmaint.php");
 
 ?>

@@ -114,5 +114,5 @@ if (strlen($ctele) != 0) {
 $mysqli->close();
 delete_errormsg();
 $_SESSION['client_data']=array('client' => $lname . ', ' . $fname, 'cid' => $editclientnum);
-echo "'clientmaint.php?e=y'";
+echo 'clientmaint.php';
 ?>
