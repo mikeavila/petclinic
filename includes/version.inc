@@ -9,5 +9,5 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-$version = '00.01.50';
+$version = '00.01.60';
 ?>

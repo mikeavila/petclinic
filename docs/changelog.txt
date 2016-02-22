@@ -10,11 +10,21 @@
 *****************************************************************/
 
 use bar code scanners; print bar codes; SMS notifications; which patients are checked in and which room
- 
- 
-00.02.00 Alpha2
 
 
+00.01.60 released Alpha2a
+00.01.55 tested everything
+00.01.54 Paul fixed clientmaint problems
+00.01.53 phonemsg.php started
+00.01.52 updated search.php added
+00.01.51 changed primay key for clientphone back to only two columns instead of three
+00.01.50 Alpha2
+00.01.44 Tested everything
+00.01.43 Fixed editing employee's own info
+00.01.42 Paul's work on clientmaint integrated into the app and tested
+00.01.41 changed primary index for clientphone
+00.01.40 Paul's work on emplmaint integrated into the app and tested
+00.01.39 worked on the inventory base medicine record to get it ready for validation
 00.01.38 finished doctors1.php update; finish vendor feature
 00.01.37 change error msgs to use error message functions
 00.01.36 compressed and put on Google Drive for Paul, uploaded to GitHub

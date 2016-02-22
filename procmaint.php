@@ -35,6 +35,8 @@ if ($proccode == "")
 	echo "<input type=\"hidden\" name=\"proccode\" value=\"new\">";
 	echo "<table width=\"25%\"><tr><td><input type=\"submit\" value=\"Create New Procedure Code\"></td></tr>";
 	echo "</table></form></center>";
+     echo '<div class="center">';
+	echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
 	require_once "includes/footer.inc";
 	exit();
 }

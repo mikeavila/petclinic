@@ -182,7 +182,7 @@ if ($editvendornum <> "new")
 	$row_cnt = $result->num_rows;
 	if ($row_cnt == 0) {
           put_errormsg("Invalid Vendor Number");
-          redirect("vendors.php");           
+          redirect("vendors.php?e=y");           
 		exit();
 	}
 	delete_errormsg();

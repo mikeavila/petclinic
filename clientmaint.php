@@ -168,7 +168,9 @@ if ($editclientnum == ' ')
          '<input type="hidden" name="editclientnum" value="new">' .
          '<table width="25%"><tr><td><input type="submit" value="Create New Client"></td></tr>' .
          '</table></form></center>';
-         include "includes/display_errormsg.inc";
+          echo '<div class="center">';
+          echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
+          include "includes/display_errormsg.inc";
      require_once 'includes/footer.inc';
      exit();
 }

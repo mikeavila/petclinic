@@ -400,7 +400,7 @@ $sql = "CREATE TABLE `petclinic`.`clientphone` (
      `clientnumber` int(4) NOT NULL,
      `phonecode` char(1) NOT NULL,
      `phonenumber` char(13) DEFAULT NULL,
-     UNIQUE KEY `clientnumber` (`clientnumber`,`phonecode`,`phonenumber`)
+     UNIQUE KEY `clientnumber` (`clientnumber`,`phonecode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table clientphone created");

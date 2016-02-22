@@ -39,7 +39,7 @@ switch ($value)
 		exit();
 		break;
 	case "03":
-          redirect("notavail.php");
+          redirect("phonemsgs.php");
 		exit();
 		break;
 	case "04":
