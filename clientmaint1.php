@@ -43,11 +43,8 @@ if (!empty($_POST["ctele"]))
 {
 	$ctele = $_POST["ctele"];
 }
-require_once "password.php";
-require_once "includes/key.inc";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $billingaddress = $address1.", ".$address2.", ".$city.", ".$state." ".$zipcode;
-require_once "includes/en.inc";
 $address1 = mc_encrypt($address1, ENCRYPTION_KEY);
 if (strlen($address2) > 0)
 {

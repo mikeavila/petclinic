@@ -15,8 +15,8 @@ $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $log->logThis($logdatetimeecc."determining user's choice of menu");
 $duration = "S";
-if (isset($_COOKIE["ecc"])) {
-     $ecc = $_COOKIE["ecc"];
+if (isset($_SESSION["ecc"])) {
+     $ecc = $_SESSION["ecc"];
      if (isset($_COOKIE[$ecc."menu"])) {
           $duration = substr($_COOKIE[$ecc."menu"], 0, 1);
           $menu = substr($_COOKIE[$ecc."menu"], 1);

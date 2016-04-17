@@ -228,7 +228,11 @@ if (!empty($_POST["client"])) {
 } else {
 	$client = "";
 }
-require_once "includes/expire.inc";
+if(isset($_POST["procdb"])) {
+	$procdb = $_POST["procdb"];
+} else {
+	$procdb = "N";
+}
 require_once "visitarraykeys.php";
 $visitarray = array_fill(0, 40, "");
 $visitarray[$vak_date] = $date;
@@ -271,11 +275,11 @@ $visitarray[$vak_objective] = $objective;
 $visitarray[$vak_assessment] = $assessment;
 $visitarray[$vak_plan] = $plan;
 $visitserialarray = serialize($visitarray);
-setcookie("visitarray", $visitserialarray, $expire1hr);
+setcookie("visitarray", $visitserialarray, time() + (1));
 if (strlen($date) <> 8) {
      put_errormsg("The Date must be entered");
      redirect("visitsnew1.php");
-	exit();
+	 exit();
 }
 if ($save == "draft") {
 	$filename = "draftPet".$petid.".txt";
@@ -289,18 +293,165 @@ if ($save == "draft") {
      redirect("visits.php");
 	exit();
 }
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-$emplnumber = $_COOKIE["employeenumber"];
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
 $sql = "INSERT INTO `petclinic`.`visit` (`visitdate`, `petnumber`, `temp`, `weight`, `pulse`, `respiration`, `panting`, `caprefill`, `mucous`, `hydration`, ";
 $sql = $sql."`clinicalstay`, `clinicaldischarge`, `changeid`) ";
 $sql = $sql."VALUES (\"".$date."\", \"".$petid."\", \"".$temp."\", \"".$weight."\", \"".$pulse."\", \"".$resp."\", \"".$pant."\", \"".$caprefill."\", ";
 $sql = $sql."\"".$mucous."\", \"".$hydration."\", \"".$stay."\", \"".$discharge."\", ".$emplnumber.");";
 if ($mysqli->query($sql) === TRUE) {
-
+	$visitnumber = $mysqli->insert_id;
 } else {
 	echo "Table visit data insertion failed" . $mysqli->error;
 	exit(1);
+}
+if ($procdb == "V") {
+	//echo "<br>reasonvisit2<br>";
+	if (isset($_POST['reasonvisit2'])) {
+		$reasonvisit2 = $_POST['reasonvisit2'];
+		foreach ($reasonvisit2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "V", "R", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	} else {
+	}
+	//echo "<br>complaint2<br>";
+	if (isset($_POST['complaint2'])) {
+		$complaint2 = $_POST['complaint2'];
+		foreach ($complaint2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, proccode`) VALUES('.$visitnumber.', "V", "C", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	} else {
+	}
+	//echo "<br>diagnosis2<br>";
+	if (isset($_POST['diagnosis2'])) {
+		$diagnosis2 = $_POST['diagnosis2'];
+		foreach ($diagnosis2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, proccode`) VALUES('.$visitnumber.', "V", "D", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
+	//echo "<br>diagnostictest2<br>";
+	if (isset($_POST['diagnostictest2'])) {
+		$diagnostictest2 = $_POST['diagnostictest2'];
+		foreach ($diagnostictest2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "V", "T", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
+	//echo "<br>admintasks2<br>";
+	if (isset($_POST['admintasks2'])) {
+		$admintasks2 = $_POST['admintasks2'];
+		foreach ($admintasks2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "V", "A", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
+}
+if ($procdb == "P") {
+	//echo "<br>reasonvisit2<br>";
+	if (isset($_POST['reasonvisit2'])) {
+		$reasonvisit2 = $_POST['reasonvisit2'];
+		foreach ($reasonvisit2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "P", "R", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	} else {
+	}
+	//echo "<br>tests2<br>";
+	if (isset($_POST['tests2'])) {
+		$tests2 = $_POST['tests2'];
+		foreach ($tests2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "P", "T", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	} else {
+	}
+	//echo "<br>diagnosis2<br>";
+	if (isset($_POST['diagnosis2'])) {
+		$diagnosis2 = $_POST['diagnosis2'];
+		foreach ($diagnosis2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "P", "D", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
+	//echo "<br>procedures2<br>";
+	if (isset($_POST['procedures2'])) {
+		$procedures2 = $_POST['procedures2'];
+		foreach ($procedures2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "P", "P", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
+	//echo "<br>admintasks2<br>";
+	if (isset($_POST['admintasks2'])) {
+		$admintasks2 = $_POST['admintasks2'];
+		foreach ($admintasks2 as $a)
+		{
+			//echo "<br>".$a."<br>";
+			$sql = 'INSERT INTO `petclinic`.`visitproc` (`visitnumber`, `procdb`, `proctype`, `proccode`) VALUES('.$visitnumber.', "P", "A", "'.$a.'")';
+			if ($mysqli->query($sql) == TRUE) {
+			} else {
+				echo "Error inserting visitproc data" . $mysqli->error;
+				exit(1);
+			}
+		}
+	}
 }
 $filename = "prePet".$petid.".txt";
 if (file_exists("./notes/".$filename)) {
@@ -318,8 +469,6 @@ if ($mysqli->query($sql) == TRUE) {
 }
 $result = $mysqli->query($sql);
 $row = $result->fetch_row();
-require_once "includes/key.inc";
-require_once "includes/de.inc";
 $coname = $row[0];
 $address1 = mc_decrypt($row[1], ENCRYPTION_KEY);
 if ($row[2] <> "") {
@@ -358,7 +507,7 @@ $sql = "SELECT * FROM `petclinic`.`pet` WHERE `petnumber` = ".$petid.";";
 $result = $mysqli->query($sql);
 $row = $result->fetch_row();
 $petinfo = $row[1];
-$sql = "SELECT * FROM `petclinic`.`code_species` WHERE `speciescode` = \"".$row[3]."\";";
+$sql = "SELECT * FROM `petclinic`.`code_species` WHERE `speciescode` = \"".substr($row[3],0,1)."\";";
 if ($mysqli->query($sql) == TRUE) {
 } else {
 	echo "Error get species information" . $mysqli->error;

@@ -12,7 +12,6 @@
 session_start();
 require_once "includes/common.inc";
 $editvendornum = $_GET["editvendornum"];
-require_once "includes/expire.inc";
-setcookie("editvendornum", $editvendornum, $expire1hr);
+$SESSION["editvendornum"] = $editvendornum;
 redirect("vendors.php");
 ?>

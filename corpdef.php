@@ -11,14 +11,12 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql="SELECT * FROM `petcliniccorp`.`preferences` WHERE `sequence` = 3";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
@@ -30,7 +28,7 @@ if ($result == FALSE)
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("Internal Error");
-     redirect("corpmenu.php");     
+     redirect("corpmenu.php");
 	exit();
 }
 $row = $result->fetch_row();
@@ -42,7 +40,6 @@ $sql="SELECT `pref1` FROM `petcliniccorp`.`preferences` WHERE `sequence` = 4";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
-	//setcookie("errormessage", "Internal Error", $expire1hr); 
      put_errormsg("Internal Error");
      redirect("corpmenu.php");
 	exit();
@@ -58,22 +55,22 @@ $procedures = $row[0];
 echo "<form method=\"post\" action=\"corpdef1.php\">";
 echo "<center><font size=\"+2\"><b><u>Preferences</u></b></font>";
 echo "<br>Application Default Settings</center><br>";
-echo "<center><table width=\"60%\">";
+echo "<center><table width=\"55%\">";
 echo "<tr><td align=\"right\"> Preload Defaults </td><td><select name=\"preload\" size=\"2\"><option value=\"Y\">Yes</option><option value=\"N\">No</option></td></tr>";
 echo "<tr><td align=\"right\">Default State for Data Entry </td><td><select name=\"state\" size = \"5\">";
-$mysqlis = new mysqli('localhost', $user, $password, '');
+$mysqlis = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sqlstate = "SELECT * FROM `petclinic`.`code_state` ORDER BY `statedesc`";
 $resultstate = $mysqlis->query($sqlstate);
 if ($resultstate == FALSE)
 {
      put_errormsg("Acquiring States Error");
-     redirect("corpmenu.php");     
+     redirect("corpmenu.php");
 	exit();
 }
 $row_cnt_state = $resultstate->num_rows;
 if ($row_cnt_state == 0) {
      put_errormsg("Acquiring States Error");
-     redirect("corpmenu.php");     
+     redirect("corpmenu.php");
 	exit();
 }
 for ($i = 0; $i < $row_cnt_state; $i++) {
@@ -98,15 +95,13 @@ while (!feof($file_handle)) {
 }
 fclose($file_handle);
 echo "</select></td></tr>";
-echo "<tr><td>Which Procedures Database do you want to be the default</td><td>";
-if(substr($procedures,0,1) == "S")
-     echo "<input type='radio' name='defproc[]' value='S'> SNOMED-VTS ";
+echo "<tr><td align=\"right\">Which Procedures Database do you want to be the default &nbsp; </td><td>";
 if(substr($procedures,1,1) == "V")
      echo "<input type='radio' name='defproc[]' value='V'> VeNom ";
 if(substr($procedures,2,1) == "P")
-     echo "<input type='radio' name='defproc[]' value='P'> Your Own Procedures ";
-echo "<br>PLEASE NOTE: The Default Procedure will be the only Procedure to be displayed. However, you can change the Default Procedure any time.</tr>";
-echo "</table></center><br><br><center><input type=\"submit\" value=\"Update Preferences\"></center></form>";
+     echo "<input type='radio' name='defproc[]' value='P'> Your Own Procedures </table>";
+echo "<br>PLEASE NOTE: The Default Procedure Database will be the only Procedure to be displayed. However, you can change the Default Procedure Database any time.</tr>";
+echo "</center><br><br><center><input type=\"submit\" value=\"Update Preferences\"></center></form>";
 echo "<form action=\"corpmenu.php\"><br><br><center><input type=\"submit\" value=\"Return to Company Information menu\"></center</form>";
 require_once "includes/helpline.inc";
 help("corpdef.php");

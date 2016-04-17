@@ -24,6 +24,6 @@ $user_os = getOS();
 require_once "includes/expire.inc";
 setcookie("employeenumber", " ", $expire10hr);
 delete_errormsg();
-setcookie("OS", $user_os, $expire10hr);
+$_SESSION["OS"] = $user_os;
 redirect("index1.php");
 ?>

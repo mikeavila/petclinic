@@ -11,10 +11,10 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 if (empty($_POST["pass"]))
 {
@@ -52,19 +52,15 @@ switch ($value)
 		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE petname = \"".$namestarts."%\" ORDER BY petname;";
 		break;
 		}
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-$emplnumber = $_COOKIE["employeenumber"];
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT `sk22` FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $resultc = $mysqlic->query($sql);
 $row_cnt_c = $resultc->num_rows;
 $rowc = $resultc->fetch_row();
 $sk22 = $rowc[0];
 $mysqlic->close();
-require_once "includes/key.inc";
-require_once "includes/de.inc";
-require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
@@ -79,17 +75,16 @@ if ($row_cnt == 0) {
 }
 if ($sk22 == "Y") {
 	echo "Clicking on the Pet Number will take you to a display to edit that Pet.<hr>"; }
-delete_errormsg(); 
-for ($i = 0; $i < $row_cnt; $i++) {
-	$row = $result->fetch_row();
+delete_errormsg();
+while ($row = $result->fetch_row()) {
 	$row1 = "Pet # ";
 	if ($sk22 == "Y") {
-		$row1 = $row1."<a href=\"setuppmaint.php?editpetnum=".$row[0]."\">".$row[0]."</a> ";	
+		$row1 = $row1 . '<a href="petmaint.php?editpetnum="' . $row[0] . '">' . $row[0] . '</a>';
 	} else {
 		$row1 = $row1.$row[0]." ";
 	}
 	$row1 = $row1.", Name is ".$row[1]." ";
-     $sql2 = "SELECT "; 
+     $sql2 = "SELECT ";
      //.$row[2]." ".$row[3];
 	echo $row1;
 	echo "<hr size=\"2px\" border=\"0\" NO SHADE align=\"center\" color=\"black\">";
@@ -99,10 +94,3 @@ $mysqli->close();
 $display ="clientlist:".$emplnumber;
 require_once "includes/footer.inc";
 ?>
-
-
-
-
-
-
-

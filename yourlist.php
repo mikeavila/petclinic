@@ -11,30 +11,25 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-require_once "password.php";
-$dbname="vetclinic";
-$mysqlic = new mysqli('localhost', $user, $password, '');
-require_once "includes/key.inc";
-require_once "includes/de.inc";
-$emplid = $_COOKIE['employeenumber'];
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplid = $_SESSION['employeenumber'];
 $sql = "SELECT emplnumber, lname, fname, address, address2, city, state, zipcode FROM `petcliniccorp`.`employee` WHERE emplnumber = ".$emplid;
-$result = $mysqlic->query($sql);
-require_once "includes/expire.inc";
+$result = $mysqli->query($sql);
 if ($result == FALSE)
 {
      put_errormsg("You are not listed. Internal error.");
-     redirect("listings.php");      
+     redirect("listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("You are not listed. Internal error.");
-     redirect("listings.php");      
+     redirect("listings.php");
 	exit();
 }
 echo "Clicking on your Employee Number will take you to a display to edit yoour information.<hr>";
@@ -52,5 +47,5 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	echo $row1;
 	echo "<center><form action=\"listings.php\" method=\"post\"><input type=\"submit\" value=\"Return to Listings Menu\"></form></center>";
 }
-$mysqlic->close();
+$mysqli->close();
 ?>

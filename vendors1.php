@@ -14,21 +14,19 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 if(isset($_POST["editvendornum"])) {
-     $editvendornum = $_POST["editvendornum"];
+     $editvendornum = $_SESSION["editvendornum"];
 } else {
-      put_errormsg("POST editvendornum not set");
-     redirect("vendors.php"); 
+      put_errormsg("SESSION editvendornum not set");
+     redirect("vendors.php");
      exit(1);
 }
 if(isset($_POST["emplnumber"])) {
      $emplnumber=$_POST["emplnumber"];
 } else {
      put_errormsg("POST emplnum not set");
-     redirect("vendors.php"); 
+     redirect("vendors.php");
      exit(1);
 }
-require_once "includes/key.inc";
-require_once "includes/en.inc";
 $vendorid=$_POST["vendorid"];
 $vendorname=$_POST["vendorname"];
 $vendorshortname=$_POST["vendorshortname"];
@@ -47,10 +45,8 @@ $vendorfax=$_POST["vendorfax"];
 $vendoremail=$_POST["vendoremail"];
 $vendoremail = mc_encrypt($vendoremail, ENCRYPTION_KEY);
 $vendorstatus=$_POST["vendorstatus"];
-require_once "includes/expire.inc";
-$emplnumber = $_COOKIE['employeenumber'];
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$emplnumber = $_SESSION['employeenumber'];
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 if ($editvendornum <> "new")
 {
 	$sql = "UPDATE `petclinicinv`.`vendor` SET `vendorname` = \"".$vendorname."\", `vendorshortname` = \"".$vendorshortname."\", `vendorcontact` = \"".$vendorcontact."\", ";
@@ -60,7 +56,7 @@ if ($editvendornum <> "new")
 
 	} else {
 		put_errormsg("Table vendor data update failed" . $mysqli->error);
-          redirect("vendors.php"); 
+          redirect("vendors.php");
 		exit(1);
 	}
 } else{
@@ -70,12 +66,12 @@ if ($editvendornum <> "new")
 
 	} else {
           put_errormsg("Table vendor data insertion failed" . $mysqli->error);
-          redirect("vendors.php"); 
+          redirect("vendors.php");
 		exit(1);
 	}
 }
 $mysqli->close();
-put_errormsg("Vendor Added/Modified"); 
-setcookie( "editvendornum", "");
-redirect("vendors.php"); 
+put_errormsg("Vendor Added/Modified");
+unset ($_SESSION["editvendornum"]);
+redirect("vendors.php");
 ?>

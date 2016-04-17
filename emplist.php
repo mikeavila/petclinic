@@ -11,10 +11,10 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 if(empty($_POST["pass"])) {
 	echo "<form action=\"emplist.php\" method=\"post\"><table border=\"0\" width=\"100%\">";
@@ -28,7 +28,7 @@ if(empty($_POST["pass"])) {
 	echo "</form></body></html>";
 	exit();
 }
-require_once "includes/expire.inc";
+
 foreach($_POST['menuel'] as $sKey => $sValue);
 	$value = $sValue;
 switch ($value)
@@ -50,17 +50,14 @@ switch ($value)
 		$sql1 = "SELECT emplnumber, lname, fname, address, address2, city, state, zipcode FROM petclinic.client WHERE lname = ".$namestarts."% ORDER BY lname, fname";
 		break;
 }
-require_once "password.php";
-$mysqlic = new mysqli('localhost', $user, $password, '');
-$emplnumber = $_COOKIE["employeenumber"];
-$sql = "SELECT `sk27`, `sk32` FROM `petcliniccorp.seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
+$sql = "SELECT `sk27`, `sk32` FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $result = $mysqlic->query($sql);
 $row_cnt = $result->num_rows;
 $row = $result->fetch_row();
 $sk27 = $row[0];
 $sk32 = $row[1];
-require_once "includes/key.inc";
-require_once "includes/de.inc";
 $result = $mysqlic->query($sql1);
 if ($result == FALSE)
 {
@@ -81,7 +78,7 @@ if ($row_cnt == 0) {
 if ($sk27 == "Y") {
 	echo "Clicking on the Employee Number will take you to a display to edit that Employee.<hr>"; }
 if ($sk32 == "Y") {
-	echo "Clicking on the letters SK after the Employee Information will take you to a display to edit that Employee Security Keys.<hr>"; } 
+	echo "Clicking on the letters SK after the Employee Information will take you to a display to edit that Employee Security Keys.<hr>"; }
 delete_errormsg();
 for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();
@@ -106,6 +103,7 @@ for ($i = 0; $i < $row_cnt; $i++) {
 }
 echo "<center><form action=\"listings.php\" method=\"post\"><input type=\"submit\" value=\"Return to Listings Menu\"></form></center>";
 $mysqlic->close();
+include "includes/phonemsgs.inc";
 $display ="emplist:".$emplnumber;
 require_once "includes/footer.inc";
 ?>

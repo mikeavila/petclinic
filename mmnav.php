@@ -13,7 +13,7 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
+
 $value = "00";
 if(isset($_GET["menu"])) {
      $value = $_GET["menu"];
@@ -25,8 +25,8 @@ if($value == "00") {
           $value = $sValue;
      }
 }
-$emplnumber = $_COOKIE['employeenumber'];
-$ecc = $_COOKIE["ecc"];
+$emplnumber = $_SESSION['employeenumber'];
+$ecc = $_SESSION["ecc"];
 delete_errormsg();
 switch ($value)
 {
@@ -35,7 +35,7 @@ switch ($value)
 		exit();
 		break;
 	case "02":
-          redirect("visits.php");          
+          redirect("visits.php");
 		exit();
 		break;
 	case "03":
@@ -73,6 +73,9 @@ switch ($value)
 	case "11":
           redirect("logoff.php");
 		exit();
+	case "14":
+		redirect("docmgmt");
+		exit();
 	case "12":
           redirect("sysadmin.php");
 		exit();
@@ -84,7 +87,7 @@ switch ($value)
 		exit();
 	default:
           put_errormsg("You must make a selection");
-          redirect("mainmenu.php");          
+          redirect("mainmenu.php");
 		exit();
 		break;
 }

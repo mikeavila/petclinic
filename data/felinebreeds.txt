@@ -1,0 +1,95 @@
+FAAAbyssinian
+FABAegean
+FACAmerican Curl
+FADAmerican Bobtail
+FAEAmerican Shorthair
+FAFAmerican Wirehair
+FAGArabian Mau
+FAHAustralian Mist
+FAIAsian
+FAJAsian Semi-longhair
+FBABalinese
+FBBBambino
+FBCBengal
+FBDBirman
+FBEBombay
+FBFBrazilian Shorthair
+FBGBritish Semi-longhair
+FBHBritish Shorthair
+FBIBritish Longhair
+FBJBurmese
+FBKBurmilla
+FCACalifornia Spangled
+FCBChantilly-Tiffany
+FCCChartreux
+FCDChausie
+FCECheetoh
+FCFColorpoint Shorthair
+FCGCornish Rex
+FCHCymric
+FCICyprus
+FDADevon Rex
+FDBDomestic Shorthair
+FDCDomestic Medium Hair
+FDDDomestic Longhair
+FDEDonskoy
+FDFDragon Li
+FDGDwarf Cat
+FDHEgyptian Mau
+FDIEuropean Shorthair
+FEAExotic Shorthair
+FFAFoldEx Cat
+FGAGerman Rex
+FHAHavana Brown
+FHBHighlander
+FHCHimalayan
+FJAJapanese Bobtail
+FJBJavanese
+FKAKurilian Bobtail
+FKBKhao Manee
+FKCKorat
+FKDKorean Bobtail
+FKEKorn Ja
+FLALaPerm
+FLBLykoi
+FMAMaine Coon
+FMBManx
+FMCMekong Bobtail
+FMDMinskin
+FMEMunchkin
+FNANebelung
+FNBNapoleon
+FNCNorwegian Forest Cat
+FOAOcicat
+FOBOjos Azules
+FOCOregon Rex
+FODOriental Bicolor
+FOEOriental Shorthair
+FOFOriental Longhair
+FPAPersian
+FPBPeterbald
+FPCPixie-bob
+FRARaas
+FRBRagamuffin
+FRCRagdoll
+FRDRussian Blue
+FRERussian White Black Tabby
+FSASam Sawet
+FSBSavannah
+FSCScottish Fold
+FSDSelkirk Rex
+FSESerengeti
+FSFSerrade petit
+FSGSiamese
+FSHSiberian
+FSISingapura
+FSJSnowshoe
+FSKSokoke
+FSLSphynx
+FSMSuphalak
+FTAThai
+FTBTonkinese
+FTCToyger
+FTDTurkish Angora
+FTETurkish Van
+FUAUkrainian Levkoy

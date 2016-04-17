@@ -1,0 +1,52 @@
+SAAAlbrecht-Dürer-Schwein
+SABAmerican Guinea Hog
+SACAmerican Landrace
+SADAmerican Yorkshire
+SAEAngler Sattelschwein
+SBABaztango txerria
+SBBBasque Pig
+SBCBerkshire
+SBDBritish Lop
+SBEBritish Saddleback
+SBFBuntes Bentheimer Schwein
+SCAChester White
+SCBCerdo Ibérico
+SDADeutsches Sattelschwein
+SDBDüppeler Weideschwein
+SDCDuroc
+SEAEast Balkan pig
+SEBEuskal txerri
+SECEssex
+SGAGascon pig/Porc gascon
+SGBGasteizko muturmotz txerria
+SGCGloucestershire Old Spots
+SGDGöttinger Minischwein
+SHAHampshire
+SJAJeju Black Pig
+SKAKunekune
+SLALarge Black
+SLBLarge White
+SLCLinderödssvin
+SMAMangalica
+SMBMeishan
+SMCMiddle White
+SNANorsk landsvin
+SOAOssabaw Island Hog
+SOBOxford Sandy and Black
+SPAPiétrain
+SPBPoland China
+SPCPorc blanc de l'Ouest
+SPDPorc cul noir limousin
+SPEPorc de Bayeux
+SPFPorc negre mallorquí
+SPGPorc Noir de Bigorre
+SRARazorback
+SRBRed Wattle
+SRCRotbuntes Husumer Schwein
+SSASchwäbisch-Hällisches Landschwein
+STATamworth
+STBTokyo-X 			
+STCTuropolje
+SVAVietnamese Pot-bellied pig
+SWAWessex Saddleback
+SWBWoolly-coated grazing pig

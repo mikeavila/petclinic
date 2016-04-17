@@ -9,8 +9,8 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-include 'password.php';
-$mysqlih = new mysqli('localhost', $user, $password, '');
+include "includes/common.inc";
+$mysqlih = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT logo, name FROM `petcliniccorp`.`company`;";
 $resulth = $mysqlih->query($sql);
 $rowh = $resulth->fetch_row();
@@ -34,7 +34,6 @@ $mysqlih->close();
 echo '<html><head><meta charset="utf-8">';
 if (isset($refresh)) echo $refresh;
 echo '<title>PetClinic Management Software</title>';
-
 echo '<script src="js/jquery.js"></script>';
 echo '<script src="js/jquery-ui.js"></script>';
 echo '<script src="js/jquery.validate.js"></script>';

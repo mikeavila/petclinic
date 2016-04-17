@@ -18,10 +18,9 @@ _FILES["myFile"]["name"] stores the original filename from the client
 $_FILES["myFile"]["type"] stores the file’s mime-type
 $_FILES["myFile"]["size"] stores the file’s size (in bytes)
 $_FILES["myFile"]["tmp_name"] stores the name of the temporary file
-$_FILES[“myFile”][“error”] stores any error code resulting from the transfer
+$_FILES["myFile"]["error"] stores any error code resulting from the transfer
 */
 define("UPLOAD_DIR", "/wamp/www/petclinic/uploads/");
-require_once "includes/expire.inc";
 /*
 // show upload form
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -66,27 +65,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["myFile"])) {
     }
     // set proper permissions on the new file
     chmod(UPLOAD_DIR . $name, 0644);
-    
-	$petid = $_COOKIE['petid'];
+
+	$petid = $_SESSION['petid'];
 	$petid = "pet".str_pad($petid, 5, "00000", STR_PAD_LEFT).".png";
 	chdir("./uploads");
 	rename($name, $petid);
 	chdir("..");
 	require_once "password.php";
-	$mysqli = new mysqli('localhost', $user, $password, '');
+	$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 	$sql = "USE petclinic;";
 	if ($mysqli->query($sql) === TRUE) {
 	} else {
 		echo "Error selecting to use petlinic" . $mysqli->error;
 		exit(1);
 	}
-	$emplnumber = $_COOKIE['employeenumber'];
+	$emplnumber = $_SESSION['employeenumber'];
 	$editpetnum = $_POST["petid"];
 	$sql = "UPDATE pet SET `picture` = \"Y\" WHERE `petnumber` = ".$petid.";";
 	$result = $mysqli->query($sql);
 	if ($result == FALSE)
 	{
-          put_errormsg("Pet Picture Upload Failed");          
+          put_errormsg("Pet Picture Upload Failed");
           redirect("mainmenu.php");
 		exit();
 	}

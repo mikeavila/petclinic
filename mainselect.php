@@ -10,15 +10,15 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
+$background = "1";
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display ="MMenu:".$emplnumber;
-$background = "1";
 require_once "includes/header1.inc";
 require_once "includes/header2.inc";
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $result = $mysqlic->query($sql);
 $row_cnt = $result->num_rows;
@@ -40,7 +40,7 @@ echo ">Search</td></tr>";
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"02\" ";
 if ($row[2] == "N") echo "DISABLED ";
 echo ">Visits - Existing Client</td></tr>";
- 
+
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"04\" ";
 if ($row[4] == "N") echo "DISABLED ";
 echo ">Listings</td></tr>";
@@ -60,6 +60,10 @@ echo ">Boarding</td></tr>";
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"10\" ";
 if ($row[10] == "N") echo "DISABLED ";
 echo ">Company Information</td></tr>";
+
+echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"14\" ";
+if ($row[35] == "N") echo "DISABLED ";
+echo ">Document Management</td></tr>";
 
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"12\" ";
 if ($row[35] == "N") echo "DISABLED ";

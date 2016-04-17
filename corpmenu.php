@@ -10,16 +10,15 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display ="CorpInfo:".$emplnumber;
 $background = "1";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $result = $mysqlic->query($sql);
 $row_cnt = $result->num_rows;

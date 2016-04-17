@@ -1,0 +1,101 @@
+BAAAberdeen Angus
+BABAfricander
+BACAubrac
+BADAyrshire
+BBABarzona
+BBBBazadaise
+BBCBeef Shorthorn
+BBDBeefalo
+BBEBeefmaster
+BBFBelgian Blue
+BBGBelmont Red
+BBHBelted Galloway
+BBIBlonde d'Aquitaine
+BBJBonsmara
+BBKBoran
+BBLBraford
+BBMBrahman
+BBNBrahmousin
+BBOBrangus
+BBPBritish White
+BBQBrown Swiss
+BBRBuelingo
+BBSBusa
+BCACanadienne
+BCBCanchim
+BCCCaracu
+BCDCharolais
+BCEChianina
+BCFComposite
+BCGCorriente
+BDADairy Shorthorn
+BDBDevon
+BDCDexter
+BDDDrakensberger
+BDEDroughtmaster
+BDFDutch Belted
+BEAEnglish Longhorn
+BEBEstonian Red
+BFAFleckvieh
+BFBFriesian
+BGAGalloway
+BGBGelbvieh
+BGCGirolando
+BGDGloucester
+BGEGuernsey
+BHAHays Converter
+BHBHereford
+BHCHighland
+BHDHolstein
+BHEHybridmaster
+BIAIllawarra
+BIBIrish Moiled
+BJAJersey
+BKAKerry
+BLALimousin
+BLBLincoln Red
+BLCLineback
+BLDLowline
+BLELuing
+BMAMaine-Anjou (Rouge des Prés)
+BMBMarchigiana
+BMCMeuse Rhine Issel
+BMDMilking Devon
+BMEMiniature Hereford
+BMFMirandesa
+BMGMongolian
+BMHMontbéliarde
+BMIMurray Grey
+BNANelore
+BNBNguni
+BNCNormande
+BNDNorwegian Red
+BPAParthenais
+BPBPiemontese
+BPCPinzgauer
+BRARandall
+BRBRed Angus
+BRCRed Poll
+BRDRetinta
+BRERomagnola
+BSASahiwal
+BSBSalers
+BSCSanganer
+BSDSanta Cruz
+BSESanta Gertrudis
+BSFSenepol
+BSGShetland
+BSHSimbrah
+BSISimmental
+BSJSouth Devon
+BSKSpeckle Park
+BSLSquare Meaters
+BSMSussex
+BTATarentaise
+BTBTexas Longhorn
+BTCTuli
+BWAWagyu
+BWBWatusi
+BWCWelsh Black
+BWDWhitebred Shorthorn
+BZAZebu

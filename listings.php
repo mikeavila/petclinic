@@ -11,17 +11,16 @@
 *****************************************************************/
 session_start();
 $background = "1";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display ="Listings:".$emplnumber;
-require_once "password.php";
-$mysqlic = new mysqli('localhost', $user, $password, '');
-$sql = "SELECT * FROM `petcliniccorp.seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
-$result = $mysqlic->query($sql);
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
+$result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 $row = $result->fetch_row();
 ?>
@@ -73,5 +72,5 @@ echo "</table><center><font size=\"+2\" color=\"red\">";
 include "includes/display_errormsg.inc";
 echo "</font></center>";
 require_once "includes/footer.inc";
-$mysqlic->close();
+$mysqli->close();
 ?>

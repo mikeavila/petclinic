@@ -13,18 +13,14 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
-require_once "includes/key.inc";
-require_once "includes/de.inc";
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT clientnumber, lname, fname, address, address2, city, state, zipcode, email FROM `petclinic`.`client` ";
 $sql = $sql."WHERE `status` = \"A\" ORDER BY `lname`, `fname`";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
      put_errormsg("There are no Clients");
-     redirect("listings.php");      
+     redirect("listings.php");
 	exit();
 }
 $row_cnt = $result->num_rows;

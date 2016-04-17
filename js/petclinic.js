@@ -411,3 +411,72 @@ function sendmmnav(element) {
 function fakeit() {
     return;
 }
+
+function phoneMsgCount() {
+    var msgElement = $('#message');
+
+    if ( null !== msgElement ) {
+        $('#result').text( "Characters left: " + ( 100 - msgElement.val().length ) );
+    }
+}
+
+function applyBreedFilter(element) {
+    var elements = $('#petbreed').children(); // Retrieve the 'optgroup' elements;
+    var selectedGroup = -1;
+
+    if ( 'all' === element.value ) {
+        elements.each(function() {
+            // show all groups
+            $( this ).show();
+        }); 
+    }
+    else {
+        elements.each(function() {
+            var elementID = $( this ).attr('id');
+
+            if ( elementID === element.value ) {
+                // Show the group that matches the filter.
+                $( this ).show();
+                selectedGroup = elementID;
+            }
+            else {
+                // Hide any group that does not match the filter.
+                $( this ).hide();
+            }
+        });
+    }
+
+    // Check for an existing breed choice.
+    var choice = $('#petbreed').find(':selected');
+
+    if ( -1 !== selectedGroup && null !== choice ) {
+        // Determine if the current selection (if any) is in some other group.
+        // If so, show that group too, but hide the other siblings.
+        if ( 0 === choice.attr('value').length ) {
+            return;  // nothing to do for the blank entry.
+        }
+        else {
+            choiceGroup = choice.closest('optgroup').attr('id');
+        }
+
+        if ( choiceGroup !== selectedGroup ) {
+            // The filter choice is another group. Show the group that belongs
+            // to the current selection, but hide all the other options within
+            // same group.
+            $('#' + choiceGroup).show();
+            choice.siblings().hide();
+        }
+        else {
+            // The choice is the SAME group, but ensure to display all the
+            // options as these may have been previously hidden by other
+            // filtering.
+            choice.siblings().show();
+        }
+    }
+    else {
+        // Ensure any previously hidden options are exposed.
+        elements.each(function() {
+            $( this ).children().show();
+        });
+    }
+}

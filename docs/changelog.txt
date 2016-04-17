@@ -12,6 +12,38 @@
 use bar code scanners; print bar codes; SMS notifications; which patients are checked in and which room
 
 
+00.01.90 zipped and put in GitHub  and SF as Alpha3
+00.01.88 added document management to menus and tested; needs additional work
+00.01.87 petmaint process completed and tested
+00.01.86 updated JQuery to 2.2.3
+00.01.85 added swine specie and breeds to install process; updated my existing tables
+00.01.84 tested all of visits
+00.01.83 completed procedure portions of visits
+00.01.82 completed procedure creation and update; tested
+00.01.81 started working on procedure process; fixed creating users problem for super user
+00.01.80 completed visit process; testing
+00.01.79 completed equine coding; added to install process; loaded into my code_breed table
+00.01.78 added bovine specie and breeds; coding equine data
+00.01.77 changed code_breed table columns and associated PHP functions dealing with it; other
+         table changes to make tasks simplier
+00.01.76 completely removed SNOMED-VTS from the project due to its complexity
+00.01.75 Paul is making petmint.php automaticlly recognize new species and list related breeds
+00.01.74 Paul completed phonemsgs process and I tested
+00.01.73 Paul completed the petmaint process and I tested and made some suggestions
+00.01.72 altered phpmysqlautobackup to decrypt the superuser info; tested
+00.01.71 altered the php mySQL backup to backup databases different days of the week
+00.01.70 add phpmysqlautobackup to project; create dummy scheduled task; altered run.php to
+         get userid and password from password file; created a superuser account encrypted
+00.01.69 completed invmedbase
+00.01.68 added decryption for password to where ever password used; enabled encrypted password;
+         remove include to expire.inc and remove all places that included it
+00.01.67 completed cookies to session; encrypted password; tested ways to use the encrypted password
+00.01.66 completed phone messages feature
+00.01.65 added validation to petmaint
+00.01.64 updated RAPLA to 1.8.5
+00.01.63 rewrote petmaint and tested
+00.01.62 changed some cookies to session vars; found logging was not being so fixed it
+00.01.61 changed code to return to maint menu to an include
 00.01.60 released Alpha2a
 00.01.55 tested everything
 00.01.54 Paul fixed clientmaint problems

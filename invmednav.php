@@ -13,7 +13,6 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
 $value = "00";
 if(!empty($_POST['menu']))
 {
@@ -24,20 +23,20 @@ delete_errormsg();
 switch ($value)
 {
 	case "1":
-          redirect("notavail.php");
+        redirect("notavail.php");
 		exit();
 		break;
 	case "2":
-          redirect("notavail.php");
+        redirect("invmedbase.php?u=u");
 		exit();
 		break;
 	case "3":
-          redirect("invmedbase.php");
+        redirect("invmedbase.php");
 		exit();
 		break;
 	default:
-          put_errormsg("You must make a selection");
-          redirect("invmedmenu.php");          
+        put_errormsg("You must make a selection");
+        redirect("invmedmenu.php");
 		exit();
 		break;
 }

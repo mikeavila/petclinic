@@ -50,9 +50,8 @@ if(!empty($_POST['defproc']))
 	foreach($_POST['defproc'] as $sKey => $sValue);
 	$value = $sValue;
 }
-require_once "includes/expire.inc";
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 //$sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\", `pref2` = \"".$pref2."\", `pref3` = \"".$pref3."\", `pref4` = \"".$pref4."\", `pref5` = \"".$pref5."\" WHERE `sequence` = 3";
 $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\", `pref2` = \"".$pref2."\", `pref3` = \"".$pref3."\", `pref4` = \"".$pref4."\" WHERE `sequence` = 3";
 $result = $mysqli->query($sql);
@@ -79,7 +78,7 @@ if ($result == FALSE)
                $pref1 = substr($pref1, 0, 3).$value.$value;
                $sql="UPDATE `petcliniccorp`.`preferences` SET `pref1` = \"".$pref1."\" WHERE `sequence` = 4";
                $result = $mysqli->query($sql);
-     }
+          }
 }
 $mysqli->close();
 delete_errormsg();

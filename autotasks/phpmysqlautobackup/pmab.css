@@ -1,0 +1,41 @@
+BODY{  color:#546086; font-size: 12pt; font-family: Garamond}
+a:link{color:#303030; font-weight:bold; }
+a:visited{color:#303030; font-weight: bold; }
+a:hover{color:#000000;  }
+
+#logo-bk{padding-left:10px; width:178px; height:84px; background:transparent url(logo-background.png) no-repeat bottom right}
+#searchbox{padding-left:420px; width:230px; height:22px;}
+
+/* FROM: http://spiffybox.com  - Bloody spiffing */
+   /*set the image to use and establish the lower-right position */
+    .cssbox, .cssbox_body, .cssbox_head, .cssbox_head p{
+      background: transparent url(box-bk.png) no-repeat bottom right}
+    .cssbox_head p{font-size:80%;color:#000;}
+    .cssbox{
+    /* the gap on the right edge of the image (not content padding) */
+      padding-right:15px; /* use to position the box */
+      margin:10px auto}
+
+    /* set the top-right image */
+    .cssbox_head{background-position:top right;
+    /* pull the right image over on top of border */
+      margin-right:-15px;
+    /* right-image-gap + right-inside padding */
+      padding-right:10px}
+
+    /* set the top-left image */
+    .cssbox_head p{
+      background-position:top left;
+      margin:0; /* reset main site styles*/
+      border:0; /* ditto */
+
+    /* padding-left = image gap + interior padding ... no padding-right */
+      padding:4px 0 2px 0px;
+      height:auto !important;
+      height:1%} /* IE Holly Hack */
+
+    /* set the lower-left corner image */
+    .cssbox_body{
+      background-position:bottom left;
+      margin-right:15px; /* interior-padding right */
+      padding:1px 0 5px 1px} /* mirror .cssbox_head right/left */

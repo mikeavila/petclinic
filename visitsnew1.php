@@ -11,6 +11,8 @@
 *****************************************************************/
 session_start();
 $background="3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 $body = ' onload="hideall()";';
 require_once "includes/header1.inc";
 ?>
@@ -19,7 +21,7 @@ require_once "includes/header1.inc";
      <script src='js/jquery-ui.js'></script>
      <style>.body { font-size:4 } </style>
      <script> $(function() { $( '#tabs' ).tabs(); }); </script>
-     <script>
+<script>
 function show(id)
 {
      if (document.getElementById(id).style.display == 'none')
@@ -33,37 +35,120 @@ function hide(id)
 }
 function hideall()
 {
-	document.getElementById('idappear').style.display = 'none';
-	document.getElementById('idinteg').style.display = 'none';
-	document.getElementById('ideyes').style.display = 'none';
-	document.getElementById('idears').style.display = 'none';
-	document.getElementById('iddental').style.display = 'none';
-	document.getElementById('iddigest').style.display = 'none';
-	document.getElementById('idgenitour').style.display = 'none';
-	document.getElementById('idlymph').style.display = 'none';
-	document.getElementById('idcardio').style.display = 'none';
-	document.getElementById('idrespir').style.display = 'none';
-	document.getElementById('idneuro').style.display = 'none';
-	document.getElementById('idmskel').style.display = 'none';
+	document.getElementById(`idappear`).style.display = 'none';
+	document.getElementById(`idinteg`).style.display = 'none';
+	document.getElementById(`ideyes`).style.display = 'none';
+	document.getElementById(`idears`).style.display = 'none';
+	document.getElementById(`iddental`).style.display = 'none';
+	document.getElementById(`iddigest`).style.display = 'none';
+	document.getElementById(`idgenitour`).style.display = 'none';
+	document.getElementById(`idlymph`).style.display = 'none';
+	document.getElementById(`idcardio`).style.display = 'none';
+	document.getElementById(`idrespir`).style.display = 'none';
+	document.getElementById(`idneuro`).style.display = 'none';
+	document.getElementById(`idmskel`).style.display = 'none';
 }
 $(function() {
-	$('#add').click(function() {
-		return !$('#select1 option:selected').appendTo('#select2');
+	$('#addreason').click(function() {
+		return !$('#reasonvisit1 option:selected').appendTo('#reasonvisit2');
 	});
-	$('#remove').click(function() {
-		return !$('#select2 option:selected').appendTo('#select1');
+	$('#removereason').click(function() {
+		return !$('#reasonvisit2 option:selected').appendTo('#reasonvisit1');
+	});
+	$('#addcomplaint').click(function() {
+		return !$('#complaint1 option:selected').appendTo('#complaint2');
+	});
+	$('#removecomplaint').click(function() {
+		return !$('#complaint2 option:selected').appendTo('#complaint1');
+	});
+	$('#adddiagnosis').click(function() {
+		return !$('#diagnosis1 option:selected').appendTo('#diagnosis2');
+	});
+	$('#removediagnosis').click(function() {
+		return !$('#diagnosis2 option:selected').appendTo('#diagnosis1');
+	});
+	$('#adddiagnostictest').click(function() {
+		return !$('#diagnostictest1 option:selected').appendTo('#diagnostictest2');
+	});
+	$('#removediagnostictest').click(function() {
+		return !$('#diagnostictest2 option:selected').appendTo('#diagnostictest1');
+	});
+	$('#addadmin').click(function() {
+		return !$('#admintasks1 option:selected').appendTo('#admintasks2');
+	});
+	$('#removeadmin').click(function() {
+		return !$('#admintasks2 option:selected').appendTo('#admintasks1');
+	});
+	$('#addtest').click(function() {
+		return !$('#tests1 option:selected').appendTo('#tests2');
+	});
+	$('#removetest').click(function() {
+		return !$('#tests2 option:selected').appendTo('#tests1');
+	});
+	$('#adddiagnosis').click(function() {
+		return !$('#diagnosis1 option:selected').appendTo('#diagnosis2');
+	});
+	$('#removediagnosis').click(function() {
+		return !$('#diagnosis2 option:selected').appendTo('#diagnosis1');
+	});
+	$('#addproc').click(function() {
+		return !$('#procedures1 option:selected').appendTo('#procedures2');
+	});
+	$('#removeproc').click(function() {
+		return !$('#procedures2 option:selected').appendTo('#procedures1');
 	});
 });
+function selectitems(procdb) {
+if (procdb == "V") {
+	var list = document.getElementById('reasonvisit2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('complaint2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('diagnosis2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('diagnostictest2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('admintasks2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    return;
+}
+if (procdb == "P") {
+	var list = document.getElementById('reasonvisit2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('tests2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('diagnosis2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('procedures2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    var list = document.getElementById('admintasks2');
+    for(var i = 0; i < list.options.length; ++i) {
+        list.options[i].selected = true; }
+    return;
+}
+return;
+}
 </script>
 <?php
-require_once "../includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
+if(isset($_GET["procdb"])) {
+	$procdb = $_GET["procdb"];
+} else {
+	$procdb = "";
+}
 $client = $_GET["client"];
 $petid = $_GET["petid"];
-$errormsg = $_COOKIE["errormessage"];
-require_once "includes/expire.inc";
+$errormsg = get_errormsg();
 require_once "visitarraykeys.php";
 if (strlen($errormsg) < 3) {
 	$date = date('Ymd');
@@ -150,7 +235,6 @@ if (strlen($errormsg) < 3) {
 	$visitarray = unserialize($_COOKIE["visitarray"]);
 	require_once "visitspopulate.php";
 }
-/*****************************************************************************************/
 ?>
 <div id="tabs">
 <ul>
@@ -161,7 +245,15 @@ if (strlen($errormsg) < 3) {
 </ul>
 <div id="soap">
 <form method="post" action="visitsnew2.php"><center>
-<font size="+2" color="Blue">Pet Visit</font>
+<font size="+2" color="Blue">Pet Visit</font><br><br>
+<?php
+if($procdb == "V") {
+	include "includes/visitvspeciesbreed.inc";
+}
+if($procdb == "P") {
+	include "includes/visitpspeciesbreed.inc";
+}
+?>
 <br><br><font size="+1">SOAP Information</font>
 <br><br><table width="90%">
 <!-- <font size="4"> -->
@@ -210,16 +302,16 @@ echo "</textarea>";
 <br><br><center><b>Objective Information</b></center>
 <table width="90%">
 <tr><td>Appearance: <input type="radio" name="appear" onClick="hide('idappear');" value="Normal"> Normal
-<input type="radio" name="appear" value="Abnormal" onClick="show('idappear');"> Abnormal </td>
-<td>Integument: <input type="radio" name="integument" onClick="hide('idinteg');" value="Normal"> Normal
-<input type="radio" name="integument" value="Abormal" onClick="show('idinteg');"> Abnormal </td>
-<td>Eyes: <input type="radio" name="eyes"  onClick="hide('ideyes');" value="Normal"> Normal
+<input type="radio" name="appear" value="Abnormal" onClick="show(`idappear`);"> Abnormal </td>
+<td>Integument: <input type="radio" name="integument" onClick="hide(`idinteg`);" value="Normal"> Normal
+<input type="radio" name="integument" value="Abormal" onClick="show(`idinteg`);"> Abnormal </td>
+<td>Eyes: <input type="radio" name="eyes"  onClick="hide(`ideyes`);" value="Normal"> Normal
 <?php
-echo "<input type=\"radio\" name=\"eyes\" value=\"Abormal\" onClick=\"show('ideyes');\"> Abnormal </td>";
-echo "<td>Ears: <input type=\"radio\" name=\"ears\" value=\"Normal\" onClick=\"hide('idears');\"> Normal ";
-echo "<input type=\"radio\" name=\"ears\" value=\"Abnormal\" onClick=\"show('idears');\"> Abnormal </td>";
-echo "<td>Dental: <input type=\"radio\" name=\"dental\" value=\"Normal\" onClick=\"hide('iddental');\"> Normal ";
-echo "<input type=\"radio\" name=\"dental\" value=\"Abnormal\" onClick=\"show('iddental');\"> Abnormal </td></tr>";
+echo "<input type=\"radio\" name=\"eyes\" value=\"Abormal\" onClick=\"show(`ideyes`);\"> Abnormal </td>";
+echo "<td>Ears: <input type=\"radio\" name=\"ears\" value=\"Normal\" onClick=\"hide(`idears`);\"> Normal ";
+echo "<input type=\"radio\" name=\"ears\" value=\"Abnormal\" onClick=\"show(`idears`);\"> Abnormal </td>";
+echo "<td>Dental: <input type=\"radio\" name=\"dental\" value=\"Normal\" onClick=\"hide(`iddental`);\"> Normal ";
+echo "<input type=\"radio\" name=\"dental\" value=\"Abnormal\" onClick=\"show(`iddental`);\"> Abnormal </td></tr>";
 ?>
 <tr><td><div id="idappear">If Abnormal<br>Appearance explain<textarea name="abnappear" rows="3" cols="10">
 <?php
@@ -239,16 +331,16 @@ echo $abndental;
 echo "</textarea></div></td></tr>";
 echo "<tr><td></td></tr>";
 
-echo "<tr><td>Digestive: <input type=\"radio\" name=\"digestive\" value=\"Normal\" onClick=\"hide('iddigest');\"> Normal ";
-echo "<input type=\"radio\" name=\"digestive\" value=\"Abormal\" onClick=\"show('iddigest');\"> Abormal </td>";
-echo "<td>Genitourinary: <input type=\"radio\" name=\"genitour\" value=\"Normal\" onClick=\"hide('idgenitour');\"> Normal ";
-echo "<input type=\"radio\" name=\"genitour\" value=\"Abormal\" onClick=\"show('idgenitour');\"> Abormal </td>";
-echo "<td>Lymph: <input type=\"radio\" name=\"lymph\" value=\"Normal\" onClick=\"hide('idlymph');\"> Normal ";
-echo "<input type=\"radio\" name=\"lymph\" value=\"Abormal\" onClick=\"show('idlymph');\"> Abormal </td>";
-echo "<td>Cardiovascular: <input type=\"radio\" name=\"cardio\" value=\"Normal\" onClick=\"hide('idcardio');\"> Normal ";
-echo "<input type=\"radio\" name=\"cardio\" value=\"Abormal\" onClick=\"show('idcardio');\"> Abormal </td>";
-echo "<td>Respiratory: <input type=\"radio\" name=\"respir\" value=\"Normal\" onClick=\"hide('idrespir');\"> Normal ";
-echo "<input type=\"radio\" name=\"respir\" value=\"Abormal\" onClick=\"show('idrespir');\"> Abormal </td></tr>";
+echo "<tr><td>Digestive: <input type=\"radio\" name=\"digestive\" value=\"Normal\" onClick=\"hide(`iddigest`);\"> Normal ";
+echo "<input type=\"radio\" name=\"digestive\" value=\"Abormal\" onClick=\"show(`iddigest`);\"> Abormal </td>";
+echo "<td>Genitourinary: <input type=\"radio\" name=\"genitour\" value=\"Normal\" onClick=\"hide(`idgenitour`);\"> Normal ";
+echo "<input type=\"radio\" name=\"genitour\" value=\"Abormal\" onClick=\"show(`idgenitour`);\"> Abormal </td>";
+echo "<td>Lymph: <input type=\"radio\" name=\"lymph\" value=\"Normal\" onClick=\"hide(`idlymph`);\"> Normal ";
+echo "<input type=\"radio\" name=\"lymph\" value=\"Abormal\" onClick=\"show(`idlymph`);\"> Abormal </td>";
+echo "<td>Cardiovascular: <input type=\"radio\" name=\"cardio\" value=\"Normal\" onClick=\"hide(`idcardio`);\"> Normal ";
+echo "<input type=\"radio\" name=\"cardio\" value=\"Abormal\" onClick=\"show(`idcardio`);\"> Abormal </td>";
+echo "<td>Respiratory: <input type=\"radio\" name=\"respir\" value=\"Normal\" onClick=\"hide(`idrespir`);\"> Normal ";
+echo "<input type=\"radio\" name=\"respir\" value=\"Abormal\" onClick=\"show(`idrespir`);\"> Abormal </td></tr>";
 
 echo "<tr><td><div id=\"iddigest\">If Abnormal<br>Digestive explain<textarea name=\"abndigestive\" rows=\"3\" cols=\"25\">";
 echo $abndigestive;
@@ -266,10 +358,10 @@ echo "<td><div id=\"idrespir\">If Abnormal<br>Respiratory explain<textarea name=
 echo $abnrespir;
 echo "</textarea></div></td></tr>";
 
-echo "<tr><td>Neurologic: <input type=\"radio\" name=\"neurologic\" value=\"Normal\" onClick=\"hide('idneuro');\"> Normal ";
-echo "<input type=\"radio\" name=\"neurologic\" value=\"Abormal\" onClick=\"show('idneuro');\"> Abormal </td>";
-echo "<td>Musculoskeletal: <input type=\"radio\" name=\"mskel\" value=\"Normal\" onClick=\"hide('idmskel');\"> Normal ";
-echo "<input type=\"radio\" name=\"mskel\" value=\"Abormal\" onClick=\"show('idmskel');\"> Abormal </td></tr>";
+echo "<tr><td>Neurologic: <input type=\"radio\" name=\"neurologic\" value=\"Normal\" onClick=\"hide(`idneuro`);\"> Normal ";
+echo "<input type=\"radio\" name=\"neurologic\" value=\"Abormal\" onClick=\"show(`idneuro`);\"> Abormal </td>";
+echo "<td>Musculoskeletal: <input type=\"radio\" name=\"mskel\" value=\"Normal\" onClick=\"hide(`idmskel`);\"> Normal ";
+echo "<input type=\"radio\" name=\"mskel\" value=\"Abormal\" onClick=\"show(`idmskel`);\"> Abormal </td></tr>";
 
 echo "<tr><td><div id=\"idneuro\">If Abnormal<br>Neurologic explain<textarea name=\"abnneuro\" rows=\"3\" cols=\"10\">";
 echo $abnneuro;
@@ -303,23 +395,47 @@ If there were no Procedures performed, check this box <input type="checkbox" nam
 <br><br>
 PLEASE NOTE: Procedures are only saved if this is a Final Report. Procedures are not saved for a Draft Report.
 <br><br>
-Add Procedures from the left listbox that you have performed during this Visit<br><br>
+Add Procedures from the left listbox to the right listbox that you have performed during this Visit
 <center><table width="50%">
-<tr><td width="25%" align="right"><SELECT id="select1" name="select1" size="3"><OPTION value="1">0001 Check Vital Signs</option><OPTION value="2">0002 Clean Teeth</option></select></td>
-<td><SELECT id="select2" name="select2" size="3"></select></td></tr>
-<tr><td width=25%" align="right"><input type="button" id="add" value="Add >>"></td><td><input type="button" id="remove" value="<< Remove"></td></tr>
+<?php
+switch($procdb) {
+	case "V":
+		include "includes/visitvproc.inc";
+		break;
+	case "P":
+		include "includes/visitpproc.inc";
+		break;
+	case "N";
+		break;
+	default:
+		put_errormsg("Internal error - Invalid Procedure DB Code");
+		redirect("criticalerror.php?m=visitsnew1.php&ec=$procdb");
+		exit();
+		break;
+}
+?>
 </table>
 </div>
 <div id="save">
+<?php
+if($procdb == "V") {
+	include "includes/visitvadmin.inc";
+}
+if($procdb == "P") {
+	include "includes/visitpadmin.inc";
+}
+?>
+<input type="hidden" name="procdb" value="<?php echo $procdb;?>">
 <br><br><center><input type="radio" name="save" value="draft">Save as Draft
 <input type="radio" name="save" value="perm" CHECKED>Save as Final Report</center>
-<br><br><center><input type="submit" value="Save Visit"></center><br><br>
+<br><br><center><input type="submit" value="Save Visit" onClick="selectitems($procdb)"></center><br><br>
 </div><div id="cancel">
 <center>Cancel and Return to the Main Menu</center>
 </form><form method="post" action="mainmenu.php"><br><br><center><input type="submit" value="Return to the Main menu"></form>
 </center></div>
 <?php
-$emplnumber = $_COOKIE["employeenumber"];
+require_once "includes/version.inc";
+$emplnumber = $_SESSION["employeenumber"];
 $display ="visitsnew:".$emplnumber;
 require_once "includes/footer.inc";
-?>
+echo "</body></html>";

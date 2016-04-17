@@ -9,14 +9,41 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
+/*
+ * $localpath=getenv("SCRIPT_NAME");
+2
+	$absolutepath=realpath($localPath);
+3
+	// a fix for Windows slashes
+4
+	$absolutepath=str_replace("\\","/",$absolutepath);
+5
+	$docroot=substr($absolutepath,0,strpos($absolutepath,$localpath));
+6
+	// as an example of use
+7
+	include($docroot."/includes/config.php");
+ */
+$docroot = getenv("DOCUMENT_ROOT");
+// echo "<br>dr=".$docroot;
+// $localpath=getenv("SCRIPT_NAME");
+// echo "<br>lp=".$localpath;
+// $absolutepath = realpath($localpath);
+// if($absolutepath == FALSE){
+// 	echo "<br>ap ret false";
+// }
+// echo "<br>ap=".$absolutepath;
+// $absolutepath=str_replace("\\","/",$absolutepath);
+// $docroot=substr($absolutepath,0,strpos($absolutepath,$localpath));
+// echo "<br>lp=".$localpath;
+// echo "<br>ap=".$absolutepath;
+// echo "<br>dr=".$docroot;
+// exit();
 if(!isset($logFileName)) {
      $logFileName = "user";
 }
-if ($logFileName == "user") {
-     $logDir="/logfiles";
-} else {
-     $logDir="../logfiles";
-}
+$logDir=$docroot."petclinic/logfiles";
+$logDir = substr($logDir, 2);
 //$logFileName=$logfilename;
 $logMode="oneFile";
 $counterFile=$logFileName.".counter";

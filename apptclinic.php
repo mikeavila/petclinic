@@ -13,7 +13,7 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$os = $_COOKIE["OS"];
+$os = $_SESSION["OS"];
 if (strpos($os,'Windows') !== false) {
      redirect("localhost:8051/clinic");
 }

@@ -11,16 +11,15 @@
 *****************************************************************/
 session_start();
 $background="3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 require_once "includes/header1.inc";
 require_once "includes/header2.inc";
 require_once "includes/errormsg_functions.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
 $client = $_GET["client"];
 $petid = $_GET["petid"];
-$errormsg = $_COOKIE["errormessage"];
-require_once "includes/expire.inc";
+$errormsg = get_errormsg();
 echo $subjective = "";
 $date = date('Ymd');
 $temp = "";

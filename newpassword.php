@@ -12,10 +12,10 @@
 session_start();
 $display = "Newpassword";
 $background="0";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 ?>
 <form action="newpassword1.php" method="post"><center><table border="0" width="33%"><tr><td>This display is being shown to you because:</td></tr>

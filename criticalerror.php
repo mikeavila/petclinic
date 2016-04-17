@@ -12,10 +12,10 @@
 session_start();
 $display = "CriticalError:";
 $background = "0";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 $errorcode = "0";
 $module = "";
@@ -26,6 +26,7 @@ $errormsg = get_errormsg();
 delete_errormsg();
 $datenow = date('D y/m/d');
 $timenow = date('H:i:s');
+$userid = $_SESSION["ecc"];
 ?>
 <h2>Critical Error</h2>
 <br><br>
@@ -34,7 +35,7 @@ Please make note or print out this error and report it so it can be fixed. For h
 A citical error occured. The information is as follows:
 <p>Date: <?php echo $datenow; ?>
 <p>Time: <?php echo $timenow; ?>
-<p>User id:
+<p>User id: <?php echo $userid; ?>
 <p>Module: <?php echo $module ?>
 <p>Error Code: <?php echo $errorcode ?>
 <br><br>

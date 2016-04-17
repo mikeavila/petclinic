@@ -11,21 +11,20 @@
 *****************************************************************/
 session_start();
 $background = "3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 $refresh = "<meta http-equiv=\"refresh\" content=\"30\";>";
 require_once "includes/header1.inc";
 require_once "includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
 echo "<br><br><center>This page will automatically refresh every 30 seconds</center>";
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petclinicsys`.`usersol`;";
 $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("There are no Users Logged In");
-     redirect("sysadmin.php");     
+     redirect("sysadmin.php");
 	exit();
 }
 for ($i = 0; $i < $row_cnt; $i++) {

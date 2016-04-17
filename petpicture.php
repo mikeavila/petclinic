@@ -17,7 +17,7 @@ echo "<form action=\"petpicupload.php\" method=\"post\" enctype=\"multipart/form
 echo "<table cellspacing=\"0\" align=\"center\" cellpadding=\"3\">";
 echo "<tr><td>File:</td>";
 echo "<td><input type=\"hidden\" name=\"petid\" value=\"";
-$petid = $_COOKIE['petid'];
+$petid = $_SESSION['petid'];
 echo $petid;
 echo "\"></td>";
 echo "<td><input type=\"file\" name=\"myFile\" size=\"45\"></td>";

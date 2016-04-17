@@ -12,10 +12,10 @@
 session_start();
 $display = "PwdReset";
 $background = "0";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 if (isset($_POST["pass"]))
 {

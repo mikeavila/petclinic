@@ -11,21 +11,17 @@
 *****************************************************************/
 session_start();
 $background = "3";
-if ( !empty($_COOKIE['employeenumber']) ) {
-	$emplnumber = $_COOKIE['employeenumber'];
+$logFileName = "user";
+$headerTitle="USER LOG";
+if ( !empty($_SESSION['employeenumber']) ) {
+	$emplnumber = $_SESSION['employeenumber'];
 }
 $display ="sysadmin: " . $emplnumber;
 include 'includes/header1.inc';
 include 'includes/header2.inc';
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = '';
-if ( !empty($_COOKIE['employeenumber']) ) {
-	$emplnumber = $_COOKIE['employeenumber'];
-}
-include 'password.php';
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT `status` FROM `petclinicsys`.`logonallowed`";
 $status = 'unknown: failed to retrieve data.';
 if ( $result = $mysqli->query($sql) ) {
@@ -44,7 +40,7 @@ echo '<form method="post" action="sysendis.php">';
 echo '<br><input type="submit" value="Disable/Enable Logins">';
 echo '<br>Logins are: ';
 		if ($status == 'Y') {
-			echo '<span id="loginsY">Enabled</span>'; 
+			echo '<span id="loginsY">Enabled</span>';
 		}
 		else if ($status == 'N') {
 			echo '<span id="loginsN">Disabled</span>';
@@ -56,8 +52,9 @@ echo '</form>';
 echo '<form method="post" action="sysloggedin.php">';
 echo '<br><br><input type="submit" value="Who is Logged In">';
 echo '</form>';
-echo '<form method="post" action="mainmenu.php">';
-echo '<br><br><input type="submit" value="Return to the Main Menu">';
+echo '<form name="reg" method="post" action="support.php">';
+echo '<br><br><input type="submit" value="Support"></form>';
+include "includes/returnmainmenu.inc";
 echo '</form>';
 echo '</div><br>';
 include "includes/display_errormsg.inc";

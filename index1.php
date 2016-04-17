@@ -12,15 +12,16 @@
 session_start();
 $display = "Login";
 $background = "0";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
+
 $log->logThis($logdatetimeecc."user at login display");
 $emplnumber = '';
-if (isset($_COOKIE['employeenumber'])) {
-    $emplnumber = $_COOKIE['employeenumber'];
+if (isset($_SESSION['employeenumber'])) {
+    $emplnumber = $_SESSION['employeenumber'];
 }
 $errormessage = get_errormsg();
 delete_errormsg();

@@ -20,6 +20,8 @@ if (isset($_GET["s"])) {
 }
 if ($step == 0) {
      $background = "1";
+     $logFileName = "user";
+     $headerTitle="USER LOG";
      require_once "includes/header1.inc";
      require_once "includes/header2.inc";
      ?>
@@ -42,9 +44,9 @@ if ($step == 0) {
 }
 $duration = $_GET["d"];
 $menu = $_GET["m"];
-if (isset($_COOKIE["ecc"])) {
-     $ecc = $_COOKIE["ecc"];
-     if (isset($_COOKIE[$ecc."menu"])) {     
+if (isset($_SESSION["ecc"])) {
+     $ecc = $_SESSION["ecc"];
+     if (isset($_COOKIE[$ecc."menu"])) {
      }
 }
 switch ($menu) {
@@ -61,12 +63,12 @@ switch ($menu) {
           } else {
                setcookie($ecc."menu", "Sselect");
           }
-          break;     
+          break;
      case "d":
           if ($duration == "d") {
                setcookie($ecc."menu", "Pselect", time() - 2592000);
           }
-          break;     
+          break;
 }
-redirect("mainmenu");
+redirect("mainmenu.php");
 ?>

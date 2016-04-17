@@ -9,9 +9,6 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-session_start();
-$proccode = $_GET["proccode"];
-require_once "includes/expire.inc";
-setcookie("proccode", $proccode, $expire1hr);
-redirect("procmaint.php");
+echo '<div class="center">';
+echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
 ?>

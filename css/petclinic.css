@@ -82,8 +82,34 @@ label.checked{background:url("../pictures/checked.gif") no-repeat 0px 0px;}
 
 .searchField {
 	display:inline-block;
+	margin-bottom:5px;
 	text-align:left;
 	width:200px;
+}
+
+table.searchResults {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    width:82%;
+}
+
+.searchResults td, .searchResults th {
+    border: 1px solid #ddd;
+    padding:10px;
+}
+
+.searchResults th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.searchResults tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.searchResults tr:hover {
+    background-color: yellow;
 }
 
 img.loginImg {
@@ -200,6 +226,10 @@ img.loginImg {
 	background:url('../pictures/systemadmin.png') no-repeat center bottom;
 }
 
+#docmgmtImg {
+     background:url('../pictures/docmgmt.png') no-repeat center bottom;
+}
+
 #menuImg {
 	background:url('../pictures/menu.png') no-repeat center bottom;
 }
@@ -249,7 +279,37 @@ legend {
     font-weight:bold;
 }
 
-.phonemsgtable {
+#phonemsgdiv {
      border: 10px double #000000;
      background-color: #F778A1;
+     margin-left:auto;
+     margin-right:auto;
+     width:21%;
+     padding: 10px;
+}
+
+#phonemsgtitle {
+     font-family: "Times New Roman";
+     font-size: 40px;
+     text-align: center;
+}
+
+#phonemsgtable input[type="text"],
+#phonemsgtable select,
+#phonemsgtable textarea {
+     background:transparent;
+}
+
+#phonemsgtable input[type="text"]:focus, 
+#phonemsgtable textarea:focus  {
+     background: #FFFFFF;
+}
+
+#phoneMsgOpts {
+     margin-left:50px;
+}
+
+#phonemsgalert {
+    color:royalblue;
+    font-weight:bold;
 }

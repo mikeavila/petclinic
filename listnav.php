@@ -13,7 +13,6 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
 $value = "00";
 if(!empty($_POST['menu']))
 {
@@ -21,7 +20,7 @@ if(!empty($_POST['menu']))
 	$value = $sValue;
 }
 delete_errormsg();
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 switch ($value)
 {
 	case "11":

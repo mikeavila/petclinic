@@ -11,6 +11,8 @@
 *****************************************************************/
 session_start();
 $background = "3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 require_once "includes/header1.inc";
 ?>
 <script>
@@ -163,18 +165,16 @@ function continueon() {
 </script>
 <?php
 require_once "includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display = "Emplmaint:".$emplnumber;
-require_once "includes/expire.inc";
+
 if(isset($_GET["e"])) {
      $errorcode = $_GET["e"];
 } else {
      $errorcode = "n";
 }
-$editempnum = ' ';
+$editempnum = '';
 if ( !empty($_GET['editempnum']) ) {
 	$editempnum = $_GET['editempnum'];
 	unset($_GET['editempnum']);
@@ -183,7 +183,7 @@ if ( !empty($_SESSION['employee_data']) ) {
 	echo '<div class="success">Successfully added/updated user: ' . $_SESSION['employee_data']['user'] . ', employee#(' . $_SESSION['employee_data']['uid'] . ')</div>';
 	unset ($_SESSION['employee_data']); // don't retain this data.
 }
-if (($editempnum == " ") OR ($errorcode == "y"))
+if (($editempnum == "") OR ($errorcode == "y"))
 {
 	echo '<center><form action="emplmaint.php" method="get">';
 	echo '<table width="25%">';
@@ -194,17 +194,14 @@ if (($editempnum == " ") OR ($errorcode == "y"))
 	echo '<input type="hidden" name="editempnum" value="new">';
 	echo '<table width="25%"><tr><td><input type="submit" value="Create New Employee"></td></tr>';
 	echo '</table></form></center>';
-     echo '<div class="center">';
-	echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
+     include "includes/returnmaintmenu.inc";
      include "includes/display_errormsg.inc";
 	require_once "includes/footer.inc";
 	exit();
 }
 else if ($editempnum <> "new")
 {
-	$mysqli = new mysqli('localhost', $user, $password, '');
-	require_once "includes/key.inc";
-	require_once "includes/de.inc";
+	$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 	$sql = "SELECT emplnumber, uuserid, upassword, changepwd, pwdhint, hintans, lname, fname, prefix, suffix, address, address2, city, state, zipcode, telephone, ";
 	$sql = $sql."email, status, changeid  FROM petcliniccorp.employee WHERE emplnumber = ".$editempnum;
 	$result = $mysqli->query($sql);
@@ -453,10 +450,8 @@ else if ($editempnum == "new")
 </table>
 <input type="hidden" id="emplnumber" name="emplnumber" value="<?php echo $emplnumber; ?>">
 <div class="center"><input type="submit" value="Create/Update Employee"></div></form>
-<div class="center">
-	<form action="maintmenu.php" method="post"><input type="submit" value="Return to Maintenance Menu"></form>
-</div>
 <?php
+include "includes/returnmaintmenu.inc";
 require_once 'includes/display_errormsg.inc';
 require_once 'includes/footer.inc';
 ?>

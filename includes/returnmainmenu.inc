@@ -9,11 +9,6 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-session_start();
-$preak_bg0= "0";
-$preak_bg1= "1";
-$preak_bg2= "2";
-$preak_bg3= "3";
-$preak_bg4= "4";
-$preak_state= "5";
+echo '<div class="center">';
+echo "<form action='mainmenu.php' method='post'><input type='submit' value='Return to Main Menu'></form></div>";
 ?>

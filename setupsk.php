@@ -12,7 +12,6 @@
 session_start();
 require_once "includes/common.inc";
 $editempnum = $_GET["editempnum"];
-require_once "includes/expire.inc";
-setcookie("editempnum", $editempnum, $expire1hr);
+$_SESSION["editempnum"] = $editempnum;
 redirect("seckeys.php");
 ?>

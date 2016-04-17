@@ -1,0 +1,414 @@
+EAA≈emaitukas
+EABAbaco Barb
+EACAbtenauer
+EADAbyssinian Horse
+EAEAegidienberger
+EAFAkhal-Teke
+EAGAlbanian Horse
+EAHAltai Horse
+EAIAmerican Cream Draft
+EAJAmerican Indian Horse
+EAKAmerican Paint Horse
+EALAmerican Quarter Horse
+EAMAmerican Saddlebred
+EANAmerican Shetland
+EAOAmerican Walking Pony
+EAPAmerican Warmblood
+EAQAnadolu Pony 
+EARAndalusian Horse 
+EASAndravida Horse
+EATAnglo-Arabian
+EAUAnglo-Arabo-Sardo 
+EAVAnglo-Kabarda
+EAWAppaloosa
+EAXAraAppaloosa
+EAZArabian Horse
+EA1Arappaloosa
+EA2Araloosa
+EA3Ardennes Horse
+EA4Ardennais
+EA5Arenberg-Nordkirchen
+EA6Argentine Criollo
+EA7Ariegeois Pony 
+EA8Assateague Pony
+EA9Asturian Pony
+EA0Australian Brumby 
+EAaAustralian Draught Horse
+EAbAustralian Pony
+EAcAustralian Riding Pony
+EAdAustralian Stock Horse
+EAeAustrian Warmblood
+EAfAuvergne Horse
+EAgAuxois
+EAhAvelignese 
+EAiAzerbaijan Horse
+EAjAzteca Horse
+EBABaise Horse
+EBBBalearic Horse
+EBCBali Pony
+EBDBalikun Horse
+EBEBaluchi Horse
+EBFBan'ei
+EBGBanker Horse
+EBHBarb Horse
+EBIBardigiano
+EBJBaroque Horse
+EBKBashkir Curly 
+EBLBashkir Pony
+EBMBasque Mountain Horse
+EBNBasque Pony
+EBOBasuto Pony
+EBPBatak Pony
+EBQBavarian Warmblood
+EBRBelgian Horse
+EBSBelgian Warmblood
+EBTBhutia Pony
+EBUBlack Forest Horse 
+EBVBlazer Horse
+EBWBoer Pony
+EBXBosnian Pony
+EBYBoulonnais Horse
+EBZBrabant 
+EB1Brandenburger
+EB2Brazilian Sport Horse
+EB3Breton Horse
+EB4British Riding Pony
+EB5British Spotted Pony
+EB6Brumby
+EB7Buckskin Horse
+EB8Budyonny Horse
+EB9Burguete Horse
+EB0Burmese Pony
+EBaByelorussian Harness
+ECACalabrese Horse
+ECBCamargue Horse
+ECCCamarillo White Horse
+ECDCampolina
+ECECanadian Cutting Horse
+ECFCanadian Horse
+ECGCanadian Pacer
+ECHCanadian rustic Pony
+ECICarolina Marsh Tacky
+ECJCarpathian Pony
+ECKCarthusian Horse 
+ECLCaspian Horse
+ECMCaspian Pony
+ECNCastilian Horse
+ECOCastillonnais
+ECPCatria Horse
+ECQCavallo Romano della
+ECRChickasaw Horse 
+ECSChilean Corralero
+ECTChilean Horse
+ECUChincoteague Pony
+ECVChinese Guoxia
+ECWChoctaw Horse
+ECXCleveland Bay
+ECYClydesdale Horse
+ECZCob Horse
+EC1Coffin Bay Pony
+EC2Cold Blood 
+EC3Coldblood Trotter
+EC4Colonial Spanish Horse
+EC5Colorado Ranger
+EC6Comtois Horse
+EC7Connemara Pony
+EC8Costa Rican Saddle Horse
+EC9Cracker Horse
+EC0Cretan Horse
+ECaCriollo Horse
+ECbCuban Criollo Horse
+ECcCurly Horse
+ECdCzech Warm Blood
+ECeCzechoslovakian Small Riding Pony
+EDADales Pony
+EDBDaliboz
+EDCDanish Sport Pony
+EDFDanish Warmblood
+EDGDanube Delta Horse
+EDHDartmoor Pony
+EDIDeli Pony
+EDJDeutsches ReitPony 
+EDKDole Gudbrandsdal
+EDLDon
+EDMDraft Horse
+EDNDraft Trotter
+EDODraught Horse
+EDPDutch harness Horse
+EDQDutch Heavy Draft
+EDRDutch Warmblood
+EEAEast Bulgarian
+EEBEast Friesian Horse
+EECEriskay Pony
+EEDEsperia Pony
+EEEEstonian Draft
+EEFEstonian Horse
+EEGExmoor Pony
+EFAFalabella
+EFBFaroe Pony
+EFCFaroese Horse
+EFDFell Pony
+EFEFeral Horse
+EFFFinnHorse
+EFGFinnish Horse
+EFHFjord Horse 
+EFIFleuve
+EFJFlores Pony
+EFKFlorida Cracker Horse
+EFLFouta
+EFMFrederiksborg Horse
+EFNFreiberger
+EFOFrench Saddle Pony
+EFPFrench Trotter
+EFQFriesian Cross
+EFRFriesian Horse
+EFSFriesian SportHorse
+EFTFurioso-North Star
+EGAGaited Horse
+EGBGaliceno Horse
+EGCGalician Pony
+EGDGalloway
+EGEGarrano
+EGFGayoe
+EGGGelderland Horse
+EGHGeorgian Grande Horse
+EGIGerman Riding Pony
+EGJGerman Warmblood
+EGKGiara Horse
+EGLGidran
+EGMGotland Pony
+EGNGroningen Horse
+EGOGuangxi
+EGPGuizhou Pony
+EGQGypsy Vanner Horse
+EHAHackney Horse
+EHBHackney Pony
+EHCHaflinger
+EHDHalf-blood
+EHEHanoverian Horse
+EHFHeck Horse
+EHGHeihe Horse
+EHHHighland Pony
+EHIHirzai
+EHJHispano-√rabe 
+EHKHispano-Bret√
+EHLHokkaido Pony
+EHMHolsteiner Horse
+EHNHucul Pony
+EHOHungarian Warmblood
+EHPHunter Pony
+EIAIcelandic Horse
+EIBIcelandic Pony
+EICIndian Country Bred
+EIDIndian Half-Bred
+EIEIomud
+EIFIrish Draught
+EIGIrish Sport Horse 
+EIHItalian Heavy Draft
+EIIItalian Trotter
+EJAJaca Navarra
+EJBJava Pony
+EJCJutland Horse
+EKAKabarda Horse
+EKBKaimanawa Horses
+EKCKarabair
+EKDKarabakh Horse 
+EKEKarossier 
+EKFKathiawari
+EKGKazakh Horse
+EKHKentucky Mountain Saddle Horse
+EKIKerry bog Pony
+EKJKiger Mustang
+EKLKinsky Horse
+EKMKisber Felver
+EKNKladruber
+EKOKnabstrupper
+EKPKonik
+EKQKustanair
+ELALandais Pony
+ELBLatvian Horse
+ELCLijiang Pony
+ELDLipizzan or Lipizzaner
+ELELithuanian Heavy Draught
+ELFLokai
+ELGLosino Horse
+ELHLundy Pony
+ELILusitano
+ELJLyngshest
+EMAM'Bayar
+EMBM√rens Horse
+EMCMalapolski
+EMDMallorqu√n
+EMEMangalarga
+EMFMangalarga Marchador
+EMGManipuri Pony
+EMHMaremma Laziale
+EMIMaremmano
+EMJMarisme√o Horse
+EMKMarsh Tacky
+EMLMarwari Horse
+EMMMecklenburger
+EMNMenorqu√n
+EMOMerens Pony
+EMPMessara
+EMQMetis Trotter
+EMRMez≈ëhegyesi sport-Horse
+EMSMiniature Horse
+EMTMisaki
+EMUMissouri Fox Trotter
+EMVMiyako Pony
+EMWMonchina
+EMXMongolian Horse
+EMYMonterufolino
+EMZMorab
+EM1Morgan Horse
+EM2Moyle Horse
+EM3Murakoz Horse
+EM4Murgese
+EM5Mustang Horse
+ENANamib Desert Horse
+ENBNangchen Horse
+ENCNarym Pony
+ENDNational Show Horse
+ENENew Forest Pony
+ENFNewfoundland Pony
+ENGNez Perce Horse
+ENHNivernais
+ENINokota Horse
+ENJNoma Horse
+ENKNoma Pony
+ENLNonius Horse
+ENMNooitgedacht Pony
+ENNNordlandshest/ Lyngshest
+ENONoriker Horse
+ENPNorman Cob
+ENQNorsk Kaldblodstraver
+ENRNorth Swedish Horse
+ENSNorthlands Pony
+ENTNorwegian Fjord
+ENUNovokirghiz
+EOAOb Pony 
+EOBOberlander Horse
+EOCOldenburg Horse
+EODOrlov trotter
+EOEOstfriesen
+EPAPaint
+EPBPalomino
+EPCPampa Horse
+EPDPaso Fino
+EPEPeneia Pony
+EPFPentro Horse
+EPGPercheron
+EPHPersano Horse
+EPIPeruvian Paso
+EPJPetiso Argentino
+EPKPindos Pony
+EPLPintabian
+EPMPinto Horse
+EPNPleven Horse
+EPOPoitevin Horse 
+EPPPoney Mousseye
+EPQPony of the Americas
+EPRPottok
+EPSPryor Mountain Mustang
+EPTPrzewalski's Horse 
+EPUPurosangue Orientale
+EQAQatgani
+EQBQuarab
+EQCQuarter Horse 
+EQDQuarter Pony
+ERARacking Horse
+ERBRaza Espa√ola
+ERCRetuerta Horse
+ERDRhenish-German Cold-Blood 
+ERERhinelander Horse
+ERFRiding Pony
+ERGRiwoche Horse
+ERHRocky Mountain Horse
+ERIRomanian SportHorse
+ERJRottalerd
+ERKRussian Don
+ERLRussian Heavy Draft
+ERMRussian Trotter
+ESASable Island Pony
+ESBSaddlebred
+ESCSalerno Horse
+ESDSamolaco Horse
+ESESan Fratello Horse
+ESFSandalwood Pony
+ESGSarcidano Horse
+ESHSardinian Anglo-Arab
+ESISardinian Pony
+ESJSchwarzw√lder Kaltblut
+ESKSella Italiano
+ESLSelle Fran√ais
+ESMShagya Arabian
+ESNShetland Pony
+ESOShire Horse
+ESPSiciliano indigeno
+ESQSilesian Horse
+ESRSkogsruss
+ESSSkyros Pony
+ESTSokolsky Horse
+ESUSorraia
+ESVSoviet Heavy Draft
+ESWSpanish Jennet Horse
+ESXSpanish Mustang
+ESYSpanish Tarpan
+ESZSpanish-Norman Horse
+ES1Spiti Pony
+ES2Spotted Saddle Horse
+ES3Standardbred Horse
+ES4Suffolk Punch
+ES5Sumba Pony
+ES6Sumbawa Pony
+ES7Svensk Kallblodstravare 
+ES8Swedish Ardennes
+ES9Swedish Warmblood
+ES0Swiss Warmblood
+ETATaishuh
+ETBTakhi Mongolian Wild Horse
+ETCTawleed
+ETDTchernomor
+ETETennessee Walking Horse
+ETFTersk Horse
+ETGThoroughbred
+ETHTibetan Pony
+ETITiger Horse
+ETJTimor Pony
+ETKTinker Horse
+ETLTokara Pony
+ETMTolfetano
+ETNTori Horse
+ETOTrait Du Nord
+ETPTrakehner
+EUAUkrainian Riding Horse
+EUBUnmol Horse
+EUCUzunyayla
+EVAVentasso Horse
+EVBVirginia Highlander
+EVCVlaamperd
+EVDVladimir Heavy Draft
+EVEVyatka
+EVFVyatka Horse
+EWAW√rttemberger
+EWBWaler Horse
+EWCWalkaloosa
+EWDWarlander
+EWEWarmblood
+EWFWelara
+EWGWelsh Cob
+EWHWelsh Mountain Pony
+EWIWelsh Pony
+EWJWestern Sudan Pony
+EWKWestphalian Horse
+EWLWielkopolski
+EXAXilingol Horse
+EYAYakut Pony
+EYBYakutian Horse
+EYCYili Horse
+EYDYonaguni Horse
+EZAZaniskari Pony
+EZBZemaituka
+EZCZhumd Zhemaichu or Zhmudka
+EZDZweibr√cker

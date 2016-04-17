@@ -10,15 +10,15 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 session_start();
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display ="Maintmenu:".$emplnumber;
 $background = "1";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1 ;";
 $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
@@ -32,7 +32,7 @@ echo ">Client Add and Modify</td></tr>";
 
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"12\" ";
 if ($row[22] == "N") echo "DISABLED ";
-echo ">Pet Add and Modify</td></tr>"; 
+echo ">Pet Add and Modify</td></tr>";
 
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"13\" ";
 if ($row[23] == "N") echo "DISABLED ";
@@ -56,7 +56,7 @@ echo ">Inventory Vendor Add and Modify</td></tr>";
 
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"17\" ";
 if ($row[27] == "N") echo "DISABLED ";
-echo ">Employee Add and Modify</td></tr>"; 
+echo ">Employee Add and Modify</td></tr>";
 
 echo "<tr><td><input type=\"radio\" name=\"menu[]\" value=\"18\" ";
 if ($row[28] == "N") echo "DISABLED ";

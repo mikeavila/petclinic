@@ -56,7 +56,7 @@ function resetSystem() {
         $dbList = array('petclinicsys', 'petclinicproc', 'petclinic', 'petcliniccorp',
                         'petclinicinv', 'petclinicvendor', 'petclinicapptclinic',
                         'petclinicapptboard', 'petclinicapptgroom', 'petclinicdocmgmt',
-                        'petclinicinvoices', 'petcliniclang', 'snomedvts', 'venom', 'petclinicmsgs');
+                        'petclinicinvoices', 'petcliniclang', 'venom', 'petclinicmsgs', 'petclinicreg');
 
         $total = count( $dbList );
 
@@ -92,7 +92,6 @@ CREATE DATABASE IF NOT EXISTS `petclinicapptgroom`;
 CREATE DATABASE IF NOT EXISTS `petclinicapptclinic`;
 CREATE DATABASE IF NOT EXISTS `petclinicapptboard`;
 CREATE DATABASE IF NOT EXISTS `petclinicvendor`;
-CREATE DATABASE IF NOT EXISTS `snomedvts`;
 CREATE DATABASE IF NOT EXISTS `venom`;
 */
 ?>

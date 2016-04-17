@@ -15,7 +15,6 @@ $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
 $log->logThis($logdatetimeecc."user logging in");
-include "includes/expire.inc";
 delete_errormsg();
 if (!empty($_POST["emplnumber"]))
 {
@@ -23,14 +22,14 @@ if (!empty($_POST["emplnumber"]))
 } else {
      put_errormsg("You must enter your Employee Number");
      redirect("index1.php");
-	exit();
+	 exit();
 }
 if (!empty($_POST["userid"]))
 {
 	$uuserid = $_POST["userid"];
 } else {
      put_errormsg("You must enter your User ID");
-     redirect("index1.php");     
+     redirect("index1.php");
 	exit();
 }
 if (!empty($_POST["password"]))
@@ -38,11 +37,10 @@ if (!empty($_POST["password"]))
 	$userpassword = $_POST["password"];
 } else {
      put_errormsg("You must enter your Password");
-     redirect("index1.php");     
+     redirect("index1.php");
 	exit();
 }
-include "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petclinicsys`.`logonallowed`;";
 if ($mysqli->query($sql) == TRUE) {
 
@@ -62,7 +60,7 @@ $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("You have entered an incorrect Employee Number");
-     redirect("index1.php");	
+     redirect("index1.php");
 }
 $row = $result->fetch_row();
 if ($row[2] == "I" or $row[2] == "D") {
@@ -74,8 +72,6 @@ if (strcasecmp($uuserid, $row[0]) <> 0) {
 	include "index1.php";
 	exit();
 }
-require_once "includes/key.inc";
-require_once "includes/de.inc";
 $userpwd = mc_decrypt($row[1], ENCRYPTION_KEY);
 if ($userpwd <> $userpassword) {
      put_errormsg("Incorrect information entered");
@@ -84,10 +80,10 @@ if ($userpwd <> $userpassword) {
 }
 $ecc = $uuserid.$emplnumber;
 $newpassword=$row[3];
-if ($newpassword == "Y") 
+if ($newpassword == "Y")
 {
      delete_errormsg();
-	setcookie( "employeenumber", $emplnumber, $expire10hr );
+	$_SESSION["employeenumber"] = $emplnumber;
      redirect("newpassword.php");
 	exit();
 }
@@ -113,12 +109,12 @@ if ($preload == "Y") {
 	$prearray[$preak_bg3] = $bg3;
 	$prearray[$preak_bg4] = $bg4;
 	$prearray[$preak_state] = $state;
-	setcookie( "preload", serialize($prearray), $expire10hr);
+	setcookie( "preload", serialize($prearray));
 }
 require_once "includes/userlog.inc";
 $log->logThis($logdatetimeecc." user log in successful");
 $datetime = date('Ymd H:i:s');
-$os = $_COOKIE["OS"];
+$os = $_SESSION["OS"];
 $log->logThis($logdatetimeecc."    empnum: ".$emplnumber."; user: ".$uuserid."; @ ".$datetime."; OS: ".$os);
 date_default_timezone_set('America/Detroit');
 $datetime = date('Ymd H:i:s');
@@ -131,8 +127,10 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $mysqli->close();
-setcookie( "employeenumber", $emplnumber, $expire10hr);
-setcookie("ecc", $ecc, $expire10hr);
+$_SESSION["su"] = $suser;
+$_SESSION["sp"] = $Spassword;
+$_SESSION["employeenumber"] = $emplnumber;
+$_SESSION["ecc"] = $ecc;
 delete_errormsg();
 redirect("mainmenu.php");
 ?>

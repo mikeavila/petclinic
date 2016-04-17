@@ -1,0 +1,174 @@
+CAAAiredale Terrier
+CABAffenpinscher
+CACAfghan Hound
+CADAkita
+CAEAlaskan Malamute
+CAFAmerican English Coonhound
+CAGAmerican Eskimo
+CAHAmerican Foxhound
+CAIAmerican Hairless Terrier
+CAJAmerican Staffordshire Terrier
+CAKAmerican Water Spaniel
+CALAnatolian Shepherd Dog
+CAMAustralian Cattle Dog
+CANAustralian Shepherd
+CAOAustralian Terrier
+CBABorzoi
+CBBBasenji
+CBCBasset Hound
+CBDBeagle
+CBEBearded Collie
+CBFBeauceron
+CBGBedlington Terrier
+CBHBelgian Malinois
+CBIBelgian Sheepdog
+CBJBelgian Tervuren
+CBKBergamasco Shepherd
+CBLBernese Mountain Dog
+CBMBichon Frisé
+CBNBlack and Tan Coonhound
+CBOBlack Russian Terrier
+CBPBloodhound
+CBQBluetick Coonhound
+CBRorder Collie
+CBSBorder Terrier
+CBUBoston Terrier
+CBVBouvier des Flandres
+CBWBoxer
+CBXBoykin Spaniel
+CBYBriard
+CBZBrittany
+CB1Griffon Bruxellois
+CB2Bull Terrier
+CB3Bulldog
+CB4Bullmastiff
+CCAClumber Spaniel
+CCBCairn Terrier
+CCCCanaan Dog
+CCDCane Corso
+CCECardigan Welsh Corgi
+CCFCavalier King Charles Spaniel
+CCGCesky Terrier
+CCHChesapeake Bay Retriever
+CCIChihuahua
+CCJChinese Crested Dog
+CCKChinese Shar Pei
+CCLChinook
+CCMChow Chow
+CCOAmerican Cocker Spaniel
+CCPRough Collie
+CCQCoton de Tulear
+CCRCurly-Coated Retriever
+CDADogue de Bordeaux
+CDBDachshund
+CDCDalmatian
+CDDDandie Dinmont Terrier
+CDEDoberman Pinscher
+CDFEnglish Cocker Spaniel
+CEAEnglish Foxhound
+CEBEnglish Setter
+CECEnglish Springer Spaniel
+CEDKing Charles Spaniel
+CEEEnglish Toy Spaniel
+CEFEntlebucher Mountain Dog
+CFAField Spaniel
+CFBFinnish Lapphund
+CFCFinnish Spitz
+CFDFlat-Coated Retriever
+CFEFrench Bulldog
+CGAGreyhound
+CGBGerman Shepherd
+CGCGolden Retriever
+CHAHarrier
+CHBHavanese
+CIAIrish Terrier
+CIBIbizan Hound
+CICIcelandic Sheepdog
+CIDIrish Red and White Setter
+CIEIrish Setter
+CIGIrish Water Spaniel
+CIHIrish Wolfhound
+CIIItalian Greyhound
+CJAJapanese Chin
+CKAKeeshond
+CKBKerry Blue Terrier
+CKCKomondor
+CKDKuvasz
+CLALabrador Retriever
+CLBLakeland Terrier
+CLCLeonberger
+CLDLhasa Apso
+CLELöwchen
+CMAMiniature Schnauzer
+CMBMaltese
+CMCManchester Terrier
+CMDEnglish Mastiff
+CMEMiniature Bull Terrier
+CMFMiniature Pinscher
+CNANova Scotia Duck-Tolling Retriever
+CNBNeapolitan Mastiff
+CNCNewfoundland
+CNDNorfolk Terrier
+CNENorwegian Buhund
+CNFNorwegian Elkhound
+CNGNorwegian Lundehund
+CNHNorwich Terrier
+COAOld English Sheepdog
+COBOtterhound
+CPAPapillon
+CPBParson Russell Terrier
+CPCPekingese
+CPDPembroke Welsh Corgi
+CPEPetit Basset Griffon Vendéen
+CPFPharaoh Hound
+CPGPlott
+CPHPointer
+CPIPolish Lowland Sheepdog
+CPJPomeranian
+CPKPoodle
+CPLPortuguese Podengo
+CPMPortuguese Water Dog
+CPNPug
+CPOPuli
+CPPPyrenean Shepherd
+CRARat Terrier
+CRBRedbone Coonhound
+CRCRhodesian Ridgeback
+CRDRottweiler
+CRERussell Terrier
+CSASt. Bernard
+CSBSaluki
+CSCSamoyed
+CSDSchipperke
+CSEScottish Deerhound
+CSFScottish Terrier
+CSGSealyham Terrier
+CSHShetland Sheepdog
+CSIShiba Inu
+CSJShih Tzu
+CSKSiberian Husky
+CSLAustralian Silky Terrier
+CSMSkye Terrier
+CSNSmooth Fox Terrier
+CSOSoft-Coated Wheaten Terrier
+CSPSpinone Italiano]]
+CSQStaffordshire Bull Terrier
+CSRStandard Schnauzer
+CSSSussex Spaniel
+CSTSwedish Vallhund
+CTATibetan Mastiff
+CTBTibetan Spaniel
+CTCTibetan Terrier
+CTDToy Fox Terrier
+CTETreeing Walker Coonhound
+CVAHungarian Vizsla
+CWAWest Highland White Terrier
+CWBWeimaraner
+CWCWelsh Springer Spaniel
+CWDWelsh Terrier
+CWEWhippet
+CWFWire Fox Terrier
+CWGWirehaired Pointing Griffon
+CWHWirehaired Vizsla
+CXAXoloitzcuintli
+CYAYorkshire Terrier

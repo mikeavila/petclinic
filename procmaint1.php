@@ -13,43 +13,45 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$emplnumber=$_POST["emplnumber"];
-$status=$_POST["status"];
-require_once "includes/expire.inc";
 if (empty($_POST["proccode"]))
 {
      put_errormsg("Procedure Code cannot be blank");
      redirect("procmaint.php");
 	exit();
+} else {
+	$proccode = $_POST["proccode"];
 }
 if (empty($_POST["procdesc"]))
 {
      put_errormsg("Procedure Description cannot be blank");
      redirect("procmaint.php");
 	exit();
+} else {
+	$procdesc = $_POST["procdesc"];
 }
-if (empty($_POST["procbillcharge"]))
+if (empty($_POST["proctype"]))
 {
-     put_errormsg("Procedure Billing Charge cannot be blank (it can be zero)");
+     put_errormsg("Procedure Type cannot be blank");
      redirect("procmaint.php");
 	exit();
+} else {
+	$proctype = $_POST["proctype"];
 }
 if (empty($_POST["procstatus"]))
 {
      put_errormsg("Status cannot be blank");
      redirect("procmaint.php");
 	exit();
+} else {
+	$procstatus = $_POST["procstatus"];
 }
-if ($status <> "A") {
-
-}
-$emplnumber = $_COOKIE['employeenumber'];
-$proccode = $_COOKIE["proccode"];
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+//if ($status <> "A") {
+//}
+$emplnumber = $_SESSION['employeenumber'];
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 if ($proccode <> "new")
 {
-	$sql = "UPDATE procedure SET `petclinicproc`.`proccode` = \"".$proccode."\", `procdesc` = \"".$procdesc."\", `procbillcharge` = \"".$procbillcharge."\", `procstatus` = \"".$procstatus."\", ";
+	$sql = "UPDATE procedures SET `petclinicproc`.`proccode` = \"".$proccode."\", `procdesc` = \"".$procdesc."\", `proctype` = \"".$proctype."\", `procstatus` = \"".$procstatus."\", ";
 	$sql = $sql."`changeid` = ".$emplnumber." WHERE proccode = \"".$proccode."\";";
 	if ($mysqli->query($sql) === TRUE) {
 
@@ -58,18 +60,14 @@ if ($proccode <> "new")
 		exit(1);
 	}
 } else{
-	$sql = "INSERT INTO `petclinicproc`.`procedure` (`procdesc`, `procbillcharge`, `procstatus`, `changeid`)
-	   VALUES (\"$procdesc\", \"$procbillcharge\", \"$procstatus\", $emplnumber);";
+	$sql = "INSERT INTO `petclinicproc`.`procedures` (`procdesc`, `proctype`, `procstatus`, `changeid`)
+	   VALUES (\"$procdesc\", \"$proctype\", \"$procstatus\", $emplnumber);";
 	if ($mysqli->query($sql) === TRUE) {
 
 	} else {
 		echo "Table procedure data insertion failed" . $mysqli->error;
 		exit(1);
 	}
-	$newproccode = $mysqli->insert_id;
-     if(isset($_POST["billable"])) {
-          $billable = $_POST["billable"];
-     }
 }
 $mysqli->close();
 delete_errormsg();

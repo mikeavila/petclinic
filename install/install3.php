@@ -32,7 +32,7 @@ $log->logThis("f:nl");
 $log->logThis("Install3 started");
 $mysqli = new mysqli('localhost', $user, $password, '');
 $sql = "INSERT INTO `petcliniccorp`.`preferences` (`sequence`, `pref1`, `pref2`, `pref3`, `pref4`, `pref5`, `pref6`, `pref7`, `pref8`,
-	`pref9`, `pref10`, `changeid`) 
+	`pref9`, `pref10`, `changeid`)
   VALUES (1, \"$email\", \"$domain\", \"$computer\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"0000\");";
 if ($mysqli->query($sql) === TRUE) {
 
@@ -111,7 +111,19 @@ if ($mysqli->query($sql) === TRUE) {
 } else {
     echo "Drop User failed" . $mysqli->error;
 }
-$sql = "CREATE USER 'pcmsuser'@'localhost' IDENTIFIED BY 'pcmspwd';";
+include "../includes/password.inc";
+include "../includes/de.inc";
+require_once '../includes/de.inc';
+require_once "../includes/key.inc";
+$sql = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, FILE, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, EXECUTE, CREATE USER, ";
+$sql = $sql."EVENT ON *.* TO mc_decrypt($password, ss_key)@'localhost' IDENTIFIED BY mc_decrypt($password, sx_key);";
+if ($mysqli->query($sql) === TRUE) {
+
+} else {
+	echo "Create User failed" . $mysqli->error;
+	exit(1);
+}
+$sql = "CREATE USER 'pcmsuser'@'localhost' IDENTIFIED BY mc_decrypt($password, p_key);";
 if ($mysqli->query($sql) === TRUE) {
 
 } else {
@@ -173,14 +185,6 @@ if ($mysqli->query($sql) === TRUE) {
 
 } else {
     echo "Grant (5) failed" . $mysqli->error;
-	exit(1);
-}
-$log->logThis("granting user privileges successful");
-$sql = "GRANT SELECT, INSERT, UPDATE, DELETE ON snomedvts.* TO pcmsuser@localhost;";
-if ($mysqli->query($sql) === TRUE) {
-
-} else {
-    echo "Grant (6) failed" . $mysqli->error;
 	exit(1);
 }
 $log->logThis("granting user privileges successful");

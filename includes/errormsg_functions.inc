@@ -10,12 +10,10 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
 function put_errormsg($message) {
-     include "password.php";
-     include "get_ecc.inc";
-     $mysqliem = new mysqli('localhost', $user, $password, '');
-     $sql = "INSERT INTO `petclinicmsgs`.`errormsgs` (`ecc`, `errormessage`) VALUES ('$ecc', '$message');";
+     $mysqliem = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+     $sql = "INSERT INTO `petclinicmsgs`.`errormsgs` (`ecc`, `errormessage`) VALUES ('".$_SESSION["ecc"]."', '$message');";
      if ($mysqliem->query($sql) == TRUE) {
-     
+
      } else {
           echo "Error inserting into petclinicsys" . $mysqliem->error;
           exit(1);
@@ -23,11 +21,10 @@ function put_errormsg($message) {
      $mysqliem->close();
 }
 function get_errormsg() {
-     include "password.php";
-     include "get_ecc.inc";
      $message = "";
-     $mysqliem = new mysqli('localhost', $user, $password, '');
-     $sql="SELECT errormessage FROM `petclinicmsgs`.`errormsgs` WHERE ecc = '$ecc';";
+     include "includes/get_ecc.inc";
+     $mysqliem = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+     $sql="SELECT errormessage FROM `petclinicmsgs`.`errormsgs` WHERE ecc = '".$_SESSION["ecc"]."';";
      $result = $mysqliem->query($sql);
      if ($result == true) {
           $row = $result->fetch_row();
@@ -41,10 +38,10 @@ function get_errormsg() {
      return $message;
 }
 function delete_errormsg() {
-     include "password.php";
-     include "get_ecc.inc";
-     $mysqliem = new mysqli('localhost', $user, $password, '');
-     $sql = "DELETE FROM `petclinicmsgs`.`errormsgs` WHERE `ecc` = '$ecc';";
+     include "includes/get_ecc.inc";
+     $mysqliem = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+     $sql = "DELETE FROM `petclinicmsgs`.`errormsgs` WHERE `ecc` = '".$_SESSION["ecc"]."';";
      $result = $mysqliem->query($sql);
      $mysqliem->close();
 }
+?>

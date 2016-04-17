@@ -11,6 +11,8 @@
 *****************************************************************/
 session_start();
 $background = "3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 require_once "includes/header1.inc";
 ?>
 <script>
@@ -126,15 +128,10 @@ function fakeit() {
 </script>
 <?php
 require_once "includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 $display = "Corpinfo:".$emplnumber;
-require_once "password.php";
-$mysqlic = new mysqli('localhost', $user, $password, '');
-require_once "includes/key.inc";
-require_once "includes/de.inc";
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petcliniccorp`.`company`;";
 $result = $mysqlic->query($sql);
 $row_cnt = $result->num_rows;
@@ -164,21 +161,21 @@ $lang=$row[13];
 <tr>
      <td class="label">
          <label for="coname">
-             Company Name 
+             Company Name
          </label>
      </td>
      <td class="field">
-         <input id="coname" name="coname" type="text" size="40" maxlength="40" value="<?php echo $coname;?>"> 
+         <input id="coname" name="coname" type="text" size="40" maxlength="40" value="<?php echo $coname;?>">
      </td>
      <td class="status">
      </td>
      <td class="label">
          <label for="address1">
-             Address 
+             Address
          </label>
      </td>
      <td class="field">
-         <input id="address1" name="address1" type="text" size="40" maxlength="40" value="<?php echo $address1;?>"> 
+         <input id="address1" name="address1" type="text" size="40" maxlength="40" value="<?php echo $address1;?>">
      </td>
      <td class="status">
      </td>
@@ -188,7 +185,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="address2" name="address2" type="text" size="40" maxlength="40" value="<?php echo $address2;?>"> 
+         <input id="address2" name="address2" type="text" size="40" maxlength="40" value="<?php echo $address2;?>">
      </td>
      <td class="status">
      </td>
@@ -200,17 +197,17 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="city" name="city" type="text" size="25" maxlength="25" value="<?php echo $city;?>"> 
+         <input id="city" name="city" type="text" size="25" maxlength="25" value="<?php echo $city;?>">
      </td>
      <td class="status">
      </td>
      <td class="label">
          <label for="state">
-             State 
+             State
          </label>
      </td>
      <td class="field">
-         <input id="state" name="state" type="text" size="20" maxlength="20" value="<?php echo $state;?>"> 
+         <input id="state" name="state" type="text" size="20" maxlength="20" value="<?php echo $state;?>">
      </td>
      <td class="status">
      </td>
@@ -220,7 +217,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="zipcode" name="zipcode" type="text" size="7" maxlength="7" value="<?php echo $zipcode;?>"> 
+         <input id="zipcode" name="zipcode" type="text" size="7" maxlength="7" value="<?php echo $zipcode;?>">
      </td>
      <td class="status">
      </td>
@@ -232,7 +229,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="telephone" name="telephone" type="text" size="12" maxlength="12" value="<?php echo $telephone;?>"> 
+         <input id="telephone" name="telephone" type="text" size="12" maxlength="12" value="<?php echo $telephone;?>">
      </td>
      <td class="status">
      </td>
@@ -242,7 +239,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="fax" name="fax" type="text" size="12" maxlength="12" value="<?php echo $fax;?>"> 
+         <input id="fax" name="fax" type="text" size="12" maxlength="12" value="<?php echo $fax;?>">
      </td>
      <td class="status">
      </td>
@@ -252,7 +249,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="logo" name="logo" type="text" size="25" maxlength="25" value="<?php echo $logo;?>"> 
+         <input id="logo" name="logo" type="text" size="25" maxlength="25" value="<?php echo $logo;?>">
      </td>
      <td class="status">
      </td>
@@ -264,7 +261,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="license" name="license" type="text" size="15" maxlength="15" value="<?php echo $license;?>"> 
+         <input id="license" name="license" type="text" size="15" maxlength="15" value="<?php echo $license;?>">
      </td>
      <td class="status">
      </td>
@@ -274,7 +271,7 @@ $lang=$row[13];
          </label>
      </td>
      <td class="field">
-         <input id="statetax" name="statetax" type="text" size="5" maxlength="5" value="<?php echo $statetax;?>"> 
+         <input id="statetax" name="statetax" type="text" size="5" maxlength="5" value="<?php echo $statetax;?>">
      </td>
      <td class="status">
      </td>

@@ -33,7 +33,7 @@ $email=$_POST["email"];
 $status=$_POST["status"];
 $changeid=$_POST["changeid"];
 $telephone = $_POST["telephone"];
-require_once "includes/expire.inc";
+
 
 if (empty($_POST["uuserid"]))
 {
@@ -108,10 +108,7 @@ if (strlen($errormsg) > 0) {
      redirect("emplmaint.php");
 	exit();
 }
-
-require_once "password.php";
-require_once "includes/key.inc";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 if ($editempnum <> "new")
 {
 	$sql="SELECT upassword FROM petcliniccorp.employee WHERE emplnumber = ".$editempnum;
@@ -130,7 +127,6 @@ if ($editempnum <> "new")
 	}
 	$row = $result->fetch_row();
 	$oldpassword = $row[0];
-	require_once "includes/de.inc";
 	$oldpassword = mc_decrypt($oldpassword, ENCRYPTION_KEY);
 	if ($oldpassword <> $epassword)
 	{
@@ -139,7 +135,6 @@ if ($editempnum <> "new")
 		$changepwd = "N";
 	}
 }
-require_once "includes/en.inc";
 $epassword = mc_encrypt($epassword, ENCRYPTION_KEY);
 $address1 = mc_encrypt($address1, ENCRYPTION_KEY);
 if (strlen($address2) > 0)

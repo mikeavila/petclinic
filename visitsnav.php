@@ -13,7 +13,6 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
 $value = "00";
 if(!empty($_POST['menu']))
 {
@@ -21,20 +20,20 @@ if(!empty($_POST['menu']))
 	$value = $sValue;
 }
 delete_errormsg();
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 switch ($value)
 {
 	case "01":
-          redirect("visitsnew.php"); 
+          redirect("visitsnew.php");
 		exit();
 		break;
 	case "02":
-          redirect("visitsprev.php");           
+          redirect("visitsprev.php");
 		exit();
 		break;
 	default:
           put_errormsg("You must make a selection");
-          redirect("visits.php");           
+          redirect("visits.php");
 		exit();
 		break;
 }

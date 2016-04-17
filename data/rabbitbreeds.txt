@@ -1,0 +1,48 @@
+American 	9-12 lbs 	Semi Arch 	Flyback 	American Rabbit Breeders
+American Chinchilla 	9-12 lbs 	Commercial 	Rollback 	American Chinchilla Rabbit Breeders
+American Fuzzy Lop 	Max 4 lbs 	Compact 	Wool 	American Fuzzy Lop Rabbit Breeders
+American Sable 	Max 10 lbs 	Commercial 	Rollback 	American Sable Rabbit Breeders
+Belgian Hare 	6-9 lbs 	Full Arch 	Flyback 	Belgian Hare Rabbit Breeders
+Beveren 	8-12 lbs 	Semi Arch 	Rollback 	Beveren Rabbit Breeders
+Blanc de Hotot 	8-11 lbs 	Commercial 	Rollback 	Blanc de Hotot Rabbit Breeders
+Britannia Petite 	2.25-2.50 lbs 	Full Arch 	Flyback 	Britannia Petite Rabbit Breeders
+Californian 	8-10.25 lbs 	Commercial 	Flyback 	Californian Rabbit Breeders
+Champagne d’Argent 	9-12 lbs 	Commercial 	Flyback 	Champagne D' Argent Rabbit Breeders
+Checkered Giant 	11+ lbs 	Full Arch 	Flyback 	Checkered Giant Rabbit Breeders
+Cinnamon 	9-11 lbs 	Commercial 	Flyback 	Cinnamon Rabbit Breeders
+Creme d’Argent 	8.25-11 lbs 	Commercial 	Flyback 	Creme D' Argent Rabbit Breeders
+Dutch 	4-5.25 lbs 	Compact 	Flyback 	Dutch Rabbit Breeders
+Dwarf Hotot 	Max 3 lbs 	Compact 	Rollback 	Dwarf Hotot Rabbit Breeders
+English Angora 	5-7.5 lbs 	Compact 	Wool 	English Angora Rabbit Breeders
+English Lop 	Min. 10 lbs 	Semi Arch 	Flyback 	English Lop Rabbit Breeders
+English Spot 	6-8 lbs 	Full Arch 	Flyback 	English Spot Rabbit Breeders
+Flemish Giant 	13-14+ lbs 	Semi Arch 	Rollback 	Flemish Giant Rabbit Breeders
+Florida White 	4-6 lbs 	Compact 	Flyback 	Florida White Rabbit Breeders
+French Angora 	9-10.5 lbs 	Commercial 	Wool 	French Angora Rabbit Breeders
+French Lop 	11+ lbs 	Commercial 	Flyback 	French Lop Rabbit Breeders
+Giant Angora 	9-10.5+ lbs 	Commercial 	Wool 	Giant Angora Rabbit Breeders
+Giant Chinchilla 	13-15 lbs 	Semi Arch 	Flyback 	Giant Chinchilla Rabbit Breeders
+Harlequin 	7.5 lbs 	Commercial 	Flyback 	Harlequin Rabbit Breeders
+Havana 	5-6 lbs 	Compact 	Flyback 	Havana Rabbit Breeders
+Himalayan 	3-5 lbs 	Cylindrical 	Flyback 	Himalayan Rabbit Breeders
+Holland Lop 	3-4 lbs 	Compact 	Rollback 	Holland Lop Rabbit Breeders
+Jersey Wooly 	3-3.5 lbs 	Compact 	Wool 	Jersey Wooly Rabbit Breeders
+Lilac 	6-8 lbs 	Compact 	Rollback 	Lilac Rabbit Breeders
+Mini Lop 	5-6 lbs 	Compact 	Rollback 	Mini Lop Rabbit Breeders
+Mini Rex 	3-4.5 lbs 	Compact 	Rex 	Mini Rex Rabbit Breeders
+Mini Satin 	4 lbs 	Compact 	Satin 	Mini Satin Rabbit Breeders
+Netherland Dwarf 	2-2.5 lbs 	Compact 	Rollback 	Netherland Dwarf Rabbit Breeders
+New Zealand 	9-12 lbs 	Commercial 	Flyback 	New Zealand Rabbit Breeders
+Palomino 	8-10 lbs 	Commercial 	Flyback 	Palomino Rabbit Breeders
+Polish 	3-3.5 lbs 	Compact 	Flyback 	Polish Rabbit Breeders
+Rex 	8-9 lbs 	Commercial 	Rex 	Rex Rabbit Breeders
+Rhinelander 	6.5-10 lbs 	Full Arch 	Flyback 	Rhinelander Rabbit Breeders
+Satin 	9-11 lbs 	Commercial 	Satin 	Satin Rabbit Breeders
+Satin Angora 	8-9 lbs 	Commercial 	Wool 	Satin Angora Rabbit Breeders
+Silver 	Max 9.5 lbs 	Compact 	Flyback 	Silver Rabbit Breeders
+Silver Fox 	Max 12 lbs 	Commercial 	Rollback 	Silver Fox Rabbit Breeders
+Silver Marten 	6-9 lbs 	Commercial 	Flyback 	Silver Marten Rabbit Breeders
+Standard Chinchilla 	6-7.5 lbs 	Compact 	Rollback 	Standard Chinchilla Rabbit Breeders
+Tan 	4-6 lbs 	Full Arch 	Flyback 	Tan Rabbit Breeders
+Thrianta 	4.5-6 lbs 	Compact 	Rollback 	Thrianta Rabbit Breeders
+

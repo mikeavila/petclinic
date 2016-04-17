@@ -13,7 +13,7 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
+
 $value = "00";
 if(!empty($_POST['menu']))
 {
@@ -21,7 +21,7 @@ if(!empty($_POST['menu']))
 	$value = $sValue;
 }
 $errormsg='';
-$emplnumber = $_COOKIE['employeenumber'];
+$emplnumber = $_SESSION['employeenumber'];
 delete_errormsg();
 switch ($value)
 {
@@ -30,6 +30,7 @@ switch ($value)
 		exit();
 		break;
 	case "12":
+		  unset($_SESSION["editpetnum"]);
           redirect("petmaint.php");
 		exit();
 		break;
@@ -50,8 +51,8 @@ switch ($value)
 		exit();
 		break;
 	case "17":
-		setcookie("editempnum", " ", $expire2hr);
-          redirect("emplmaint.php");
+		unset($_SESSION["editempnum"]);
+        redirect("emplmaint.php");
 		exit();
 		break;
 	case "18":
@@ -59,7 +60,7 @@ switch ($value)
 		exit();
 		break;
 	case "19":
-		$editempnum = $_COOKIE['employeenumber'];
+		$editempnum = $_SESSION['employeenumber'];
           redirect("emplmaint.php?editempnum=".$editempnum);
 		exit();
 		break;
@@ -70,7 +71,7 @@ switch ($value)
      case "20":
           redirect("vendors.php");
 		exit();
-          break; 
+          break;
 	default:
           put_errormsg("You must make a selection");
           redirect("maintmenu.php");

@@ -11,15 +11,12 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
-require_once "password.php";
-$sql = "USE petcliniccorp;";
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql="SELECT * FROM `petcliniccorp`.`preferences` WHERE `sequence` = 2";
 $result = $mysqli->query($sql);
 if ($result == FALSE)

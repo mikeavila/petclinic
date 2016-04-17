@@ -15,8 +15,7 @@ $headerTitle="USER LOG";
 $logFileName = "install";
 require_once "includes/common.inc";
 $log->logThis("checking passwords");
-require_once "includes/expire.inc";
-setcookie("errormessage", " ", $expire10hr);
+unset($_SESSION["errormessage"]);
 $password1 = $_POST["newpwd1"];
 $password2 = $_POST["newpwd2"];
 if ($password1 <> $password2) {
@@ -31,12 +30,9 @@ if (strlen($errormsg) > 0) {
 	exit();
 }
 $log->logThis("password passes requirements");
-require_once "includes/key.inc";
-require_once "includes/en.inc";
 $newpassword = mc_encrypt($password1, ENCRYPTION_KEY);
-$emplid = $_COOKIE['employeenumber'];
-require_once "password.php";
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$emplid = $_SESSION['employeenumber'];
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "UPDATE `petcliniccorp`.`employee` SET upassword=\"$newpassword\", changepwd=\"N\", changeid=\"".$emplid."\" WHERE emplnumber = \"$emplid\"";
 if ($mysqlic->query($sql) === TRUE) {
 

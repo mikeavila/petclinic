@@ -13,13 +13,6 @@
 <script>
 function installprocs (procname, yn) {
      switch (procname) {
-          case 's':
-               document.getElementById('snomed').style.visibility = 'hidden';
-               if (yn == 'y') {
-                    window.open ("snomedvts.php","_blank");
-               }
-               document.getElementById('venom1').style.visibility = 'visible';
-               break;
           case '1':
                document.getElementById('venom1').style.visibility = 'hidden';
                if (yn == 'y') {
@@ -53,23 +46,14 @@ function continueon () {
 </script>
 Select what procedures you want to install. A database and table to put your own
 procedures in will automatically be created. You also have the option of two
-industry standard procedures lists: SNOMED-VTS (Veterinary Extension to SNOMED CT 
-by the Virginia Maryland Regional College of Veterinary Medicine) and 
-VeNom (by the Royal Veterinary College). These two procedures sets contain procedure 
-codes for animals. 
+industry standard procedures lists:
+VeNom (by the Royal Veterinary College). This procedure set contain procedure
+codes for animals.
 <br>
-RECOMMENDED: VeNom is recommended because of its extensive set of procedures, diagnosis 
-codes, species, and breeds. Because of the amount and complexity of the data, it is 
+RECOMMENDED: VeNom is recommended because of its extensive set of procedures, diagnosis
+codes, species, and breeds. Because of the amount and complexity of the data, it is
 installed in 3 steps.
 <br><br>
-<div id="snomed" style="visibility: visible">
-Do you want to install the SNOMED-VTS procedures? 
-<br><form>
-<input class="submit" type="submit" value="Yes" onclick="return installprocs('s', 'y');">
-<input class="submitNo" type="submit" value="No" onclick="return installprocs('s', 'n');">
-</form>
-</div>
-<br>
 <div id="venom1" style="visibility: hidden">
 Do you want to install the VeNom procedures? (Step 1 of 3)
 <br><form>

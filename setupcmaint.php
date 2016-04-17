@@ -12,7 +12,6 @@
 session_start();
 require_once "includes/common.inc";
 $editclientnum = $_GET["editclientnum"];
-require_once "includes/expire.inc";
-setcookie("editclientnum", $editclientnum, $expire1hr);
+$_SESSION["editclientnum"] = $editclientnum;
 redirect("clientmaint.php");
 ?>

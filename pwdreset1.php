@@ -12,24 +12,21 @@
 session_start();
 $display = "PwdReset";
 $background = "0";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 $empnum = $_POST["empnum"];
 $userid = $_POST["userid"];
 $display = "Emplmaint:".$empnum;
-require_once "includes/expire.inc";
-$mysqli = new mysqli('localhost', $user, $password, '');
-require_once "includes/key.inc";
-require_once "includes/de.inc";
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT uuserid, pwdhint, hintans FROM employee WHERE `petcliniccorp`.`emplnumber` = \"".$empnum."\"";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
 {
      put_errormsg("Invalid Employee number");
-     redirect("pwdreset.php");     
+     redirect("pwdreset.php");
 	exit();
 }
 $row_cnt = $result->num_rows;
@@ -41,7 +38,7 @@ if ($row_cnt == 0) {
 $row = $result->fetch_row();
 if ($row[0] <> $userid)
 {
-     put_errormsg("Invalid information"); 
+     put_errormsg("Invalid information");
      redirect("pwdreset.php");
 	exit();
 }
@@ -52,9 +49,9 @@ if (strlen($row[1]) == 0)
 	exit();
 }
 
-setcookie("Q", $row[1], $expire1hr);
-setcookie("A", $row[2], $expire1hr);
-setcookie("P", "2", $expire1hr);
+$_SESSION["Q"] = $row[1];
+$_SESSION["A"] = $row[2];
+$_SESSION["P"] = "2";
 delete_errormsg();
 $mysqli->close();
 redirect("pwdreset2.php");

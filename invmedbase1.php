@@ -13,18 +13,13 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-require_once "includes/expire.inc";
+
 if (!empty($_POST["desc"])) {
 	$desc = $_POST["desc"];
 } else {
      put_errormsg("The Description cannot be blank");
 	header("Location:invmedbase.php");
 	exit();
-}
-if (!empty($_POST["acctg"])) {
-	$acctg = $_POST["acctg"];
-} else {
-	$acctg = "N";
 }
 if (!empty($_POST["desc"])) {
 	$desc = $_POST["desc"];
@@ -36,25 +31,15 @@ if (!empty($_POST["purchdate"])) {
 } else {
 	$purchdate = "";
 }
-if (!empty($_POST["cartoncost1"])) {
-	$cartoncost1 = $_POST["cartoncost1"];
+if (!empty($_POST["cartoncost"])) {
+	$cartoncost = $_POST["cartoncost"];
 } else {
-	$cartoncost1 = "";
+	$cartoncost = "";
 }
-if (!empty($_POST["cartoncost2"])) {
-	$cartoncost2 = $_POST["cartoncost2"];
+if (!empty($_POST["contcost"])) {
+	$contcost = $_POST["contcost"];
 } else {
-	$cartoncost2 = "";
-}
-if (!empty($_POST["contcost1"])) {
-	$contcost1 = $_POST["contcost1"];
-} else {
-	$contcost1 = "";
-}
-if (!empty($_POST["contcost2"])) {
-	$contcost2 = $_POST["contcost2"];
-} else {
-	$contcost2 = "";
+	$contcost = "";
 }
 if (!empty($_POST["cartonspurch"])) {
 	$cartonspurch = $_POST["cartonspurch"];
@@ -75,15 +60,10 @@ if (!empty($_POST["itemcont"])) {
      redirect("invmedbase.php");
 	exit();
 }
-if (!empty($_POST["itemcost1"])) {
-	$itemcost1 = $_POST["itemcost1"];
+if (!empty($_POST["itemcost"])) {
+	$itemcost = $_POST["itemcost"];
 } else {
-	$itemcost1 = "";
-}
-if (!empty($_POST["itemcost2"])) {
-	$itemcost2 = $_POST["itemcost2"];
-} else {
-	$itemcost2 = "";
+	$itemcost = "";
 }
 if (!empty($_POST["itemreorder"])) {
 	$itemreorder = $_POST["itemreorder"];
@@ -92,53 +72,29 @@ if (!empty($_POST["itemreorder"])) {
      redirect("invmedbase.php");
 	exit();
 }
-if (!empty($_POST["itemmarkup1"])) {
-	$itemmarkup1 = $_POST["itemmarkup1"];
+if (!empty($_POST["itemmarkup"])) {
+	$itemmarkup = $_POST["itemmarkup"];
 } else {
      put_errormsg("The Item Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
 }
-if (!empty($_POST["itemmarkup2"])) {
-	$itemmarkup2 = $_POST["itemmarkup2"];
-} else {
-     put_errormsg( "The Item Markup cannot be blank");
-     redirect("invmedbase.php");
-	exit();
-}
-if (!empty($_POST["contmarkup1"])) {
-	$contmarkup1 = $_POST["contmarkup1"];
+if (!empty($_POST["contmarkup"])) {
+	$contmarkup = $_POST["contmarkup"];
 } else {
      put_errormsg("The Container Markup cannot be blank");
      redirect("invmedbase.php");
 	exit();
 }
-if (!empty($_POST["contmarkup2"])) {
-	$contmarkup2 = $_POST["contmarkup2"];
+if (!empty($_POST["itemsales"])) {
+	$itemsales = $_POST["itemsales"];
 } else {
-     put_errormsg("The Container Markup cannot be blank");
-     redirect("invmedbase.php");
-	exit();
+	$itemsales = "";
 }
-if (!empty($_POST["itemsales1"])) {
-	$itemsales1 = $_POST["itemsales1"];
+if (!empty($_POST["contsales"])) {
+	$contsales = $_POST["contsales"];
 } else {
-	$itemsales1 = "";
-}
-if (!empty($_POST["itemsales2"])) {
-	$itemsales2 = $_POST["itemsales2"];
-} else {
-	$itemsalest2 = "";
-}
-if (!empty($_POST["contsales1"])) {
-	$contsales1 = $_POST["contsales1"];
-} else {
-	$contsales1 = "";
-}
-if (!empty($_POST["contsales2"])) {
-	$contsales2 = $_POST["contsales2"];
-} else {
-	$contsales2 = "";
+	$contsales = "";
 }
 if (!empty($_POST["taxable"])) {
 	$taxable = $_POST["taxable"];
@@ -149,46 +105,30 @@ if (!empty($_POST["taxable"])) {
 }
 if(isset($_POST['wherebought']))
 {
-     $listbox = $_POST['wherebought'];
+     $wherebought = $_POST['wherebought'];
 } else {
      put_errormsg("A Vendor must be selected for where bought");
      redirect("invmedbase.php");
 	exit();
 }
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-$sql = "USE vetclinicinv;";
-if ($mysqli->query($sql) == TRUE) {
-
-} else {
-     put_errormsg("Error selecting to use vetclinicinv" . $mysqli->error);
-     redirect("criticalerror.php?m=invmedbase1.php&ec=0");
-	exit(1);
-}
-$cartoncost = $cartoncost1.".".$cartoncost2;
-$contcost = $contcost1.".".$contcost2;
-$cartoncost = $cartoncost1.".".$cartoncost2;
-$itemcost = $itemcost1.".".$itemcost2;
-$itemmarkup = $itemmarkup1.".".$itemmarkup2;
-$contmarkup = $contmarkup1.".".$contmarkup2;
-$itemsales = $itemsales1.".".$itemsales2;
-$contsales = $contsales1.".".$contsales2;
-$emplnumber = $_COOKIE["employeenumber"];
-$quesmark = strpos(wherebought, "?");
-$vendorid = substr($wherebought, 0, $quesmark - 1);
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
+echo $wherebought;
+$quesmark = strpos($wherebought, "?");
+$vendorid = substr($wherebought, 0, $quesmark);
 $wherebought = substr($wherebought, $quesmark + 1);
-$sql = "INSERT INTO `invmedicine` (`meddesc`, `vendorid`, `wherebought`, `purdate`, `cartoncost`,  `cartonspurch`, `containercarton`, ";
-$sql = $sql."`itemscontainer`, `itemcost`, `containercost`, `itemreorderlevel`, `itemmarkup`, `containermarkup`, `itemsalesprice`, ";
-$sql = $sql."`containersalesprice`, `taxable`, `status`, `changeid`) ";
-$sql = $sql." VALUES('$desc', '$vendorid', '$wherebought', '$purchdate', '$cartoncost', '$cartonspurch', '$contcarton', ";
-$sql = $sql."'$itemcont', '$itemcost', '$contcost', '$itemreorder', '$itemmarkup', '$contmarkup', '$itemsales', ";
-$sql = $sql."'$contsales', '$taxable', 'A', $emplnumber;";
+$sql = 'INSERT INTO `petclinicinv`.`invmedicine` (`meddesc`, `vendorid`, `wherebought`, `purdate`, `cartoncost`,  `cartonspurch`, `containercarton`, ';
+$sql = $sql.'`itemscontainer`, `itemcost`, `containercost`, `itemreorderlevel`, `itemmarkup`, `containermarkup`, `itemsalesprice`, ';
+$sql = $sql.'`containersalesprice`, `taxable`, `status`, `changeid`) ';
+$sql = $sql.' VALUES("'.$desc.'", '.$vendorid.', "'.$wherebought.'", '.$purchdate.', '.$cartoncost.', '.$cartonspurch.', '.$contcarton.', ';
+$sql = $sql.$itemcont.', '.$itemcost.', '.$contcost.', '.$itemreorder.', '.$itemmarkup.', '.$contmarkup.', '.$itemsales.', ';
+$sql = $sql.$contsales.', "'.$taxable.'", "A", '.$emplnumber.');';
 if ($mysqli->query($sql) === TRUE) {
 
 } else {
-     put_error("Table invmedicine data insertion failed" . $mysqli->error);
+     put_errormsg("Table invmedicine data insertion failed" . $mysqli->error);
      redirect("invmedbase.php");
-	exit(1);
+	 exit(1);
 }
 $mysqli->close();
 delete_errormsg();

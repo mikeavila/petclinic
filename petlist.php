@@ -11,10 +11,10 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 
 if (empty($_POST["pass"]))
@@ -37,47 +37,43 @@ foreach($_POST['menuel'] as $sKey => $sValue);
 switch ($value)
 {
 	case "01":
-		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"A\" ORDER BY petname;";
+		$sql1 = "SELECT petnumber, petname, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"A\" ORDER BY petname;";
 		break;
 	case "02":
-		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"I\" ORDER BY petname;";
+		$sql1 = "SELECT petnumber, petname, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"I\" ORDER BY petname;";
 		break;
 	case "03":
-		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"D\" ORDER BY petname;";
+		$sql1 = "SELECT petnumber, petname, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE status = \"D\" ORDER BY petname;";
 		break;
 	case "04":
-		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` ORDER BY petname;";
+		$sql1 = "SELECT petnumber, petname, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` ORDER BY petname;";
 		break;
 	case "05":
 		$namestarts = $_POST["namestarts"];
-		$sql1 = "SELECT petnumber, petname, petspecies, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE petname LIKE \"".$namestarts."%\" ORDER BY petname;";
+		$sql1 = "SELECT petnumber, petname, petbreed, petgender, petcolor, petdesc FROM `petclinic`.`pet` WHERE petname LIKE \"".$namestarts."%\" ORDER BY petname;";
 		break;
 		}
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-$emplnumber = $_COOKIE["employeenumber"];
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT `sk22` FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $resultc = $mysqlic->query($sql);
 $row_cnt_c = $resultc->num_rows;
 $rowc = $resultc->fetch_row();
 $sk22 = $rowc[0];
 $mysqlic->close();
-require_once "includes/key.inc";
-require_once "includes/de.inc";
-require_once "includes/expire.inc";
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
      put_errormsg("There are no Pets (false)");
      redirect("listings.php");
-	exit();
+	 exit();
 }
 $row_cnt = $result->num_rows;
 if ($row_cnt == 0) {
      put_errormsg("There are no Pets (count)");
      redirect("listings.php");
-	exit();
+	 exit();
 }
 if ($sk22 == "Y") {
 	echo "Clicking on the Pet Number will take you to a display to edit that Pet.<hr>"; }
@@ -86,12 +82,13 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	$row = $result->fetch_row();
 	$row1 = "Pet # ";
 	if ($sk22 == "Y") {
-		$row1 = $row1."<a href=\"setuppmaint.php?editpetnum=".$row[0]."\">".$row[0]."</a> ";	
+		$row1 = $row1.'<a href="petmaint.php?editpetnum="' . $row[0] . '">' . $row[0] . '</a>';
 	} else {
 		$row1 = $row1.$row[0]." ";
 	}
-	$row1 = $row1.", Name is ".$row[1]." which is a ";
-     $sql2 = "SELECT `speciesdesc` FROM `petclinic`.`code_species` WHERE `speciescode` = \"".$row[2]."\";";
+	 $row1 = $row1.", Name is ".$row[1]." which is a ";
+	 $species = substr($row[2],0,1);
+     $sql2 = "SELECT `speciesdesc` FROM `petclinic`.`code_species` WHERE `speciescode` = \"".$species."\";";
      $result = $mysqli->query($sql2);
      if ($result == TRUE) {
      } else {
@@ -101,7 +98,7 @@ for ($i = 0; $i < $row_cnt; $i++) {
      }
      $rows = $result->fetch_row();
      $row1 = $row1.$rows[0]." ";
-     $sql2 = "SELECT breeddesc FROM `petclinic`.`code_breed` WHERE breedcode = \"".$row[2].$row[3]."\";";
+     $sql2 = "SELECT breeddesc FROM `petclinic`.`code_breed` WHERE breedcode = \"".$row[2]."\";";
      $result = $mysqli->query($sql2);
      if ($result == TRUE) {
      } else {

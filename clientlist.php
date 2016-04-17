@@ -11,10 +11,10 @@
 *****************************************************************/
 session_start();
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
 if (empty($_POST["pass"]))
 {
@@ -58,19 +58,16 @@ switch ($value)
 		$sql1 = $sql1."\"".$soundex."\" ORDER BY `lname`, `fname` ;";
 		break;
 	}
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
-$emplnumber = $_COOKIE["employeenumber"];
-$mysqlic = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
+$emplnumber = $_SESSION["employeenumber"];
+$mysqlic = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT `sk21` FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $emplnumber and `sequence` = 1;";
 $resultc = $mysqlic->query($sql);
 $row_cnt_c = $resultc->num_rows;
 $rowc = $resultc->fetch_row();
 $sk21 = $rowc[0];
 $mysqlic->close();
-require_once "includes/key.inc";
-require_once "includes/de.inc";
-require_once "includes/expire.inc";
+
 $result = $mysqli->query($sql1);
 if ($result == FALSE)
 {
@@ -97,7 +94,7 @@ for ($i = 0; $i < $row_cnt; $i++) {
 	}
 	$row1 = "Client # ";
 	if ($sk21 == "Y") {
-		$row1 = $row1."<a href=\"setupcmaint.php?editclientnum=".$row[0]."\">".$row[0]."</a> ";	
+		$row1 = $row1."<a href=\"setupcmaint.php?editclientnum=".$row[0]."\">".$row[0]."</a> ";
 	} else {
 		$row1 = $row1.$row[0]." ";
 	}

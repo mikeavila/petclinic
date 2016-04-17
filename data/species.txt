@@ -1,0 +1,5 @@
+CCanine
+BBovine
+EEquine
+FFeline
+SSwine

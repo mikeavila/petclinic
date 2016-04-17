@@ -11,6 +11,8 @@
 *****************************************************************/
 session_start();
 $background = "3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 require_once "includes/header1.inc";
 ?>
 <script type="text/javascript">
@@ -93,12 +95,9 @@ function fakeit() {
 </script>
 <?php
 require_once "includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
-include "includes/debugAJAX.inc";
-$emplnumber = $_COOKIE['employeenumber'];
-require_once "includes/expire.inc";
+$emplnumber = $_SESSION['employeenumber'];
+
 if(isset($_POST["editdocnum"])) {
      $docnumber=$_POST["editdocnum"];
 } else {
@@ -125,7 +124,7 @@ if(isset($_POST["doctorstatus"])) {
      $doctorstatus = "A";
 }
 if ($docnumber <> "new") {
-     $mysqli = new mysqli('localhost', $user, $password, '');
+     $mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
      $sql = "SELECT * FROM `petcliniccorp`.`doctors` WHERE `doctorid` = $docnumber;";
      $result = $mysqli->query($sql);
      if ($result == FALSE)
@@ -142,7 +141,7 @@ if ($docnumber <> "new") {
                     $docstatelic = $row[2];
                     $docdea = $row[3];
                     $doctorstatus = $row[4];
-               } 
+               }
           }
 }
 $mysqli->close();
@@ -153,10 +152,10 @@ $mysqli->close();
 <div id="formLeftSide">&nbsp;</div>
 <div id="formRightSide">
 <form class="center" id="docform" name="docform" method="post">
-<?php 
+<?php
     if ( 'new' == $docnumber ) {
     	$buttonText = 'Add Doctor';
-		echo 'Enter the Doctor Name as it would appear on an Invoice. (Example: Dr John Doe DVM)';    	
+		echo 'Enter the Doctor Name as it would appear on an Invoice. (Example: Dr John Doe DVM)';
     }
     else {
     	$buttonText = 'Modify Doctor';
@@ -177,7 +176,7 @@ $mysqli->close();
          <label for="doctorinfo">Name:</label>
      </td>
      <td class="field">
-         <input id="doctorinfo" name="doctorinfo" type="text" size="50" maxlength="50" value="<?php echo $doctorinfo; ?>"> 
+         <input id="doctorinfo" name="doctorinfo" type="text" size="50" maxlength="50" value="<?php echo $doctorinfo; ?>">
      </td>
      <td class="status"></td>
 </tr>
@@ -186,7 +185,7 @@ $mysqli->close();
          <label for="docstatelic">State License:</label>
      </td>
      <td class="field">
-         <input id="docstatelic" name="docstatelic" type="text" size="50" maxlength="25" value="<?php echo $docstatelic; ?>"> 
+         <input id="docstatelic" name="docstatelic" type="text" size="50" maxlength="25" value="<?php echo $docstatelic; ?>">
      </td>
      <td class="status"></td>
 </tr>
@@ -195,7 +194,7 @@ $mysqli->close();
          <label for="docdea">DEA License:</label>
      </td>
      <td class="field">
-         <input id="docdea" name="docdea" type="text" size="50" maxlength="25" value="<?php echo $docdea; ?>"> 
+         <input id="docdea" name="docdea" type="text" size="50" maxlength="25" value="<?php echo $docdea; ?>">
      </td>
      <td class="status"></td>
 </tr>
@@ -204,7 +203,7 @@ $mysqli->close();
          <label for="doctorstatus">Status (A, I, or D):</label>
      </td>
      <td class="field">
-         <input id="doctorstatus" name="doctorstatus" type="text" size="50" maxlength="1" value="<?php echo $doctorstatus; ?>"> 
+         <input id="doctorstatus" name="doctorstatus" type="text" size="50" maxlength="1" value="<?php echo $doctorstatus; ?>">
      </td>
      <td class="status"></td>
 </tr>
@@ -214,15 +213,14 @@ $mysqli->close();
 	</div>
 </form>
 <br>
-	<div class="center">
-		<form action="maintmenu.php"><input type="submit" value="Return to Maint Menu"></form>
-	</div>
+<?php include "includes/returnmaintmenu.inc"; ?>
 <br>
 </div>
 </div>
 <br>
 <?php
 require_once "includes/display_errormsg.inc";
+require_once "includes/phonemsgs.inc";
 $display = "doctors1:";
 require_once 'includes/footer.inc';
 ?>

@@ -13,15 +13,14 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-$question=$_COOKIE["Q"];
-$answer=$_COOKIE["A"];
+$question=$_SESSION["Q"];
+$answer=$_SESSION["A"];
+unset($_SESSION["Q"]);
+unset($_SESSION["A"]);
 $pass = "";
-$pass=$_COOKIE["P"];
+$pass=$_SESSION["P"];
 if (isset($_GET["pass"]))
 	$pass = $_GET["pass"];
-require_once "includes/expire.inc";
-require_once "key.php";
-require_once "includes/de.inc";
 if($pass == 2)
 {
 	$background = "0";

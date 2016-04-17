@@ -9,11 +9,11 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-/*
+/* Actual Numbers below are +1
 Record 1
 Main Menu access to Sub Menus:
 1	Appointments
-2	Visits - Existing Clients	
+2	Visits - Existing Clients
 4	Listings
 5	Maintenance
 6	Grooming
@@ -31,7 +31,7 @@ Listing Sub Menu access to:
 17	Employee
 18	Client/Pet/Visit
 19	Your Information
-3    Add/Modify doctors
+3   Add/Modify doctors
 Maintenance Sub Menu access to:
 21	Client Add/Modify
 22	Pet Add/Modify
@@ -41,31 +41,31 @@ Maintenance Sub Menu access to:
 26	Inventory Other Add/Modify
 27	Employee Add/Modify
 28	Client/Pet/Visit Add/Modify
-29	Your Information Modify	
+29	Your Information Modify
 Company Sub Menu access to Modify:
 30	Company Information Modify
 31	Company Preferences Modify
 Special:
 32	Employee Security Keys Modify
-33   Search
-34
-35 Software Updates
+33  Search
+34  Document Management
+35  Software Updates
 Record 2
-1  
+1
 */
 session_start();
 $display ="SecKeys:".$emplnumber;
 $background = "3";
-require_once "includes/header1.inc";
-require_once "includes/header2.inc";
 $logFileName = "user";
 $headerTitle="USER LOG";
+require_once "includes/header1.inc";
+require_once "includes/header2.inc";
 require_once "includes/common.inc";
-$emplnumber = $_COOKIE['employeenumber'];
-$editempnum = $_COOKIE["editempnum"];
+$emplnumber = $_SESSION['employeenumber'];
+$editempnum = $_SESSION["editempnum"];
 $errormsg = "";
 $errormsg = get_errormsg();
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $editempnum and `sequence` = 1;";
 $result = $mysqli->query($sql);
 $row_cnt = $result->num_rows;
@@ -155,7 +155,7 @@ echo " >Employee Security Keys Modify</td><td><input type=\"checkbox\" name=\"sk
 if ($row[34] == "Y") echo "CHECKED";
 echo " >Search</td><td><input type=\"checkbox\" name=\"sk[]\" value=\"34\" ";
 if ($row[35] == "Y") echo "CHECKED";
-echo " >Not Assigned</td><td><input type=\"checkbox\" name=\"sk[]\" value=\"35\" ";
+echo " >Document Management</td><td><input type=\"checkbox\" name=\"sk[]\" value=\"35\" ";
 if ($row[36] == "Y") echo "CHECKED";
 echo " >Not Assigned</td></tr>";
 $sql = "SELECT * FROM `petcliniccorp`.`seckeys` WHERE `emplnumber` = $editempnum and `sequence` = 2;";

@@ -9,10 +9,10 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-if (isset($_COOKIE["ecc"])) {
-     $ecc = $_COOKIE["ecc"];
+if (isset($_SESSION["ecc"])) {
+     $ecc = $_SESSION["ecc"];
 } else {
      $tempecc = date('zHis');
-     $ecc = $tempecc; 
-     $_COOKIE["ecc"] = $ecc; }
+     $ecc = $tempecc;
+     $_SESSION["ecc"] = $ecc; }
 ?>

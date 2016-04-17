@@ -109,9 +109,9 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $sql = "CREATE TABLE `petclinicproc`.`procedures` (
-	`proccode` varchar(10) NOT NULL,
+	`proccode` integer(10) NOT NULL AUTO_INCREMENT,
 	`procdesc` varchar(25) NOT NULL,
-	`procbillcharge` decimal(5,2),
+	`proctype` char(1) NOT NULL,
 	`procstatus` char(1) NOT NULL DEFAULT \"A\",
 	`changeid` integer(4) NOT NULL,
 	PRIMARY KEY (`proccode`)
@@ -227,6 +227,7 @@ $sql = "CREATE TABLE `petcliniccorp`.`employee` (
   `zipcode` varchar(10) NOT NULL,
   `telephone` char(13) NOT NULL,
   `email` varchar(25),
+  `menuoption` char(10,
   `status` char(1) NOT NULL DEFAULT \"A\",
   `changeid` integer(4) NOT NULL,
   index(`uuserid`),
@@ -338,9 +339,10 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $sql = "CREATE TABLE `petclinic`.`code_breed` (
-  `breedcode` char(3) NOT NULL,
+  `speciescode` char(1) NOT NULL,
+  `breedcode` char(2) NOT NULL,
   `breeddesc` varchar(40) NOT NULL,
-  PRIMARY KEY (`breedcode`)
+  PRIMARY KEY (`speciescode`, `breedcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table code_breed created");
@@ -413,9 +415,8 @@ if ($mysqli->query($sql) == TRUE) {
 $sql="CREATE TABLE `petclinic`.`pet` (
   `petnumber` integer(4) NOT NULL AUTO_INCREMENT,
   `petname` varchar(15) NOT NULL,
-  `petdob` char(8) NOT NULL,
-  `petspecies` char(1) NOT NULL,
-  `petbreed` char(2) NOT NULL,
+  `petdob` char(10) NOT NULL,
+  `petbreed` char(3) NOT NULL,
   `petgender` char(1) NOT NULL,
   `petfixed` char(1) NOT NULL,
   `petcolor` varchar(20) NOT NULL,
@@ -440,8 +441,7 @@ if ($mysqli->query($sql) == TRUE) {
 $sql = "CREATE TABLE `petclinic`.`clientpet` (
 	`petnumber` integer(4) NOT NULL,
 	`clientnumber` integer(4) NOT NULL,
-	INDEX (`petnumber`),
-	INDEX (`clientnumber`)
+	UNIQUE KEY `clientpet` (`petnumber`,`clientnumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table clientpet created");
@@ -452,7 +452,7 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $sql = "CREATE TABLE `petclinic`.`visit` (
-	`visitnumber` integer(4) NOT NULL AUTO_INCREMENT,
+	`visitnumber` integer(7) NOT NULL AUTO_INCREMENT,
 	`visitdate` integer(8) NOT NULL,
 	`petnumber` integer(4) NOT NULL,
 	`temp` DECIMAL(4,1),
@@ -476,6 +476,22 @@ if ($mysqli->query($sql) == TRUE) {
 } else {$log->logThis("Error creating visit table: ".$mysqli->error);
      $log->logThis("     SQL: ".$sql);
      echo "Error creating visit table: " . $mysqli->error;
+	exit(1);
+}
+$sql = "CREATE TABLE `petclinic`.`visitproc` (
+		`sequence` int(10) AUTO_INCREMENT,
+		`visitnumber` integer(7),
+		`procdb` char(1),
+		`proctype` char(1),
+		`proccode` varchar(15),
+		PRIMARY KEY (`sequence`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+if ($mysqli->query($sql) == TRUE) {
+	$log->logThis("   Table visitproc created");
+} else {
+	$log->logThis("Error creating visitproc table: ".$mysqli->error);
+	$log->logThis("     SQL: ".$sql);
+	echo "Error creating visitproc table: " . $mysqli->error;
 	exit(1);
 }
 /************
@@ -504,7 +520,7 @@ $sql = "CREATE TABLE `petclinicinv`.`invother` (
 	`location` varchar(30),
 	`status` char(1) NOT NULL DEFAULT \"A\",
 	`changeid` integer(4) NOT NULL,
-	PRIMARY KEY (`assetid`) 
+	PRIMARY KEY (`assetid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table invother created");
@@ -547,7 +563,7 @@ if ($mysqli->query($sql) == TRUE) {
 $sql = "CREATE TABLE `petclinicinv`.`invmedicine` (
 	`medid` integer (5) NOT NULL AUTO_INCREMENT,
 	`meddesc` varchar(32) NOT NULL,
-     `vendorid` integer(11),
+    `vendorid` integer(11),
 	`wherebought` varchar(50),
 	`purdate` integer(8),
 	`cartoncost` decimal(5,2),
@@ -564,7 +580,7 @@ $sql = "CREATE TABLE `petclinicinv`.`invmedicine` (
 	`taxable` char(1) NOT NULL DEFAULT \"Y\",
 	`status` char(1) NOT NULL DEFAULT \"A\",
 	`changeid` integer(4) NOT NULL,
-	PRIMARY KEY (`medid`) 
+	PRIMARY KEY (`medid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table invmedicine created");
@@ -575,19 +591,20 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $sql = "CREATE TABLE `petclinicinv`.`invtrans` (
-	`invid` integer (5) NOT NULL,
-     `vendorid` integer(11),
+	 `invid` integer (5) NOT NULL,
+     `vendorid` integer(10),
      `wherebought` varchar(50),
-	`invtype` char(1) NOT NULL,
-	`count` integer(5) NOT NULL,
-	`counttype` char(1) NOT NULL,
-	`plusminus` char(1) NOT NULL,
-	`amount` decimal(6,2) NOT NULL DEFAULT 0.00,
-	`transdate` integer(8) NOT NULL,
-	`transtime` integer(4) NOT NULL,
+	 `invtype` char(1) NOT NULL,
+	 `count` integer(5) NOT NULL,
+	 `counttype` char(1) NOT NULL,
+	 `plusminus` char(1) NOT NULL,
+	 `amount` decimal(6,2) NOT NULL DEFAULT 0.00,
+	 `transdate` integer(8) NOT NULL,
+	 `transtime` integer(4) NOT NULL,
      `purchaseorder` varchar(20),
      `invoicenumber` varchar(20),
-	`changeid` integer(4) NOT NULL
+	 `processed` char(1) NOT NULL DEFAULT 'N',
+	 `changeid` integer(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table invtrans created");
@@ -611,7 +628,7 @@ $sql = "CREATE TABLE `petclinicinv`.`vendor` (
      `vendorfax` varchar(13),
      `vendoremail` varchar(255),
      `vendorstatus` char(1) NOT NULL,
-     PRIMARY KEY (`vendorid`) 
+     PRIMARY KEY (`vendorid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table vendor created");
@@ -745,51 +762,111 @@ if ($mysqli->query($sql) === TRUE) {
 	exit(1);
 }
 $log->logThis("      code_state table insertion successful");
-$sql = "INSERT INTO `petclinic`.`code_species` (`speciescode`, `speciesdesc`)
-	VALUES (\"C\", \"Canine\"),
-	       (\"F\", \"Feline\");";
-if ($mysqli->query($sql) === TRUE) {
-    $log->logThis("      Data insertion into Table code_species successful");
-} else {
-     $log->logThis("Error inserting into code_species table: ".$mysqli->error);
-     $log->logThis("     SQL: ".$sql);
-     echo "Error loading data into species table: " . $mysqli->error;
-	exit(1);
-}
-$log->logThis("      code_species table insertion successful");
-$file_handle = fopen("../data/dogbreeds.txt", "r");
+$file_handle = fopen("../data/species.txt", "r");
 while (!feof($file_handle)) {
-   $line = fgets($file_handle);
-   $code = substr($line,0,3);
-   $text = substr($line,3);
-   $sql = "INSERT INTO `petclinic`.`code_breed` (`breedcode`, `breeddesc`)
-          VALUES(\"$code\", \"$text\");";
+	$line = fgets($file_handle);
+	$code = substr($line,0,1);
+	$text = substr($line,1);
+	$sql = "INSERT INTO `petclinic`.`code_species` (`speciescode`, `speciesdesc`) VALUES(\"$code\", \"$text\");";
 	if ($mysqli->query($sql) === TRUE) {
-		
+
 	} else {
-          $log->logThis("Error inserting into code_breed (dogs) table: ".$mysqli->error);
-          $log->logThis("     SQL: ".$sql);
-		echo "Error inserting into breed table" . $mysqli->error;
-	exit(1);
-	} 
+		$log->logThis("Error inserting into code_species table: ".$mysqli->error);
+		$log->logThis("     SQL: ".$sql);
+		echo "Error inserting into code_species table" . $mysqli->error;
+		exit(1);
+	}
 }
 fclose($file_handle);
-$log->logThis("      code_breed table insertion successful");
-$file_handle = fopen("..\data\catbreeds.txt", "r");
+$log->logThis("      code_species table insertion successful");
+$file_handle = fopen("../data/caninebreeds.txt", "r");
 while (!feof($file_handle)) {
-   $line = fgets($file_handle);
-   $code = substr($line,0,3);
-   $text = substr($line,3);
-   $sql = "INSERT INTO `petclinic`.`code_breed` (`breedcode`, `breeddesc`)
-          VALUES(\"$code\", \"$text\");";
+	$line = fgets($file_handle);
+	$species = substr($line, 0,1);
+	$code = substr($line,1,2);
+	$text = substr($line,3);
+	$sql = 'INSERT INTO `petclinic`.`code_breed` (`speciescode`, `breedcode`, `breeddesc`)
+		VALUES("$species", "$code", "$text");';
 	if ($mysqli->query($sql) === TRUE) {
-		
+
 	} else {
-          $log->logThis("Error inserting into code_breed (cats) table: ".$mysqli->error);
+		$log->logThis("Error inserting into code_breed (canine) table: ".$mysqli->error);
+		$log->logThis("     SQL: ".$sql);
+		echo "Error inserting into canine breed table" . $mysqli->error;
+		exit(1);
+	} }
+	fclose($file_handle);
+	$log->logThis("      code_breeds table for canine insertion successful");
+$file_handle = fopen("../data/felinebreeds.txt", "r");
+while (!feof($file_handle)) {
+   	$line = fgets($file_handle);
+   	$species = substr($line, 0,1);
+	$code = substr($line,1,2);
+	$text = substr($line,3);
+  	$sql = 'INSERT INTO `petclinic`.`code_breed` (`speciescode`, `breedcode`, `breeddesc`)
+          VALUES("$species", "$code", "$text");';
+	if ($mysqli->query($sql) === TRUE) {
+
+	} else {
+          $log->logThis("Error inserting into code_breed (feline) table: ".$mysqli->error);
           $log->logThis("     SQL: ".$sql);
 		echo "Error inserting into breed table" . $mysqli->error;
 	exit(1);
 } }
+fclose($file_handle);
+$log->logThis("      code_breeds table insertion successful");
+$file_handle = fopen("../data/bovinebreeds.txt", "r");
+while (!feof($file_handle)) {
+	$line = fgets($file_handle);
+	$species = substr($line, 0,1);
+	$code = substr($line,1,2);
+	$text = substr($line,3);
+	$sql = 'INSERT INTO `petclinic`.`code_breed` (`speciescode`, `breedcode`, `breeddesc`)
+		VALUES("$species", "$code", "$text");';
+	if ($mysqli->query($sql) === TRUE) {
+
+	} else {
+		$log->logThis("Error inserting into code_breed (bovine) table: ".$mysqli->error);
+		$log->logThis("     SQL: ".$sql);
+		echo "Error inserting into breed table" . $mysqli->error;
+		exit(1);
+	} }
+fclose($file_handle);
+$log->logThis("      code_breeds table insertion successful");
+$file_handle = fopen("../data/equinebreeds.txt", "r");
+while (!feof($file_handle)) {
+	$line = fgets($file_handle);
+	$species = substr($line, 0,1);
+	$code = substr($line,1,2);
+	$text = substr($line,3);
+	$sql = 'INSERT INTO `petclinic`.`code_breed` (`speciescode`, `breedcode`, `breeddesc`)
+		VALUES("$species", "$code", "$text");';
+	if ($mysqli->query($sql) === TRUE) {
+
+	} else {
+		$log->logThis("Error inserting into code_breed (equine) table: ".$mysqli->error);
+		$log->logThis("     SQL: ".$sql);
+		echo "Error inserting into breed table" . $mysqli->error;
+		exit(1);
+	} }
+fclose($file_handle);
+$log->logThis("      code_breeds table insertion successful");
+$file_handle = fopen("../data/swinebreeds.txt", "r");
+while (!feof($file_handle)) {
+	$line = fgets($file_handle);
+	$species = substr($line, 0,1);
+	$code = substr($line,1,2);
+	$text = substr($line,3);
+	$sql = 'INSERT INTO `petclinic`.`code_breed` (`speciescode`, `breedcode`, `breeddesc`)
+	VALUES("$species", "$code", "$text");';
+	if ($mysqli->query($sql) === TRUE) {
+
+	} else {
+		$log->logThis("Error inserting into code_breed (swine) table: ".$mysqli->error);
+		$log->logThis("     SQL: ".$sql);
+		echo "Error inserting into breed table" . $mysqli->error;
+		exit(1);
+	} }
 fclose($file_handle);
 $log->logThis("      code_breeds table insertion successful");
 $sql = "CREATE DATABASE petclinicmsgs";
@@ -812,6 +889,7 @@ if ($mysqli->query($sql) == TRUE) {
 	exit(1);
 }
 $sql = "CREATE TABLE `petclinicmsgs`.`phonemsgs` (
+     `messagenumber` integer(4) AUTO_INCREMENT NOT NULL,
      `emplnumber` INTEGER(4) NOT NULL,
      `read` char(1) NOT NULL,
      `call` char(1) NOT NULL,
@@ -821,7 +899,8 @@ $sql = "CREATE TABLE `petclinicmsgs`.`phonemsgs` (
      `emergency` char(1) NOT NULL,
      `from` varchar(40) NOT NULL,
      `telephone` varchar(20) NOT NULL,
-     `phonemessage` varchar(100) NOT NULL
+     `phonemessage` varchar(100) NOT NULL,
+     PRIMARY KEY (`messagenumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 if ($mysqli->query($sql) == TRUE) {
      $log->logThis("   Table phonemsgs created");
@@ -831,6 +910,37 @@ if ($mysqli->query($sql) == TRUE) {
      echo "Error creating phonemsgs table: " . $mysqli->error;
 	exit(1);
 }
+$sql = "CREATE DATABASE petclinicreg".$mc;
+if ($mysqli->query($sql) == TRUE) {
+	$log->logThis("DB petclinicreg created");
+} else {
+	$log->logThis("Error creating petclinicreg: ".$mysqli->error);
+	$log->logThis("     SQL: ".$sql);
+	echo "Error creating system database: ".$mysqli->error;
+	exit(1);
+}
+$sql = "CREATE TABLE `petclinicreg`.`registration` (
+     `regnumber` char(5) NOT NULL,
+	 `regcode` char(1) NOT NULL,
+     `regverifier` varchar(250) NOT NULL,
+     `regkey` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+if ($mysqli->query($sql) == TRUE) {
+	$log->logThis("   Table registration created");
+} else {
+	$log->logThis("Error creating table registration: ".$mysqli->error);
+	$log->logThis("     SQL: ".$sql);
+	echo "Error creating registrtion table" . $mysqli->error;
+	exit(1);
+}
+$sql = "CREATE TABLE `petclinicreg`.`featurereg` (
+     `featurecode` char(2) NOT NULL,
+     `regnumber` char(5) NOT NULL,
+     `featureverifier` varchar(250) NOT NULL,
+     `featurekeycode` char(7) NOT NULL,
+     `featurekey` varchar(250) NOT NULL,
+     PRIMARY KEY(`featurecode`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 $log->logThis("Install completed");
 $mysqli->close();
 $file_handle = fopen("procdb.tmp", "wt");

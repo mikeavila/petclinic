@@ -11,6 +11,8 @@
 *****************************************************************/
 session_start();
 $background = "3";
+$logFileName = "user";
+$headerTitle="USER LOG";
 require_once "includes/header1.inc";
 ?>
 <script>
@@ -132,10 +134,7 @@ function continueon() {
 }
 </script>
 <?php
-$mysqli = new mysqli('localhost', $user, $password, '');
 require_once "includes/header2.inc";
-$logFileName = "user";
-$headerTitle="USER LOG";
 require_once "includes/common.inc";
 $emplnumber = '';
 $editclientnum = ' ';
@@ -147,8 +146,8 @@ else if ( !empty($_POST['editclientnum']) ) {
     $editclientnum = $_POST['editclientnum'];
     unset($_POST['editclientnum']);
 }
-if ( array_key_exists('employeenumber', $_COOKIE)) {
-    $emplnumber = $_COOKIE['employeenumber'];
+if ( array_key_exists('employeenumber', $_SESSION)) {
+    $emplnumber = $_SESSION['employeenumber'];
 }
 $display = "Clientmaint: " . $emplnumber;
 
@@ -156,7 +155,7 @@ if ( !empty($_SESSION['client_data']) ) {
     echo '<div class="success">Successfully added/updated client: ' . $_SESSION['client_data']['client'] . ', client#(' . $_SESSION['client_data']['cid'] . ')</div>';
     unset ($_SESSION['client_data']); // don't retain this data.
 }
-
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 if ($editclientnum == ' ')
 {
      echo '<center><form action="clientmaint.php" method="post">' .
@@ -168,16 +167,14 @@ if ($editclientnum == ' ')
          '<input type="hidden" name="editclientnum" value="new">' .
          '<table width="25%"><tr><td><input type="submit" value="Create New Client"></td></tr>' .
          '</table></form></center>';
-          echo '<div class="center">';
-          echo "<form action='maintmenu.php' method='post'><input type='submit' value='Return to Maintenance Menu'></form></div>";
-          include "includes/display_errormsg.inc";
+     include "includes/returnmaintmenu.inc";
+     include "includes/display_errormsg.inc";
+     include "includes/phonemsgs.inc";
      require_once 'includes/footer.inc';
      exit();
 }
 else if ($editclientnum <> "new")
 {
-    require_once "includes/key.inc";
-    require_once "includes/de.inc";
     $sql = "SELECT clientnumber, lname, fname, prefix, suffix, address, address2, city, state, zipcode, email, status, changeid";
     $sql = $sql." FROM `petclinic`.`client` WHERE clientnumber = ".$editclientnum;
     $result = $mysqli->query($sql);
@@ -418,9 +415,9 @@ while ( $rowstate = $resultstate->fetch_row() ) {
 <div class="center">
     <form action="maintmenu.php" method="post"><input type="submit" value="Return to Maintenance Menu"></form>
 </div>
-
 <?php
 //include "includes/display_errormsg.inc";
+include "includes/phonemsgs.inc";
 $mysqli->close();
 require_once 'includes/helpline.inc';
 help('clientmaint.php');

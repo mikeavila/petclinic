@@ -13,8 +13,7 @@ session_start();
 $logFileName = "user";
 $headerTitle="USER LOG";
 require_once "includes/common.inc";
-include 'password.php';
-$mysqli = new mysqli('localhost', $user, $password, '');
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql = "SELECT status FROM `petclinicsys`.`logonallowed`;";
 $errmsg = ' ';
 if ( $result = $mysqli->query($sql) ) {

@@ -38,9 +38,8 @@ if (!empty($_POST["pref5"])) {
 } else {
 	$pref5="";
 }
-require_once "includes/expire.inc";
-require_once "password.php";
-$mysqli = new mysqli('localhost', $user, $password, '');
+
+$mysqli = new mysqli('localhost', $_SESSION["user"], mc_decrypt($_SESSION["up"], ps_key), '');
 $sql="UPDATE 'petcliniccorp`.`preferences' SET `pref1` = \"".$pref1."\", `pref2` = \"".$pref2."\", `pref3` = \"".$pref3."\", `pref4` = \"".$pref4."\", `pref5` = \"".$pref5."\" WHERE `sequence` = 2";
 $result = $mysqli->query($sql);
 if ($result == FALSE)
@@ -51,5 +50,5 @@ if ($result == FALSE)
 }
 $mysqli->close();
 delete_errormsg();
-redirect("corppref.php"); 
+redirect("corppref.php");
 ?>

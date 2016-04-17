@@ -9,7 +9,6 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of *
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
 *****************************************************************/
-session_start();
 $vak_date = "0";
 $vak_temp = "1";
 $vak_weight = "2";
